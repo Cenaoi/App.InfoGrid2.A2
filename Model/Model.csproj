@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16E4EA2A-B230-4DB9-849E-3DD105539D45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.InfoGrid2.Model</RootNamespace>
+    <AssemblyName>App.InfoGrid2.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\App.InfoGrid2.Model.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HWQ.Entity4, Version=4.18.5463.18234, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\protobuf-net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AC3\AC3_DWG.cs" />
+    <Compile Include="AC3\AC3_DWG_LINE.cs" />
+    <Compile Include="AC3\AC3_DWG_NODE.cs" />
+    <Compile Include="AC3\AC3_LISTEN_TABLE.cs" />
+    <Compile Include="AC3\AC3_LISTEN_TABLE_FIELD.cs" />
+    <Compile Include="AC3\AC3_OPERATE_TABLE.cs" />
+    <Compile Include="AC3\AC3_OPERATE_TABLE_FIELD.cs" />
+    <Compile Include="BIZ_CATALOG.cs" />
+    <Compile Include="BIZ_CATALOG_TYPE.cs" />
+    <Compile Include="BIZ_CODE.cs" />
+    <Compile Include="BIZ_CODE_IDENTITY.cs" />
+    <Compile Include="BIZ_CODE_RECYCLE.cs" />
+    <Compile Include="BIZ_C_COMPANY.cs" />
+    <Compile Include="BIZ_C_MENU.cs" />
+    <Compile Include="BIZ_FILE.cs" />
+    <Compile Include="BIZ_FILTER.cs" />
+    <Compile Include="BIZ_FILTER_COND.cs" />
+    <Compile Include="BIZ_FILTER_THEN.cs" />
+    <Compile Include="BIZ_FILTER_THEN_TABLE.cs" />
+    <Compile Include="BIZ_FILTER_THEN_TABLECOL.cs" />
+    <Compile Include="BIZ_METHOD.cs" />
+    <Compile Include="BIZ_PRINT.cs" />
+    <Compile Include="BIZ_PRINT_CLIENT.cs" />
+    <Compile Include="BIZ_PRINT_HEARTBEAT.cs" />
+    <Compile Include="BIZ_PRINT_NAME.cs" />
+    <Compile Include="BIZ_PRINT_TEMPLATE.cs" />
+    <Compile Include="BIZ_TEST.cs" />
+    <Compile Include="CMS\CMS_ITEM.cs" />
+    <Compile Include="CMS\CMS_MENU.cs" />
+    <Compile Include="CMS\CMS_TILE.cs" />
+    <Compile Include="CMS\CMS_WEBSITE.cs" />
+    <Compile Include="DataSet\MapSet.cs" />
+    <Compile Include="DataSet\TmpViewSet.cs" />
+    <Compile Include="DataSet\ToolbarSet.cs" />
+    <Compile Include="DataSet\ViewSet.cs" />
+    <Compile Include="FINANCIAL_STATISTICS.cs" />
+    <Compile Include="FlowModels\FLOW_DEF.cs" />
+    <Compile Include="FlowModels\FLOW_DEF_LINE.cs" />
+    <Compile Include="FlowModels\FLOW_DEF_NODE.cs" />
+    <Compile Include="FlowModels\FLOW_DEF_NODE_COPY_PARTY.cs" />
+    <Compile Include="FlowModels\FLOW_DEF_NODE_PARTY.cs" />
+    <Compile Include="FlowModels\FLOW_INST.cs" />
+    <Compile Include="FlowModels\FLOW_INST_COPY.cs" />
+    <Compile Include="FlowModels\FLOW_INST_PARTY.cs" />
+    <Compile Include="FlowModels\FLOW_INST_STEP.cs" />
+    <Compile Include="Hairdressing\CMS_U_REDIRECT_LINK.cs" />
+    <Compile Include="Hairdressing\ES_COMMON_PROD.cs" />
+    <Compile Include="Hairdressing\ES_CUSTOMER.cs" />
+    <Compile Include="Hairdressing\ES_ORDER.cs" />
+    <Compile Include="Hairdressing\ES_ORDER_ITEM.cs" />
+    <Compile Include="Hairdressing\ES_PRODUCT_DATA.cs" />
+    <Compile Include="Hairdressing\ES_PURCHASE_ORDER.cs" />
+    <Compile Include="Hairdressing\ES_PURCHASE_ORDER_ITEM.cs" />
+    <Compile Include="Hairdressing\ES_SHOPPING_CART.cs" />
+    <Compile Include="Hairdressing\ES_SUPPLIER.cs" />
+    <Compile Include="Hairdressing\VIP_ACCOUNT_VM.cs" />
+    <Compile Include="IG2_BATCH_TABLE_OPERATE.cs" />
+    <Compile Include="IG2_BATCH_TO_COL.cs" />
+    <Compile Include="IG2_BATCH_TO_TABLE.cs" />
+    <Compile Include="IG2_DISPALY_RULE.cs" />
+    <Compile Include="IG2_DISPALY_RULE_B.cs" />
+    <Compile Include="IG2_IMPORT_RULE.cs" />
+    <Compile Include="IG2_IMPORT_RULE_MAP.cs" />
+    <Compile Include="IG2_MAP.cs" />
+    <Compile Include="IG2_MAP_COL.cs" />
+    <Compile Include="IG2_TMP_VIEW.cs" />
+    <Compile Include="IG2_TMP_VIEW_FIELD.cs" />
+    <Compile Include="IG2_TMP_VIEW_TABLE.cs" />
+    <Compile Include="IG2_TOOLBAR.cs" />
+    <Compile Include="IG2_TOOLBAR_ITEM.cs" />
+    <Compile Include="IG2_VALUE_IF.cs" />
+    <Compile Include="IG2_VALUE_TABLE.cs" />
+    <Compile Include="IG2_VALUE_THEN.cs" />
+    <Compile Include="IG2_VALUE_TRIGGER.cs" />
+    <Compile Include="IG2_VIEW.cs" />
+    <Compile Include="IG2_VIEW_FIELD.cs" />
+    <Compile Include="IG2_VIEW_TABLE.cs" />
+    <Compile Include="JF\ES_COMMON_PROD.cs" />
+    <Compile Include="JF\ES_ORDER.cs" />
+    <Compile Include="JF\ES_ORDER_DETA.cs" />
+    <Compile Include="JF\ES_S_CAR.cs" />
+    <Compile Include="JF\ES_W_ACCOUNT.cs" />
+    <Compile Include="JsonModel\ActTableItem.cs" />
+    <Compile Include="DataSet\TmpTableSet.cs" />
+    <Compile Include="IG2_CATALOG.cs" />
+    <Compile Include="IG2_TABLE.cs" />
+    <Compile Include="IG2_TABLE_COL.cs" />
+    <Compile Include="IG2_TMP_TABLE.cs" />
+    <Compile Include="IG2_TMP_TABLECOL.cs" />
+    <Compile Include="BIZ_PRINT_FILE.cs" />
+    <Compile Include="LOG4_SERVER.cs" />
+    <Compile Include="LOG_DB_TRACE.cs" />
+    <Compile Include="LOG_PRINT_CLIENT.cs" />
+    <Compile Include="Mall\MALL_ORDER.cs" />
+    <Compile Include="Mall\MALL_ORDER_ITEM.cs" />
+    <Compile Include="Mall\MALL_PROD.cs" />
+    <Compile Include="Mall\MALL_PROD_SPEC.cs" />
+    <Compile Include="Mall\MALL_SPEC.cs" />
+    <Compile Include="Mall\MALL_S_CART.cs" />
+    <Compile Include="MALL_STOCK.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataSet\TableSet.cs" />
+    <Compile Include="Report\ViewTableColumnTree.cs" />
+    <Compile Include="Report\ViewTableColumnType.cs" />
+    <Compile Include="SecModels\SEC_ARR_ACCOUNT.cs" />
+    <Compile Include="SecModels\SEC_FUN_CODE.cs" />
+    <Compile Include="SecModels\SEC_FUN_DEF.cs" />
+    <Compile Include="SecModels\SEC_LOGIN_ACCOUNT.cs" />
+    <Compile Include="SecModels\SEC_LOGIN_ACCOUNT_EX.cs" />
+    <Compile Include="SecModels\SEC_PAGE_TAG.cs" />
+    <Compile Include="SecModels\SEC_ROLE.cs" />
+    <Compile Include="SecModels\SEC_ROLE_FUN.cs" />
+    <Compile Include="SecModels\SEC_ROLE_FUN_VIEW.cs" />
+    <Compile Include="SecModels\SEC_STRUCT.cs" />
+    <Compile Include="SecModels\SEC_TABLE_FLOW.cs" />
+    <Compile Include="SecModels\SEC_TABLE_FLOW_NODE.cs" />
+    <Compile Include="SecModels\SEC_UI.cs" />
+    <Compile Include="SecModels\SEC_UI_TABLE.cs" />
+    <Compile Include="SecModels\SEC_UI_TABLECOL.cs" />
+    <Compile Include="SecModels\SEC_UI_TOOLBAR.cs" />
+    <Compile Include="SecModels\SEC_UI_TOOLBAR_ITEM.cs" />
+    <Compile Include="SecModels\SEC_USER_FUN.cs" />
+    <Compile Include="SecModels\UserSecritySet.cs" />
+    <Compile Include="WeChat\CallbackResult.cs" />
+    <Compile Include="WeChat\WX_ACCOUNT.cs" />
+    <Compile Include="WeChat\WX_MENU.cs" />
+    <Compile Include="WeChat\WX_MENU_LA.cs" />
+    <Compile Include="WeChat\WX_TEMP_MSG.cs" />
+    <Compile Include="XmlModel\AppSettings.cs" />
+    <Compile Include="XmlModel\CustomView.cs" />
+    <Compile Include="XmlModel\TableJoinConifg.cs" />
+    <Compile Include="XmlModel\ViewStruct.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

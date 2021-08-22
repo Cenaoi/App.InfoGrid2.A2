@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <head>
+    <options width="1123" height="794"></options>
+  </head>
+  <body>
+    <rect points='{"x1": 119,"y1": 9,"width": 100,"height": 30}' label="散件包装计划分配单" fontSize="20"></rect>
+    <rect points='{"x1": 5,"y1": 5,"width": 100,"height": 11}' border="true">
+      <rect label="本单合计：" points='{"x1": 8,"y1": 7,"width": 25,"height": 8}'></rect>
+      <rect label=" 箱" points='{"x1": 30,"y1": 7,"width": 20,"height": 8}' field='' labelAlign='right' align='right'></rect>
+      <rect label=" 盒" points='{"x1": 50,"y1": 7,"width": 20,"height": 8}' field='' labelAlign='right' align='right'></rect>
+      <rect label=" 外包装袋" points='{"x1": 70,"y1": 7,"width": 30,"height": 8}' field='' labelAlign='right' align='right'></rect>
+    </rect>
+    <rect points='{"x1": 5,"y1": 18,"width": 100,"height": 11,"pl":3,"pt":1}' label="客户合同号：" field='' border="true"></rect>
+    <rect points='{"x1": 5,"y1": 31,"width": 100,"height": 11}' border="true">
+      <rect label="备货完成放至：" points='{"x1": 8,"y1": 33,"width": 33,"height": 8}'></rect>
+      <rect label=" 仓" points='{"x1": 45,"y1": 33,"width": 20,"height": 8}' field='' labelAlign='right' align='right'></rect>
+      <rect label=" 架" points='{"x1": 75,"y1": 33,"width": 20,"height": 8}' field='' labelAlign='right' align='right'></rect>
+    </rect>
+    <rect points='{"x1": 200,"y1": 5,"width": 91, "height": 11}' border="true">
+      <rect label="备货库区：" points='{"x1": 203,"y1": 7,"width": 25,"height": 8}'></rect>
+      <rect label=" 仓" points='{"x1": 220,"y1": 7,"width": 20,"height": 8}' labelAlign='right' align='right' field=''></rect>
+      <rect label=" 架/位" points='{"x1": 245,"y1": 7,"width": 18,"height": 8}' labelAlign='right' align='right' field=''></rect>
+      <rect label="查库人：" points='{"x1": 263,"y1": 7,"width": 25,"height": 8}' field=''></rect>
+    </rect>
+    <rect points='{"x1": 200,"y1": 18,"width": 91,"height":11}' label="NO." field="COL_1" align='right'></rect>
+    <rect points='{"x1": 200,"y1": 27,"width": 91,"height":11}' label="计划交货日期：" field="COL_59" align='right'></rect>
+    <rect points='{"x1": 200,"y1": 36,"width": 91,"height":11}' label="制单日期：" field="COL_4" align='right'></rect>
+    <rect points='{"x1": 8,"y1": 43,"width": 100,"height":11}' label="客户(订货单号)：" field="COL_33+COL_27"></rect>
+
+    <table points='{"x1": 5,"y1": 54,"height": 111,"width": 285}' rowCount='9' rowHeight='11' dataSource='UT_104_LIST' border='true' showSummary='true' summaryText='合计'>
+      <cols points='{"x1": 0,"y1": 0,"height": 91,"width": 285}'>
+        <col label='序号' width='25' field='idx' align='center'></col>
+        <col label='货品名称' width='80' field="COL_3" align='center'></col>
+        <col label='规格型号' width='30' field="COL_90" align='center'></col>
+        <col label='单位' width='25' field="COL_4" align='center'></col>
+        <col label='需求量' width='25' field="COL_9" align='center' summary="true"></col>
+        <col label='件数' width='22' field="" align='center'></col>
+        <col label='包装数1' width='28' field="" align='center'></col>
+        <col label='件数' width='22' field="" align='center'></col>
+        <col label='包装数2' width='28' field="" align='center'></col>
+      </cols>
+      <rect>
+        <rect label="查库单号：" points='{"x1": 8,"y1": 155}' field=''></rect>
+        <rect label="客户订单号：" points='{"x1": 100,"y1": 155}' field=''></rect>
+        <rect label="客户分仓：" points='{"x1": 200,"y1": 155}' field=''></rect>
+      </rect>
+    </table>
+    <rect>
+      <rect label="制单人：" points='{"x1": 8,"y1": 168}' field=''></rect>
+      <rect label="包装员：" points='{"x1": 75,"y1": 168}' field=''></rect>
+      <rect label="最后完成日：" points='{"x1": 135,"y1": 168}' field=''></rect>
+      <rect label="审核人签名：" points='{"x1": 220,"y1": 168}' field=''></rect>
+    </rect>
+    <rect points='{"x1": 8,"y1": 179}' label="货品序号：" field=''></rect>
+    <rect points='{"x1": 8,"y1": 190}' label="质量问题：我发现此货品有以下质量问题：" field=''></rect>
+  </body>
+</page>

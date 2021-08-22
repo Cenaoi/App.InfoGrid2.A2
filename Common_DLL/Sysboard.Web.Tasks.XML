@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sysboard.Web.Tasks</name>
+    </assembly>
+    <members>
+        <member name="T:Sysboard.Web.Tasks.WebTaskTypes">
+            <summary>
+            任务类型
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTaskTypes.Span">
+            <summary>
+            间隔执行
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTaskTypes.Instart">
+            <summary>
+            即时任务
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTaskTypes.Time">
+            <summary>
+            定时
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.ObjectBufferStore">
+            <summary>
+            对象缓冲仓库
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferStore.Values">
+            <summary>
+            页面条目
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.WebTaskList">
+            <summary>
+            工作命令集合
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.ObjectBufferManage">
+            <summary>
+            对象缓冲管理器
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferManage.CommonStore">
+            <summary>
+            缓冲仓库
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo">
+            <summary>
+            对象缓冲信息
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.IBufferObject">
+            <summary>
+            对象缓冲接口
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.IBufferObject.IsDisabled">
+            <summary>
+            是否无效
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.IBufferObject.BufferTime">
+            <summary>
+            缓冲的时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.IBufferObject.Overtime">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.m_Overtime">
+            <summary>
+            超时时间，单位：分钟
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.IsDisabled">
+            <summary>
+            是否失效。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.Key">
+            <summary>
+            键值
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.Content">
+            <summary>
+            缓冲的内容
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.BufferTime">
+            <summary>
+            缓冲的时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferInfo.Overtime">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.WebTaskCategory">
+            <summary>
+            工作命令类别
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.WebTask">
+            <summary>
+            Web 任务
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_Start">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_MaxExecCount">
+            <summary>
+            最多执行的次数
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_ExecCount">
+            <summary>
+            已经执行的次数
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_TimeStart">
+            <summary>
+            开始执行的时间
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_TimeEnd">
+            <summary>
+            停止执行的时间
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_TaskTime">
+            <summary>
+            开始运行的世界
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_TaskSpan">
+            <summary>
+            定时执行的。。。每隔n就执行一次
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTask.m_TaskNextTime">
+            <summary>
+            下次执行时间
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTask.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTask.OnInit">
+            <summary>
+            初始化执行
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTask.ProExec">
+            <summary>
+            开始执行
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTask.Exec">
+            <summary>
+            需要执行的命令
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TaskNextTime">
+            <summary>
+            (间隔执行任务)下次执行时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TaskSpan">
+            <summary>
+            (间隔执行任务)定时执行的间隔
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TaskTime">
+            <summary>
+            (定时任务)定时开始的时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TaskType">
+            <summary>
+            任务类型：即时。定时
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TimeStart">
+            <summary>
+            开始执行任务时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.TimeEnd">
+            <summary>
+            结束任务时间
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.Start">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.MaxExecCount">
+            <summary>
+            允许执行的次数
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.WebTask.ExecCount">
+            <summary>
+            已经执行的次数
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.WebTaskManager">
+            <summary>
+            管理器
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.GetOneTask(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.ProTask_Instart(Sysboard.Web.Tasks.WebTask,System.Collections.Generic.List{Sysboard.Web.Tasks.WebTask})">
+            <summary>
+            执行即时任务
+            </summary>
+            <param name="task"></param>
+            <param name="tmpDelete"></param>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.ProTask_Time(Sysboard.Web.Tasks.WebTask,System.Collections.Generic.List{Sysboard.Web.Tasks.WebTask})">
+            <summary>
+            执行定时任务
+            </summary>
+            <param name="task"></param>
+            <param name="tmpDelete"></param>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.ProTask_Span(Sysboard.Web.Tasks.WebTask,System.Collections.Generic.List{Sysboard.Web.Tasks.WebTask})">
+            <summary>
+            间隔执行
+            </summary>
+            <param name="task"></param>
+            <param name="tmpDelete"></param>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.ExecTask">
+            <summary>
+            执行任务
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.WebTaskManager.Run">
+            <summary>
+            运行
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.ObjectBufferTask">
+            <summary>
+            对象缓冲任务
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.ObjectBufferTask.#ctor">
+            <summary>
+            对象缓冲任务
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.Buffers.ObjectBufferCollection">
+            <summary>
+            对象缓冲集合
+            </summary>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.ObjectBufferCollection.Add(Sysboard.Web.Tasks.Buffers.IBufferObject)">
+            <summary>
+            添加缓冲对象
+            </summary>
+            <param name="page"></param>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.ObjectBufferCollection.Remove(System.String)">
+            <summary>
+            删除缓冲对象
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Sysboard.Web.Tasks.Buffers.ObjectBufferCollection.ClearOvertime">
+            <summary>
+            清除超时
+            </summary>
+        </member>
+        <member name="P:Sysboard.Web.Tasks.Buffers.ObjectBufferCollection.Count">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sysboard.Web.Tasks.WebTaskStarts">
+            <summary>
+            任务状态
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTaskStarts.None">
+            <summary>
+            未执行
+            </summary>
+        </member>
+        <member name="F:Sysboard.Web.Tasks.WebTaskStarts.Started">
+            <summary>
+            已经在执行过程
+            </summary>
+        </member>
+    </members>
+</doc>

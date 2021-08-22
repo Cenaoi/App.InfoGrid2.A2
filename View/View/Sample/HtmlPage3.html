@@ -1,0 +1,157 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Sortable - Connect lists</title>
+
+    <style>
+
+        body{
+            font-size:12px;
+
+        }
+
+        .mi-cont {
+            border: 1px solid #eee;
+            min-width: 120px;
+            min-height: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 5px 0 0;
+            float: left;
+            
+            background-color:#FFFFFF;
+        }
+
+        .mi-cont li {
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 12px;
+            display:table;
+            min-width:120px;
+        }
+
+        .mi-andor{
+        }
+
+        
+        .mi-andor .mi-text{
+            padding:4px;
+            display:table;
+        }
+
+
+        .mi-andor  ul{
+            min-width:142px;
+        }
+    </style>
+    <script src="/Core/Scripts/jquery/jquery-3.1.0.js"></script>
+    <script src="/Core/Scripts/jquery.ui/ui/custom/jquery-ui.js"></script>
+
+
+    <script src="JavaScript.js"></script>
+    <script src="/Core/Scripts/Mini2/Mini2.min.js"></script>
+    <link href="/Core/Scripts/jquery.ui/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+
+    <script>
+        $(function () {
+            $(".mi-cont").sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        });
+    </script>
+</head>
+<body>
+
+    <ul class="connectedSortable mi-cont">
+        <li class="ui-state-default"><div>Item 1</div></li>
+        <li class="ui-state-default">Item 2</li>
+        <li class="ui-state-default">Item 3</li>
+        <li class="ui-state-default">Item 4</li>
+        <li class="ui-state-default mi-andor">
+
+            <div class="mi-text">AND</div>
+            <ul  class="connectedSortable mi-cont">
+                <li class="ui-state-highlight">
+                    <div>Item 1</div>
+                </li>
+                <li class="ui-state-highlight">Item 2</li>
+                <li class="ui-state-highlight mi-andor">
+                    <div class="mi-text">AND</div>
+                    <ul class="connectedSortable mi-cont">
+                        <li class="ui-state-highlight">Item 1</li>
+                        <li class="ui-state-highlight">Item 2</li>
+                    </ul>
+                </li>
+                <li class="ui-state-highlight">
+                    <div class="mi-text">OR</div>
+                    <ul class="connectedSortable mi-cont">
+                        <li class="ui-state-highlight"><div>COL_1:业务状态 &gt;= 2</div></li>
+                        <li class="ui-state-highlight"><div>COL_1</div></li>
+                    </ul> 
+                </li>
+                <li class="ui-state-highlight">
+                    <div class="mi-text">AND</div>
+                    <ul class="connectedSortable mi-cont">
+                        <li class="ui-state-highlight">
+                            <div>COL_1:业务状态 &gt;= 2</div>
+                        </li>
+                        <li class="ui-state-highlight" style="display:table;">
+                            <div style="display:table;"> COL_1:业务状态 &gt;= 2 and COL_1:业务状态 &gt;= 2</div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ui-state-highlight">
+                    <div class="mi-text">OR</div>
+                    <ul class="connectedSortable mi-cont">
+                        <li class="ui-state-highlight">Item 1</li>
+                        <li class="ui-state-highlight">Item 2</li>
+                    </ul>
+                </li>
+
+                <li class="ui-state-highlight">Item 5</li>
+            </ul>        
+        </li>
+    </ul>
+
+    <ul class="connectedSortable mi-cont">
+        <li class="ui-state-highlight">Item 1</li>
+        <li class="ui-state-highlight">Item 2</li>
+        <li class="ui-state-highlight">Item 3</li>
+        <li class="ui-state-highlight">Item 4</li>
+        <li class="ui-state-highlight">Item 5</li>
+    </ul>
+
+    <div id="abc">
+
+    </div>
+
+    <script>
+        $(function () {
+
+            Mini2.setTimer(function () {
+
+                '2016-1-1 0:0:0'
+
+
+                '2016-2-1 0:0:0'
+
+                '2016-4-1 0:0:0'    //按月
+                
+
+                '2016-1-1 0:0:0'    //按年
+
+
+
+                var d = moment("2016-10-24 23:04:30.30").fromNow();          // 8 小时内
+
+                $('#abc').html(d + "   " + new Date());
+
+            }, 1000);
+
+        });
+    </script>
+
+</body>
+</html>

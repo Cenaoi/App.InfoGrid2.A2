@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <head>
+    <options width="378" height="276"></options>
+  </head>
+  <body>
+    <rect points='{"x1": 65,"y1": 0}' label="批号：" field="BatchNo"></rect>
+    <rect>
+      <rect points='{"x1": 2,"y1": 8,"width":13,"height":25}' label="物料名称" align="center" border="true"></rect>
+      <rect points='{"x1": 15,"y1": 8,"width":40,"height":25}' field="COL_3" align="center" border="true"></rect>
+      <rect points='{"x1": 55,"y1": 8,"width":13,"height":25}' label="订单号" align="center" border="true"></rect>
+      <rect points='{"x1": 68,"y1": 8,"width":29,"height":25}' field="OrderNo" align="center" border="true"></rect>
+    </rect>
+    <rect>
+      <rect points='{"x1": 2,"y1": 33,"width":13,"height":13}' label="物料编码" align="center" border="true"></rect>
+      <rect points='{"x1": 15,"y1": 33,"width":40,"height":13}' field="COL_89" align="center" border="true"></rect>
+      <rect points='{"x1": 55,"y1": 33,"width":13,"height":13}' label="型号规格" align="center" border="true"></rect>
+      <rect points='{"x1": 68,"y1": 33,"width":29,"height":13}' field="COL_90" align="center" border="true"></rect>
+    </rect>
+    <rect>
+      <rect points='{"x1": 2,"y1": 46,"width":13,"height":12}' label="数量" align="center" border="true"></rect>
+      <rect points='{"x1": 15,"y1": 46,"width":40,"height":12}' field="COL_9" align="center" border="true"></rect>
+      <rect points='{"x1": 55,"y1": 46,"width":13,"height":12}' label="单位" align="center" border="true"></rect>
+      <rect points='{"x1": 68,"y1": 46,"width":29,"height":12}' field="COL_4" align="center" border="true"></rect>
+    </rect>
+    <rect>
+      <rect points='{"x1": 2,"y1": 58,"width":13,"height":12}' label="备注" align="center" border="true"></rect>
+      <rect points='{"x1": 15,"y1": 58,"width":82,"height":12}' field="COL_10" align="center" border="true"></rect>
+    </rect>
+  </body>
+</page>

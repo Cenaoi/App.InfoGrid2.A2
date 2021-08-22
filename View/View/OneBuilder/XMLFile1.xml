@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page-template>
+    <head>
+        <title value="标题" />
+    </head>
+    <body>
+
+          <div ec-type="SEARCH" title="查询区域" id="search1" />
+          <div ec-type="BOX" title="父框架" id="MAIN" />
+          <div ec-type="TABS" title="Tab 标签">
+              <div ec-type="TAB" title="Tab-1" id="TAB_1" />
+          </div>
+        
+    </body>
+</page-template>

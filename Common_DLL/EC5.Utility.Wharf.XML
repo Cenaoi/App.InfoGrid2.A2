@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.Utility.Wharf</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.Utility.Wharf.YardUtil">
+            <summary>
+            堆场助手
+            </summary>
+        </member>
+        <member name="F:EC5.Utility.Wharf.YardUtil.m_SeatValidRegex">
+            <summary>
+            堆位验证规则
+            </summary>
+        </member>
+        <member name="M:EC5.Utility.Wharf.YardUtil.FormatSeat(System.String)">
+            <summary>
+            格式化集装箱堆位.
+            A0102011 转换为 A01-02-01-1.
+            </summary>
+            <param name="space">堆位格式.例:A0102011</param>
+            <returns>堆位格式.例:A01-02-01-1</returns>
+        </member>
+        <member name="M:EC5.Utility.Wharf.YardUtil.ValidSeat(System.String)">
+            <summary>
+            验证堆位. 格式:A0102011
+            </summary>
+            <param name="space">堆位格式:A0102011</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.Utility.Wharf.ContainerUtil">
+            <summary>
+            集装箱助手
+            </summary>
+        </member>
+        <member name="M:EC5.Utility.Wharf.ContainerUtil.Valid(System.String)">
+            <summary>
+            验证集装箱箱号。
+            </summary>
+            <param name="contNo">箱号</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

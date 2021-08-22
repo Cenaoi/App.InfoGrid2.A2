@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<window>
+    <!--参数设置-->
+    <appSettings>
+        <add key="Name" value="分析中心" />
+        <add key="desc" value="描述" />
+        <add key="loginForm" value="" desc="登陆窗体"/>
+        <add key="explorerForm" value="" desc="浏览器窗体" />
+      <add key="explorerForm2" value="" desc="浏览器窗体" />
+    </appSettings>
+
+    <!--界面结构-->
+    <struct>
+        <control text="主表格" table="UT_007" displayMode="BOX" id="MAIN" />
+
+        <control text="" table="制单明细" displayMode="TABS" id="tabs" >
+            <control text="主材料" table="UT_007" displayMode="TAB" id="Tab_1" />
+            <control text="模具" table="UT_007" displayMode="TAB" id="Tab_2" />
+        </control>
+    </struct>
+
+    <!--界面结构扩展，给扩展类使用。测试-->
+    <struce_expand>
+        <control text="导入" table="UT_007" displayMode="BOX" id="MAIN" />
+    </struce_expand>
+  
+  
+    
+  
+  
+  
+  
+</window>

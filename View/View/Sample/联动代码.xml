@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EC5Action>
+    
+    <!--这个代码，以玖龙联动 id=72 为原型 -->
+    
+    <!--动作版面-->
+    <action-panel>
+        <!--监听组-->
+        <listen-group>
+
+            <!--监听-->
+            <listen>
+                
+                <!--监听数据表发生变化-->
+                <listen-table name="UT_001" op-type="update" row-name="row">
+
+                    <!--监听那些字段发生变化-->
+                    <listen-fields>
+                        <field name="BIZ_SID" desc="业务状态" />
+                        <field name="COL_10" desc="主数量" />
+                        <field name="COL_11" desc="金额" />
+                    </listen-fields>
+
+                    
+                </listen-table>                
+            </listen>
+        </listen-group>
+
+
+        <!--操作组-->
+        <operate-group>
+
+            <!--操作-->
+            <operate>
+
+                <!--表更新操作-->
+                <table-update table="UT_165">
+
+                    <set field="COL_56">
+                        <sql>
+                            <select>
+                                <field name="COL_11" fun="SUM" desc="求和" />
+                            </select>
+                            <from table="UT_167" />
+                            <where>
+                                <field name="ROW_SID" value="0" op=">=" />
+                                <field name="BIZ_SID" value="2" op=">=" />
+                                <field name="COL_55" value="当前记录.COL_55" op=">=" />
+                                <field name="COL_7" value="当前记录.COL_7" op=">=" />                                
+                            </where>                           
+                        </sql>
+                        
+                        <script>
+                        <![CDATA[
+                            select SUM(COL_11) 
+                            from UT_167 
+                            where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7)
+                        ]]>
+                        </script>
+                    </set>
+                    <set field="COL_57">
+
+                        <sql>
+                            <select>
+                                <field name="COL_11" fun="SUM" desc="求和" />
+                            </select>
+                            <from table="UT_167" />
+                            <where>
+                                <field name="ROW_SID" value="0" op=">=" />
+                                <field name="BIZ_SID" value="2" op=">=" />
+                                <field name="COL_55" value="当前记录.COL_55" op=">=" />
+                                <field name="COL_7" value="当前记录.COL_7" op=">=" />
+                            </where>
+                        </sql>
+                        
+                        
+                        <script>
+                        <![CDATA[
+                            select SUM(COL_10)
+                            from UT_167
+                            where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                        ]]>
+                        </script>
+                    </set>
+                    
+                </table-update>
+
+                
+                
+                
+                <!--代码块-->
+                <script>
+                <![CDATA[
+                
+                var 退料金额 = select SUM(COL_11)
+                    from UT_167 
+                    where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                
+                var 退料数量 = select SUM(COL_10)
+                    from UT_167
+                    where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                
+                update UT_165 
+                    set COL_56 = 退料数量, COL_57 = 退料金额 
+                    where ROW_SID >=0 and COL_34 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7
+                
+                
+                ]]>
+                </script>
+                
+            </operate>
+            
+        </operate-group>
+        
+    </action-panel>
+    
+</EC5Action>

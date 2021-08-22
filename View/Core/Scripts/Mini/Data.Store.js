@@ -1,0 +1,7 @@
+﻿
+
+Mini.Data.Store = function () {
+
+    
+
+});

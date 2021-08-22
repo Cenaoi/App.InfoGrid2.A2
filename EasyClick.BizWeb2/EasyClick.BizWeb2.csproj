@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADBD1C3F-F2D0-4CD5-8390-3990EFB572EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyClick.BizWeb2</RootNamespace>
+    <AssemblyName>EasyClick.BizWeb2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.BizWeb2.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.BizWeb2.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="App.BizCommon, Version=1.1.5484.30718, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\App.BizCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini, Version=1.1.5501.30649, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini2, Version=1.0.6298.1920, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Configuration">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Web">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Utility, Version=1.1.5385.34712, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EC5.Utility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HWQ.Entity4, Version=4.18.5355.33090, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BizServer.cs" />
+    <Compile Include="Hit\HitItem.cs" />
+    <Compile Include="JFilterHelper.cs" />
+    <Compile Include="JFilterItem.cs" />
+    <Compile Include="ModelJsonFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BizParam.cs" />
+    <Compile Include="RowSortFactory.cs" />
+    <Compile Include="row_style.cs" />
+    <Compile Include="ExPage.cs" />
+    <Compile Include="TSqlWhereParam.cs" />
+    <Compile Include="Xml\ExWindow.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

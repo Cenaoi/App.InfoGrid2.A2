@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.Web.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.Web.WebAPI.AjaxActionChange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxActionChange.None">
+            <summary>
+            不转换
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxActionChange.IgnoreCase">
+            <summary>
+            忽略大小写
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxActionChange.UpperCase">
+            <summary>
+            大写字母
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxActionChange.LowerCase">
+            <summary>
+            小写字母
+            </summary>
+        </member>
+        <member name="T:EC5.Web.WebAPI.AjaxAttribute">
+            <summary>
+            AJAX 函数定义
+            </summary>
+        </member>
+        <member name="M:EC5.Web.WebAPI.AjaxAttribute.#ctor">
+            <summary>
+            AJAX 函数定义
+            </summary>
+        </member>
+        <member name="M:EC5.Web.WebAPI.AjaxAttribute.#ctor(System.String)">
+            <summary>
+            AJAX 函数定义
+            </summary>
+            <param name="ajaxName"></param>
+        </member>
+        <member name="P:EC5.Web.WebAPI.AjaxAttribute.Name">
+            <summary>
+            Ajax 名称
+            </summary>
+        </member>
+        <member name="T:EC5.Web.WebAPI.AjaxHandlerManager">
+            <summary>
+            AjaxHandler 管理类
+            </summary>
+        </member>
+        <member name="M:EC5.Web.WebAPI.AjaxHandlerManager.GetMethod(System.Guid,System.String)">
+            <summary>
+            获取函数
+            </summary>
+            <param name="handlerTGuid"></param>
+            <param name="ajaxName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.Web.WebAPI.AjaxMethodList">
+            <summary>
+            Ajax 函数集合
+            </summary>
+        </member>
+        <member name="M:EC5.Web.WebAPI.AjaxMethodList.#ctor">
+            <summary>
+            Ajax 函数集合
+            </summary>
+        </member>
+        <member name="M:EC5.Web.WebAPI.AjaxMethodList.#ctor(System.StringComparer)">
+            <summary>
+            Ajax 函数集合
+            </summary>
+            <param name="comparer"></param>
+        </member>
+        <member name="T:EC5.Web.WebAPI.AjaxRequestMethod">
+            <summary>
+            请求的函数类型
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxRequestMethod.Auto">
+            <summary>
+            自动
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxRequestMethod.QueryString">
+            <summary>
+            超链接
+            </summary>
+        </member>
+        <member name="F:EC5.Web.WebAPI.AjaxRequestMethod.Form">
+            <summary>
+            表单提交
+            </summary>
+        </member>
+        <member name="T:EC5.Web.WebAPI.AjaxHandler">
+            <summary>
+            Web API 处理类
+            </summary>
+        </member>
+        <member name="P:EC5.Web.WebAPI.AjaxHandler.ActionMedhod">
+            <summary>
+            请求 action 名称
+            </summary>
+        </member>
+        <member name="P:EC5.Web.WebAPI.AjaxHandler.ActionName">
+            <summary>
+            action 命名. 默认: action
+            </summary>
+        </member>
+        <member name="P:EC5.Web.WebAPI.AjaxHandler.ActionChange">
+            <summary>
+            Action 名称转换
+            </summary>
+        </member>
+        <member name="P:EC5.Web.WebAPI.AjaxHandler.IsExecedAjaxMethod">
+            <summary>
+            是否已经执行了 函数
+            </summary>
+        </member>
+    </members>
+</doc>

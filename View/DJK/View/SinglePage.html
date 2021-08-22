@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta http-equiv="pragma" content="no-cach" />
+
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <meta http-equiv="expires" content="0" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>广州市东江口码头有限公司</title>
+
+    <link href="/Core/Scripts/SUI/sm.css" rel="stylesheet" />
+
+    <link href="/Core/Scripts/SUI/swiper-3.4.0.min.css" rel="stylesheet" />
+</head>
+<body style="max-width:640px;margin:auto;font-family:Microsoft YaHei,Helvitica,Verdana,Tohoma,Arial,san-serif;">
+
+    <!-- 这是基本结构 -->
+    <div class="page-group">
+
+        <div class="page">
+
+
+            <!-- 标题栏 -->
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <h1 class="title def_title"></h1>
+                <a class="icon icon-home pull-right expand" href="Home.html"></a>
+            </header>
+
+            <!--内容容器-->
+            <div class="content" style="padding:0.5rem; background-color:#FFF;">
+                
+            </div>
+
+
+            <script type="text/javascript" data-main="true">
+
+                function main() {
+
+
+                    var obj = {};
+
+                    //初始化事件
+                    obj.onInit = function () {
+
+                        var me = this,
+                            el = me.el;
+
+                       
+
+                        var menu_id = xyf_util.getQuery(me.url, "menu_id", true);
+
+                        
+
+
+                        $.post("/DJK/Handlers/CmsHandler.ashx", { action: 'GET_TILE', menu_id: menu_id }, function (result) {
+
+                            if (!result.success) {
+
+                                $.toast(result.msg);
+
+                                return;
+                            }
+
+
+                            el.find(".def_title").text(result.data.MENU_TEXT);
+
+                            var item_content = result.data.TILE_CONTEXE;
+
+                            var itemContentEl = $("<div>" + item_content + "</div>");
+
+
+                           
+                            el.children(".content").append(itemContentEl);
+
+
+                            setTimeout(function () {
+
+
+                                var imgs = itemContentEl.find("img");
+
+                                var body_width = $(document.body).width();
+
+                                //设置img的宽度不能超过body的宽度
+                                imgs.forEach(function (v, i) {
+
+
+                                    var img_el = $(v);
+
+                                    console.log(img_el[0].width);
+
+                                    if (v.width > body_width) {
+
+                                        img_el.width(body_width - 20);
+
+                                    }
+
+
+                                });
+
+
+                            }, 0.5 * 1000);
+
+                           
+
+
+
+                        }, "json");
+
+                    }
+
+                    return obj;
+                }
+
+            </script>
+
+
+        </div>
+
+    </div>
+
+    <script src="/Core/Scripts/m5/M5.min.js"></script>
+
+    <script src="/Core/Scripts/vue/vue-2.0.1.js"></script>
+
+    <script src="/Core/Scripts/SUI/swiper-3.4.0.min.js"></script>
+
+    <script src="/Core/Scripts/XYF/xyfUtil.js"></script>
+
+</body>
+</html>
+
+
+<script>
+
+    $(function () {
+
+        //FastClick.attach(document.body);
+
+        $("body").height($(window).height());
+
+
+        $("body").width($(window).width());
+
+        $.router = Mini2.create('Mini2.ui.PageRoute', {});
+
+    });
+
+</script>

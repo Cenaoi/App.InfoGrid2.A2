@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.BizLogger.Model</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.BizLogger.ModelXml.LOG_OPDATA">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.OP">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.OP_ID">
+            <summary>
+            操作 ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.FIELD">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.DISPLAY">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.SRC_VALUE">
+            <summary>
+            原值
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.ModelXml.LOG_SET.TAR_VALUE">
+            <summary>
+            改变后
+            </summary>
+        </member>
+        <member name="T:EC5.BizLogger.Model.LOG_ACT">
+            <summary>
+            日志-动作
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.LOG_ACT_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.TIME_EXEC">
+            <summary>
+            执行总时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.DATE_EXEC_FROM">
+            <summary>
+            执行开始时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.DATE_EXEC_TO">
+            <summary>
+            执行结束时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.SESSION_ID">
+            <summary>
+            SessionID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.OP_TEXT">
+            <summary>
+            操作名称
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.PAGE_URL">
+            <summary>
+            页面Url
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.REMARK">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.ROW_AUTHOR_ROLE_CODE">
+            <summary>
+            记录创建角色代码
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.ROW_AUTHOR_COMP_CODE">
+            <summary>
+            记录创建公司代码
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.ROW_AUTHOR_ORG_CODE">
+            <summary>
+            记录创建部门代码
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.ROW_AUTHOR_USER_CODE">
+            <summary>
+            记录创建人员代码
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="T:EC5.BizLogger.Model.LOG_ACT_OP">
+            <summary>
+            日志-影响的表
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.LOG_ACT_OP_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.LOG_ACT_ID">
+            <summary>
+            日志-动作ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.PARENT_ID">
+            <summary>
+            上级ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.ACT_CODE">
+            <summary>
+            操作名称
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.C_TABLE">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.C_DISPLAY">
+            <summary>
+            表描述
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.TIME_EXEC">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.ACTION_ID">
+            <summary>
+            采用的联动ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.DEPTH">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.DATE_EXEC_FROM">
+            <summary>
+            执行开始时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.DATE_EXEC_TO">
+            <summary>
+            执行结束时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.RESULT_MESSAGE">
+            <summary>
+            反馈的消息信息
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OP.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="T:EC5.BizLogger.Model.LOG_ACT_OPDATA">
+            <summary>
+            日志-影响的表数据
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.LOG_ACT_OPDATA_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.LOG_ACT_ID">
+            <summary>
+            上上级ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.LOG_ACT_OP_ID">
+            <summary>
+            上级Id
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.C_TABLE">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.C_PK_VALUE">
+            <summary>
+            主键值
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.C_DISPLAY">
+            <summary>
+            表描述
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.TIME_EXEC">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.OPDATE_XML">
+            <summary>
+            操作的数据内容，已XML 格式存放
+            </summary>
+        </member>
+        <member name="P:EC5.BizLogger.Model.LOG_ACT_OPDATA.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+    </members>
+</doc>

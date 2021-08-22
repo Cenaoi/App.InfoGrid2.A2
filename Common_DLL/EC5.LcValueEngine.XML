@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.LcValueEngine</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.LcValueEngine.LcValueIf">
+            <summary>
+            If 判断
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.Field">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.Display">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.Logic">
+            <summary>
+            逻辑.
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.ValueFrom">
+            <summary>
+            原值
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.ValueTo">
+            <summary>
+            现值
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.Group">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="F:EC5.LcValueEngine.LcValueIf.m_ThenList">
+            <summary>
+            Then 执行
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueIf.ThenList">
+            <summary>
+            执行的代码
+            </summary>
+        </member>
+        <member name="T:EC5.LcValueEngine.LcValueEventArgs">
+            <summary>
+            事件数据
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueEventArgs.TargetField">
+            <summary>
+            目标字段
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueEventArgs.Code">
+            <summary>
+            函数代码
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueEventArgs.Model">
+            <summary>
+            实体
+            </summary>
+        </member>
+        <member name="T:EC5.LcValueEngine.LcValueManager">
+            <summary>
+            动态代码管理
+            </summary>
+        </member>
+        <member name="M:EC5.LcValueEngine.LcValueManager.Exec(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="srcRecord"></param>
+            <param name="model"></param>
+            <returns>返回修改过的字段集合</returns>
+        </member>
+        <member name="M:EC5.LcValueEngine.LcValueManager.Exec_ForTable(EC5.LcValueEngine.LcValueTable,HWQ.Entity.LightModels.LModel,System.String[],HWQ.Entity.LightModels.LModelElement,System.String)">
+            <summary>
+            根据数据表执行。
+            </summary>
+            <param name="lcvTable"></param>
+            <param name="model"></param>
+            <param name="blemishFields"></param>
+            <param name="modelElem"></param>
+            <param name="modelName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LcValueEngine.LcValueManager.Exec_Then(EC5.LcValueEngine.LcValueIf,HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModelElement,System.String)">
+            <summary>
+            执行 If 的 Then 子句
+            </summary>
+            <param name="lcvIf"></param>
+            <param name="model"></param>
+            <param name="modelElem"></param>
+            <param name="modelName"></param>
+        </member>
+        <member name="M:EC5.LcValueEngine.LcValueManager.LogicAB(System.Object,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            比较两个值
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="logicAB"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.Table">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.Display">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.Enabled">
+            <summary>
+            激活
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueTable.IfList">
+            <summary>
+            判断的类型
+            </summary>
+        </member>
+        <member name="T:EC5.LcValueEngine.LcValueThen">
+            <summary>
+            Then 
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueThen.Field">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueThen.Display">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueThen.ValueTo">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EC5.LcValueEngine.LcValueThen.Logic">
+            <summary>
+            逻辑。默认 = 
+            </summary>
+        </member>
+        <member name="T:EC5.LcValueEngine.LcValueThenCollection">
+            <summary>
+            Then 集合
+            </summary>
+        </member>
+        <member name="T:EC5.LcValueEngine.LcValueThenLogic">
+            <summary>
+            值的逻辑
+            </summary>
+        </member>
+        <member name="F:EC5.LcValueEngine.LcValueThenLogic.IF_NULL">
+            <summary>
+            如果为空就执行
+            </summary>
+        </member>
+        <member name="F:EC5.LcValueEngine.LcValueThenLogic.EVERY">
+            <summary>
+            任何情况都执行
+            </summary>
+        </member>
+    </members>
+</doc>

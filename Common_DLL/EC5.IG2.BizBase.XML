@@ -1,0 +1,329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.IG2.BizBase</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.IG2.BizBase.DbCascadeEventArges">
+            <summary>
+            执行结束
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.BizBase.DbCascadeFactory">
+            <summary>
+            数据库联动操作
+            </summary>
+        </member>
+        <member name="E:EC5.IG2.BizBase.DbCascadeFactory.ExecEnd">
+            <summary>
+            执行结束触发的事件
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.BizBase.DbCascadeFactory.m_IsV2">
+            <summary>
+            采用新联动引擎 V2
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.OnExecEnd(EC5.IG2.BizBase.DbCascadeEventArges)">
+            <summary>
+            触发执行结束
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.BindStore(EasyClick.Web.Mini2.Store)">
+            <summary>
+            绑定数据仓库
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.Inserted(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            (注：事务又外围控制，不要在这代码里面加事务.)
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.Deleted(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            (注：事务由外围控制，不要在这代码里面加事务.)
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.Updated(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            (注：事务又外围控制，不要在这代码里面加事务.)
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.SyncStoreData(EasyClick.Web.Mini2.Store,EC5.DbCascade.BizDbStep[])">
+            <summary>
+            同步当前页面的数据仓库数据
+            </summary>
+            <param name="sender"></param>
+            <param name="items"></param>
+        </member>
+        <member name="T:EC5.IG2.BizBase.DbCascadeFactory.StoreGroup">
+            <summary>
+            数据仓库的分组类
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.BizBase.DbCascadeFactory.StoreList">
+            <summary>
+            数据仓库的集合类
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeFactory.FindStores(EC5.SystemBoard.Web.UI.WidgetControl)">
+            <summary>
+            查找全部 Store 
+            </summary>
+            <param name="owner"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.BizBase.DbCascadeLoader">
+            <summary>
+            联动数据初始化
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.#ctor">
+            <summary>
+            联动数据初始化(构造函数)
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.InitDbcc">
+            <summary>
+            初始化事务
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.ToModelFieldValue(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            输出各个字段的变量
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.ConvertForItem(EC5.DbCascade.Model.IG2_ACTION_ITEM)">
+            <summary>
+            转换实体 IG2_ACTION_ITEM
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.ConvertForFilter(EC5.DbCascade.Model.IG2_ACTION_FILTER)">
+            <summary>
+            转换 IG2_ACTION_FILTER
+            </summary>
+            <param name="actFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeLoader.ConvertForListen(EC5.DbCascade.Model.IG2_ACTION_LISTEN)">
+            <summary>
+            转换实体 IG2_ACTION_LISTEN
+            </summary>
+            <param name="actListen"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.BizBase.DbCascadeRule">
+            <summary>
+            联动规则
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.FullForUpdate(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            填充更新的数据
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Insert(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发插入联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Insert(EasyClick.Web.Mini2.Store,System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发插入联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Insert(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EasyClick.Web.Mini2.Store,System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发插入联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Insert(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发插入联动规则
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Insert(System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发插入联动规则
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Update(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发更新联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Update(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发更新联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Update(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EasyClick.Web.Mini2.Store,System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发更新联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Update(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发更新联动规则
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Update(System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发更新联动规则
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Delete(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发删除联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Delete(EasyClick.Web.Mini2.Store,System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发删除联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Delete(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EasyClick.Web.Mini2.Store,System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发删除联动规则
+            </summary>
+            <param name="store"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Delete(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发删除联动规则
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Delete(System.Collections.Generic.IEnumerable{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发删除联动规则
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.DbCascadeRule.Bind(EasyClick.Web.Mini2.Store)">
+            <summary>
+            绑定数据仓库
+            </summary>
+            <param name="uiStore"></param>
+        </member>
+        <member name="T:EC5.IG2.BizBase.LCodeFactory">
+            <summary>
+            单元格的动态代码
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeFactory.BindStore(EasyClick.Web.Mini2.Store)">
+            <summary>
+            绑定数据仓库
+            （单元格的动态代码）
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeFactory.ExecLCode(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeFactory.ExecLCode(EasyClick.Web.Mini2.Store,EasyClick.Web.Mini2.Data.DataRecord,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="srcRecord"></param>
+            <param name="model"></param>
+            <returns>返回修改过的字段集合</returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeFactory.ProExceLCode(HWQ.Entity.LightModels.LModel,EC5.LCodeEngine.LcModel,System.String[],System.String[],System.String[]@)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="cModel">规则</param>
+            <param name="blemishFields">变化的字段</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.BizBase.LCodeValueFactory">
+            <summary>
+            简单流程工厂
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeValueFactory.BindStore(EasyClick.Web.Mini2.Store)">
+            <summary>
+            绑定数据仓库
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeValueFactory.ExecLCode(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeValueFactory.ExecLCode(EasyClick.Web.Mini2.Store,EasyClick.Web.Mini2.Data.DataRecord,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="srcRecord"></param>
+            <param name="model"></param>
+            <returns>返回修改过的字段集合</returns>
+        </member>
+        <member name="M:EC5.IG2.BizBase.LCodeValueFactory.LogicAB(System.Object,System.Object,HWQ.Entity.Filter.Logic,System.Boolean)">
+            <summary>
+            比较两个值
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="logicAB"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

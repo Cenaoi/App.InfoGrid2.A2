@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HWQ.Entity.WebExpand</name>
+    </assembly>
+    <members>
+        <member name="T:HWQ.Entity.WebExpand.TableDifference">
+            <summary>
+            差异表
+            </summary>
+        </member>
+        <member name="P:HWQ.Entity.WebExpand.TableDifference.NewFields">
+            <summary>
+            新增的字段
+            </summary>
+        </member>
+        <member name="P:HWQ.Entity.WebExpand.TableDifference.RemoveFields">
+            <summary>
+            移除的字段
+            </summary>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.LDatabaseHelper">
+            <summary>
+            数据库助手类
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.ValidateTables">
+            <summary>
+            验证数据表，包括字段，数据类型
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.ConnectionTest(System.String,System.String)">
+            <summary>
+            连接测试
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreateTables">
+            <summary>
+            自动创建数据表
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreateTables(System.String,System.String)">
+            <summary>
+            自动创建数据表
+            </summary>
+            <param name="dataBaseType">数据类型</param>
+            <param name="connectionString">数据连接字符串</param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreateTables(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            自动创建数据表
+            </summary>
+            <param name="decipher">数据操作对象</param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.ValidPrimaryKey(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            验证主键的完整性
+            </summary>
+            <param name="decipher"></param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreatePrimaryKey(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String[])">
+            <summary>
+            自动创建主键
+            </summary>
+            <param name="decipher"></param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreatePrimaryKey">
+            <summary>
+            自动创建主键
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.ValidDifferenceTableALL">
+            <summary>
+            验证所有表的差异
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.CreateNewFieldsSQL(System.Collections.Generic.List{HWQ.Entity.WebExpand.TableDifference})">
+            <summary>
+            创建新增的字段 SQL 语句
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.GetFieldTxt(HWQ.Entity.LightModels.LModelFieldElement)">
+            <summary>
+            获取字段类型
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.ValidDifferenceModelField(HWQ.Entity.Decipher.LightDecipher.DbDecipher,HWQ.Entity.LightModels.LModelElement,System.Collections.Generic.List{HWQ.Entity.LightModels.LModelFieldElement}@,System.Collections.Generic.List{HWQ.Entity.Xml.XmlFieldElem}@)">
+            <summary>
+            验证表差异
+            </summary>
+            <remarks>DIFF = difference</remarks>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreateDescription(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            自动创建数据表和字段的描述
+            </summary>
+            <param name="decipher"></param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDatabaseHelper.AutoCreateDescription(HWQ.Entity.Decipher.LightDecipher.DbDecipher,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            自动创建数据表和字段的描述
+            </summary>
+            <param name="decipher"></param>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.LDictDecipher">
+            <summary>
+            字典档的 DbDecipher
+            </summary>
+        </member>
+        <member name="F:HWQ.Entity.WebExpand.LDictDecipher.m_BufferList">
+            <summary>
+            缓冲
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LDictDecipher.GetModelList(System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.LFilterHelper">
+            <summary>
+            筛选助手类
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.GetFilterString(System.Web.UI.Control,System.String)">
+            <summary>
+            获取筛选字符串
+            </summary>
+            <param name="owner">控件对象</param>
+            <param name="group">组名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.GetDBLogin(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dbLogic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.GetFilter(System.Web.UI.Control,System.String)">
+            <summary>
+            从页面获取筛选条件
+            </summary>
+            <param name="owner">控件对象</param>
+            <param name="group">组名称</param>
+            <returns>筛选条目</returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.GetFilter(System.Web.UI.Control,System.String,System.Boolean)">
+            <summary>
+            从页面获取筛选条件
+            </summary>
+            <param name="owner"></param>
+            <param name="group"></param>
+            <param name="hulueEmptyValue">忽略空值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.FindDBCotrols(System.Web.UI.Control,System.String,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            查找数据控件
+            </summary>
+            <param name="parent"></param>
+            <param name="group"></param>
+            <param name="cons"></param>
+        </member>
+        <member name="F:HWQ.Entity.WebExpand.LFilterHelper.m_BufferControlDefaultPropertys">
+            <summary>
+            控件的默认属性索引
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.GetValue(System.Web.UI.Control)">
+            <summary>
+            取出控件的值 (默认属性的值)
+            </summary>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.AutoProCondition(HWQ.Entity.LightModels.LightModelFilter,System.Web.UI.Control,System.String)">
+            <summary>
+            自动处理查询组合
+            </summary>
+            <param name="filter"></param>
+            <param name="owner"></param>
+            <param name="group"></param>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.LFilterHelper.AndForItem(HWQ.Entity.LightModels.LightModelFilter,HWQ.Entity.LightModels.LMFieldDBTypes,System.String,HWQ.Entity.Filter.Logic,System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="filter"></param>
+            <param name="dbType"></param>
+            <param name="fieldName"></param>
+            <param name="logic"></param>
+            <param name="value"></param>
+            <param name="discardValue">无效的值。如果跟这值相同，就忽略掉条件.</param>
+        </member>
+        <member name="P:HWQ.Entity.WebExpand.LFilterItem.DBType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.DbDecipherExpand">
+            <summary>
+            DbDecipher 扩展类
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.DbDecipherExpand.InsertModels(System.Collections.IList,System.Object[])">
+            <summary>
+            批量改变字段值，并插入记录到数据库
+            </summary>
+            <param name="modelList"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.DbDecipherExpand.UpdateModels(System.Collections.IList,System.Object[])">
+            <summary>
+            批量更新记录，并改变字段值
+            </summary>
+            <param name="modelList"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.DbDecipherExpand.UpdateModel(HWQ.Entity.LightModels.LightModel,System.Object[])">
+            <summary>
+            更新记录，并改变字段值
+            </summary>
+            <param name="model"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.DbDecipherExpand.SetValues(System.Object,System.Object[])">
+            <summary>
+            更新多个字段值
+            </summary>
+            <param name="model"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.DbExpand">
+            <summary>
+            数据库操作扩展类
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.DbExpand.By(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            扩展 DbDecipher 对象
+            </summary>
+            <param name="decipher"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HWQ.Entity.WebExpand.ArrayExpand">
+            <summary>
+            集合扩展类
+            </summary>
+        </member>
+        <member name="M:HWQ.Entity.WebExpand.ArrayExpand.SetValue(System.Collections.IList,System.String,System.Object)">
+            <summary>
+            批量更新字段值
+            </summary>
+            <param name="models"></param>
+            <param name="field"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

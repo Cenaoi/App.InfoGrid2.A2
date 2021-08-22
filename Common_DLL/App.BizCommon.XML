@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.BizCommon</name>
+    </assembly>
+    <members>
+        <member name="T:App.BizCommon.BillCodeType">
+            <summary>
+            规则代码类型
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.BillCodeType.Num">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.BillCodeType.Year">
+            <summary>
+            年份
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.BillCodeType.Month">
+            <summary>
+            年份 + 月份
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.BillCodeType.Day">
+            <summary>
+            年份 + 月份 + 日
+            </summary>
+        </member>
+        <member name="T:App.BizCommon.BillIdentityMgr">
+            <summary>
+            单据编号管理
+            </summary>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCode(App.BizCommon.BillCodeType,System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号
+            </summary>
+            <param name="billType">业务类型代码</param>
+            <param name="prefix">单号前缀</param>
+            <param name="seqLen">顺序号长度</param>
+            <param name="codeType">代码类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCode(App.BizCommon.BillCodeType,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号
+            </summary>
+            <param name="billType">业务类型代码</param>
+            <param name="prefix">单号前缀</param>
+            <param name="seqLen">顺序号长度</param>
+            <param name="codeType">代码类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForNum(System.String,System.String,System.Int32)">
+            <summary>
+            获取顺序号的
+            </summary>
+            <param name="billType">业务类型代码</param>
+            <param name="prefix">代码前缀</param>
+            <param name="seqLen">代码长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForYear(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号(按年份)
+            </summary>
+            <param name="billType"></param>
+            <param name="prefix"></param>
+            <param name="separatorString"></param>
+            <param name="seqLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForYear(System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号(按年份)
+            </summary>
+            <param name="billType"></param>
+            <param name="prefix"></param>
+            <param name="seqLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForMonth(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号(按月份)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForMonth(System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号(按月份)
+            </summary>
+            <param name="billType"></param>
+            <param name="prefix"></param>
+            <param name="seqLen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForDay(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取新订单编号(按日期)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.BillIdentityMgr.NewCodeForDay(System.String,System.String,System.Int32)">
+            <summary>
+             获取新订单编号(按日期)
+            </summary>
+            <param name="billType"></param>
+            <param name="prefix"></param>
+            <param name="seqLen"></param>
+            <returns></returns>
+        </member>
+        <member name="F:App.BizCommon.GlobelParam.m_KeyValues">
+            <summary>
+            保存的值
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.ModelAction.m_Decipher">
+            <summary>
+            数据操作的公共库
+            </summary>
+        </member>
+        <member name="M:App.BizCommon.ModelAction.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.ModelAction.Context">
+            <summary>
+            当前用户进程的上下文管理
+            </summary>
+        </member>
+        <member name="M:App.BizCommon.ModelAction`1.GetTotalRowsForModels(HWQ.Entity.LightModels.LightModelFilter)">
+            <summary>
+            获取所有行
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.ModelAction`1.SelectCount">
+            <summary>
+            获取所有行
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.BizCommon.ModelAction`1.ChangeStatus(System.String,System.Collections.IList,System.Int32[],System.Int32)">
+            <summary>
+            改变行状态
+            </summary>
+            <param name="fieldName"></param>
+            <param name="pkId"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:App.BizCommon.Models.C_BILL_IDENTITY">
+            <summary>
+            业务单号
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_C_BILL_IDENTITY_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_BILL_TYPE_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_BILL_YEAR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_BILL_MONTH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_BILL_DAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:App.BizCommon.Models.C_BILL_IDENTITY.m_BILL_IDENTITY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.C_BILL_IDENTITY_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.BILL_TYPE_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.BILL_YEAR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.BILL_MONTH">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.BILL_DAY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BILL_IDENTITY.BILL_IDENTITY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:App.BizCommon.Models.C_BIZ_INCREASING">
+            <summary>
+            递增
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BIZ_INCREASING.CUR_NUM">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_BIZ_INCREASING.DEFAULT_NUM">
+            <summary>
+            默认值,起始值
+            </summary>
+        </member>
+        <member name="T:App.BizCommon.Models.C_PARAM">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.PARAM_NAME">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.PARAM_VALEU">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.PARAM_TYPE">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.DATE_UPDATE">
+            <summary>
+            数据更新时间
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.DESCRIPTION">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:App.BizCommon.Models.C_PARAM.IS_ARRAY">
+            <summary>
+            是否为数组(Y/N)
+            </summary>
+        </member>
+        <member name="T:App.Register.RegHelp">
+            <summary>
+            娉ㄥ唽甯姪
+            </summary>
+        </member>
+        <member name="F:App.Register.RegHelp.m_RegCode">
+            <summary>
+            鎺堟潈鐮?
+            </summary>
+        </member>
+        <member name="M:App.Register.RegHelp.SetData(System.Byte[],System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            璁剧疆娉ㄥ唽淇℃伅
+            </summary>
+            <param name="data">瑙ｅ瘑淇℃伅</param>
+            <param name="userId">鐢ㄦ埛ID</param>
+            <param name="toTime">鎺堟潈缁撴潫鏃ユ湡</param>
+            <param name="mode">DEMO,FULL</param>
+            <param name="isValidNow">绔嬪埢楠岃瘉</param>
+        </member>
+        <member name="M:App.Register.RegHelp.IsValidRegister">
+            <summary>
+            鏄惁宸茬粡楠岃瘉娉ㄥ唽
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegHelp.IsRegister">
+            <summary>
+            鏄惁宸茬粡娉ㄥ唽
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetContextValues">
+            <summary>
+            鑾峰彇 Application 閲岄潰鐨勭‖浠跺弬鏁板€?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetMoAddress">
+              <summary> 
+              鑾峰彇缃戝崱纭欢鍦板潃 
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.GetCpuID">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.ZbID">
+            <summary>
+            涓绘澘
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetHDid">
+              <summary> 
+              鑾峰彇纭洏ID     
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:App.Register.RegFactory.AESDecrypt(System.Byte[],System.String)" -->
+    </members>
+</doc>

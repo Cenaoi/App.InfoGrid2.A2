@@ -1,0 +1,14 @@
+﻿	a.l-btn span.l-btn-left:hover
+{
+    display: inline-block;
+    background: url('/res/button/button_span_bg.gif') no-repeat left 20px;
+    padding: 4px 0px 4px 18px;
+    line-height: 16px;
+    height: 16px;
+}
+em
+{
+    color: #FF0000;
+    font-weight: normal;
+    font-style: normal;
+}

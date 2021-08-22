@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE44DE2E-088C-452B-879C-02818FDEB057}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EC5.Action3</RootNamespace>
+    <AssemblyName>EC5.Action3</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EC5.Action3.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EC5.Utility">
+      <HintPath>..\Common_DLL\EC5.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="HWQ.Entity4">
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActConvert.cs" />
+    <Compile Include="ActionList_T.cs" />
+    <Compile Include="CodeProcessors\CodeContext.cs" />
+    <Compile Include="CodeProcessors\CodeProcess.cs" />
+    <Compile Include="CodeProcessors\MoveDirection.cs" />
+    <Compile Include="CodeProcessors\TreeListenGroup.cs" />
+    <Compile Include="CodeProcessors\StepStatus.cs" />
+    <Compile Include="CodeProcessors\TreeListenItem.cs" />
+    <Compile Include="CodeProcessors\TreeNode.cs" />
+    <Compile Include="CodeProcessors\TreeNodeCollection.cs" />
+    <Compile Include="CodeProcessors\TreeOperateGroup.cs" />
+    <Compile Include="CodeProcessors\TreeOperateItem.cs" />
+    <Compile Include="DrawingLibrary.cs" />
+    <Compile Include="DrawingPanel.cs" />
+    <Compile Include="CodeIndexItem.cs" />
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterField.cs" />
+    <Compile Include="FilterItem.cs" />
+    <Compile Include="JsonSQL\Limit.cs" />
+    <Compile Include="JsonSQL\OrderField.cs" />
+    <Compile Include="JsonSQL\OrderType.cs" />
+    <Compile Include="JsonSQL\ScriptJQL.cs" />
+    <Compile Include="ListenBase.cs" />
+    <Compile Include="ListenCollection.cs" />
+    <Compile Include="ListenTable.cs" />
+    <Compile Include="ListenField.cs" />
+    <Compile Include="ListenTableFieldCollection.cs" />
+    <Compile Include="ActionItemBase.cs" />
+    <Compile Include="NodeCollection.cs" />
+    <Compile Include="OperateBase.cs" />
+    <Compile Include="OperateCollection.cs" />
+    <Compile Include="OperateNode.cs" />
+    <Compile Include="OperateTable.cs" />
+    <Compile Include="OperateField.cs" />
+    <Compile Include="OperateFieldCollection.cs" />
+    <Compile Include="SCodeTemplates\SCodeFactory.cs" />
+    <Compile Include="SCodeTemplates\SCodeItem.cs" />
+    <Compile Include="SCodeTemplates\SCodeItemCollection.cs" />
+    <Compile Include="SCodeTemplates\SCodeTemplate.cs" />
+    <Compile Include="SCodeTemplates\SCodeType.cs" />
+    <Compile Include="ScriptCSharp.cs" />
+    <Compile Include="ScriptJson.cs" />
+    <Compile Include="ScriptTSql.cs" />
+    <Compile Include="ScriptXml.cs" />
+    <Compile Include="Steps\CodeRegion.cs" />
+    <Compile Include="Steps\StepGroup.cs" />
+    <Compile Include="Steps\StepNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteItem.cs" />
+    <Compile Include="RouteList.cs" />
+    <Compile Include="ScriptBase.cs" />
+    <Compile Include="Steps\StepContent.cs" />
+    <Compile Include="Steps\TreeNodeCollection.cs" />
+    <Compile Include="Steps\StepNodeType.cs" />
+    <Compile Include="Steps\StepStatus.cs" />
+    <Compile Include="Steps\TreeNode.cs" />
+    <Compile Include="Xml\XActionItem.cs" />
+    <Compile Include="Xml\XScript.cs" />
+    <Compile Include="Xml\XDocument.cs" />
+    <Compile Include="Xml\XLibrary.cs" />
+    <Compile Include="Xml\XRoute.cs" />
+    <Compile Include="Xml\XListenField.cs" />
+    <Compile Include="Xml\XListenTable.cs" />
+    <Compile Include="Xml\XOperateField.cs" />
+    <Compile Include="Xml\XOperateTable.cs" />
+    <Compile Include="Xml\XPanel.cs" />
+    <Compile Include="_AC3.cs" />
+    <Compile Include="_Emun.cs" />
+    <Compile Include="_Sample.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Processors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EC5.Action3.SEngine\EC5.Action3.SEngine.csproj">
+      <Project>{1c53e33f-15c4-48df-a900-8a9df5a7ef95}</Project>
+      <Name>EC5.Action3.SEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

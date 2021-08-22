@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EC5Action>
+    
+    <!--这个代码，以玖龙联动 id=72 为原型 -->
+    
+    <!--动作版面-->
+    <action-panel>
+        <!--监听组-->
+        <listen-group>
+
+            <!--监听-->
+            <listen>
+                
+                <!--监听数据表发生变化-->
+                <listen-table name="UT_001" op-type="update" row-name="T">
+
+                    <!--监听那些字段发生变化-->
+                    <listen-fields>
+                        <field name="BIZ_SID" desc="业务状态" />
+                        <field name="COL_10" desc="主数量" />
+                        <field name="COL_11" desc="金额" />
+                    </listen-fields>
+
+                    <!--H 代码块-->
+                    <if>
+                        <cond remark="condition 的缩写">
+                            <if-compare field="ROW_SID" value="0" type="int" operator=">=" />
+                            <if-compare field="BIZ_SID" value="2" type="int" operator=">=" />
+                        </cond>
+                        <then>
+                            <return value="true" type="bool" />
+                        </then>
+                    </if>
+                    
+                    
+                    <!--代码块-->
+                    <script type="C#">
+                    <![CDATA[
+                    
+                        if( T["ROW_SID"] >= 0 && T["BIZ_SID"] >= 2){                            
+                            return true;                            
+                        }
+                        
+                    ]]>
+                    </script>
+                    
+                </listen-table>                
+            </listen>
+        </listen-group>
+
+
+        <!--操作组-->
+        <operate-group>
+
+            <!--操作-->
+            <operate>
+
+                <!--表更新操作-->
+                <table-update table="UT_165">
+
+                    <set field="COL_56">
+
+                        <find table="UT_167" fields="COL_11" type="SUM" >
+                            <where>
+                                <cond filter="ROW_SID >= 0" />
+                                <cond field="ROW_SID" value="0" op=">=" />
+                                <cond field="BIZ_SID" value="2" op=">=" />
+                                <cond field="COL_55" value="{{当前记录.COL_55}}" op=">=" />
+                                <cond field="COL_7" value="{{当前记录.COL_7}}" op=">=" />
+
+                                <cond filter="COL_7 >= {{当前记录.COL_7}}" />
+                                <or>
+                                    <cond field="ROW_SID" value="0" op=">=" />
+                                    <cond field="BIZ_SID" value="2" op=">=" />
+                                </or>
+                                <or>
+                                    <cond field="BIZ_SID" value="2" op=">=" />
+                                    <and>
+                                        <cond filter="BIZ_SID" value="2" op=">=" />
+                                        <cond filter="BIZ_SID >= 4 " />
+                                    </and>
+                                </or>
+                            </where>                            
+                        </find>
+                        
+                        <script>
+                        <![CDATA[
+                            select SUM(COL_11) 
+                            from UT_167 
+                            where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7)                         
+                        ]]>
+                        </script>
+                    </set>
+                    <set field="COL_57">
+                        
+                        <script>
+                        <![CDATA[
+                            select SUM(COL_10)
+                            from UT_167
+                            where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                        ]]>
+                        </script>
+                    </set>
+                    
+                </table-update>
+
+                
+                
+                
+                <!--代码块-->
+                <script>
+                <![CDATA[
+                var 退料金额 = select SUM(COL_11)
+                    from UT_167 
+                    where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                
+                var 退料数量 = select SUM(COL_10)
+                    from UT_167
+                    where ROW_SID >=0 and BIZ_SID = 2 and (COL_55 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7) 
+                
+                update UT_165 
+                    set COL_56 = 退料数量, COL_57 = 退料金额 
+                    where ROW_SID >=0 and COL_34 = 当前记录.COL_55 and COL_7 = 当前记录.COL_7
+                
+                
+                ]]>
+                </script>
+                
+            </operate>
+            
+        </operate-group>
+        
+    </action-panel>
+    
+</EC5Action>

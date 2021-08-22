@@ -1,0 +1,2555 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App.InfoGrid2.Excel_Template</name>
+    </assembly>
+    <members>
+        <member name="T:App.InfoGrid2.Excel_Template.Bll.BusHelper">
+            <summary>
+            这是业务助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.BusHelper.ParseImgField(System.String)">
+            <summary>
+            解析图片字段
+            </summary>
+            <param name="field_value">图片字段里面的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.BusHelper.ReadImageFile(System.String)">
+            <summary>
+            通过FileStream 来打开文件，这样就可以实现不锁定Image文件，到时可以让多用户同时访问Image文件
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.Bll.NOPIUtil">
+            <summary>
+            Excel助手
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_font">
+            <summary>
+            这是系统字体缓冲
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_FontBuffer">
+            <summary>
+            字体缓冲
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_StyleBuffer">
+            <summary>
+            单元格样式缓冲
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_gh">
+            <summary>
+            绘制工具
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_RowHegiht">
+            <summary>
+            行高
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.m_CellWidth">
+            <summary>
+            列宽
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetCellValue(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetCellType(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的类型
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>如果是日期类型就返回 Date ,如果是数字类型就返回 Double,否则就返回 String。</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetDataFormatString(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到数据格式的名称，如果单元格的值为空就返回""
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>数据格式名称，如果单元格的值为空就返回""</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetExcelHead(NPOI.SS.UserModel.ICellStyle,NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IFont,System.String)">
+            <summary>
+            设置 sheet 第一行 第一列值
+            </summary>
+            <param name="ics">单元格样式</param>
+            <param name="isheet">工作表1</param>
+            <param name="ifont">字体设置</param>
+            <param name="cell_value">单元格值 默认值 公司名称</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetCellWidth(NPOI.SS.UserModel.ISheet,System.Int32)">
+            <summary>
+            设置列的默认宽度 根据传进来的长度
+            </summary>
+            <param name="sheet">sheet对象</param>
+            <param name="num">列数量</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetCellNum(NPOI.SS.UserModel.ISheet)">
+            <summary>
+            拿到列的数量
+            </summary>
+            <param name="sheet">sheet对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetColumnWidth(App.InfoGrid2.Excel_Template.V1.TempSheet,NPOI.HSSF.UserModel.HSSFSheet)">
+            <summary>
+            获取每一列的宽度
+            </summary>
+            <param name="ts">模板的第一页参数对象</param>
+            <param name="sheet">模板第一页对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetCellStyle(App.InfoGrid2.Excel_Template.V1.CellPro,NPOI.SS.UserModel.ICell,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到单元格的样式
+            </summary>
+            <param name="cp">自定义单元格对象</param>
+            <param name="icell">Excel单元格对象</param>
+            <param name="workbook">整个Excel对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.V1.TempSheet)">
+            <summary>
+            设置打印属性的
+            </summary>
+            <param name="sheet">工作薄</param>
+            <param name="ts">模板sheet参数对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetSheetMargin(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.V1.TempSheet)">
+            <summary>
+            设置页面边距
+            </summary>
+            <param name="sheet">工作薄</param>
+            <param name="ts">模板sheet参数对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetImg(NPOI.SS.UserModel.IWorkbook,NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.V1.TempSheet)">
+            <summary>
+            设置图片到Excel中去
+            </summary>
+            <param name="workbook">Excel对象</param>
+            <param name="sheet">工作簿</param>
+            <param name="ts">模板sheet参数对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CreateSheet_2(NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.V1.TempParam)">
+            <summary>
+            根据模板的第二页参数对象来创建第二页数据
+            </summary>
+            <param name="workbook">整个Excel对象</param>
+            <param name="tp">第二个sheet参数对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetCellValue(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.V1.CellTypeName,System.String)">
+            <summary>
+            设置单元格的值
+            </summary>
+            <param name="ic">单元格对象</param>
+            <param name="typeName">类型名称</param>
+            <param name="vlaue">值</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetCellStyl(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.V1.CellPro,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置单元格的属性
+            </summary>
+            <param name="ic">单元格对象</param>
+            <param name="cp">自定义单元对象</param>
+            <param name="workbook">整个Excel对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CreateSingleTableTemp(System.String,App.InfoGrid2.Model.DataSet.TableSet,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+             创建模板  没有主表对象就生成单表模板
+            </summary>
+            <param name="path">生成模板路径</param>
+            <param name="tsItem">子表信息</param>
+            <param name="tsHead">主表信息 主表默认为空，就生成单表模板</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetExcelItem(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Model.DataSet.TableSet,System.Int32@,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            把主表信息写入到Excel中去
+            </summary>
+            <param name="isheet">工作薄</param>
+            <param name="tsItem">主表信息</param>
+            <param name="i">行数</param>
+            <param name="workbook">Excel对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetExcelSubItem(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Model.DataSet.TableSet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            把子表数据写入到Excel中去
+            </summary>
+            <param name="i">行数</param>
+            <param name="isheet">工作薄</param>
+            <param name="tsSubItem">子表数据</param>
+            <param name="workbook">Excel文件</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetDynHegiht(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            动态计算行高度
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetSheet2(NPOI.HSSF.UserModel.HSSFSheet)">
+            <summary>
+            读取模板的第二页自定义参数  放到一个字典里面
+            </summary>
+            <param name="sheet">sheet对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetImg(App.InfoGrid2.Excel_Template.V1.TempSheet,NPOI.SS.UserModel.IWorkbook,NPOI.HSSF.UserModel.HSSFSheet)">
+            <summary>
+            获取图片对象和位置
+            </summary>
+            <param name="ts">模板的第一页参数对象</param>
+            <param name="workbook">整个Excel对象</param>
+            <param name="sheet">模板第一页对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetSpanCellAndRow(App.InfoGrid2.Excel_Template.V1.TempSheet,NPOI.HSSF.UserModel.HSSFSheet)">
+            <summary>
+            获取合并单元格信息
+            </summary>
+            <param name="ts">模板的第一页参数对象</param>
+            <param name="sheet">模板第一页对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetCellWidthAndHeight(App.InfoGrid2.Excel_Template.V1.TempSheet,App.InfoGrid2.Excel_Template.V1.RowProCollection)">
+            <summary>
+            拿到单元格的宽和高，X轴和Y轴
+            </summary>
+            <param name="ts">模板的第一页参数对象</param>
+            <param name="rowProList">所有行数据集合</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetPrintPro(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.PrintPro)">
+            <summary>
+            获取工作薄的打印属性
+            </summary>
+            <param name="sheet">模板第一页对象</param>
+            <param name="pp">打印属性对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetSheetMarginPro(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.V1.SheetMargin)">
+            <summary>
+            拿页面边距
+            </summary>
+            <param name="sheet">模板第一页对象</param>
+            <param name="sheetMargin">页面间距对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.HandlerHeaderAndFooterTemp(App.InfoGrid2.Excel_Template.V1.RowProCollection,HWQ.Entity.LightModels.LModel,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            处理头部模板或底部模板
+            </summary>
+            <param name="rows">头部或底部所有Excel行集合</param>
+            <param name="head">主表数据</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CopyTemp(App.InfoGrid2.Excel_Template.V1.RowProCollection)">
+            <summary>
+            拷贝数据区模板集合
+            </summary>
+            <param name="item">数据区模板集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CreateSpanCellAndCellWidth(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            设置Excel的合并单元格 和 列宽度
+            </summary>
+            <param name="sheet">NOPI 生成的sheet对象</param>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,System.String)">
+            <summary>
+            根据整个sheet数据对象来创建Excel文件
+            </summary>
+            <param name="sp">整个sheet数据对象</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.SetRowPro(App.InfoGrid2.Excel_Template.V1.SheetParam,NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置所有行的数据
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+            <param name="sheet">工作薄</param>
+            <param name="workbook">整个Excel对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.CreateExcel_CreatePageData(System.Collections.Generic.List{HWQ.Entity.LightModels.LModel},App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            把整个数据集合弄成一个分页数据的
+            </summary>
+            <param name="items">数据集合</param>
+            <param name="sp">sheet对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.GetDataAreaSpanCellAndRow(App.InfoGrid2.Excel_Template.V1.RowPro,App.InfoGrid2.Excel_Template.V1.TempParam,System.Int32)">
+            <summary>
+            根据数据来创建合并单元格信息
+            </summary>
+            <param name="SpanCellAndRow"></param>
+            <param name="tp"></param>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.ReadImg(App.InfoGrid2.Excel_Template.V1.CellPro,System.Int32,System.Int32,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            把单元格里面的图片路径读取出来
+            </summary>
+            <param name="cp">单元格对象</param>
+            <param name="num">数据区行合计</param>
+            <param name="i">子表数据循环索引</param>
+            <param name="sp">sheet参数对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.Bll.NOPIUtil.ReadImg(App.InfoGrid2.Excel_Template.V1.CellPro,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            把单元格里面的图片路径读取出来
+            </summary>
+            <param name="cp">单元格对象</param>
+            <param name="num">数据区行合计</param>
+            <param name="i">子表数据循环索引</param>
+            <param name="sp">sheet参数对象</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.CellPro">
+            <summary>
+            单元格的属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.RowIndex">
+            <summary>
+            行的位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.ColsIndex">
+            <summary>
+            列的位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FontColor">
+            <summary>
+            字体颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FontName">
+            <summary>
+            字体名字
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FontSize">
+            <summary>
+            字体大小
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderBottomName">
+            <summary>
+            下边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderBottomColor">
+            <summary>
+            下边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderTopName">
+            <summary>
+            上边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderTopColor">
+            <summary>
+            上边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderLeftName">
+            <summary>
+            左边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderLeftColor">
+            <summary>
+            左边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderRightName">
+            <summary>
+            右边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.BorderRightColor">
+            <summary>
+            右边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Alignment">
+            <summary>
+            左右对齐方式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.VerticalAlignment">
+            <summary>
+            垂直对齐方式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanFirstRow">
+            <summary>
+            跨行开始位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanLastRow">
+            <summary>
+            跨行结束位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanFirstCell">
+            <summary>
+            跨列开始位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanLastCell">
+            <summary>
+            跨列结束位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FontBlod">
+            <summary>
+            字体粗细
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FormatName">
+            <summary>
+            数据格式的名称
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.DataFormat">
+            <summary>
+            数据格式的数字
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.CellType">
+            <summary>
+            单元格类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FillBackgroundColor">
+            <summary>
+            填充背景色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FillForegroundColor">
+            <summary>
+            填充前景色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.FillPattern">
+            <summary>
+            填充模式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.X">
+            <summary>
+            X轴坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Y">
+            <summary>
+            Y轴坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Width">
+            <summary>
+            计算后的宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.DynHeight">
+            <summary>
+            动态高度  像素单位
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanWidth">
+            <summary>
+            跨列后宽度  单位磅
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.SpanHeight">
+             <summary>
+            跨行后高度
+             </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.Display">
+            <summary>
+            是否显示，true -- 显示 ,false -- 不显示
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.ShrinkToFit">
+            <summary>
+            是否缩放
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.IsItalic">
+            <summary>
+            是否是斜体， true -- 是
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.CellPro.WrapText">
+            <summary>
+            是否换行
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.CellPro.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.CellTypeName">
+            <summary>
+            单元格类型的枚举
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.CellTypeName.String">
+            <summary>
+            这是字符串类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.CellTypeName.Double">
+            <summary>
+            这是数字类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.CellTypeName.Date">
+            <summary>
+            这是时间类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.CellTypeName.Blank">
+            <summary>
+            这是空类型
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:App.InfoGrid2.Excel_Template.DataGroup" -->
+        <member name="T:App.InfoGrid2.Excel_Template.DataSet">
+            <summary>
+            数据集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.DataSet.Head">
+            <summary>
+            头.主表
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.DataSet.Items">
+            <summary>
+            子表
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.ImportExcelUtil">
+            <summary>
+            导入Excel文件帮助类
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.ImportExcelUtil.CreateLModels(System.String,System.String)">
+            <summary>
+            根据 Excel 文件
+            </summary>
+            <param name="table_name"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.ImportExcelUtil.CreateLModels(System.String,System.IO.Stream)">
+            <summary>
+            根据传进来的excel数据流，创建 数据集合  
+            </summary>
+            <param name="table_name">表名</param>
+            <param name="stream">数据流</param>
+            <returns>数据集合</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.ImportExcelUtil.GetField(NPOI.SS.UserModel.IRow,System.Int32)">
+            <summary>
+            获取字段名称
+            </summary>
+            <param name="ir">行对象</param>
+            <param name="index">列索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.ImportExcelUtil.GetCellValue(NPOI.SS.UserModel.IRow,System.Int32)">
+            <summary>
+            获取单元格里面的值
+            </summary>
+            <param name="row">行</param>
+            <param name="index">单元格索引</param>
+            <returns>对象</returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.JItemType">
+            <summary>
+            模板项目类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JItemType.String">
+            <summary>
+            普通字符串
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JItemType.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.JItem">
+            <summary>
+            模板项目
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JItem.ItemType">
+            <summary>
+            条目类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JItem.Prefix">
+            <summary>
+            前缀
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JItem.Text">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.JItemCollection">
+            <summary>
+            模板项目集合
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.JTemplate">
+            <summary>
+            模板引擎
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JTemplate.m_SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JTemplate.m_ResultText">
+            <summary>
+            返回的字符串
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JTemplate.m_Items">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JTemplate.RowIndex">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JTemplate.#ctor(System.String)">
+            <summary>
+            (构造函数)模板引擎
+            </summary>
+            <param name="srcText"></param>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JTemplate.ResultText">
+            <summary>
+            处理后返回的字符串
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JTemplate.SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JTemplate.Exec">
+            <summary>
+            处理执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JTemplate.ParseItem_ForCode_Table(App.InfoGrid2.Excel_Template.JItem,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            当前对象
+            </summary>
+            <param name="item"></param>
+            <param name="modelElem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JTemplate.CodeAnalysis">
+            <summary>
+            代码解析
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandler.m_TemplateShare">
+            <summary>
+            模板页
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandler.m_ParamShare">
+            <summary>
+            参数页
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.ReadExcel(System.String)">
+            <summary>
+            读取Excel文件
+            </summary>
+            <param name="path">Excel模板的路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.SetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            设置打印属性的
+            </summary>
+            <param name="sheet">工作薄</param>
+            <param name="sp">工作薄类</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            获取工作薄的打印属性
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetRoowAllData(NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook,System.Collections.Generic.List{App.InfoGrid2.Excel_Template.RowPro})">
+            <summary>
+            拿到所有行的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetCellAllData(NPOI.SS.UserModel.IRow,System.Int32,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.RowPro)">
+            <summary>
+            拿到所有单元格的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetCellValue(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetCellType(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的类型
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>如果是日期类型就返回 Date ,如果是数字类型就返回 Double,否则就返回 String。</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetDataFormatString(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到数据格式的名称，如果单元格的值为空就返回""
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>数据格式名称，如果单元格的值为空就返回""</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetCellStyle(App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.ICell,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到单元格的样式
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetSubFirstAndLast(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到子表的开始位置和结束位置
+            </summary>
+            <param name="sheet">工作表</param>
+            <param name="index">行数，从0开始</param>
+            <returns>第一列的值</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.WriteExcel(App.InfoGrid2.Excel_Template.SheetPro,System.String)">
+            <summary>
+            导出数据
+            </summary>
+            <param name="sp">数据内容</param>
+            <param name="path">导出路径，绝对物理路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.SetRowPro(App.InfoGrid2.Excel_Template.SheetPro,NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置行属性
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.SetCellStyl(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置单元格的属性
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.SetCellValue(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellTypeName,System.String)">
+            <summary>
+            设置单元格的值
+            </summary>
+            <param name="ic">单元格对象</param>
+            <param name="typeName">类型名称</param>
+            <param name="vlaue">值</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.InsertSubData(App.InfoGrid2.Excel_Template.SheetPro,App.InfoGrid2.Excel_Template.DataSet)">
+            <summary>
+            把子表数据插入到指定位置
+            </summary>
+            <param name="sp"></param>
+            <param name="mf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.CopyData(App.InfoGrid2.Excel_Template.SheetPro,System.Int32,System.Int32)">
+            <summary>
+            拷贝数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.UpdateSpanCell(App.InfoGrid2.Excel_Template.RowPro,App.InfoGrid2.Excel_Template.DataSet,System.Int32,System.Int32)">
+            <summary>
+            更新合并单元格数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.GetSpanCell(System.Collections.Generic.List{App.InfoGrid2.Excel_Template.CellPro},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            拿到头或数据或尾部的合并数据集合
+            </summary>
+            <param name="cpList">所有的合并数据集合</param>
+            <param name="subFirstRow">数据开始行</param>
+            <param name="subLastRow">数据结束行</param>
+            <param name="mark">0--标识头部，1--标识数据部，2--标识尾部 </param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandler.UpdateSubSpanCell(System.Collections.Generic.List{App.InfoGrid2.Excel_Template.CellPro},System.Int32,System.Int32)">
+            <summary>
+            更新数据部合并集合
+            </summary>
+            <param name="cpSubData">数据部合并集合</param>
+            <param name="number">子表数据数量</param>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_TemplateShare">
+            <summary>
+            模板页
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_ParamShare">
+            <summary>
+            参数页
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_gh">
+            <summary>
+            绘制工具
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.ReadExcel(System.String)">
+            <summary>
+            读取Excel文件
+            </summary>
+            <param name="path">Excel模板的路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetNum(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到子表的自定义页高和宽
+            </summary>
+            <param name="sheet">工作表</param>
+            <param name="index">行数，从0开始</param>
+            <returns>第一列的值</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetIsTotal(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            是否有合计
+            </summary>
+            <param name="sheet"></param>
+            <param name="index"></param>
+            <param name="workbook"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellNum(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到列的数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellWidthAndHeight(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到单元格的宽和高，X轴和Y轴
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetSheetMargin(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿页面边距
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.SetSheetMargin(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            设置页面边距
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetTitle(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到头一部分
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetData(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到中间数据部分
+            </summary>
+            <param name="sp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetBottom(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到底部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.SetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            设置打印属性的
+            </summary>
+            <param name="sheet">工作薄</param>
+            <param name="sp">工作薄类</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            获取工作薄的打印属性
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetRoowAllData(NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到所有行的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellAllData(NPOI.SS.UserModel.IRow,System.Int32,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.RowPro,System.Int32)">
+            <summary>
+            拿到所有单元格的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellValue(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellType(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的类型
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>如果是日期类型就返回 Date ,如果是数字类型就返回 Double,否则就返回 String。</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetDataFormatString(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到数据格式的名称，如果单元格的值为空就返回""
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>数据格式名称，如果单元格的值为空就返回""</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetCellStyle(App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.ICell,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到单元格的样式
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetSubFirstAndLast(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到子表的开始位置和结束位置
+            </summary>
+            <param name="sheet">工作表</param>
+            <param name="index">行数，从0开始</param>
+            <returns>第一列的值</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.WriteExcel(App.InfoGrid2.Excel_Template.SheetPro,System.String)">
+            <summary>
+            导出数据
+            </summary>
+            <param name="sp">数据内容</param>
+            <param name="path">导出路径，绝对物理路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.SetRowPro(App.InfoGrid2.Excel_Template.SheetPro,NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置行属性
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_FontBuffer">
+            <summary>
+            字体缓冲
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_StyleBuffer">
+            <summary>
+            单元格样式缓冲
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.SetCellStyl(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置单元格的属性
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.SetCellValue(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellTypeName,System.String)">
+            <summary>
+            设置单元格的值
+            </summary>
+            <param name="ic">单元格对象</param>
+            <param name="typeName">类型名称</param>
+            <param name="vlaue">值</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.InsertSubData(App.InfoGrid2.Excel_Template.SheetPro,App.InfoGrid2.Excel_Template.DataSet)">
+            <summary>
+            把子表数据插入到指定位置
+            </summary>
+            <param name="sp"></param>
+            <param name="mf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetDataBaseValue(App.InfoGrid2.Excel_Template.RowProCollection,App.InfoGrid2.Excel_Template.DataSet)">
+            <summary>
+            从数据集合中拿数据
+            </summary>
+            <param name="sp"></param>
+            <param name="mf">数据集合</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.UpdateSubData(App.InfoGrid2.Excel_Template.DataSet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            更新模板数据
+            </summary>
+            <param name="mf">数据集合</param>
+            <param name="sp">模板数据</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.CopyData(App.InfoGrid2.Excel_Template.RowProCollection,System.Int32,System.Int32)">
+            <summary>
+            拷贝数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.UpdateSubSpanCell(App.InfoGrid2.Excel_Template.CellProCollection,System.Int32,System.Int32)">
+            <summary>
+            更新数据部合并集合
+            </summary>
+            <param name="cpSubData">数据部合并集合</param>
+            <param name="number">子表数据数量</param>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX.m_font">
+            <summary>
+            这是系统字体缓冲
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX.GetDynHegiht(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            获取自动换行列的动态高度
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_TemplateShare">
+            <summary>
+            模板页
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_ParamShare">
+            <summary>
+            参数页
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_gh">
+            <summary>
+            绘制工具
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.ReadExcel(System.String)">
+            <summary>
+            读取Excel文件
+            </summary>
+            <param name="path">Excel模板的路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetNum(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到子表的自定义页高和宽
+            </summary>
+            <param name="sheet">工作表</param>
+            <param name="index">行数，从0开始</param>
+            <returns>第一列的值</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellNum(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到列的数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellWidthAndHeight(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到单元格的宽和高，X轴和Y轴
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetSheetMargin(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿页面边距
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.SetSheetMargin(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            设置页面边距
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetTitle(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到头一部分
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetData(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到中间数据部分
+            </summary>
+            <param name="sp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetBottom(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到底部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.SetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            设置打印属性的
+            </summary>
+            <param name="sheet">工作薄</param>
+            <param name="sp">工作薄类</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetPrintPor(NPOI.SS.UserModel.ISheet,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            获取工作薄的打印属性
+            </summary>
+            <param name="sheet"></param>
+            <param name="sp"></param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetRoowAllData(NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            拿到所有行的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellAllData(NPOI.SS.UserModel.IRow,System.Int32,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.RowPro,System.Int32)">
+            <summary>
+            拿到所有单元格的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellValue(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellType(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到单元格的类型
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>如果是日期类型就返回 Date ,如果是数字类型就返回 Double,否则就返回 String。</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetDataFormatString(NPOI.SS.UserModel.ICell)">
+            <summary>
+            拿到数据格式的名称，如果单元格的值为空就返回""
+            </summary>
+            <param name="icell">单元格对象</param>
+            <returns>数据格式名称，如果单元格的值为空就返回""</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetCellStyle(App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.ICell,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到单元格的样式
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetSubFirstAndLast(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            拿到子表的开始位置和结束位置
+            </summary>
+            <param name="sheet">工作表</param>
+            <param name="index">行数，从0开始</param>
+            <returns>第一列的值</returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.WriteExcel(App.InfoGrid2.Excel_Template.SheetPro,System.String)">
+            <summary>
+            导出数据
+            </summary>
+            <param name="sp">数据内容</param>
+            <param name="path">导出路径，绝对物理路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.SetRowPro(App.InfoGrid2.Excel_Template.SheetPro,NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置行属性
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_FontBuffer">
+            <summary>
+            字体缓冲
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_StyleBuffer">
+            <summary>
+            单元格样式缓冲
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.SetCellStyl(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellPro,NPOI.SS.UserModel.IWorkbook)">
+            <summary>
+            设置单元格的属性
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.SetCellValue(NPOI.SS.UserModel.ICell,App.InfoGrid2.Excel_Template.CellTypeName,System.String)">
+            <summary>
+            设置单元格的值
+            </summary>
+            <param name="ic">单元格对象</param>
+            <param name="typeName">类型名称</param>
+            <param name="vlaue">值</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.InsertSubData(App.InfoGrid2.Excel_Template.SheetPro,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{App.InfoGrid2.Excel_Template.DataGroup}},HWQ.Entity.LightModels.LModel)">
+            <summary>
+            把子表数据插入到指定位置
+            </summary>
+            <param name="sp">整个工作簿</param>
+            <param name="m_dic">数据组</param>
+            <param name="lm">主表数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetDataBaseValue(App.InfoGrid2.Excel_Template.RowProCollection,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            从数据集合中拿数据
+            </summary>
+            <param name="sp"></param>
+            <param name="mf">数据集合</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.UpdateSubData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{App.InfoGrid2.Excel_Template.DataGroup}},App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            更新模板数据
+            </summary>
+            <param name="mf">数据集合</param>
+            <param name="sp">模板数据</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.CopyData(App.InfoGrid2.Excel_Template.RowProCollection,System.Int32,System.Int32)">
+            <summary>
+            拷贝数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.UpdateSubSpanCell(App.InfoGrid2.Excel_Template.CellProCollection,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{App.InfoGrid2.Excel_Template.DataGroup}})">
+            <summary>
+            更新数据部合并集合
+            </summary>
+            <param name="cpSubData">数据部合并集合</param>
+            <param name="subFirstRow">子表数据开始位置</param>
+            <param name="m_dic">数据集</param>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.m_font">
+            <summary>
+            这是系统字体缓冲
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.NOPIHandlerEX2.GetDynHegiht(App.InfoGrid2.Excel_Template.SheetPro)">
+            <summary>
+            获取自动换行列的动态高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.Landscape">
+            <summary>
+            等于true是横向，false是纵向
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.Scale">
+            <summary>
+            这是打印缩放比例的，1--100
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.FitWidth">
+            <summary>
+            页宽
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.FitHeight">
+            <summary>
+            页高
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.PaperSize">
+            <summary>
+            纸张设置，9--正常A4纸大小 http://www.cnblogs.com/wolfplan/archive/2013/01/13/2858991.html
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.UsePage">
+            <summary>
+            起始页码，true自动并PageStart值不起作用
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.PageStart">
+            <summary>
+            起始页码
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.NoColors">
+            <summary>
+            单色打印,true为单色打印
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.IsDraft">
+            <summary>
+            草稿打印，true为草稿打印
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.PrintPro.LeftToRight">
+            <summary>
+            打印顺序,当为true时，则表示“先行后列”；如果是false，则表示“先列后行”。
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.RowPro">
+            <summary>
+            行属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowPro.cellPro">
+            <summary>
+            行的所有单元格集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowPro.RowHeight">
+            <summary>
+            行高
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowProCollection.SpanCellAndRow">
+            <summary>
+            合并单元格信息
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowProCollection.Height">
+            <summary>
+            自身高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowProCollection.picturesList">
+            <summary>
+            图片流集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.RowProCollection.hcaList">
+            <summary>
+            这是图片绝对坐标
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.RowProCollection.ProSize">
+            <summary>
+            计算自身高度的
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.SheetPro">
+            <summary>
+            工作表属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.rowProList">
+            <summary>
+            所有行信息
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.Header">
+            <summary>
+            这是头部分
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.DataArea">
+            <summary>
+            这是数据区
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.Bottom">
+            <summary>
+            这是尾部分
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.subFirstRow">
+            <summary>
+            子表数据开始行
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.subLastRow">
+            <summary>
+            子表数据结束行
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.SpanCellAndRow">
+            <summary>
+            合并单元格信息
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.ColumnWidth">
+            <summary>
+            整列的宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.ColumnNum">
+            <summary>
+            列数量
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.pp">
+            <summary>
+            打印属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.picturesList">
+            <summary>
+            图片流集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.hcaList">
+            <summary>
+            这是图片绝对坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.typeName">
+            <summary>
+            属于哪块区域
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.sheetMargin">
+            <summary>
+            页面边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.TotalPages">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.PageData">
+            <summary>
+            分页数据
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.PageWidth">
+            <summary>
+            自定义宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.PageHeight">
+            自定义高度
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.Width">
+            <summary>
+            原始宽
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.Height">
+            <summary>
+            原始高
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.SheetPro.IsTotal">
+            <summary>
+            是否合计 false -- 不合计 ，ture -- 合计
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.SheetTypeName">
+            <summary>
+            整个工作薄区域
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.SheetTypeName.TITLE">
+            <summary>
+            标题数据
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.SheetTypeName.DATA">
+            <summary>
+            中间数据
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.SheetTypeName.BOTTOM">
+            <summary>
+            底部数据
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JSqlTemplate.m_SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JSqlTemplate.m_ResultText">
+            <summary>
+            返回的字符串
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.JSqlTemplate.m_Items">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JSqlTemplate.#ctor(System.String)">
+            <summary>
+            (构造函数)模板引擎
+            </summary>
+            <param name="srcText"></param>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JSqlTemplate.ResultText">
+            <summary>
+            处理后返回的字符串
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.JSqlTemplate.SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JSqlTemplate.Exec">
+            <summary>
+            处理执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JSqlTemplate.ParseItem_ForCode_Table(App.InfoGrid2.Excel_Template.JItem,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            当前对象
+            </summary>
+            <param name="item"></param>
+            <param name="modelElem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.JSqlTemplate.CodeAnalysis">
+            <summary>
+            代码解析
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.CellPro">
+            <summary>
+            单元格的属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.RowIndex">
+            <summary>
+            行的位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.ColsIndex">
+            <summary>
+            列的位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FontColor">
+            <summary>
+            字体颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FontName">
+            <summary>
+            字体名字
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FontSize">
+            <summary>
+            字体大小
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderBottomName">
+            <summary>
+            下边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderBottomColor">
+            <summary>
+            下边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderTopName">
+            <summary>
+            上边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderTopColor">
+            <summary>
+            上边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderLeftName">
+            <summary>
+            左边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderLeftColor">
+            <summary>
+            左边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderRightName">
+            <summary>
+            右边框类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.BorderRightColor">
+            <summary>
+            右边框颜色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Alignment">
+            <summary>
+            左右对齐方式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.VerticalAlignment">
+            <summary>
+            垂直对齐方式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanFirstRow">
+            <summary>
+            跨行开始位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanLastRow">
+            <summary>
+            跨行结束位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanFirstCell">
+            <summary>
+            跨列开始位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanLastCell">
+            <summary>
+            跨列结束位置
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FontBlod">
+            <summary>
+            字体粗细
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FormatName">
+            <summary>
+            数据格式的名称
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.DataFormat">
+            <summary>
+            数据格式的数字
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.CellType">
+            <summary>
+            单元格类型
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FillBackgroundColor">
+            <summary>
+            填充背景色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FillForegroundColor">
+            <summary>
+            填充前景色
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.FillPattern">
+            <summary>
+            填充模式
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.X">
+            <summary>
+            X轴坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Y">
+            <summary>
+            Y轴坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Width">
+            <summary>
+            计算后的宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.WidthPx">
+            <summary>
+            这是转换后的像素宽度  
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.DynHeight">
+            <summary>
+            动态高度  像素单位
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanWidth">
+            <summary>
+            跨列后宽度  单位磅
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanWidthPx">
+            <summary>
+            跨列后的宽度 单位像素
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.SpanHeight">
+             <summary>
+            跨行后高度  单位磅
+             </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.Display">
+            <summary>
+            是否显示，true -- 显示 ,false -- 不显示
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.ShrinkToFit">
+            <summary>
+            是否缩放
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.IsItalic">
+            <summary>
+            是否是斜体， true -- 是
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.CellPro.WrapText">
+            <summary>
+            是否换行
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.CellPro.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.CellTypeName">
+            <summary>
+            单元格类型的枚举
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.CellTypeName.String">
+            <summary>
+            这是字符串类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.CellTypeName.Double">
+            <summary>
+            这是数字类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.CellTypeName.Date">
+            <summary>
+            这是时间类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.CellTypeName.Blank">
+            <summary>
+            这是空类型
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp">
+            <summary>
+            这个是专门用来处理那种列重复的模板的
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.m_nopi">
+            <summary>
+            Excel文件助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.DataSet,System.String)">
+            <summary>
+            根据实体数据 和模板对象来创建Excel文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel_CreatePageData(System.Collections.Generic.List{HWQ.Entity.LightModels.LModel},App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            把整个数据集合弄成一个分页数据的
+            </summary>
+            <param name="items">数据集合</param>
+            <param name="sp">sheet对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel_CreatePageDataByRepeatNum(System.Collections.Generic.Dictionary{System.Int32,HWQ.Entity.LightModels.LModelList},System.Int32)">
+            <summary>
+            根据重复次数再重新创建分页数据
+            </summary>
+            <param name="page_data">分页数据</param>
+            <param name="repeat_num">重复次数</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel_ComputePageRowStartIndex(System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{HWQ.Entity.LightModels.LModelList}},App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            创建每页开始行的所有
+            </summary>
+            <param name="page_data">已经变成分裂模板分页集合数据了</param>
+            <param name="sp">整个模板对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel_PageData(System.Int32,System.Collections.Generic.List{HWQ.Entity.LightModels.LModelList},App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            处理每一页的数据
+            </summary>
+            <param name="page_index">页索引</param>
+            <param name="page_data">每一页数据</param>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.ColumnRepeatTemp.CreateExcel_ComputeImgAndSpanCellPosition(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            重新计算  底部 和 中间数据区 的 图片位置和合并单元格位置  
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.DataAreaType">
+            <summary>
+            Excel中间数据区类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.DataAreaType.NONE">
+            <summary>
+            没有类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.DataAreaType.COLUMN_REPEAT">
+            <summary>
+            列重复类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.DataAreaType.MORE_SUB_TABLE">
+            <summary>
+            多子表类型
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.DataAreaType.ROW_MERGE_IMG">
+            <summary>
+             这是行合并有图片的，就是某一列的值相同行，都要合并在一起
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.DefPictures">
+            <summary>
+             从数据库里面拿出来的图片对象 ， 不是模板里固定的那种
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Bytes">
+            <summary>
+            图片字节集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Dx1">
+            <summary>
+            起始单元格的x偏移量，如例子中的255表示直线起始位置距A1单元格左侧的距离；
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Dy1">
+            <summary>
+            起始单元格的y偏移量，如例子中的125表示直线起始位置距A1单元格上侧的距离；
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Dx2">
+            <summary>
+            终止单元格的x偏移量，如例子中的1023表示直线起始位置距C3单元格左侧的距离；
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Dy2">
+            <summary>
+            终止单元格的y偏移量，如例子中的150表示直线起始位置距C3单元格上侧的距离；
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Col1">
+            <summary>
+            左上角列的索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Row1">
+            <summary>
+            左上角列的索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Col2">
+            <summary>
+            右下角列的索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Row2">
+            <summary>
+            右下角的行索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Width">
+            <summary>
+            图片宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.DefPictures.Height">
+            <summary>
+            图片高度
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet">
+            <summary>
+            多子表数据集
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet.Head">
+            <summary>
+            头.主表
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet.Items">
+            <summary>
+            字典类型子表数据集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet.OneItems">
+            <summary>
+            只有一个子表的数据集合
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp">
+            <summary>
+            多个子表分别数据不同的模板
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.m_nopi">
+            <summary>
+            Excel文件助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet,System.String)">
+            <summary>
+            根据实体数据 和模板对象来创建Excel文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">多子表数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.CreateExcel_FillDataArea(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet)">
+            <summary>
+            填充数据区
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+            <param name="ds">多子表数据集</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.GetLModesByTableName(App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet,System.String)">
+            <summary>
+            根据表名获取数据集合
+            </summary>
+            <param name="ds">多子表数据集合</param>
+            <param name="table_name">表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.GetTitleTempByTable(App.InfoGrid2.Excel_Template.V1.SheetParam,HWQ.Entity.LightModels.SModel)">
+            <summary>
+            获取每个表中标题部分
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+            <param name="sm">表自身的指定json对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.GetDataAreaTempByTable(App.InfoGrid2.Excel_Template.V1.SheetParam,HWQ.Entity.LightModels.SModel)">
+            <summary>
+            获取每个表中的数据区部分
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+            <param name="sm">表自身的指定json对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.MoreSubTableTemp.CreateExcel_ComputeImgAndSpanCellPosition(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            重新计算  底部 和 中间数据区 的 图片位置和合并单元格位置  
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.NoneTemp">
+            <summary>
+            处理正常类型的模板类
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.NoneTemp.m_nopi">
+            <summary>
+            Excel文件助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.NoneTemp.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.DataSet,System.String)">
+            <summary>
+            根据实体数据 和模板对象来创建Excel文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.NoneTemp.CreateExcel_UpdateSubData(App.InfoGrid2.Excel_Template.DataSet,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            更新模板数据
+            </summary>
+            <param name="mf">数据集合</param>
+            <param name="sp">模板数据</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.NoneTemp.CreateExcel_ComputeImgAndSpanCellPosition(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            重新计算  底部 和 中间数据区 的 图片位置和合并单元格位置  
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp">
+            <summary>
+            这是行合并有图片的，就是某一列的值相同行，都要合并在一起
+            </summary>
+        </member>
+        <member name="F:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp.m_nopi">
+            <summary>
+            Excel文件助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.DataSet,System.String)">
+            <summary>
+            根据实体数据 和模板对象来创建Excel文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp.CreateExcel_UpdateSubData(App.InfoGrid2.Excel_Template.DataSet,App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            更新模板数据
+            </summary>
+            <param name="mf">数据集合</param>
+            <param name="sp">模板数据</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp.CreateExcel_ComputeImgAndSpanCellPosition(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            重新计算  底部 和 中间数据区 的 图片位置和合并单元格位置  
+            </summary>
+            <param name="sp">整个模板sheet对象</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowMergeImgTemp.CreateExcel_RowMerge(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            处理要合并的向同行的列
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.RowPro">
+            <summary>
+            行属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowPro.RowHeight">
+            <summary>
+            行高
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowPro.RowIndex">
+            <summary>
+            行索引
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowPro.Clone">
+            <summary>
+            克隆一行记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.RowProCollection">
+            <summary>
+            行集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowProCollection.SpanCellAndRow">
+            <summary>
+            合并单元格信息
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowProCollection.Height">
+            <summary>
+            自身高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowProCollection.picturesList">
+            <summary>
+            图片流集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowProCollection.hcaList">
+            <summary>
+            这是图片绝对坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.RowProCollection.DefPictures">
+            <summary>
+            这是读取出来的图片集合
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.RowProCollection.ProSize">
+            <summary>
+            计算自身高度的
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.SheetMargin">
+            <summary>
+            打印页面外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.BottomMargin">
+            <summary>
+            底部外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.FooterMargin">
+            <summary>
+            尾部外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.HeaderMargin">
+            <summary>
+            头部外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.LeftMargin">
+            <summary>
+            左边外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.RightMargin">
+            <summary>
+            右边外边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetMargin.TopMargin">
+            <summary>
+            顶部外边距
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.SheetParam">
+            <summary>
+            sheet参数
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.Header">
+            <summary>
+            这是头部分
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.DataArea">
+            <summary>
+            这是数据区
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.Footer">
+            <summary>
+            这是尾部分
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.HeaderTemp">
+            <summary>
+            头部模板
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.DataAreaTemp">
+            <summary>
+            中间区域模板
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.FooterTemp">
+            <summary>
+            底部模板
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.TotalTemp">
+            <summary>
+            合计模板数据
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.PageData">
+            <summary>
+            分页数据
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.TempParam">
+            <summary>
+            模板的第二页参数对象
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.TempSheet">
+            <summary>
+            模板工作表的属性对象
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SheetParam.Rows">
+            <summary>
+            所有行信息
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.SubTableParam">
+            <summary>
+            子表参数
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.SubTableParam.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            有参构造参数
+            </summary>
+            <param name="firstRowIndex">开始行索引</param>
+            <param name="lastRowIndex">结束行索引</param>
+            <param name="isTotal">是否合计 默认不合计</param>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SubTableParam.FirstRowIndex">
+            <summary>
+            子表开始行索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SubTableParam.LastRowIndex">
+            <summary>
+            子表结束行索引
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.SubTableParam.IsTotal">
+            <summary>
+            是否合计
+            </summary>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1">
+            <summary>
+            模板助手
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.CreateSingleTableTemp(System.String,App.InfoGrid2.Model.DataSet.TableSet,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+             创建模板  没有主表对象就生成单表模板
+            </summary>
+            <param name="path">生成模板路径</param>
+            <param name="tsItem">子表信息</param>
+            <param name="tsHead">主表信息 主表默认为空，就生成单表模板</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp(System.String)">
+            <summary>
+            读取模板的数据
+            </summary>
+            <param name="sheet_param">sheet参数对象</param>
+            <param name="temp_path">模板绝对路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetRows(NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.V1.RowProCollection,System.Int32,App.InfoGrid2.Excel_Template.Bll.NOPIUtil)">
+            <summary>
+            拿到所有行的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetRows_GetCells(NPOI.SS.UserModel.IRow,System.Int32,NPOI.SS.UserModel.IWorkbook,App.InfoGrid2.Excel_Template.V1.RowPro,System.Int32,App.InfoGrid2.Excel_Template.Bll.NOPIUtil)">
+            <summary>
+            拿到所有单元格的数据
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetHeader(App.InfoGrid2.Excel_Template.V1.RowProCollection,App.InfoGrid2.Excel_Template.V1.TempSheet,System.Int32)">
+            <summary>
+            获取头部数据 根据第二页自定义数据区开始行
+            </summary>
+            <param name="rows">所有行集合</param>
+            <param name="ts">模板第一页属性对象</param>
+            <param name="first_row_index">数据区开始行</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetDataArea(App.InfoGrid2.Excel_Template.V1.RowProCollection,App.InfoGrid2.Excel_Template.V1.TempSheet,System.Int32,System.Int32)">
+            <summary>
+            拿到中间数据区部分  根据第二页自定义数据区开始和结束行
+            </summary>
+            <param name="rows">所有行集合</param>
+            <param name="ts">模板第一页属性对象</param>
+            <param name="first_row_index">数据区开始行</param>
+            <param name="last_row_index">数据区结束行</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetFooter(App.InfoGrid2.Excel_Template.V1.RowProCollection,App.InfoGrid2.Excel_Template.V1.TempSheet,App.InfoGrid2.Excel_Template.V1.TempParam)">
+            <summary>
+            拿到底部 根据第二页自定义数据区结束行
+            </summary>
+            <param name="rows">所有行集合</param>
+            <param name="ts">模板第一页属性对象</param>
+            <param name="tp">模板第二页属性对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetTotalTemp(App.InfoGrid2.Excel_Template.V1.RowProCollection,App.InfoGrid2.Excel_Template.V1.TempSheet,App.InfoGrid2.Excel_Template.V1.TempParam)">
+            <summary>
+            拿到小计模板 根据第二页自定义数据区结束行
+            </summary>
+            <param name="rows">所有行集合</param>
+            <param name="ts">模板第一页属性对象</param>
+            <param name="tp">模板第二页属性对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.ReadTemp_GetHeight(App.InfoGrid2.Excel_Template.V1.SheetParam)">
+            <summary>
+            计算三块区域的高度 包括外边距  
+            </summary>
+            <param name="sp">sheet参数</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.DataSet,System.String)">
+            <summary>
+            创建Excle文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TemplateUtilV1.CreateExcel(App.InfoGrid2.Excel_Template.V1.SheetParam,App.InfoGrid2.Excel_Template.V1.MoreSubTableDataSet,System.String)">
+            <summary>
+            创建多子表Excel文件
+            </summary>
+            <param name="sp">>整个模板sheet对象</param>
+            <param name="ds">多子表数据集</param>
+            <param name="file_path">Excel文件路径</param>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.TempParam">
+            <summary>
+            模板参数对象
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.SubTableParam">
+            <summary>
+            子表参数集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.ParamDict">
+            <summary>
+            参数字典
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.FirstRowIndex">
+            <summary>
+            数据区开始行索引  默认0
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.LastRowIndex">
+            <summary>
+            数据区结束行索引 默认 0
+            </summary> 
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.PageWidth">
+            <summary>
+            自定义宽度 这个要转成 PaperSize 类用的宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.PageHeight">
+            <summary>
+            自定义高度  这个要转成 PaperSize 类用的高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.Width">
+            <summary>
+            原始宽 默认 210mm
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.Height">
+            <summary>
+            原始高 默认 297mm
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.IsTotal">
+            <summary>
+            是否合计 默认不合计  false -- 不合计 ，ture -- 合计 
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.DataAreaType">
+            <summary>
+            数据区类型  
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.Sm">
+            <summary>
+            自定义JSON数据对象
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempParam.TotalSm">
+            <summary>
+            合计的json对象
+            </summary>
+        </member>
+        <member name="M:App.InfoGrid2.Excel_Template.V1.TempParam.GetParam(System.String)">
+            <summary>
+            根据key来获取相对应的值  没有这个可以 就返回 string.Empty
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:App.InfoGrid2.Excel_Template.V1.TempSheet">
+            <summary>
+            模板sheet里面的设定
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.SheetMargin">
+            <summary>
+            打印页面边距
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.TotalPages">
+            <summary>
+            总页数 打印用的
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.SpanCellAndRow">
+            <summary>
+            合并单元格信息
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.ColumnWidth">
+            <summary>
+            整列的宽度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.ColumnWidthPx">
+            <summary>
+            这是整列的宽度 像素单位
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.pp">
+            <summary>
+            打印属性
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.ColumnNum">
+            <summary>
+            列数量
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.Pictures">
+            <summary>
+            图片流集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.Hcas">
+            <summary>
+            这是图片绝对坐标
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.DefPictures">
+            <summary>
+            这是读取出来的图片集合
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.HeaderHeight">
+            <summary>
+            头部高度 加外边距的
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.FooterHeight">
+            <summary>
+            底部高度  加外边距的
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.ContentHeight">
+            <summary>
+            中间内容高度
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.PaperSize">
+            <summary>
+            打印纸张大小
+            </summary>
+        </member>
+        <member name="P:App.InfoGrid2.Excel_Template.V1.TempSheet.PageRowIndex">
+            <summary>
+            每页的的开始行索引
+            </summary>
+        </member>
+        <member name="T:Excel_Template.ExcelParam">
+            <summary>
+            Excel 参数
+            </summary>
+        </member>
+        <member name="M:Excel_Template.ExcelParam.#ctor(System.String,System.String)">
+            <summary>
+            Excel 参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="P:Excel_Template.ExcelParam.Name">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:Excel_Template.ExcelParam.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="T:Excel_Template.ExcelParamCollection">
+            <summary>
+            Excel 参数集合
+            </summary>
+        </member>
+        <member name="M:Excel_Template.ExcelParamCollection.Add(System.String,System.String)">
+            <summary>
+            添加子项
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:EC5.Utility.Culture.Zh.RmbUtil">
+            <summary>
+            人民币转换
+            </summary>
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.ConvertSum(System.String)">
+            
+            转换数字金额主函数（包括小数）
+            
+            数字字符串
+            转换成中文大写后的字符串或者出错信息提示字符串
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.IsPositveDecimal(System.String)">
+            
+             判断是否是正数字字符串
+             
+             判断字符串
+             如果是数字，返回true，否则返回false
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.ConvertData(System.String)">
+            
+            转换数字（整数）
+            
+            需要转换的整数数字字符串
+            转换成中文大写后的字符串
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.ConvertXiaoShu(System.String)">
+            
+            转换数字（小数部分）
+            
+            需要转换的小数部分数字字符串
+            转换成中文大写后的字符串
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.ConvertDigit(System.String)">
+            
+            转换数字
+            
+            转换的字符串（四位以内）
+            
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.Convert4Digit(System.String)">
+            
+            转换四位数字
+            
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.Convert3Digit(System.String)">
+            
+            转换三位数字
+            
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.Convert2Digit(System.String)">
+            
+            转换二位数字
+            
+        </member>
+        <member name="M:EC5.Utility.Culture.Zh.RmbUtil.ConvertChinese(System.String)">
+            
+            将一位数字转换成中文大写数字
+            
+        </member>
+    </members>
+</doc>

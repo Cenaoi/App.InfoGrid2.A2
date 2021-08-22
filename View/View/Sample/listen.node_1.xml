@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EC5Action>
+    <!--监听组-->
+    <listen-group>
+
+        <!--监听-->
+        <listen>
+
+            <!--监听数据表发生变化-->
+            <listen-table name="UT_001" op-type="update" row-name="T">
+
+                <!--监听那些字段发生变化-->
+                <listen-fields>
+                    <field name="BIZ_SID" desc="业务状态" />
+                    <field name="COL_10" desc="主数量" />
+                    <field name="COL_11" desc="金额" />
+                </listen-fields>
+
+                <if>
+                    <cond remark="condition 的缩写">
+                        <if-compare field="ROW_SID" value="0" type="int" operator=">=" />
+                        <if-compare field="BIZ_SID" value="2" type="int" operator=">=" />
+                    </cond>
+                    <then>
+                        <return value="true" type="bool" />
+                    </then>
+                </if>
+
+
+                <!--代码块-->
+                <script type="C#">
+                    <![CDATA[
+                    
+                        if( T["ROW_SID"] >= 0 && T["BIZ_SID"] >= 2){                            
+                            return true;                            
+                        }
+                        
+                    ]]>
+                </script>
+
+            </listen-table>
+        </listen>
+        
+        
+    </listen-group>
+</EC5Action>

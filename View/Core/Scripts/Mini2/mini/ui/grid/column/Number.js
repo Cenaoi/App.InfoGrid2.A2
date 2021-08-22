@@ -1,0 +1,1 @@
+Mini2.define("Mini2.ui.grid.column.Number",{extend:"Mini2.ui.grid.column.Colunm",format:"{0:0,000.00}",align:"right",defaultValue:0,defaultRenderer:function(a){return Mini2.util.Format.number(a,this.format)},renderer:function(h,d,a,e,f,b,g){var c=this;if(c.notDisplayValue&&h==c.notDisplayValue){return""}return h}});

@@ -1,0 +1,11 @@
+﻿
+jquery-1.7.2.js 文件被加工过。
+
+第508行：
+
+            type: function (obj) {
+                if (obj == undefined) { return ""; }
+                return obj == null ?
+			String(obj) :
+			class2type[toString.call(obj)] || "object";
+            },

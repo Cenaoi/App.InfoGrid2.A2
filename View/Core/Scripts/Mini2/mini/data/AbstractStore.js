@@ -1,0 +1,1 @@
+Mini2.define("Mini2.data.Store",{getNewRecords:function(){return[]},getUpdatedRecords:function(){return[]},getModifiedRecords:function(){},getRemovedRecords:function(){return this.removed},filter:function(a,b){},getCount:Mini2.emptyFn,removeAll:Mini2.emptyFn});

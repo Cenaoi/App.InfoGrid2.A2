@@ -1,0 +1,732 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="/Core/Scripts/jquery/jquery-2.0.3.min.js"></script>
+    <link href="/Core/Scripts/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Core/Scripts/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/Core/Scripts/JQuery.Query/jquery.query-2.1.7.js"></script>
+    <script src="/Core/Scripts/XYF/MessageBox_xyf.js"></script>
+    <script src="/Core/Scripts/Mini2/dev/template.min.js"></script>
+
+
+
+
+
+    <link href="/Core/Scripts/Mini2/Themes/theme-globel.css" rel="stylesheet" type="text/css" />
+    <link href="/Core/Scripts/Mini2/Themes/theme-window.css" rel="stylesheet" type="text/css" />
+    <link href="/Core/Scripts/Mini2/Themes/Win8/theme-win8.css" rel="stylesheet" type="text/css" />
+
+
+
+    <script src="/Core/Scripts/Mini2/dev/template.min.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/Mini.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/lang/Guid.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/Function.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/Json.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/Array.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/Date.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/String.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/Number.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/lang/log.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/util/Filter.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/util/Sorter.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/collection/ArrayList.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/SystemInfo.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/LoaderManager.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/EventHandler.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/EventManager.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ModelManager.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/data/AbstractStore.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Errors.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Field.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Model.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Validations.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/ResultSet.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Field.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/StoreManager.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/data/Store.js" type="text/javascript"></script>
+
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/FocusManager.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/Component.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/Editor.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/WindowManager.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/WindowHeader.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/Window.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/MessageBox.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/Pagination.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/button/Button.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/container/DockingContainer.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/container/Viewport.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/form/Base.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Base.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/form/Labelable.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/CheckboxGroup.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/RadioGroup.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/Label.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Text.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Trigger.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Field.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Hidden.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/CheckBox.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/TextButton.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/TextArea.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboBox.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboBoxBase.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Date.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/DateRange.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Time.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Number.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/NumRange.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/form/field/Radio.js" type="text/javascript"></script>
+
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/header/Container.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/Column.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/Action.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/Boolean.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/Date.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/CheckColumn.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/RowNumberer.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/RowCheckColumn.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/Number.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/column/PropertyColumn.js" type="text/javascript"></script>
+
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/CellContext.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/CellEditor.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/tree/Panel.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/tab/Tab.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/tab/Panel.js" type="text/javascript"></script>
+
+
+    <script src="/Core/Scripts/Mini2/dev/ui/layout/container/Border.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/layout/container/Form.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/layout/container/HBox.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/layout/container/VBox.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/panel/Panel.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/panel/AbstractTable.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/panel/Table.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/grid/property/Grid.js" type="text/javascript"></script>
+
+    <script src="/Core/Scripts/Mini2/dev/ui/toolbar/Button.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/toolbar/Title.js" type="text/javascript"></script>
+    <script src="/Core/Scripts/Mini2/dev/ui/toolbar/Toolbar.js" type="text/javascript"></script>
+
+
+
+
+    <title>设置交叉报表</title>
+
+	<meta charset="utf-8" />
+
+    <style>
+
+        .li-item-over{
+            background-color:#f2f2f2;
+        }
+
+    </style>
+</head>
+<body style="margin:0px; padding:0px; background-color:#f2f2f2;"> 
+
+    <div class="container-fluid">
+
+        <div class="row" style="margin:20px;">
+
+            <!--显示所有表的所有字段的地方-->
+            <div class="col-lg-4" id="divLeft" style="overflow-y:auto; background-color:white;padding:0px;">
+
+            </div>
+
+            <!--这是拖动字段的地方-->
+            <div class="col-lg-8" id="divRight" style="overflow-y:auto; background-color:white;padding:0px;">
+
+                <div class="row" style="margin:10px 0px 20px 0px;padding:0px;">
+
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-default btn-lg" onclick="showTableInfo()">编辑列属性</button>
+
+                    </div>
+                    <div class="col-lg-2">
+
+                        <button type="button" class="btn btn-default btn-lg" onclick="showEditChart()">编辑图表</button>
+
+                    </div>
+                    <div class="col-lg-2">
+
+                        <button type="button" class="btn btn-success btn-lg" onclick="btnSaveData()">确定</button>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin:0px; padding:0px;">
+
+                    <div class="col-lg-6 col-lg-offset-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                列标签
+                            </div>
+                            <div class="panel-body data-panel" data-field="col_value" style="height:200px;overflow-y:auto;" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                行标签
+                            </div>
+                            <div class="panel-body data-panel" data-field="row_value" style="height:200px;overflow-y:auto;" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                值标签
+                            </div>
+                            <div class="panel-body data-panel" data-field="values" style="height:200px;overflow-y:auto;" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div> 
+    </div>
+
+    
+    <div id="ModeWindow">
+
+    </div>
+
+    <div id="ChartWindow">
+
+    </div>
+
+
+</body>
+</html>
+
+
+<script>
+
+    var messageBox = new XYF_MessageBox();
+
+    //界面传过来的Guid
+    var id = $.query.get("id");
+
+    //每一个字段的属性html
+    var m_htmlEl = null;
+
+    //编辑图表窗口界面
+    var m_chartHtmlEl = null;
+
+
+    //表名
+    var table_name = null;
+
+
+    $(document).ready(function () {
+
+       
+        $("#divLeft").height($(window).height() - 50);
+        $("#divRight").height($(window).height() - 50);
+
+
+        //把模式窗口的html文件加载进来
+        $("#ModeWindow").load("EdiorReportItem.html?_num="+Math.random(), "", function () {
+
+            //加载完成后就把界面上的html给清楚掉 并把值赋给一个对象
+            m_htmlEl = $("#ModeWindow").children(".modal");
+
+            $("#ModeWindow").empty();
+
+            //实例化一个编辑属性对象
+            m_editCrItem = new editCrItem();
+
+        });
+
+
+        //把编辑图表界面的html文件加载进来
+        $("#ChartWindow").load("EditChart.html?_num="+Math.random(), "", function () {
+
+            //加载完成后就把界面上的html给清楚掉 并把值赋给一个对象
+            m_chartHtmlEl = $("#ChartWindow").children(".modal");
+
+
+            //实例化一个编辑图表对象
+            m_editChart = new editChart();
+
+
+            $("#ChartWindow").empty();
+
+
+
+        });
+        
+
+
+        initData(id);
+
+
+
+    });
+
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    //这是拖动节点对象
+    var m_moveEl = null;
+
+    //拖拽开始事件
+    function drag(ev) {
+
+        //复制节点对象数据
+        var cur_data = $(ev.target).data("EX");
+
+        m_moveEl = $(ev.target).clone(true);
+        //克隆对象数据
+        var new_data = Mini2.clone(cur_data);
+        //绑定的拖动节点对象中
+        m_moveEl.data("EX", new_data);
+
+    }
+
+    //拖拽放下事件
+    function drop(ev) {
+
+        ev.preventDefault();
+
+
+        //这是放下的目标的对象
+        var dropEl = $(ev.target);
+
+        //确保只能放在 panel-body 下面
+        if (dropEl.hasClass("panel-body")) {
+
+            dropEl.append(m_moveEl);
+
+        } else {
+
+            //找到要放下的标签div对象
+            var labelEl = dropEl.parents(".panel-body");
+
+            labelEl.append(m_moveEl);
+        }
+
+        //如果已经拖动过的话，就不必要加下面的东西了
+        if (m_moveEl.attr("data-marker")) {
+
+            return;
+        }
+
+
+        //这个是拖动节点的点击事件
+        m_moveEl.click(function () {
+
+            //每一次点击就克隆一个界面出来 不要深度克隆
+            m_editCrItem.crItemEl = m_htmlEl.clone();
+
+            var me = $(this);
+
+            //这个是第二个界面上的函数
+            m_editCrItem.editCRItem(me);
+
+
+        });
+
+        
+
+
+        var closeEl = $("<span class='badge' style='cursor:pointer;'>删除</span>");
+
+        //关闭按钮事件
+        closeEl.click(function (e) {
+
+            var me = $(this);
+
+            e.stopPropagation();
+
+          
+            messageBox.confirm("你确定要删除吗？",function(){
+
+                me.parent().remove();
+            })
+
+        });
+
+
+        //鼠标移上去背景颜色改变
+        m_moveEl.mouseenter(function () {
+
+            $(this).addClass("li-item-over");
+
+        });
+        //鼠标移走后移除背影颜色
+        m_moveEl.mouseleave(function () {
+
+            $(this).removeClass("li-item-over");
+        });
+
+
+
+        m_moveEl.append(closeEl);
+
+        //第一次拖动要加一个属性，标记已经拖动过了
+        m_moveEl.attr("data-marker",true);
+
+
+        //不让二次拖动
+        m_moveEl.attr("draggable", false);
+
+    }
+
+    //初始化数据事件 第一个参数是数据表的ID
+    function initData(id) {
+
+
+        var newDate = new Date("2015-05-08");
+
+        $.get("/App/InfoGrid2/View/ReportBuilder/SaveData.aspx", { action: 'init_Data', id: id ,date:newDate}, function (result) {
+
+            console.log(result);
+
+            var json = JSON.parse(result);
+
+            
+
+            if (json.result != "ok") {
+
+                messageBox.show({ text: json.msg, item: 3 });
+
+                return;
+            }
+
+
+            for (var name in json.DATA) {
+
+                if (name == "values" || name == "row_value" || name == "col_value") {
+
+                    continue;
+                }
+
+                m_editChart.data_json[name] = json.DATA[name];
+
+            }
+
+
+            //整个面板
+            var panelEl = $("<div class='panel panel-default'></div>");
+            //面板标题 也就是 表名
+            var panelHeadEl = $("<div class='panel-heading' style='cursor:pointer;'>表名：" + json.TABLE_NAME + "</div>");
+
+            table_name = json.TABLE_NAME;
+
+
+            //字段 列表 
+            var ulEl = $("<ul class='list-group'></ul>");
+
+            panelHeadEl.click(function () {
+
+                ulEl.toggle();
+
+            });
+
+            $(json.FIELDS).each(function (i, v) {
+
+                var liEl = $("<li class='list-group-item' draggable='true' ondragstart='drag(event)' >" + v.dbField + "　　　(" + v.description + ")</li>");
+
+
+
+                ///初始化json数据
+                var newData = {
+                    tableName: v.talbeName,
+                    field: v.dbField,
+                    desc: v.description,
+                    total: true,
+                    title: "",
+                    value_mode: "DBValue",
+                    width: 100,
+                    fun_name: "SUM",
+                    format: "",
+                    db_value: "",
+                    style: "",
+                    one_child: false,
+                    viewFieldSrc: v.viewFieldSrc,
+                    fixed_values: []
+                };
+
+                //根据数据类型来判断，如果是时间类型就 格式化
+                if (v.dbType == "datetime") {
+                    newData.format = "{0:yyyy-MM}";
+                }
+
+                //鼠标移上去背景颜色改变
+                liEl.mouseenter(function () {
+
+                    $(this).addClass("li-item-over");
+
+                });
+                //鼠标移走后移除背影颜色
+                liEl.mouseleave(function () {
+
+                    $(this).removeClass("li-item-over");
+                });
+
+
+                liEl.data("EX", newData);
+
+                ulEl.append(liEl);
+
+            });
+
+
+            //把数据放在对应的标签里面
+            $(".data-panel").each(function (i, v) {
+
+                var name = $(v).attr("data-field");
+
+                //如果这个标签没有值就不用添加节点
+                if (json.DATA[name] === undefined) {
+
+                    return;
+                }
+
+                var data = json.DATA[name];
+
+                //循环添加节点到标签里面
+                for (var j in data) {
+
+
+                    var liEl = $("<li class='list-group-item' data-marker='true'  draggable='true' ondragstart='drag(event)'>" + data[j].field + "　　　(" + data[j].desc + ")</li>");
+
+                    liEl.data("EX",data[j]);
+
+
+                    //这个是拖动节点的点击事件
+                    liEl.click(function () {
+
+                        //每一次点击就克隆一个界面出来 不要深度克隆
+                        m_editCrItem.crItemEl = m_htmlEl.clone();
+
+                        var me = $(this);
+
+                        //这个是第二个界面上的函数
+                        m_editCrItem.editCRItem(me);
+
+                    });
+
+                    //鼠标移上去背景颜色改变
+                    liEl.mouseenter(function () {
+
+                        $(this).addClass("li-item-over");
+
+                    });
+                    //鼠标移走后移除背影颜色
+                    liEl.mouseleave(function () {
+
+                        $(this).removeClass("li-item-over");
+                    });
+
+
+
+
+                    var closeEl = $("<span class='badge' style='cursor:pointer;'>删除</span>");
+
+
+                    //关闭按钮事件
+                    closeEl.click(function (e) {
+
+                        var me = $(this);
+
+
+                        e.stopPropagation();
+
+                        messageBox.confirm("你确定要删除吗？", function () {
+
+                            me.parent().remove();
+                        })
+
+                    });
+
+
+                    liEl.append(closeEl);
+
+                    $(v).append(liEl);
+                }
+            });
+           
+            panelEl.append(panelHeadEl);
+
+            panelEl.append(ulEl);
+
+            $("#divLeft").append(panelEl);
+
+        });
+    }
+
+    //显示编辑列属性界面
+    function showTableInfo() {
+
+        var url = "/App/InfoGrid2/View/ReportBuilder/EditTableCol.aspx?id=" + $.query.get("id");
+
+        var win = Mini2.createTop('Mini2.ui.Window', {
+            mode: true,
+            text: '列表框架',
+            width: 800,
+            height: 500,
+            state: 'max',
+            startPosition: 'center_screen',
+            url: url
+        });
+
+        win.show();
+
+    }
+
+    ///保存数据到数据库中
+    function btnSaveData() {
+
+
+        //所有编辑的交叉报表的数据
+        var json = {};
+
+
+        //数量，判断三个标签都要有值才能保存的
+        var num = 0 ;
+
+
+        //获取到三个标签的节点
+        $(".data-panel").each(function (i,v) {
+
+            var name = $(v).attr("data-field");
+
+            json[name] = [];
+            
+
+            if (v.children.length > 0) {
+
+                num++;
+            }
+
+
+            $(v).children("li").each(function (j,vv) {
+
+
+
+                var data = $(vv).data("EX");
+  
+                
+                json[name].push(data);
+
+            });
+
+        });
+
+
+        if (num < 3) {
+
+            messageBox.show("请确保每个标签都有数据！", 3, {"font-size":"25px"});
+
+            return;
+        }
+
+        
+        for (var name in m_editChart.data_json) {
+
+            if (name == "values" || name == "row_value" || name == "col_value") {
+
+                continue;
+            }
+
+            json[name] = m_editChart.data_json[name];
+
+        }
+        
+
+        json["table_name"] = table_name;
+
+        var jsonStr = JSON.stringify(json);
+        
+        console.log("保存发送的json");
+        console.log(json);
+
+        
+        ///把数据提交上去保存！
+        $.post("SaveData.aspx?id=" + $.query.get("id"), { name: jsonStr }, function (result, textStatus, jqXHR) {
+
+            var json = JSON.parse(result);
+
+
+            if (json.result != 'ok') {
+
+                messageBox.show("保存失败！！", 3, {"font-size":"25px","color":"red"});
+
+                return;
+            }
+
+            location.href ="/App/InfoGrid2/View/ReportBuilder/ReportPreviewV2.aspx?id=" + json.id;
+
+        });
+
+    }
+
+    //显示编辑图表界面
+    function showEditChart() {
+
+        m_editChart.window = m_chartHtmlEl.clone();
+
+        m_editChart.initData();
+
+    }
+
+
+
+</script>
+
+ 

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ActionTableConfig>
+	<Model>TABLE-A</Model>
+	<TableName>表名</TableName>
+	<Display>描述名称</Display>
+	
+	<FilterList>
+		<FilterItem Field="字段名" Logic="逻辑" Value="值" ExprTypes="And|Or" />
+		<FilterItem Field="" Logic="" Value="" ExprTypes="And|Or" />
+		<FilterItem Field="" Logic="" Value="" ExprTypes="And|Or" />
+	</FilterList>
+	
+	<DisplayFormat>显示格式,默认显示文本字段。特殊可以采用:{值字段}-{文本字段}</DisplayFormat>
+	<ValueField>值字段</ValueField>
+	<TextField>文本字段</TextField>
+	
+	
+	
+</ActionTableConfig>

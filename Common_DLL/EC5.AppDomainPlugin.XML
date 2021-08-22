@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.AppDomainPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.AppDomainPlugin.CSharpScript">
+            <summary>
+            C# 脚本编译器
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.#ctor">
+            <summary>
+            C# 脚本编译器
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.#ctor(System.String)">
+            <summary>
+            C# 脚本编译器
+            </summary>
+            <param name="code">脚本代码</param>
+        </member>
+        <member name="F:EC5.AppDomainPlugin.CSharpScript.m_UserParams">
+            <summary>
+            用户参数
+            </summary>
+        </member>
+        <member name="F:EC5.AppDomainPlugin.CSharpScript.m_GlobelStringParams">
+            <summary>
+            全局字符串参数
+            </summary>
+        </member>
+        <member name="F:EC5.AppDomainPlugin.CSharpScript.m_ImportList">
+            <summary>
+            引用的类库
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.CSharpScript.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.CSharpScript.UserParams">
+            <summary>
+            用户参数
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.Compiler">
+            <summary>
+            编译代码
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.ExecuteMethod(System.String,System.String,System.Object[])">
+            <summary>
+            执行函数
+            </summary>
+            <param name="typeName">类型名称</param>
+            <param name="methodName">函数名</param>
+            <param name="parameters">函数的参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.ExecuteMothod(System.String,System.String)">
+            <summary>
+            执行函数
+            </summary>
+            <param name="typeName"></param>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.CSharpScript.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.DymAssembly.Assembly">
+            <summary>
+            编译后的程序集
+            </summary>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.DynLModel">
+            <summary>
+            动态 LModel 实体
+            </summary>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.DynModel">
+            <summary>
+            动态实体.
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.DynModel.#ctor(System.Object)">
+            <summary>
+            (构造函数) 动态实体
+            </summary>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.DynModel.#ctor">
+            <summary>
+            (构造函数) 动态实体
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.DynModel.SrcModel">
+            <summary>
+            原实体对象
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.DynModel.Item(System.String)">
+            <summary>
+            索引器
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.DynSModel">
+            <summary>
+            动态 SModel
+            </summary>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.ScriptFactory">
+            <summary>
+            脚本工场
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.ScriptFactory.Create(System.String)">
+            <summary>
+            解析代码
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.ScriptParam">
+            <summary>
+            脚本参数
+            </summary>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.ScriptParamCollection">
+            <summary>
+            脚本参数集合
+            </summary>
+        </member>
+        <member name="T:EC5.AppDomainPlugin.ScriptInstance">
+            <summary>
+            脚本实例对象
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.ScriptInstance.SrcCode">
+            <summary>
+            源代码
+            </summary>
+        </member>
+        <member name="P:EC5.AppDomainPlugin.ScriptInstance.HashCode">
+            <summary>
+            源代码的 Hash 码
+            </summary>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.ScriptInstance.Exec">
+            <summary>
+            执行脚本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.ScriptInstance.Exec(HWQ.Entity.LightModels.SModel)">
+            <summary>
+            执行脚本
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.ScriptInstance.Exec(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            执行脚本
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.AppDomainPlugin.ScriptInstance.Exec(System.Collections.IList)">
+            <summary>
+            执行脚本
+            </summary>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

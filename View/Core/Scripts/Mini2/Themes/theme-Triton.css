@@ -1,0 +1,302 @@
+﻿@charset "utf-8";
+
+body{
+    background-color:#FFFFFF;
+}
+
+.mi-tab-default-active {
+    background-color: #FFFFFF;
+}
+
+.mi-tab-bar-strip-default {
+    border-style: solid;
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+a.mi-tab {
+    padding-top: 6px;
+    height: 27px;
+}
+
+
+a.mi-tab:hover {
+    text-decoration: none;
+}
+
+
+.mi-tab-default .mi-tab-inner {
+    color: #F0F0F0;
+}
+
+.mi-tab-default-active .mi-tab-inner {
+    color: #477aa6;
+}
+
+
+
+
+
+/* tab 的 Win8 样式， 改 ui=win8 */
+.mi-tab-bar-strip-win8 {
+    border-style: solid;
+    border-color: #157fcc;
+    background-color: #add2ed;
+}
+
+.mi-tab-win8 {
+    background-color: #ADD2ED;
+}
+
+a.mi-tab-win8 {
+    padding-top: 6px;
+    height: 26px;
+}
+
+.mi-tab-win8 .mi-tab-inner {
+    color: #477aa6;
+}
+
+
+
+.mi-tab-win8-active {
+    background-color: #157fcc;
+}
+
+    .mi-tab-win8-active .mi-tab-inner {
+        color: #FFFFFF;
+    }
+
+/* tab 的 Win10 样式， 改 ui=win8 */
+.mi-tab-bar-strip-win10 {
+
+    border-style: solid solid none solid;
+    border-color: #cccccc;
+    border-width:1px;
+    height:7px;
+    top: 25px;
+    background-color: #FFFFFF;
+}
+
+.mi-tab-win10 {
+    border-color: #cccccc;
+    border-style:solid solid none solid;
+    border-width:1px;
+    background-color: #f5f5f5;
+
+}
+
+a.mi-tab-win10 {
+    padding-top: 6px;
+    height: 25px;
+}
+
+.mi-tab-win10 .mi-tab-inner {
+    color: #666666;
+}
+
+
+
+.mi-tab-win10-active {
+    background-color: #FFFFFF;
+    border-color: #cccccc;
+    
+}
+
+a.mi-tab-win10-active {
+    height: 26px;
+}
+
+    .mi-tab-win10-active .mi-tab-inner {
+        color: #666666;
+    }
+
+.mi-tab-win10 .mi-tab-close-btn {
+    top: 4px;
+    right: 2px;
+}
+
+.mi-tab-win10 .mi-tab-close-btn {
+    background-position-y: -3px;
+    background-position-x: -3px;
+    background-image: url(Win10/images/tab/tab-clear-trigger.png);
+}
+
+.mi-tab-win10-closable{
+    padding-right: 26px;
+}
+
+.mi-tab-win10-closable .mi-tab-close-btn{
+    width:16px;
+    height:16px;
+}
+
+.mi-tab-win10-over .mi-tab-close-btn-over {
+    background-position-x: -25px;
+}
+
+.mi-grid-row-selected .mi-grid-td {
+    border-bottom-style: solid;
+    border-bottom-color: #f2e3b2;
+    border-right-color: #f2e3b2;
+}
+
+.mi-grid-row-selected .mi-grid-td {
+    background-color: #ffefbb;
+}
+
+.mi-grid-row-selected .mi-grid-cell-row-numberer{
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: #CC9C02 !important;
+        
+    padding-left: 0px;
+    color:#be6f00;
+}
+
+
+
+
+
+.mi-form-item-readonly table.mi-form-trigger-wrap
+{
+    margin-top:1px;
+}
+
+.mi-form-item-readonly input.mi-form-text,
+.mi-form-item-readonly table.mi-form-trigger-wrap{
+    border-style: none none solid none ;
+}
+
+.mi-form-item-readonly td.mi-trigger-cell{
+    display:none;
+}
+
+
+.has-switch span.switch-left {
+    color: #050505;
+    text-shadow:none;
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
+
+}
+
+.has-switch span.switch-left {
+
+}
+
+
+
+
+.mi-css-shadow-default{
+    box-shadow: rgb(0, 0, 0) 0px 0px 20px;
+}
+
+.mi-window-header-text-default{
+    color:#666666;
+    font-size:14px;
+}
+
+.mi-window-default {
+  border-color: #FFFFFF;
+}
+
+.mi-window-header-default {
+  border-color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.mi-window-header-default .mi-tool-img{
+    background-color: #FFFFFF;
+}
+
+.mi-window-header .mi-tool-close {
+    background-image: url('Win10/images/tools/window-close.png');
+}
+
+.mi-toolbar-footer {
+    background: #f0f0f0;
+}
+
+.mi-btn-default-small {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 3px 12px 3px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #428bca;
+    background-color: #357ebd;
+    background-image: none;
+        
+   
+}
+
+.mi-btn-default-small .mi-btn-inner {
+    color: #fff;
+    font-weight:normal;
+}
+
+
+
+.mi-btn-default-small:hover {
+    background-color: #3071a9;
+    border-color:#285e8e;
+}
+
+
+
+@keyframes mi-mask-show
+{
+    from {opacity: 0;}
+    to {opacity: .5;}
+}
+
+@-moz-keyframes mi-mask-show /* Firefox */
+{
+    from {opacity: 0;}
+    to {opacity: .5;}
+}
+
+@-webkit-keyframes mi-mask-show /* Safari and Chrome */
+{
+    from {opacity: 0;}
+    to {opacity: .5;}
+}
+
+@-o-keyframes mi-mask-hide /* Opera */
+{
+    from {opacity: 0.5;}
+    to {opacity: 0;}
+}
+
+@keyframes mi-mask-hide
+{
+    from {opacity: 0.5;}
+    to {opacity: 0;}
+}
+
+@-moz-keyframes mi-mask-hide /* Firefox */
+{
+    from {opacity: 0.5;}
+    to {opacity: 0;}
+}
+
+@-webkit-keyframes mi-mask-hide /* Safari and Chrome */
+{
+    from {opacity: 0.5;}
+    to {opacity: 0;}
+}
+
+@-o-keyframes mi-mask-show /* Opera */
+{
+    from {opacity: 0;}
+    to {opacity: .5;}
+}
+
+
+.mi-mask{
+    background-color:#000000;
+}
+

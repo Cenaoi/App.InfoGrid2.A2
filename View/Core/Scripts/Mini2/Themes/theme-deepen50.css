@@ -1,0 +1,36 @@
+﻿@charset "utf-8";
+/*颜色加深*/
+
+body {
+      background-color:#FFFFFF;
+}
+
+.mi-grid-cell {
+    border-color: #f0f0f0;
+}
+
+.mi-grid-row-alt .mi-grid-td {
+  background-color: #e5ebf1;
+}
+
+.mi-grid-row-over .mi-grid-td {
+	background-color:#b7d4f1;
+}
+
+.mi-grid-row-focused .mi-grid-td {
+	background-color:#8cc4eb;
+
+    border-color:#a7d7f9;
+}
+
+
+.mi-grid-row-selected .mi-grid-td {
+  background-color: #ffefbb;
+  border-color:#ffe07c;
+}
+
+.mi-grid-row-selected > .mi-grid-cell-row-numberer > .mi-grid-cell-inner-row-numberer
+{
+    color:#ae6f1e;
+}
+

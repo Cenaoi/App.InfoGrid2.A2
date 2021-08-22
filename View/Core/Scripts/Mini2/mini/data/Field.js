@@ -1,0 +1,1 @@
+Mini2.define("Mini2.data.Field",{isField:true,constructor:function(a){var b=this;if(Mini2.isString(a)){a={name:a}}Mini2.apply(b,a)},dateFormat:null,dateReadFormat:null,dateWriteFormat:null,useNull:false,defaultValue:"",mapping:null,sortType:null,sortDir:"ASC",allowBlank:true,persist:true},function(){this.constructor(arguments[0])});

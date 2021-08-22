@@ -1,0 +1,118 @@
+﻿
+/*CSS flickr style pagination*/
+/* 分页*/
+
+DIV.flickr {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center
+}
+DIV.flickr A {
+	BORDER-RIGHT: #dedfde 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #dedfde 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #dedfde 1px solid; COLOR: #0061de; MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #dedfde 1px solid; TEXT-DECORATION: none
+}
+DIV.flickr A:hover {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; BACKGROUND-IMAGE: none; BORDER-LEFT: #000 1px solid; COLOR: #fff; BORDER-BOTTOM: #000 1px solid; BACKGROUND-COLOR: #0061de
+}
+DIV.meneame A:active {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #000 1px solid; BACKGROUND-IMAGE: none; BORDER-LEFT: #000 1px solid; COLOR: #fff; BORDER-BOTTOM: #000 1px solid; BACKGROUND-COLOR: #0061de
+}
+DIV.flickr SPAN.current {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; COLOR: #ff0084; MARGIN-RIGHT: 3px; PADDING-TOP: 2px
+}
+DIV.flickr SPAN.disabled {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; COLOR: #adaaad; MARGIN-RIGHT: 3px; PADDING-TOP: 2px
+}
+
+/*End 分页*/
+ 
+label.error
+{
+    float: none;
+    color: red;
+    padding-left: .5em;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+/* 超链接的样式 */
+
+a:link
+{
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited
+{
+	color: #6600FF;
+	text-decoration: none;
+}
+a:visited:hover
+{
+	color: #9f301d;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #dd3409;
+	text-decoration: none;
+}
+a:active
+{
+	color: #ff3300;
+	text-decoration: none;
+}
+
+/*End 超链接的样式 */
+
+
+
+.Mini_DropDownText
+{
+    display:inline;
+    height:16px;
+}
+        
+.Mini_DropDownText .input
+{
+    width: 100px;
+}
+        
+.Mini_DropDownText .select
+{
+    border: 1px solid #666666;
+    font-size: 11px;
+    cursor: pointer;
+    width: 16px;
+    text-align: center;
+    background-color: #C1D3FB;
+    height: 16px;
+    overflow: hidden;
+}
+
+.Mini_DropDownText .select:hover
+{
+    border: 1px solid #CC3300;
+    background-color: #FF9900;
+    color: #FFFFFF;
+}
+
+.Mini_DropDownPanel
+{
+    border: 2px solid #FF9900;
+    display: none;
+    width: 140px;
+    height: 160px;
+    overflow: auto;
+    font-size: 12px;
+    background-color: White;
+}
+.Mini_DropDownPanel div
+{
+    padding: 3px;
+    color: Black;
+    height:20px;
+}
+
+.Mini_DropDownPanel div:hover
+{
+    color: #FFFFFF;
+    background-color: #316AC5;
+}

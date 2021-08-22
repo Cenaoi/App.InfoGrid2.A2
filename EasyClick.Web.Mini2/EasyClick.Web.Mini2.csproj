@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8850531C-ECFB-4798-97F4-A815E8308EFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyClick.Web.Mini2</RootNamespace>
+    <AssemblyName>EasyClick.Web.Mini2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.Web.Mini2.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.Web.Mini2.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyClick.Web.Mini">
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Utility, Version=0.1.5091.2842, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EC5.Utility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoundField.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="CheckedMode.cs" />
+    <Compile Include="ContextMenu.cs" />
+    <Compile Include="DataType.cs" />
+    <Compile Include="DataView.cs" />
+    <Compile Include="DataView._base.cs" />
+    <Compile Include="DataViewItem.cs" />
+    <Compile Include="DeviceTypes.cs" />
+    <Compile Include="DownloadWindow.cs" />
+    <Compile Include="EcView.cs" />
+    <Compile Include="FormLayoutHelper.cs" />
+    <Compile Include="FormLayoutItemEventArgs.cs" />
+    <Compile Include="FormLayoutMode.cs" />
+    <Compile Include="Form\ClipImage.cs" />
+    <Compile Include="Form\CodeEditor.cs" />
+    <Compile Include="Form\ComboBoxBase.cs" />
+    <Compile Include="Form\ComboGrid.cs" />
+    <Compile Include="Form\ComboTree.cs" />
+    <Compile Include="Form\FieldTemplate.cs" />
+    <Compile Include="Form\FileUpload.cs" />
+    <Compile Include="Form\Hidden.cs" />
+    <Compile Include="Form\HtmlEditor.cs" />
+    <Compile Include="Form\Image.cs" />
+    <Compile Include="Form\ListBox.cs" />
+    <Compile Include="Form\ListItemBase.cs" />
+    <Compile Include="Form\MoreFileUpload.cs" />
+    <Compile Include="Form\NumRangeBox.cs" />
+    <Compile Include="Form\ProgressBar.cs" />
+    <Compile Include="Form\TextBoxType.cs" />
+    <Compile Include="Form\TimePicker.cs" />
+    <Compile Include="Grid\Column\DateTimeColumn.cs" />
+    <Compile Include="Grid\Column\GroupColumn.cs" />
+    <Compile Include="Grid\Column\HtmlEditorColumn.cs" />
+    <Compile Include="Grid\Column\MapItem.cs" />
+    <Compile Include="Grid\Column\MoreFileColumn.cs" />
+    <Compile Include="Grid\Column\PasswordColumn.cs" />
+    <Compile Include="Grid\Column\SelectBaseColumn.cs" />
+    <Compile Include="Grid\Column\TemplateColumn.cs" />
+    <Compile Include="Grid\Column\TextAreaColumn.cs" />
+    <Compile Include="Grid\Column\TimeColumn.cs" />
+    <Compile Include="Grid\Column\TreeColumn.cs" />
+    <Compile Include="IDelayRender.cs" />
+    <Compile Include="IRangeControl.cs" />
+    <Compile Include="Literal.cs" />
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="MiniPager.cs" />
+    <Compile Include="NewLine.cs" />
+    <Compile Include="PagingInfo.cs" />
+    <Compile Include="ScriptTextWriter.cs" />
+    <Compile Include="SearchButtonGroup.cs" />
+    <Compile Include="SearchFormLayout.cs" />
+    <Compile Include="StoreTSqlQuerty.cs" />
+    <Compile Include="Store\ControlParam.cs" />
+    <Compile Include="Store\FormParam.cs" />
+    <Compile Include="Store\Param.cs" />
+    <Compile Include="Store\ParamCollection.cs" />
+    <Compile Include="Store\QueryStringParam.cs" />
+    <Compile Include="Store\ServerParam.cs" />
+    <Compile Include="Store\SessionParam.cs" />
+    <Compile Include="Store\StoreCurrentParam.cs" />
+    <Compile Include="Store\StoreParamDefautValueManager.cs" />
+    <Compile Include="Store\StoreParamMode.cs" />
+    <Compile Include="Store\TSqlWhereParam.cs" />
+    <Compile Include="StyleRules\StyleRuleCollection.cs" />
+    <Compile Include="StyleRules\StyleRuleItem.cs" />
+    <Compile Include="StyleRules\StyleRuleScript.cs" />
+    <Compile Include="SummaryField.cs" />
+    <Compile Include="Tab.cs" />
+    <Compile Include="TableCommandEventArgs.cs" />
+    <Compile Include="TableJsonMode.cs" />
+    <Compile Include="TabPanel.cs" />
+    <Compile Include="TextWindow.cs" />
+    <Compile Include="Toast.cs" />
+    <Compile Include="Toolbars\ToolBarTemplate.cs" />
+    <Compile Include="TreePanel.Propertys.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="Data\DataRecordAction.cs" />
+    <Compile Include="Data\DataBatch.cs" />
+    <Compile Include="Data\DataField.cs" />
+    <Compile Include="Data\DataFieldCollection.cs" />
+    <Compile Include="Data\DataRecord.cs" />
+    <Compile Include="Data\DataRecordCollection.cs" />
+    <Compile Include="Data\DataRequest.cs" />
+    <Compile Include="Data\DataRequestPage.cs" />
+    <Compile Include="FormLayout.cs" />
+    <Compile Include="Form\CheckBox.cs" />
+    <Compile Include="Form\CheckboxGroup.cs" />
+    <Compile Include="Form\ComboBox.cs" />
+    <Compile Include="Form\DatePicker.cs" />
+    <Compile Include="Form\DateRangePicker.cs" />
+    <Compile Include="Form\FieldBase.cs" />
+    <Compile Include="Form\Label.cs" />
+    <Compile Include="Form\Labelable.cs" />
+    <Compile Include="Form\RadioGroup.cs" />
+    <Compile Include="Form\TriggerBox.cs" />
+    <Compile Include="Grid\Column\ActionColumn.cs" />
+    <Compile Include="Grid\Column\ActionItem.cs" />
+    <Compile Include="Grid\Column\ActionItemCollection.cs" />
+    <Compile Include="Grid\Column\BoolColumn.cs" />
+    <Compile Include="Grid\Column\CheckColumn.cs" />
+    <Compile Include="Grid\Column\DateColumn.cs" />
+    <Compile Include="Grid\Column\NumColumn.cs" />
+    <Compile Include="Grid\Column\RowCheckColumn.cs" />
+    <Compile Include="Grid\Column\RowNumberer.cs" />
+    <Compile Include="Grid\Column\SelectColumn.cs" />
+    <Compile Include="Grid\Column\TriggerColumn.cs" />
+    <Compile Include="Form\NumberBox.cs" />
+    <Compile Include="IStoreEngine.cs" />
+    <Compile Include="JsMode.cs" />
+    <Compile Include="Form\ListItem.cs" />
+    <Compile Include="Form\ListItemCollection.cs" />
+    <Compile Include="LoadPageEventArgs.cs" />
+    <Compile Include="PageScriptManager.cs" />
+    <Compile Include="Pagination.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyGrid.cs" />
+    <Compile Include="ScriptManager.cs" />
+    <Compile Include="Store.cs" />
+    <Compile Include="Store.Event.cs" />
+    <Compile Include="Store.Params.cs" />
+    <Compile Include="Store._delegate.cs" />
+    <Compile Include="Store._EventArgs.cs" />
+    <Compile Include="StoreEngine.cs" />
+    <Compile Include="StoreEngineManager.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="TableColumnCollection.cs" />
+    <Compile Include="Form\Textarea.cs" />
+    <Compile Include="Form\TextBox.cs" />
+    <Compile Include="TableLayout.cs" />
+    <Compile Include="TextTransform.cs" />
+    <Compile Include="Toolbars\Toolbar.cs" />
+    <Compile Include="Toolbars\ToolBarButton.cs" />
+    <Compile Include="Toolbars\ToolBarGroup.cs" />
+    <Compile Include="Toolbars\ToolBarHr.cs" />
+    <Compile Include="Toolbars\ToolBarItem.cs" />
+    <Compile Include="Toolbars\ToolBarItemAlign.cs" />
+    <Compile Include="Toolbars\ToolBarItemCollection.cs" />
+    <Compile Include="Toolbars\ToolBarPanel.cs" />
+    <Compile Include="Toolbars\ToolBarSplitButton.cs" />
+    <Compile Include="Toolbars\ToolBarTitle.cs" />
+    <Compile Include="TreePanel.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="TreeNodeCollection.cs" />
+    <Compile Include="TreeNodeEventArgs.cs" />
+    <Compile Include="TreeNodeEventHandler.cs" />
+    <Compile Include="TreeNodeType.cs" />
+    <Compile Include="TreeStore.cs" />
+    <Compile Include="Typeahead.cs" />
+    <Compile Include="Viewport.cs" />
+    <Compile Include="Window.cs" />
+    <Compile Include="WindowFooter.cs" />
+    <Compile Include="_Callback.cs" />
+    <Compile Include="_Enum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

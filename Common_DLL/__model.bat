@@ -1,0 +1,1 @@
+xcopy ..\..\Common_DLL\HWQ.Entity4.* .\ /Y

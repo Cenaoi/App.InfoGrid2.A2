@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+
+/********* begin Window **********/
+
+
+@keyframes mi-mask-show
+{
+    from {opacity: 0;}
+    to {opacity: .7;}
+}
+
+@-moz-keyframes mi-mask-show /* Firefox */
+{
+    from {opacity: 0;}
+    to {opacity: .7;}
+}
+
+@-webkit-keyframes mi-mask-show /* Safari and Chrome */
+{
+    from {opacity: 0;}
+    to {opacity: .7;}
+}
+
+@-o-keyframes mi-mask-hide /* Opera */
+{
+    from {opacity: 0.7;}
+    to {opacity: 0;}
+}
+
+@keyframes mi-mask-hide
+{
+    from {opacity: 0.7;}
+    to {opacity: 0;}
+}
+
+@-moz-keyframes mi-mask-hide /* Firefox */
+{
+    from {opacity: 0.7;}
+    to {opacity: 0;}
+}
+
+@-webkit-keyframes mi-mask-hide /* Safari and Chrome */
+{
+    from {opacity: 0.7;}
+    to {opacity: 0;}
+}
+
+@-o-keyframes mi-mask-show /* Opera */
+{
+    from {opacity: 0;}
+    to {opacity: .7;}
+}
+
+
+.mi-mask{
+     animation:mi-mask-show 0.3s;
+    -moz-animation:mi-mask-show 0.3s; /* Firefox */
+    -webkit-animation:mi-mask-show 0.3s; /* Safari and Chrome */
+    -o-animation:mi-mask-show 0.3s; /* Opera */
+
+}
+
+.mi-mask-hide{
+    animation:mi-mask-hide 0.3s;
+    -moz-animation:mi-mask-hide 0.3s; /* Firefox */
+    -webkit-animation:mi-mask-hide 0.3s; /* Safari and Chrome */
+    -o-animation:mi-mask-hide 0.3s; /* Opera */
+}
+
+
+.mi-window-proxy
+{
+    border-color:#FFF;
+}
+
+.mi-window-header-default {
+    border-bottom:1px solid #e5e5e5 !important;
+}
+
+/*********** end window ***************/

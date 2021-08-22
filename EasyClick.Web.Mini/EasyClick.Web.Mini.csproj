@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CCB6643-B097-4105-B4A5-AA8FEAA6CDBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyClick.Web.Mini</RootNamespace>
+    <AssemblyName>EasyClick.Web.Mini</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.Web.Mini.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EasyClick.Web.Mini.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>hwqcz.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_4.0.Net|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Common_DLL_4.0\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>..\Common_DLL_4.0\EasyClick.Web.Mini.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCompleteBox.cs" />
+    <Compile Include="BoundFieldCollection.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="ButtonTypes.cs" />
+    <Compile Include="CheckBox.cs" />
+    <Compile Include="CheckBoxList.cs" />
+    <Compile Include="CKFinderFile.cs" />
+    <Compile Include="ClientIDMode.cs" />
+    <Compile Include="BoundField.cs" />
+    <Compile Include="ContextMenuStrip.cs" />
+    <Compile Include="DataFormatStrings.cs" />
+    <Compile Include="DataGridCell\EditorCheckBoxCell.cs" />
+    <Compile Include="DataGridCell\EditorCheckBoxList.cs" />
+    <Compile Include="DataGridCell\EditorCurrencyCell.cs" />
+    <Compile Include="DataGridCell\EditorDateCell.cs" />
+    <Compile Include="DataGridCell\EditorNumberCell.cs" />
+    <Compile Include="DataGridCell\EditorTextButtonCell.cs" />
+    <Compile Include="DataGridCell\EditorSelectCell.cs" />
+    <Compile Include="DataGridCell\EditorTextCell.cs" />
+    <Compile Include="DataGridCell\EditorSelect2Cell.cs" />
+    <Compile Include="DataGridFields\DynamicItem.cs" />
+    <Compile Include="DataGridFields\DynamicItemCollection.cs" />
+    <Compile Include="DataGridFields\SelectItemField.cs" />
+    <Compile Include="DataGridColumnCollection.cs" />
+    <Compile Include="DataGridFields\ButtonField.cs" />
+    <Compile Include="DataGridFields\CheckBoxField.cs" />
+    <Compile Include="DataGridFields\CurrencyField.cs" />
+    <Compile Include="DataGridFields\DropDownListField.cs" />
+    <Compile Include="DataGridFields\EmptyField.cs" />
+    <Compile Include="DataGridFields\HideField.cs" />
+    <Compile Include="DataGridFields\ImageField.cs" />
+    <Compile Include="DataGridFields\IMiniInputField.cs" />
+    <Compile Include="DataGridFields\InputFieldError.cs" />
+    <Compile Include="DataGridFields\NumberBoxField.cs" />
+    <Compile Include="DataGridFields\NumberField.cs" />
+    <Compile Include="DataGridFields\RadioListField.cs" />
+    <Compile Include="DataGridFields\RowHeadersField.cs" />
+    <Compile Include="DataGridFields\DynamicField.cs" />
+    <Compile Include="DataGridFields\TemplateField.cs" />
+    <Compile Include="DataGridFields\TextareaField.cs" />
+    <Compile Include="DataGridFields\TextBoxField.cs" />
+    <Compile Include="DataGridFields\TreeField.cs" />
+    <Compile Include="DataGridForm.cs" />
+    <Compile Include="DataGridRow.cs" />
+    <Compile Include="DataGridView.cs" />
+    <Compile Include="DataSeletedItem.cs" />
+    <Compile Include="DataSeletedStatus.cs" />
+    <Compile Include="DataStoreControl.cs" />
+    <Compile Include="DataStoreCell.cs" />
+    <Compile Include="DataStoreCellCollection.cs" />
+    <Compile Include="DataStoreRow.cs" />
+    <Compile Include="DataStoreStatus.cs" />
+    <Compile Include="DataView.cs" />
+    <Compile Include="DatePicker.cs" />
+    <Compile Include="DateRangePicker.cs" />
+    <Compile Include="DetailsView.cs" />
+    <Compile Include="DetailsView.Property.cs" />
+    <Compile Include="DownloadWindow.cs" />
+    <Compile Include="DropDownGrid.cs" />
+    <Compile Include="DropDownText.cs" />
+    <Compile Include="DropDownList.cs" />
+    <Compile Include="EcView.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="DataGrid.cs" />
+    <Compile Include="GridBase.cs" />
+    <Compile Include="GridEdit.cs" />
+    <Compile Include="GridPanel.cs" />
+    <Compile Include="GridRow.cs" />
+    <Compile Include="Head.cs" />
+    <Compile Include="HiddenField.cs" />
+    <Compile Include="DataGridFields\HyperLinkField.cs" />
+    <Compile Include="HtmlElement.cs" />
+    <Compile Include="HtmlTextarea.cs" />
+    <Compile Include="HyperLink.cs" />
+    <Compile Include="IClientIDMode.cs" />
+    <Compile Include="IFormatDispaly.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="IMiniControl.cs" />
+    <Compile Include="IMiniJsonFactory.cs" />
+    <Compile Include="IMiniPanel.cs" />
+    <Compile Include="Label.cs" />
+    <Compile Include="ListBox.cs" />
+    <Compile Include="ListItem.cs" />
+    <Compile Include="Literal.cs" />
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="MiniConfiguration.cs" />
+    <Compile Include="MiniDataControlCellType.cs" />
+    <Compile Include="MiniDataControlField.cs" />
+    <Compile Include="MiniDataControlRowState.cs" />
+    <Compile Include="MiniHelper.cs" />
+    <Compile Include="MiniHtmlAttr.cs" />
+    <Compile Include="MiniHtmlAttrCollection.cs" />
+    <Compile Include="MiniHtmlBase.cs" />
+    <Compile Include="MiniHtmlListBase.cs" />
+    <Compile Include="ListItemCollection.cs" />
+    <Compile Include="MiniJsonFactory.cs" />
+    <Compile Include="MiniScript.cs" />
+    <Compile Include="MiniScriptManager.cs" />
+    <Compile Include="MiniWidget.cs" />
+    <Compile Include="MiniWindow.cs" />
+    <Compile Include="NumberBox.cs" />
+    <Compile Include="NumberRangeBox.cs" />
+    <Compile Include="Pagination.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="Password.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RadioButton.cs" />
+    <Compile Include="RadioButtonList.cs" />
+    <Compile Include="RapidViewForm.cs" />
+    <Compile Include="RapidViewForm.Property.cs" />
+    <Compile Include="RegHelp.cs" />
+    <Compile Include="RepeatDirection.cs" />
+    <Compile Include="RepeatLayout.cs" />
+    <Compile Include="Script.cs" />
+    <Compile Include="SearchTableLayout.cs" />
+    <Compile Include="StoreAbstract.cs" />
+    <Compile Include="Style.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SWFUpload.cs" />
+    <Compile Include="LabelSwitch.cs" />
+    <Compile Include="TabControl.cs" />
+    <Compile Include="TableItemStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TableLayoutPanel.cs" />
+    <Compile Include="TableLayoutPanel.Property.cs" />
+    <Compile Include="TableTemplate.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="TemplateItemCollection.cs" />
+    <Compile Include="TemplateItemData.cs" />
+    <Compile Include="TemplateItemState.cs" />
+    <Compile Include="TextAlign.cs" />
+    <Compile Include="Textarea.cs" />
+    <Compile Include="TextBox.cs" />
+    <Compile Include="Toolbar.cs" />
+    <Compile Include="ToolBarButton.cs" />
+    <Compile Include="ToolBarGroup.cs" />
+    <Compile Include="ToolBarHr.cs" />
+    <Compile Include="ToolBarItem.cs" />
+    <Compile Include="ToolBarItemAlign.cs" />
+    <Compile Include="ToolBarItemCollection.cs" />
+    <Compile Include="ToolBarPanel.cs" />
+    <Compile Include="ToolBarSplitButton.cs" />
+    <Compile Include="ToolBarTitle.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="TreeNodeCollection.cs" />
+    <Compile Include="TreeNodeEventArgs.cs" />
+    <Compile Include="TreeNodeEventHandler.cs" />
+    <Compile Include="TreeNodeType.cs" />
+    <Compile Include="TreeView.cs" />
+    <Compile Include="TreeView.Property.cs" />
+    <Compile Include="UEditor.cs" />
+    <Compile Include="Utility\JsonUtility.cs" />
+    <Compile Include="Utility\RandomUtility.cs" />
+    <Compile Include="Utility\StringUtility.cs" />
+    <Compile Include="Utility\WebUtility.cs" />
+    <Compile Include="Utility\WebUtil.Form.cs" />
+    <Compile Include="Utility\WebUtil.Query.cs" />
+    <Compile Include="WidgetAction.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Window.cs" />
+    <Compile Include="_Enum.cs" />
+    <Compile Include="_interface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hwqcz.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="JS源码\1.0.2\MiniHtml.min.js" />
+    <Content Include="JS源码\AutoCompleteBox.js" />
+    <Content Include="JS源码\DataGrid.js" />
+    <Content Include="JS源码\DataGridView.js" />
+    <Content Include="JS源码\DateHelper.js" />
+    <Content Include="JS源码\DropDownGrid.js" />
+    <Content Include="JS源码\DropDownText.js" />
+    <Content Include="JS源码\EcForm.js" />
+    <Content Include="JS源码\EcView.js" />
+    <Content Include="JS源码\EditorCheckBoxCell.js" />
+    <Content Include="JS源码\EditorDateCell.js" />
+    <Content Include="JS源码\EditorHtmlCell.js" />
+    <Content Include="JS源码\EditorSelect2Cell.js" />
+    <Content Include="JS源码\EditorSelectCell.js" />
+    <Content Include="JS源码\EditorTextButtonCell.js" />
+    <Content Include="JS源码\EditorTextCell.js" />
+    <Content Include="JS源码\Fileupdate.js" />
+    <Content Include="JS源码\format.js" />
+    <Content Include="JS源码\Pagination.js" />
+    <Content Include="JS源码\SelectItemField.js" />
+    <Content Include="JS源码\SWFUpload.js" />
+    <Content Include="JS源码\TableTemplate.js" />
+    <Content Include="JS源码\Template.js" />
+    <Content Include="JS源码\Tooltip.js" />
+    <Content Include="JS源码\TreeView.js" />
+    <Content Include="JS源码\unite.txt" />
+    <Content Include="JS源码\Widget.js" />
+    <Content Include="JS源码\Window.js" />
+    <Content Include="JS源码\_CodeHelp.js" />
+    <Content Include="JS源码\_Default.js" />
+    <Content Include="文档\修改日志01.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

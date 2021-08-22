@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>比lightbox更简洁易用的插件--jquery.fs.boxer</title>
+<link href="css/jquery.fs.boxer.css" rel="stylesheet" type="text/css" />
+<!--[if LTE IE 8]>
+    <link href="http://formstone.it/css/demo.ie.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
+<script src="js/demo.js"></script>
+<script src="js/jquery.fs.boxer.js"></script>
+<script>
+$(document).ready(function() {
+  $(".boxer").not(".retina, .boxer_fixed").boxer();
+});
+</script>
+</head>
+
+<body>
+
+<center>
+<a href="images/big/nasa-bw-1.jpg" class="boxer boxer_image" rel="gallery" title="001"><img src="images/small/nasa-bw-1.jpg" style="height: 100px;" /></a> 
+<a href="images/big/nasa-bw-2.jpg" class="boxer boxer_image" rel="gallery" title="002"><img src="images/small/nasa-bw-2.jpg" style="height: 100px;" /></a> 
+<a href="images/big/nasa-bw-3.jpg" class="boxer boxer_image" rel="gallery" title="003"><img src="images/small/nasa-bw-3.jpg" style="height: 100px;" /></a>
+</center>
+
+</body>
+</html>

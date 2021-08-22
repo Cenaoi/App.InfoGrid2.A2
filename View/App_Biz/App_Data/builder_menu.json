@@ -1,0 +1,211 @@
+﻿{
+  "text": "设计师桌面",
+  "url": "",
+  "items": [
+    {
+      "text": "创建",
+      "items": [
+        {
+          "text": "工作表",
+          "url": "/app/InfoGrid2/View/OneTable/StepNew1.aspx"
+        },
+        {
+          "text": "视图表",
+          "url": "/app/InfoGrid2/view/OneView/StepNew2.aspx"
+        },
+        {
+          "text": "复杂工作表",
+          "url": "/app/InfoGrid2/View/OnePage/StepNew1.aspx"
+        },
+        {
+          "text": "关联视图表",
+          "url": "/app/InfoGrid2/View/MoreView/MViewStepNew1.aspx"
+        }
+      ]
+    },
+    {
+      "text": "后台管理",
+      "url": "/app/InfoGrid2/View/Manager/TreePageManager.aspx"
+    },
+    {
+      "text": "联动设置",
+      "url": "/app/InfoGrid2/View/OneAction/ActList.aspx"
+    },
+    {
+      "text": "关联表",
+      "url": "/app/InfoGrid2/View/MoreView/MViewList.aspx"
+    },
+    {
+      "text": "映射规则",
+      "url": "/app/InfoGrid2/View/OneMap/OneMapList.aspx"
+    },
+    {
+      "text": "简单业务流程",
+      "url": "/app/InfoGrid2/View/OneValue/ValueTableMgr.aspx"
+    },
+    {
+      "text": "导入",
+      "items": [
+        {
+          "text": "规则列表",
+          "url": "/app/InfoGrid2/View/InputExcel/OneStepEdit1.aspx"
+        },
+        {
+          "text": "单表导入",
+          "url": "/app/InfoGrid2/View/InputExcel/StepNew1.aspx"
+        },
+        {
+          "text": "多表导入",
+          "url": "/app/InfoGrid2/view/InputExcel/StepManyNew1.aspx"
+        }
+
+      ]
+    },
+    {
+      "text": "测试",
+      "items": [
+        {
+          "text": "公司",
+          "url": "/app/InfoGrid2/View/Biz/Core_Company/EditCompanyInfo.aspx"
+        },
+        {
+          "text": "菜单设置",
+          "url": "/app/InfoGrid2/View/Biz/Core_Menu/EditMenuTree.aspx"
+        },
+        {
+          "text": "导入插件设置",
+          "url": "/app/InfoGrid2/View/Biz/Input_Data/Test.aspx"
+        },
+        {
+          "text": "管理下级权限模块",
+          "url": "/App/InfoGrid2/Sec/ArrLogin/ArrLoginList.aspx"
+        },
+        {
+          "text": "显示规则",
+          "url": "/App/InfoGrid2/View/DisplayRule/RuleEdit.aspx"
+        },
+        {
+          "text": "拷贝数据",
+          "url": "/App/InfoGrid2/View/Biz/Input_Data/Table1CopyToTable2.aspx"
+        },
+        {
+          "text": "编码规则管理",
+          "url": "App/InfoGrid2/View/Biz/Core_Code/CodeMgr.aspx"
+        }
+      ]
+    },
+    {
+      "text": "流程",
+        "items": [
+            {
+                "text": "流程定义列表",
+                "url": "/app/InfoGrid2/View/OneFlowBuilder/FlowDefineList.aspx"
+            },
+            {
+                "text": "未审核的流程实例",
+                "url": "/App/InfoGrid2/View/OneFlowBuilder/FlowDocListForNotcheck.aspx"
+            },
+            {
+                "text": "全部流程实例",
+                "url": "/App/InfoGrid2/View/OneFlowBuilder/FlowDocList.aspx"
+            },
+            {
+                "text": "当前用户流程实例",
+                "url": "/App/InfoGrid2/View/OneFlowBuilder/FlowDocListForUser.aspx"
+            },
+            {
+                "text": "当前用户未审批",
+                "url": "/app/InfoGrid2/View/OneFlow/UserFlowList.aspx?state=no_check"
+            },
+            {
+                "text": "当前用户已审批",
+                "url": "/app/InfoGrid2/View/OneFlow/UserFlowList.aspx?state=check"
+
+            },
+            {
+                "text": "当前用户发起的流程",
+                "url": "/app/InfoGrid2/View/OneFlow/UserStartFlowList.aspx"
+
+            },
+            {
+                "text": "修补流程",
+                "url": "/app/InfoGrid2/View/OneFlowBuilder/FlowHotfix.aspx"
+            }
+        ]
+    },
+    {
+      "text": "权限设置",
+        "items": [
+            {
+                "text": "(设计师用)角色权限定义",
+                "url": "/app/InfoGrid2/Sec/UIFilterDesigner/MainTableList.aspx"
+            },
+            {
+                "text": "(管理员用)角色权限定义",
+                "url": "/app/InfoGrid2/Sec/UIFilter/MainUserList.aspx"
+            },
+            {
+                "text": "(设计师用)用户权限定义",
+                "url": "/app/InfoGrid2/Sec/UIFilterTU/MainTableList.aspx"
+            },
+            {
+                "text": "(管理员用)用户权限定义",
+                "url": "/app/InfoGrid2/Sec/UIFilter2/MainTableList.aspx"
+            },
+            {
+                "text": "系统结构管理",
+                "url": "/App/InfoGrid2/Sec/StructDefine/TreeStruceEdit.aspx"
+            },
+            {
+                "text": "用户菜单定义",
+                "url": "/App/InfoGrid2/Sec/M2User/UserSecSetup1.aspx"
+            },
+            {
+                "text": "修改密码",
+                "url": "/App/InfoGrid2/Sec/User/LoginPassEditM2.aspx"
+            },
+            {
+                "text": "用户管理",
+                "url": "/App/InfoGrid2/Sec/User/UserListM2.aspx"
+            }
+        ]
+    },
+    {
+      "text": "打印管理",
+      "items": [
+        {
+          "text": "打印助手管理",
+          "url": "/app/InfoGrid2/View/PrintManager/EditPrintInfo.aspx"
+        },
+        {
+          "text": "打印机管理",
+          "url": "/app/InfoGrid2/View/PrintManager/SelectPrintInfo.aspx"
+        }
+      ]
+    },
+    {
+      "text": "调试信息",
+      "url": "/App/InfoGrid2/View/LogAct/LogActList.aspx"
+    },
+    {
+      "text": "目录",
+      "url": "/App/InfoGrid2/View/Biz/Core_Catalog/CataTree.aspx"
+    },
+    {
+      "text": "目录类型",
+      "url": "/App/InfoGrid2/View/Biz/Core_Catalog/CataTypeList.aspx"
+    },
+    {
+      "text": "数据清理",
+      "url": "/App/InfoGrid2/View/DbSetup/ClearRubbish.aspx"
+    },
+    {
+      "text": "CMS",
+      "url": "/App/InfoGrid2/View/CMS/CMSItemList.aspx"
+    },
+    {
+      "text": "联动 v3",
+      "url": "/App/InfoGrid2/View/MoreActionBuilder/DwgList.aspx"
+    }
+  ]
+}

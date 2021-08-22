@@ -1,0 +1,46 @@
+﻿[
+    {
+        "field": "BIZ_SID",
+        "field_text": "业务状态",
+
+
+        "from_value": 0,
+        "to_value": 2
+    },
+    {
+        "role": "or",
+        "items": [
+            {
+                "role": "and",
+                "items": [
+                    {
+                        "field": "订单类型",
+                        "value": "销售订单"
+                    },
+                    {
+                        "field": "销售状态",
+                        //"from_value": null,
+                        "to_value": 2
+                    }
+                ]
+
+            },
+            {
+                "role": "and",
+                "items": [
+                    {
+                        "field": "订单类型",
+                        "value": "出库单"
+                    },
+                    {
+                        "field": "出库状态",
+                        "value": 2
+                    }
+                ]
+
+            }
+
+        ]
+    }
+
+]

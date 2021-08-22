@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.SystemBoard.Configuration</name>
+    </assembly>
+    <members>
+        <member name="F:EC5.SystemBoard.Configuration.AppConfig.m_GlobalAppPath">
+            <summary>
+            应用程序,全局自定义对象路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.GlobalAppPath">
+            <summary>
+            应用程序,全局自定义对象路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Configuration.AppConfig.m_DbConfig">
+            <summary>
+            数据库配置
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Configuration.AppConfig.m_ModuleConfigs">
+            <summary>
+            模块集合
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.AffairConfig">
+            <summary>
+            事务配置
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.DbConfig">
+            <summary>
+            数据库配置
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.AppConfig.ModuleConfigs">
+            <summary>
+            模块集合
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.DatabaseConfig">
+            <summary>
+            数据库配置
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.AffairConfig">
+            <summary>
+            事务配置
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.MenuConfig">
+            <summary>
+            菜单配置
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuConfig.RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+            <example>ec5:</example>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuConfig.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+            <example>C:\dir1\dir2.abc</example>
+        </member>
+        <member name="F:EC5.SystemBoard.Configuration.MenuConfig.m_Src">
+            <summary>
+            菜单配置文件路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuConfig.Src">
+            <summary>
+            菜单配置文件路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuConfig.Menus">
+            <summary>
+            菜单条目
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.MenuItem">
+            <summary>
+            菜单条目
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuItem.Code">
+            <summary>
+            菜单代码
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuItem.Text">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.MenuItem.Uri">
+            <summary>
+            菜单地址
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.ModuleConfig">
+            <summary>
+            模块配置文件
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.RootNamespace">
+            <summary>
+            根命名空间
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.Code">
+            <summary>
+            模块代码
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.Text">
+            <summary>
+            模块描述
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+            <example>ec5:</example>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+            <example>C:\dir1\dir2.abc</example>
+        </member>
+        <member name="F:EC5.SystemBoard.Configuration.ModuleConfig.m_MenuConfig">
+            <summary>
+            菜单配置
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.ModuleConfig.MenuConfig">
+            <summary>
+            菜单配置
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.ModuleConfigurationManager">
+            <summary>
+            模块配置文件
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Configuration.ModuleConfigurationManager.OpenAppConfig(System.String)">
+            <summary>
+            打开 App 配置文件
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Configuration.ModuleConfigurationManager.OpenModuleConfig(System.String)">
+            <summary>
+            打开模块配置文件
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Configuration.ModuleConfigurationManager.OpenModuleConfig(System.Xml.XmlDocument)">
+            <summary>
+            打开模块配置文件
+            </summary>
+            <param name="doc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.Settings">
+            <summary>
+            参数设置
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Configuration.UsesSdk">
+            <summary>
+            用户 SDK 
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Configuration.UsesSdk.MinSdkVersion">
+            <summary>
+            最低要去 SDK 版本号
+            </summary>
+        </member>
+    </members>
+</doc>

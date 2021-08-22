@@ -1,0 +1,43 @@
+﻿
+
+
+<script src="/Core/Scripts/Zepto/zepto.1.2.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Zepto/detect.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Zepto/data.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Zepto/fx.js" type="text/javascript" ></script>
+
+
+
+
+
+<script src="/Core/Scripts/m5/Mobile/dev/core.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/log.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/Date.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/Array.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/Guid.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/String.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/Uri.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/lang/Timer.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/collection/ArrayList.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/m5/Mobile/dev/Ajax.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/m5/Mobile/dev/ui/zepto.extend.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/m5/Mobile/dev/SLog.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/m5/Mobile/dev/ui/PageRoute.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Scroller.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/InfiniteScroll.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Component.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Page.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Picker.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Preloader.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Window.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Toast.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Popup.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Tabs.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/m5/Mobile/dev/ui/Swiper.js" type="text/javascript" ></script>

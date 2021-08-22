@@ -1,0 +1,4268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyClick.Web.Mini</name>
+    </assembly>
+    <members>
+        <member name="T:EasyClick.Web.Mini.AutoCompleteBox">
+            <summary>
+            自动填充框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.AutoCompleteBox.VisibleButton">
+            <summary>
+            显示按钮
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.AutoCompleteBox.m_DataRemotePath">
+            <summary>
+            远程地址
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.AutoCompleteBox.DataRemotePath">
+            <summary>
+            远程数据地址
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Button">
+            <summary>
+            按钮
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Button.#ctor">
+            <summary>
+            按钮
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Button.Valid">
+            <summary>
+            获取或设置提交时候，是否需要验证,默认 true
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Button.ButtonType">
+            <summary>
+            按钮类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Button.CommandParam">
+            <summary>
+            配合 Command 属性，服务器端事件参数
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Button.Command">
+            <summary>
+            服务器端事件名称
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ButtonTypes">
+            <summary>
+            按钮类型
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CheckBox">
+            <summary>
+            复选框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CheckBox.#ctor">
+            <summary>
+            复选框的构造方法
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.CheckBox.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.CheckBox.Checked">
+            <summary>
+            (JScript) 被选中
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CheckBoxList">
+            <summary>
+            复选框列表
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CheckBoxList.#ctor">
+            <summary>
+            复选框列表
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.CheckBoxList.TextAlign">
+            <summary>
+            文字
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CheckBoxList.TableVertical(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            表格形式，按竖顺序显示
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CheckBoxList.TableHorizontal(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            表格形式，从左到右，从上到下
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CheckBoxList.LoadPostData">
+            <summary>
+            加载 Post 上传的数据
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.CKFinderFile.UpdateDir">
+            <summary>
+            上传的目录路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.CKFinderFile.ShowPreview">
+            <summary>
+            显示预览
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ClientIDMode.AutoID">
+            <summary>
+            ClientID 值是通过串联每个父命名容器的 ID 值生成的，这些父命名容器都具有控件的 ID 值。 
+            在呈现控件的多个实例的数据绑定方案中，将在控件的 ID 值的前面插入递增的值。 
+            各部分之间以下划线字符 (_) 分隔。 
+            在 ASP.NET 4 之前的 ASP.NET 版本中使用此算法。 
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ClientIDMode.Static">
+            <summary>
+            ClientID 值设置为 ID 属性的值。 如果控件是命名容器，则该控件将用作其所包含的任何控件的命名容器的顶层。 
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ClientIDMode.Predictable">
+            <summary>
+            对于数据绑定控件中的控件使用此算法。 
+            ClientID 值是通过串联每个父命名容器的 ClientID 值生成的，这些父命名容器都具有控件的ID 值。 
+            如果控件是生成多个行的数据绑定控件，则在末尾添加 ClientIDRowSuffix 属性中指定的数据字段的值。 
+            对于 GridView 控件，可以指定多个数据字段。 
+            如果 ClientIDRowSuffix 属性为空白，则在末尾添加顺序号，而非数据字段值。 
+            此号码由零开始，并且为每个行递增 1。 
+            各部分之间以下划线字符 (_) 分隔。 
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ClientIDMode.Inherit">
+            <summary>
+            控件继承其父控件的 ClientIDMode 设置。 
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.BoundField">
+            <summary>
+            表格列
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_AllowInput">
+            <summary>
+            允许输入
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_HeaderTooltip">
+            <summary>
+            标题的提示信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_Tooltip">
+            <summary>
+            单元格的提示信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_NotDisplayValue">
+            <summary>
+            不显示的值，空格显示为空状态
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_SortMode">
+            <summary>
+            排序模式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_SortExpression">
+            <summary>
+            排序字段表达式。
+            </summary>
+            <example>Field1 asc,Field2 desc</example>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_SortAscExpression">
+            <summary>
+            升序字段表达式。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.BoundField.m_SortDescExpression">
+            <summary>
+            降序字段表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.SortMode">
+            <summary>
+            排序模式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.SortExpression">
+            <summary>
+            排序字段表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.SortAscExpression">
+            <summary>
+            升序字段表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.SortDescExpression">
+            <summary>
+            降序字段表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.HeaderVisible">
+            <summary>
+            标题可见
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.ColSpan">
+            <summary>
+            合并行
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.Index">
+            <summary>
+            字段索引
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.NotDisplayValue">
+            <summary>
+            不显示的值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.HeaderTooltip">
+            <summary>
+            标题提示
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.Tooltip">
+            <summary>
+            单元格的提示
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.ToExcel">
+            <summary>
+            导出到 Excel。默认:true
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.BoundField.AllowInput">
+            <summary>
+            允许输入
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.ItemAlign">
+            <summary>
+            单元格
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.BoundField.ReadOnly">
+            <summary>
+            只读状态
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.BoundField.CreateHtmlTemplate(EasyClick.Web.Mini.MiniDataControlCellType,EasyClick.Web.Mini.MiniDataControlRowState)">
+            <summary>
+            创建 Html 模板
+            </summary>
+            <param name="cellType"></param>
+            <param name="rowState"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.BoundField.GetDataBindExp(System.String)">
+            <summary>
+            获取数据绑定的格式
+            </summary>
+            <param name="dataField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.BoundField.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ContextMenuStrip">
+            <summary>
+            内容菜单栏
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ContextMenuStrip.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MenuItem">
+            <summary>
+            菜单条目
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EditorCheckBoxList">
+            <summary>
+            复选框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorCheckBoxList.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EditorCurrencyCell">
+            <summary>
+            可编辑的货币编辑框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EditorCurrencyCell.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EditorNumberCell">
+            <summary>
+            可编辑的数值文本框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EditorNumberCell.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorNumberCell.ImeMode">
+            <summary>
+            输入法模式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorNumberCell.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorTextButtonCell.OnButtonClick">
+            <summary>
+            按钮事件
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EditorSelectCell">
+            <summary>
+            下拉框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorSelectCell.OnSelectedChanged">
+            <summary>
+            按钮事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorSelectCell.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.EditorTextCell.m_DefaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorTextCell.ImeMode">
+            <summary>
+            输入法模式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorTextCell.DefaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorTextCell.Required">
+            <summary>
+            必填
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EditorTextCell.RenderClientScript(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出客户端脚本
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EditorTextCell.CreateHtmlTemplate(EasyClick.Web.Mini.MiniDataControlCellType,EasyClick.Web.Mini.MiniDataControlRowState)">
+            <summary>
+            创建 Html 模板
+            </summary>
+            <param name="cellType"></param>
+            <param name="rowState"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EditorSelect2Cell">
+            <summary>
+            下拉选择编辑框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorSelect2Cell.OnSelectedChanged">
+            <summary>
+            按钮事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.EditorSelect2Cell.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DynamicItem">
+            <summary>
+            普通文本项目
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ImageDItem">
+            <summary>
+            图片项目
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ImageButtonDItem">
+            <summary>
+            图片按钮项目
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.HyperLinkDItem">
+            <summary>
+            超链接
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ButtonDItem">
+            <summary>
+            按钮项目
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.SelectItemField">
+            <summary>
+            选择记录
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.SelectItemField.#ctor">
+            <summary>
+            选择记录
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridColumnAddedDelegate">
+            <summary>
+            添加列的事件
+            </summary>
+            <param name="sender"></param>
+            <param name="field"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridColumnCollection">
+            <summary>
+            表格列集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.FindByDataField(System.String)">
+            <summary>
+            按列的 DataField 属性获取字段
+            </summary>
+            <param name="dataField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.GetInputItemByID(System.String)">
+            <summary>
+            按列的 ID 属性获取字段
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.GetInputItemByName(System.String)">
+            <summary>
+            按可输入框的 Name 属性获取列
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.Add(EasyClick.Web.Mini.BoundField)">
+            <summary>
+            添加列对象
+            </summary>
+            <param name="item">列对象</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.Insert(System.Int32,EasyClick.Web.Mini.BoundField)">
+            <summary>
+            插入列对象
+            </summary>
+            <param name="index">位置索引</param>
+            <param name="item">列对象</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridColumnCollection.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{EasyClick.Web.Mini.BoundField})">
+            <summary>
+            插入列对象集合
+            </summary>
+            <param name="index">位置索引</param>
+            <param name="collection">列对象集合</param>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ButtonField.m_CansesValidation">
+            <summary>
+            取消验证
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CheckBoxField">
+            <summary>
+            复选框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CurrencyField">
+            <summary>
+            货币字段
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.CurrencyField.#ctor">
+            <summary>
+            货币字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DropDownListField">
+            <summary>
+            下拉框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DropDownListField.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.HideField">
+            <summary>
+            隐藏列
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ImageField">
+            <summary>
+            图像列表
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ImageField.ImageUrl">
+            <summary>
+            图像 Url
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.InputFieldError">
+            <summary>
+            输入字段错误信息
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.InputFieldError.CellID">
+            <summary>
+            Web 控件ID
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.NumberField.#ctor">
+            <summary>
+            货币字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.RadioListField">
+            <summary>
+            单选项
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.RadioListField.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DynamicField">
+            <summary>
+            动态状态字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DynamicField.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TemplateField">
+            <summary>
+            模板字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateField.ItemTemplate">
+            <summary>
+            数据记录模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateField.InsertItemTemplate">
+            <summary>
+            插入记录模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateField.EditItemTemplate">
+            <summary>
+            编辑记录模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateField.HeaderTemplate">
+            <summary>
+            标题模板
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeField.m_DepthField">
+            <summary>
+            深度字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeField.DepthField">
+            <summary>
+            深度字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridForm">
+            <summary>
+            Form 表格
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridForm.m_DataKeys">
+            <summary>
+            数据主键
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridForm.m_LockedKey">
+            <summary>
+            锁行标记字段名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridForm.LockedKey">
+            <summary>
+            锁行标记字段名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridForm.DataKeys">
+            <summary>
+            数据主键。字段1,字段2,...
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridRow.GetValue``1(System.String)">
+            <summary>
+            获取单元格 CELL 值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridView">
+            <summary>
+            可编辑表格
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridView.m_DataKeys">
+            <summary>
+            数据主键
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridView.m_LockedKey">
+            <summary>
+            锁行标记字段名
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridView.m_FixedFields">
+            <summary>
+            固定字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.OnFocused">
+            <summary>
+            焦点触发的事件名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.FixedFields">
+            <summary>
+            固定字段，用于必须返回的值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.ReadOnly">
+            <summary>
+            只读.
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.LockedKey">
+            <summary>
+            锁行标记字段名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.DataKeys">
+            <summary>
+            数据主键。字段1,字段2,...
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridView.m_DataStoreStatusHid">
+            <summary>
+            数据仓库变化状态
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.SelectedStatus">
+            <summary>
+            数据记录的选择状态
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.DataStoreStatus">
+            <summary>
+            数据仓库变化状态
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGridView.FocusedItem">
+            <summary>
+            获取焦点的行
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.SetItemFocus(System.Int32)">
+            <summary>
+            设置焦点行
+            </summary>
+            <param name="itemIndex">行索引</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.ClearDataStoreStatus">
+            <summary>
+            清理数据仓库的数据(支持 JS)
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.ClearSelectedStatus">
+            <summary>
+            清理被选中的记录
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.FillDataStore">
+            <summary>
+            填充数据仓库
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.Reset">
+            <summary>
+            重新设置
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.NewRow">
+            <summary>
+            新建行
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.ClearModifiedTagAll">
+            <summary>
+            清楚全部修改标记
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.SetCellValueForGuid(System.String,System.String,System.String)">
+            <summary>
+            设置单元格值（支持 JS）
+            </summary>
+            <param name="pkValue">主键值</param>
+            <param name="dbField">字段名称</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.SetFixedValueForGuid(System.String,System.String,System.String)">
+            <summary>
+            设置单元格值（支持 JS）
+            </summary>
+            <param name="pkValue">主键值</param>
+            <param name="dbField">字段名称</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.RenderClientScript(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出客户端脚本
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGridView.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出控件 Html 代码
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataSeletedItem.Index">
+            <summary>
+            记录索引值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataSeletedItem.Pk">
+            <summary>
+            主键值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataSeletedStatus.ItemParse(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            解释行数据
+            </summary>
+            <param name="rowData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataListEventArgs">
+            <summary>
+            实体列表的事件参数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataListEventArgs.#ctor(System.Collections.IList)">
+            <summary>
+            实体列表的事件参数
+            </summary>
+            <param name="dataList"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataListEventArgs.DataList">
+            <summary>
+            数据集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataListCancelEventArgs">
+            <summary>
+            实体列表的事件参数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataListCancelEventArgs.#ctor(System.Collections.IList)">
+            <summary>
+            实体列表的事件参数
+            </summary>
+            <param name="dataList"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataListCancelEventArgs.DataList">
+            <summary>
+            数据集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataEventArgs">
+            <summary>
+            实体的事件参数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataEventArgs.#ctor(System.Object)">
+            <summary>
+            实体的事件参数
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataCancelEventArgs">
+            <summary>
+            实体的事件参数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataCancelEventArgs.#ctor(System.Object)">
+            <summary>
+            实体的事件参数
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataStoreManager.GetDefaultStoreT">
+            <summary>
+            获取默认数据仓库的类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataStoreManager.GetDefaultStore">
+            <summary>
+            获取默认仓库的实例化对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataStoreControl">
+            <summary>
+            数据仓库控件
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataStoreCell">
+            <summary>
+            数据仓库单元格
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataStoreCellCollection.Contains(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataStoreRow">
+            <summary>
+            数据仓库记录行
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataStoreStatus">
+            <summary>
+            数据仓库状态
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataStoreStatus.RowParse(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            解释行数据
+            </summary>
+            <param name="rowData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataView">
+            <summary>
+            数据视图
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DatePicker">
+            <summary>
+            日期选择框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DateRangePicker">
+            <summary>
+            日期范围
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DateRangePicker.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DateRangePicker.FormDBField">
+            <summary>
+            开始日期数据字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DateRangePicker.ToDBField">
+            <summary>
+            结束日期数据字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DetailsView">
+            <summary>
+            详细视图
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DetailsView.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_HeaderIndent">
+            <summary>
+            缩进
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_HeaderWidth">
+            <summary>
+            标题宽度
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_DefaultFlowHeaderRequiredTemplate">
+            <summary>
+            必填字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_DefaultSplitBarTemplate">
+            <summary>
+            默认组
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_SplitBarTemplate">
+            <summary>
+            组样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DetailsView.m_WriteBorder">
+            <summary>
+            输出边框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.HeaderWidth">
+            <summary>
+            标题固定宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.WriteBorder">
+            <summary>
+            输出边框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.HeaderIndent">
+            <summary>
+            缩进
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.SplitBarTemplate">
+            <summary>
+            默认组模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.HeaderTemplate">
+            <summary>
+            标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.HeaderRequiredTemplate">
+            <summary>
+            必填标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DetailsView.ColSpaceWidth">
+            <summary>
+            分割宽度
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DownloadWindow">
+            <summary>
+            下载文件的窗体
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DownloadWindow.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DownloadWindow.FileUrl">
+            <summary>
+            文件下载地址
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DownloadWindow.FileName">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.ShowDialog">
+            <summary>
+            显示模式窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.Show">
+            <summary>
+            显示普通窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.ShowDialog(System.String,System.String)">
+            <summary>
+            显示模式窗体
+            </summary>
+            <param name="fileName"></param>
+            <param name="fileUrl"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.ShowDialog(System.String)">
+            <summary>
+            显示模式窗体
+            </summary>
+            <param name="fileUrl"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.Show(System.String,System.String)">
+            <summary>
+            显示普通窗体
+            </summary>
+            <param name="fileName"></param>
+            <param name="fileUrl"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DownloadWindow.Show(System.String)">
+            <summary>
+            显示普通窗体
+            </summary>
+            <param name="fileUrl"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DropDownGrid">
+            <summary>
+            可编辑的下拉表格
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DropDownGrid.#ctor">
+            <summary>
+            可编辑的下拉表格
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DropDownText">
+            <summary>
+            可编辑的下拉框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DropDownText.#ctor">
+            <summary>
+            下拉框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DropDownList">
+            <summary>
+            下拉框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DropDownList.#ctor">
+            <summary>
+            下拉框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DialogResult">
+            <summary>
+            指定标识符以指示对话框的返回值。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.None">
+            <summary>
+            从对话框返回了 Nothing。这表明有模式对话框继续运行。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.OK">
+            <summary>
+            对话框的返回值是 OK（通常从标签为“确定”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.Cancel">
+            <summary>
+            对话框的返回值是 Cancel（通常从标签为“取消”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.Abort">
+            <summary>
+            对话框的返回值是 Abort（通常从标签为“中止”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.Retry">
+            <summary>
+            对话框的返回值是 Retry（通常从标签为“重试”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.Ignore">
+            <summary>
+            对话框的返回值是 Ignore（通常从标签为“忽略”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.Yes">
+            <summary>
+            对话框的返回值是 Yes（通常从标签为“是”的按钮发送）。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DialogResult.No">
+            <summary>
+            对话框的返回值是 No（通常从标签为“否”的按钮发送）。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.EcView">
+            <summary>
+            视图窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.close">
+            <summary>
+            关闭窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.close(System.String)">
+            <summary>
+            关闭窗体
+            </summary>
+            <param name="args">参数.例 {a1:'1',a2:'2'}</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.close(System.Object)">
+            <summary>
+            关闭窗体
+            </summary>
+            <param name="args">参数对象</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.show(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            显示窗体
+            </summary>
+            <param name="url">窗体url地址</param>
+            <param name="title">窗口标题</param>
+            <param name="width">窗体宽度</param>
+            <param name="height">窗体高度</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.show(System.String,System.String)">
+            <summary>
+            显示窗体
+            </summary>
+            <param name="url">窗体url地址</param>
+            <param name="title">窗口标题</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.showDialog(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            显示模式窗体
+            </summary>
+            <param name="url">窗体url地址</param>
+            <param name="title">窗口标题</param>
+            <param name="width">窗体宽度</param>
+            <param name="height">窗体高度</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.SetClosedClientScript(System.String)">
+            <summary>
+            设置关闭窗体触发的事件名称 fun(sender,e)
+            </summary>
+            <param name="fun">参数例子: fun(sender,e)</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.EcView.showDialog(System.String,System.String)">
+            <summary>
+            显示模式窗体
+            </summary>
+            <param name="url">窗体url地址</param>
+            <param name="title">窗口标题</param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.FileUpload">
+            <summary>
+            文件上传
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGrid">
+            <summary>
+            表格
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_MiniDesignMode">
+            <summary>
+            设计模式
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.SetDesignMode(System.Boolean)">
+            <summary>
+            设计模式
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetDesignMode">
+            <summary>
+            设计模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_Pagination">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_FocusRow">
+            <summary>
+            焦点参数
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_StoreId">
+            <summary>
+            数据仓库 ID
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_OddClass">
+            <summary>
+            隔行显示的样式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.OddClass">
+            <summary>
+            隔行显示的样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_ExpandStringTemplate">
+            <summary>
+            展开的模板
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_ShowFooter">
+            <summary>
+            显示页脚
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGrid.m_AllowSorting">
+            <summary>
+            允许排序
+            </summary>
+        </member>
+        <member name="E:EasyClick.Web.Mini.DataGrid.Sort">
+            <summary>
+            排序的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.OnSort">
+            <summary>
+            触发排序的事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.StoreId">
+            <summary>
+            数据仓库ID
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.AllowSorting">
+            <summary>
+            允许排序
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.SortExpression">
+            <summary>
+            排序表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.ScrollBars">
+            <summary>
+            滚动条类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.RowExpandMode">
+            <summary>
+            展开操作模式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.RowExpandTemplate">
+            <summary>
+            记录展开的模板类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.ExpandStringTemplate">
+            <summary>
+            展开记录的模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Title">
+            <summary>
+            表格标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Template">
+            <summary>
+            表格模板核心
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.FocusRow">
+            <summary>
+            焦点行
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetFocusedItemValue">
+            <summary>
+            获取焦点项目的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetFocusedItemIndex">
+            <summary>
+            获取焦点行索引
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.SetFocusedItemValue(System.String)">
+            <summary>
+            设置焦点项目的值
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.FilterField">
+            <summary>
+            筛选字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Columns">
+            <summary>
+            数据列集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.EmptyDataText">
+            <summary>
+            没有数据记录的时候，显示的文字
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Items">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Pagination">
+            <summary>
+            分页组件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RenderFoot(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出页脚
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.SumField(System.Web.UI.Control)">
+            <summary>
+            合计字段值
+            </summary>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RenderEmptyRow(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出空行
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RenderPager(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出分页对象
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.DataGrid.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RefreshHeader">
+            <summary>
+            （JS）刷新客户端的表格头部
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RefreshBodyDefine">
+            <summary>
+            （JS）刷新客户端 body 的定义
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetBodyDefine">
+            <summary>
+            获取 body 的定义
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RenderClientScript(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetItemGuids">
+            <summary>
+            获取行的Guid 集合（客户端 js，不支持服务器）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.ShowCellError(System.Int32,System.String,System.String)">
+            <summary>
+            显示单元格错误
+            </summary>
+            <param name="itemGuid">行错误</param>
+            <param name="cellId">单元格 id</param>
+            <param name="message">显示的错误消息</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.ShowCellErrors(System.Collections.Generic.IEnumerable{EasyClick.Web.Mini.InputFieldError})">
+            <summary>
+            显示单元格错误信息
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.ValidateRow(System.Object,System.Int32)">
+            <summary>
+            验证行
+            </summary>
+            <param name="customObj"></param>
+            <param name="rowGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.ValidateRow(System.ComponentModel.ICustomTypeDescriptor,System.Int32)">
+            <summary>
+            验证行
+            </summary>
+            <param name="customObj"></param>
+            <param name="rowGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RowCopyTo(System.Data.DataRow,System.Int32)">
+            <summary>
+            行数据拷贝至对象
+            </summary>
+            <param name="dataRow"></param>
+            <param name="rowGuid"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RowCopyTo(System.Object,System.Int32)">
+            <summary>
+            行数据拷贝至对象
+            </summary>
+            <param name="obj"></param>
+            <param name="rowGuid"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.RowCopyTo(System.ComponentModel.ICustomTypeDescriptor,System.Int32)">
+            <summary>
+            行数据拷贝至对象
+            </summary>
+            <param name="customObj"></param>
+            <param name="rowGuid"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetCellValue(System.Int32,System.String)">
+            <summary>
+            获取单元格值（客户端 js,不支持服务器）
+            </summary>
+            <param name="rowGuid"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.GetCellValue``1(System.Int32,System.String)">
+            <summary>
+            获取单元格 CELL 值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="rowGuid"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.DataGrid.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.GridBase">
+            <summary>
+            基础表格类
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridBase.m_AllowSorting">
+            <summary>
+            允许排序
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridBase.m_OddClass">
+            <summary>
+            隔行显示的样式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.GridBase.OddClass">
+            <summary>
+            隔行显示的样式
+            </summary>
+        </member>
+        <member name="E:EasyClick.Web.Mini.GridBase.Sort">
+            <summary>
+            排序的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.GridBase.OnSort">
+            <summary>
+            触发排序的事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.GridBase.Columns">
+            <summary>
+            数据列集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.GridBase.EmptyDataText">
+            <summary>
+            没有数据记录的时候，显示的文字
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.GridBase.CreateHead">
+            <summary>
+            创建 Hand 的模板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.GridBase.CreateColGroup">
+            <summary>
+            创建 body 的行模板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.GridBase.CreateBodyRowTemplate">
+            <summary>
+            创建没一行记录的模板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.GridEdit">
+            <summary>
+            可编辑控件（复杂型）
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.GridPanel">
+            <summary>
+            表格版面
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridPanel.m_Toolbar">
+            <summary>
+            工具栏
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridPanel.m_Grid">
+            <summary>
+            表格组件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridPanel.m_Pagination">
+            <summary>
+            分页组件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.GridPanel.m_DataStore">
+            <summary>
+            数据仓库
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.GridRow">
+            <summary>
+            Grid 的数据行
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.GridRowCollection">
+            <summary>
+            Grid 的数据行集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Head">
+            <summary>
+            Head
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Head.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.HiddenField">
+            <summary>
+            隐藏字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.HyperLinkField">
+            <summary>
+            超链接
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HtmlElement.Value">
+            <summary>
+            (JScript) 值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.HtmlElement.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HtmlTextarea.FileBrowserUploadUrl">
+            <summary>
+            文件上传地址
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HtmlTextarea.CustomConfig">
+            <summary>
+            自定义配置文件的路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HtmlTextarea.CKFinderPath">
+            <summary>
+            CKFinder 编辑器路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HtmlTextarea.UpdateDir">
+            <summary>
+            上传的目录路径
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.HyperLink">
+            <summary>
+            导航链接
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.HyperLink.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HyperLink.Target">
+            <summary>
+            (JScript) 值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HyperLink.Text">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.HyperLink.Url">
+            <summary>
+            导航地址
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.IClientIDMode">
+            <summary>
+            ID 控制属性
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.IValueFormat">
+            <summary>
+            数据格式化
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Image.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.IMiniControl">
+            <summary>
+            轻量级控件接口
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.IMiniControl.LoadPostData">
+            <summary>
+            加载 Post 上传的数据
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.IMiniPanel">
+            <summary>
+            Mini 版面接口
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ListBox">
+            <summary>
+            列表框
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ListBox.m_Multiple">
+            <summary>
+            多选
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ListBox.Multiple">
+            <summary>
+            多选
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ListItem">
+            <summary>
+            列表条目
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItem.#ctor">
+            <summary>
+            列表条目
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItem.#ctor(System.String)">
+            <summary>
+            列表条目
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItem.#ctor(System.String,System.String)">
+            <summary>
+            列表条目
+            </summary>
+            <param name="value"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItem.#ctor(System.Int32,System.String)">
+            <summary>
+            列表条目
+            </summary>
+            <param name="value"></param>
+            <param name="text"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Literal">
+            <summary>
+            用于在页面上显示文本。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Literal.Value">
+            <summary>
+            规定要显示的文本。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MessageBoxButtons">
+            <summary>
+            指定若干常数，用以定义 System.Windows.Forms.MessageBox 上将显示哪些按钮
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.OK">
+            <summary>
+            消息框包含“确定”按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.OKCancel">
+            <summary>
+            消息框包含“确定”和“取消”按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.AbortRetryIgnore">
+            <summary>
+            消息框包含“中止”、“重试”和“忽略”按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.YesNoCancel">
+            <summary>
+            消息框包含“是”、“否”和“取消”按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.YesNo">
+            <summary>
+            消息框包含“是”和“否”按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxButtons.RetryCancel">
+            <summary>
+            消息框包含“重试”和“取消”按钮。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MessageBoxIcon">
+            <summary>
+            指定定义哪些信息要显示的常数。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.None">
+            <summary>
+            消息框未包含符号。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Error">
+            <summary>
+            该消息框包含一个符号，该符号是由一个红色背景的圆圈及其中的白色 X 组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Hand">
+            <summary>
+            该消息框包含一个符号，该符号是由一个红色背景的圆圈及其中的白色 X 组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Stop">
+            <summary>
+            该消息框包含一个符号，该符号是由一个红色背景的圆圈及其中的白色 X 组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Question">
+            <summary>
+            该消息框包含一个符号，该符号是由一个圆圈和其中的一个问号组成的。
+            不再建议使用问号消息图标，原因是该图标无法清楚地表示特定类型的消息，并且问号形式的消息表述可应用于任何消息类型。
+            此外，用户还可能将问号消息符号与帮助信息混淆。
+            因此，请不要在消息框中使用此问号消息符号。系统继续支持此符号只是为了向后兼容。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Exclamation">
+            <summary>
+            该消息框包含一个符号，该符号是由一个黄色背景的三角形及其中的一个感叹号组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Warning">
+            <summary>
+            该消息框包含一个符号，该符号是由一个黄色背景的三角形及其中的一个感叹号组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Information">
+            <summary>
+            该消息框包含一个符号，该符号是由一个圆圈及其中的小写字母 i 组成的。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxIcon.Asterisk">
+            <summary>
+            该消息框包含一个符号，该符号是由一个圆圈及其中的小写字母 i 组成的。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MessageBoxDefaultButton">
+            <summary>
+            指定若干常数，用以定义 System.Windows.Forms.MessageBox 上的默认按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxDefaultButton.Button1">
+            <summary>
+            消息框上的第一个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxDefaultButton.Button2">
+            <summary>
+            消息框上的第二个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MessageBoxDefaultButton.Button3">
+            <summary>
+            消息框上的第三个按钮是默认按钮。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MessageBox">
+            <summary>
+            未完成；消息框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CurrencyConfig">
+            <summary>
+            货币配置信息
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarButtonConfig">
+            <summary>
+            工具栏按钮的配置文件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ToolBarButtonConfig.m_OnClickDefaultValue">
+            <summary>
+            OnClick 默认值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButtonConfig.OnClickDefaultValue">
+            <summary>
+            OnClick 默认值
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniIconRes">
+            <summary>
+            图标资源
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniIconRes.Name">
+            <summary>
+            图标名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniIconRes.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.IconResourcesConfig">
+            <summary>
+            图标资源
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.IconResourcesConfig.Load(System.String,System.String)">
+            <summary>
+            资源的目录物理路径
+            </summary>
+            <param name="resPath"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.IconResourcesConfig.GetUrl(System.String)">
+            <summary>
+            获取图标路径
+            </summary>
+            <param name="iconName">图标变量名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniConfiguration">
+            <summary>
+            配置
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniConfiguration.m_JsonFactory">
+            <summary>
+            JSON 数据构造工厂
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniConfiguration.m_DefaultCurrency">
+            <summary>
+            货币配置信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniConfiguration.m_ToolBarBtnConfig">
+            <summary>
+            工具栏按钮的配置信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniConfiguration.m_IconResConfig">
+            <summary>
+            图标资源配置信息
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.IconResConfig">
+            <summary>
+            图标资源配置
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.ToolBarBtnConfig">
+            <summary>
+            工具栏按钮的配置信息
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.DefaultCurrency">
+            <summary>
+            默认货币类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.ServerAttrTags">
+            <summary>
+            服务器属性标签.用于隐藏客户端
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.JsonFactory">
+            <summary>
+            JSON 数据的转换工厂 
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniConfiguration.ActionPath">
+            <summary>
+            ajax 反馈的接受地址，默认是：“/Core/Mini/WidgetAction.aspx”
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniDataControlCellType">
+            <summary>
+            单元格数据类型
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniDataControlField">
+            <summary>
+            轻量级单元格控件字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniDataControlField.HeaderText">
+            <summary>
+            标题文字
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniDataControlField.FooterText">
+            <summary>
+            页脚文字
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniDataControlField.DataField">
+            <summary>
+            数据绑定的字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniDataControlRowState">
+            <summary>
+            行的状态。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniDataControlRowState.Normal">
+            <summary>
+            指示该数据控件行处于正常状态。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniDataControlRowState.Alternate">
+            <summary>
+            指示该数据控件行是交替行。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniDataControlRowState.Selected">
+            <summary>
+            指示该行已被用户选定。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniDataControlRowState.Edit">
+            <summary>
+            指示该行处于编辑状态，这通常是单击行的“编辑”按钮的结果。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniDataControlRowState.Insert">
+            <summary>
+            指示该行是新行，这通常是单击“插入”按钮添加新行的结果。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniHelper">
+            <summary>
+            HTML Mini 助手类
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.WidgetScript(System.Web.UI.Control)">
+            <summary>
+            组件的脚本
+            </summary>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.WidgetScript(System.Web.UI.Control,System.String)">
+            <summary>
+            组件的脚本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniHelper.m_BufferControlDefaultPropertys">
+            <summary>
+            控件的默认属性索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.GetValue(System.Web.UI.Control)">
+            <summary>
+            取出控件的值 (默认属性的值)
+            </summary>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.SSID">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Alert(System.String)">
+            <summary>
+            (JScript) 弹出 Html 的 Message 框
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Alert(System.String,System.Object[])">
+            <summary>
+            (JScript) 弹出 Html 的 Message 框
+            </summary>
+            <param name="messageFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Redirect(System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Redirect(System.String,System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="frameName"></param>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Redirect(System.Int32,System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="frameIndex"></param>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.Reload">
+            <summary>
+            (JScript) 刷新页面
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.CloseForm">
+            <summary>
+            (JScript) 关闭窗体 
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.SetTitle(System.String)">
+            <summary>
+            (JScript) 设置窗体标题
+            </summary>
+            <param name="title"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.ValueFormRequest(System.Web.UI.Control)">
+            <summary>
+            把 Request 的值赋予控件
+            </summary>
+            <param name="owner">this</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.ValueFormRequest(System.Web.UI.Control,System.String)">
+            <summary>
+            把 Request 的值赋予控件
+            </summary>
+            <param name="owner">this</param>
+            <param name="ownerPath">组件前缀</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.DataFormatForObject(System.Object,System.ComponentModel.PropertyDescriptor,System.String,EasyClick.Web.Mini.DataFormatCollection)">
+            <summary>
+            格式化对象
+            </summary>
+            <param name="item"></param>
+            <param name="prop"></param>
+            <param name="dataField"></param>
+            <param name="dataFormats"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.UniteMiniSystemJS(System.String)">
+            <summary>
+            合并 Mini.js
+            </summary>
+            <param name="targetPath"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHelper.UniteMiniSystemJS">
+            <summary>
+            合并 Mini.js
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHtmlAttrCollection.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniHtmlBase.Value">
+            <summary>
+            (JScript) 值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHtmlBase.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniHtmlListBase.m_ShowEmptyItem">
+            <summary>
+            显示空选项
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniHtmlListBase.ShowEmptyItem">
+            <summary>
+            显示空选项
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniHtmlListBase.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniHtmlListBase.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItemCollection.Clear">
+            <summary>
+            (JScript)
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItemCollection.Add(EasyClick.Web.Mini.ListItem)">
+            <summary>
+            (JScript)
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItemCollection.Add(System.String)">
+            <summary>
+            (JScript)
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ListItemCollection.Add(System.String,System.String)">
+            <summary>
+            (JScript)
+            </summary>
+            <param name="value"></param>
+            <param name="text"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniScript">
+            <summary>
+            轻量级脚本
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniScript.Add(System.String)">
+            <summary>
+            添加 JScript 
+            </summary>
+            <param name="script"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniScript.Add(System.String,System.Object[])">
+            <summary>
+            添加 JScript 
+            </summary>
+            <param name="scriptFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniScript.Write(System.IO.TextWriter)">
+            <summary>
+            输出到网页面
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniScriptManager">
+            <summary>
+            脚本管理器
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniScriptManager.ClientScript">
+            <summary>
+            客户端脚本
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.MiniWidget">
+            <summary>
+            轻量级组件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWidget.m_EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWidget.m_PanelID">
+            <summary>
+            容器ID,给 AJAX 使用的
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWidget.m_Query">
+            <summary>
+            网页上的请求信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWidget.m_EcDelay">
+            <summary>
+            延迟加载
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWidget.m_Language">
+            <summary>
+            注意：不要放入默认值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.CreateParentBox">
+            <summary>
+            创建父容器
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.EcDelay">
+            <summary>
+            延迟加载，默认 true
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.EcReturnFormat">
+            <summary>
+            返回的数据类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.PanelID">
+            <summary>
+            容器ID,给 AJAX 使用的
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.Ajax">
+            <summary>
+            启动 Ajax  ,默认 false 
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.Params">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.Language">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.Path">
+            <summary>
+            组件路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.MiniWidget.IsUser">
+            <summary>
+            用户自定义组件，默认 false
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWidget.GetAjaxWidgetPs">
+            <summary>
+            获取 AJAX 控件的参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWidget.CreateAjaxHtml(System.Web.UI.HtmlTextWriter,System.Text.StringBuilder,System.String)">
+            <summary>
+            非延迟加载的html 数据
+            </summary>
+            <param name="writer"></param>
+            <param name="sb"></param>
+            <param name="panelId"></param>
+        </member>
+        <member name="F:EasyClick.Web.Mini.MiniWindow.m_LevelIndex">
+            <summary>
+            父级层次
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWindow.Redirect(System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWindow.Redirect(System.String,System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="frameName"></param>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWindow.Redirect(System.Int32,System.String)">
+            <summary>
+            (JScript) 跳转
+            </summary>
+            <param name="frameIndex"></param>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWindow.Reload">
+            <summary>
+            (JScript) 刷新页面
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.MiniWindow.CloseForm">
+            <summary>
+            (JScript) 关闭窗体 
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.NumberBox">
+            <summary>
+            数字文本框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.NumberRangeBox">
+            <summary>
+            数字范围
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.NumberRangeBox.#ctor">
+            <summary>
+            数字范围
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.NumberRangeBox.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.NumberRangeBox.FormDBField">
+            <summary>
+            开始数字的数据字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.NumberRangeBox.ToDBField">
+            <summary>
+            结束数字的数据字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Pagination">
+            <summary>
+            分页组件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Pagination.#ctor">
+            <summary>
+            分页组件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_ClassName">
+            <summary>
+            样式名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_RowCount">
+            <summary>
+            每页显示的记录数量
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_ButtonCount">
+            <summary>
+            显示的页数量
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_CurPage">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_ItemTotal">
+            <summary>
+            记录总数量
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_EcDesignMode">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Pagination.m_IsAjax">
+            <summary>
+            设置为 AJAX
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.IsAjax">
+            <summary>
+            设置 Ajax 模式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.Command">
+            <summary>
+            命令名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.ClassName">
+            <summary>
+            样式文件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.RowCount">
+            <summary>
+            每页显示的记录数量
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.UrlFormat">
+            <summary>
+            按钮的超链接
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.ButtonCount">
+            <summary>
+            按钮的数量
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.CurPage">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Pagination.ItemTotal">
+            <summary>
+            记录的总数量
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Panel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Panel.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Password">
+            <summary>
+            密码框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.RadioButton">
+            <summary>
+            单选项
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RadioButton.#ctor">
+            <summary>
+            单选项
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.RadioButton.Group">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.RadioButtonList">
+            <summary>
+            单选列表
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RadioButtonList.#ctor">
+            <summary>
+            单选列表
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RadioButtonList.TableVertical(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            表格形式，按竖顺序显示
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RadioButtonList.TableHorizontal(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            表格形式，从左到右，从上到下
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RadioButtonList.RenderItem(System.Web.UI.HtmlTextWriter,EasyClick.Web.Mini.ListItem,System.Int32)">
+            <summary>
+            输出选项条目
+            </summary>
+            <param name="writer"></param>
+            <param name="item"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.RapidViewForm.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.RapidViewForm.m_DefaultFlowHeaderRequiredTemplate">
+            <summary>
+            必填字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.RapidViewForm.HeaderTemplate">
+            <summary>
+            标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.RapidViewForm.HeaderRequiredTemplate">
+            <summary>
+            必填标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.RapidViewForm.ColSpaceWidth">
+            <summary>
+            分割宽度
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.RepeatDirection.Horizontal">
+            <summary>
+            列表项以行的形式水平显示，从左到右、自上而下地加载，直到呈现出所有的项。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.RepeatDirection.Vertical">
+            <summary>
+            列表项以列的形式垂直显示，自上而下、从左到右地加载，直到呈现出所有的项。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Script">
+            <summary>
+            脚本区域
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.SearchTableLayout">
+            <summary>
+            查询表格版面
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SearchTableLayout.StoreId">
+            <summary>
+            数据仓库ID
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SearchTableLayout.ToggleFnName">
+            <summary>
+            显示隐藏方法名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SearchTableLayout.Expand">
+            <summary>
+            展开
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SearchTableLayout.Groups">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreMethodEventArgs.#ctor(System.Collections.Specialized.IOrderedDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="inputParameters"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.StoreMethodEventArgs.InputParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.StoreAbstract">
+            <summary>
+            数据仓库抽象类
+            </summary>
+        </member>
+        <member name="E:EasyClick.Web.Mini.StoreAbstract.Loading">
+            <summary>
+            加载数据前,触发事件
+            </summary>
+        </member>
+        <member name="E:EasyClick.Web.Mini.StoreAbstract.Loaded">
+            <summary>
+            加载数据以后,触发事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.OnLoading(System.Int32,System.Object)">
+            <summary>
+            加载数据前触发事件
+            </summary>
+            <param name="length"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.OnLoaded(System.Object,System.Collections.IDictionary,System.Exception)">
+            <summary>
+            加载数据以后触发事件
+            </summary>
+            <param name="length"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.OnAdding(System.Int32,System.Object)">
+            <summary>
+            天机数据之前触发事件
+            </summary>
+            <param name="length"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.OnAdded(System.Object,System.Collections.IDictionary,System.Exception)">
+            <summary>
+            添加数据以后触发事件
+            </summary>
+            <param name="length"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.Add">
+            <summary>
+            添加数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.Delete">
+            <summary>
+            删除数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.Update">
+            <summary>
+            更新数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.StoreAbstract.Load">
+            <summary>
+            加载数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.SWFUpload">
+            <summary>
+            Flash 封装的文件上传组件
+            </summary>
+        </member>
+        <member name="E:EasyClick.Web.Mini.SWFUpload.Uploader">
+            <summary>
+            上传文件后产生的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.SWFUpload.OnUploader">
+            <summary>
+            触发上传文件后产生的事件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.SWFUpload.m_UploadUrl">
+            <summary>
+            上传文件的路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SWFUpload.FilePostName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SWFUpload.UploadUrl">
+            <summary>
+            上传文件的路径
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.SWFUpload.LoadPostData">
+            <summary>
+            加载 Post 上传的数据
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SWFUpload.FileName">
+            <summary>
+            图片名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SWFUpload.FileBytes">
+            <summary>
+            文件的大小
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.SWFUpload.FileContent">
+            <summary>
+            文件上下
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.SWFUpload.SaveAs(System.String)">
+            <summary>
+            另存为
+            </summary>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TabControl">
+            <summary>
+            标签控件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TabControl.OnSelect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TabControl.Heads">
+            <summary>
+            标签头集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TabControl.Contents">
+            <summary>
+            标签内容集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TabContentCollection">
+            <summary>
+            内容集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TabContent">
+            <summary>
+            标签内容
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TabHeadCollection">
+            <summary>
+            标签头集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TabHead">
+            <summary>
+            标签头
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TabHead.Text">
+            <summary>
+            标题内容
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TableLayoutPanel">
+            <summary>
+            表格版面
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.MergeType.First">
+            <summary>
+            主单元格
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.MergeType.Hide">
+            <summary>
+            隐藏
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TableLayoutPanel.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderVAlign">
+            <summary>
+            标签垂直对齐方式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderAlign">
+            <summary>
+            标签垂直对齐方式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderWidth">
+            <summary>
+            标题固定宽度
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_HeaderIndent">
+            <summary>
+            标题缩进像素
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_DefaultFlowHeaderRequiredTemplate">
+            <summary>
+            必填字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_DefaultSplitBarTemplate">
+            <summary>
+            默认组
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_SplitBarTemplate">
+            <summary>
+            组样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_ColSpaceWidth">
+            <summary>
+            列间隔宽度（单位：像素）
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TableLayoutPanel.m_WriteBorder">
+            <summary>
+            输出边框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.WriteBorder">
+            <summary>
+            输出边框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderIndent">
+            <summary>
+            缩进
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.SplitBarTemplate">
+            <summary>
+            默认组模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderTemplate">
+            <summary>
+            标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.HeaderRequiredTemplate">
+            <summary>
+            必填标题模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableLayoutPanel.ColSpaceWidth">
+            <summary>
+            分割宽度
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TableTemplate">
+            <summary>
+            轻量级表格模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TableTemplate.ColCount">
+            <summary>
+            列数量
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Template">
+            <summary>
+            轻量级模板
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Template.m_EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Template.EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Template.FilterField">
+            <summary>
+            过滤字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Template.m_Items">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Template.Items">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.Template.m_ItemTemplate">
+            <summary>
+             (jTemplate 模板)
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Template.ItemTemplate">
+            <summary>
+            项目的模板 (jTemplate 模板)
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Template.Value">
+            <summary>
+            (JScript) 值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Template.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Template.OnItemsChanged">
+            <summary>
+            （JScript）触发条目发生变化的事件
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TemplateItemCollection">
+            <summary>
+            模板项目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateItemCollection.Item(System.Int32)">
+            <summary>
+            项目索引
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.#ctor">
+            <summary>
+            模板项目集合的构造方法
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.#ctor(EasyClick.Web.Mini.Template)">
+            <summary>
+            模板项目集合的构造方法
+            </summary>
+            <param name="owner"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.AddRange(System.String)">
+            <summary>
+            (JScript) 
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.AddRange(System.Collections.ICollection)">
+            <summary>
+            (JScript) 
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.Add(System.Object)">
+            <summary>
+            (JScript) 
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.RemoveAtGuid(System.Int32)">
+            <summary>
+            只支持客户端 JS
+            </summary>
+            <param name="guid"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.RemoveAtGuids(System.Int32[])">
+            <summary>
+            只支持客户端 JS
+            </summary>
+            <param name="guids"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TemplateItemCollection.Clear">
+            <summary>
+            (JScript) 
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TemplateItemData">
+            <summary>
+            模板条目的数据
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TemplateItemData.State">
+            <summary>
+            条目状态
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.VerticalAlign">
+            <summary>
+            垂直对齐
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.VerticalAlign.Top">
+            <summary>
+            顶部对齐
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.VerticalAlign.Middle">
+            <summary>
+            中间对齐
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.VerticalAlign.Bottom">
+            <summary>
+            底部对齐
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Textarea.Value">
+            <summary>
+            (JScript) 值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Textarea.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TextBox.#ctor">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBar">
+            <summary>
+            工具栏
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ToolBar.m_MiniDesignMode">
+            <summary>
+            设计模式
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ToolBar.SetDesignMode(System.Boolean)">
+            <summary>
+            设计模式
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ToolBar.GetDesignMode">
+            <summary>
+            设计模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBar.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBar.SecFunCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBar.SecFunID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBar.SecControls">
+            <summary>
+            权限组件集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarButton">
+            <summary>
+            工具栏-按钮
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButton.Valid">
+            <summary>
+            验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButton.Tooltip">
+            <summary>
+            按钮提示信息
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButton.Text">
+            <summary>
+            按钮名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButton.OnClick">
+            <summary>
+            用户点击的 js 方法名称. 
+            例: OnClick="alert('你好')"
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarButton.Icon">
+            <summary>
+            图标路径
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ToolBarButton.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarGroup">
+            <summary>
+            工具栏
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarGroup.Items">
+            <summary>
+            条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarGroup.SecControls">
+            <summary>
+            权限组件的集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarHr">
+            <summary>
+            工具栏-分隔符
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarItem">
+            <summary>
+            工具栏元素
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.Visible">
+            <summary>
+            获取或设置显示
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.Enabled">
+            <summary>
+            获取或设置激活状态
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.Align">
+            <summary>
+            对齐方式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.SecFunCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.SecFunID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarItem.SecControls">
+            <summary>
+            权限组件集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarItemAlign">
+            <summary>
+            对齐方式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ToolBarItemAlign.Left">
+            <summary>
+            左对齐
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ToolBarItemAlign.Right">
+            <summary>
+            右对齐
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarPanel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ToolBarPanel.Controls">
+            <summary>
+            子控件集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ToolBarPanel.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            将服务器组件输出为 Html
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ToolBarSplitButton">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ToolBarSplitButton.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CheckState">
+            <summary>
+            复选框状态
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.CheckState.Checked">
+            <summary>
+            选中状态
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.CheckState.Indeterminate">
+            <summary>
+            不明确
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.CheckState.Unchecked">
+            <summary>
+            未选中
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TreeNode">
+            <summary>
+            树节点
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeNode.m_IsExpanded">
+            <summary>
+            获取一个值，用以指示树节点是否处于可展开状态。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.IconPath">
+            <summary>
+            图标路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.NodeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Checked">
+            <summary>
+            复选框被选中
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.OwnerNodeID">
+            <summary>
+            节点所属的树视图 ID
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.StatusID">
+            <summary>
+            节点状态：0=叶，1=根部
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.DataPath">
+            <summary>
+            节点的路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.IsExpanded">
+            <summary>
+            获取一个值，用以指示树节点是否处于可展开状态。
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeNode.Expand">
+            <summary>
+            展开树节点。
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeNode.Collapse">
+            <summary>
+            折叠树节点。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Parent">
+            <summary>
+            父节点对象
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Owner">
+            <summary>
+            节点所属的树视图
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeNode.HasChildNode">
+            <summary>
+            判断是否存在子节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.ChildNodes">
+            <summary>
+            子节点集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Text">
+            <summary>
+            节点文本
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNode.Value">
+            <summary>
+            节点值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeNode.Focus">
+            <summary>
+            获取焦点
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TreeNodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TreeNodeTypeCollection">
+            <summary>
+            节点类型的集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TreeNodeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNodeType.Name">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeNodeType.Icon">
+            <summary>
+            图标路径
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.TreeView">
+            <summary>
+            树节点视图
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_LoadDynamic">
+            <summary>
+            动态加载节点
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.LoadDynamic">
+            <summary>
+            动态加载。默认值:false
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_FilterField">
+            <summary>
+            过滤字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_RootNode">
+            <summary>
+            根节点
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_OnSelectNodeClientScript">
+            <summary>
+            选择节点触发的客户端 js
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_OnOpenNodeClientScript">
+            <summary>
+            打开节点触发的客户端 js
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_FocusValue">
+            <summary>
+            焦点参数
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_DefaultSortField">
+            <summary>
+            默认排序字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_Types">
+            <summary>
+            节点类型的集合,一般用于图标
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.Types">
+            <summary>
+            节点类型的集合,一般用于图标
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.DefaultSortField">
+            <summary>
+            默认排序字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.FilterField">
+            <summary>
+            过滤字段,默认 true
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.RootNode">
+            <summary>
+            根节点
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.Nodes">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.RenderNode(System.Web.UI.HtmlTextWriter,EasyClick.Web.Mini.TreeNode,System.Int32)">
+            <summary>
+            输出节点的 HTML 格式
+            </summary>
+            <param name="writer"></param>
+            <param name="parnetNode"></param>
+            <param name="dept"></param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.OnSelectNodeClientScript">
+            <summary>
+            选择节点产生的客户端事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.OnOpenNodeClientScript">
+            <summary>
+            展开节点事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.OnRenameNodeClientScript">
+            <summary>
+            节点重命名的事件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.FocusValue">
+            <summary>
+            获取焦点节点的值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.FocusText">
+            <summary>
+            获取焦点节点的 Text
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.FoucsNodeID">
+            <summary>
+            获取焦点节点的 ID
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.FoucsDataPath">
+            <summary>
+            获取焦点节点的 DataPath
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.GetExpandNodes(EasyClick.Web.Mini.TreeNode,System.Collections.Generic.List{EasyClick.Web.Mini.TreeNode})">
+            <summary>
+            获取展开的节点
+            </summary>
+            <param name="parnetNode">父节点</param>
+            <param name="expandNodes">展开的节点集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.AddNode(System.String,EasyClick.Web.Mini.TreeNode)">
+            <summary>
+            添加节点
+            </summary>
+            <param name="parentNodeId">父节点 ID</param>
+            <param name="node">节点</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.AddNode(System.Int32,EasyClick.Web.Mini.TreeNode)">
+            <summary>
+            添加节点
+            </summary>
+            <param name="parentNodeId"></param>
+            <param name="node"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.RemoveNode(System.String)">
+            <summary>
+            删除节点
+            </summary>
+            <param name="nodeId"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.ChangeNodeType(System.String,System.String)">
+            <summary>
+            改变节点类型
+            </summary>
+            <param name="nodeId">节点ID</param>
+            <param name="nodeType">节点类型</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.AsyncRender(System.String,System.Text.StringBuilder)">
+            <summary>
+            异步添加显示
+            </summary>
+            <param name="parentNodeId"></param>
+            <param name="sb"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Refresh(System.Int32)">
+            <summary>
+            (JScript)刷新
+            </summary>
+            <param name="parentNodeId"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Refresh(System.String)">
+            <summary>
+            (JScript)刷新
+            </summary>
+            <param name="parentNodeId">父节点 ID</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.ResetNodeText(System.String,System.String)">
+            <summary>
+            刷新节点的 Text 属性
+            </summary>
+            <param name="nodeId"></param>
+            <param name="text"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.FindLeafList(System.Collections.Generic.List{EasyClick.Web.Mini.TreeNode},EasyClick.Web.Mini.TreeNode)">
+            <summary>
+            查找所有叶
+            </summary>
+            <param name="leafList"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.ProCheckNode">
+            <summary>
+            特殊处理复选框
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Render_initiallyOpen(System.Web.UI.HtmlTextWriter,System.Collections.Generic.List{EasyClick.Web.Mini.TreeNode})">
+            <summary>
+            默认展开的节点
+            </summary>
+            <param name="writer"></param>
+            <param name="expandNodes"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Render_openNode(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            打开节点触发的事件
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Render_selectNode(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            选中节点触发的事件
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.TreeView.Render_renameNode(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            选中节点触发的事件
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_TypeField">
+            <summary>
+            节点类型字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_IconPathField">
+            <summary>
+            图标路径字段
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_ShowCheckBox">
+            <summary>
+            显示节点的复选框
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.TreeView.m_CheckValueField">
+            <summary>
+            复选框的字段名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.CheckValueField">
+            <summary>
+            复选框值的字段名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.ShowCheckBox">
+            <summary>
+            显示节点的复选框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.TypeField">
+            <summary>
+            节点的类型字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.IconPathField">
+            <summary>
+            图标路径字段
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.DefaultRootID">
+            <summary>
+            默认根节点ID
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.ParentField">
+            <summary>
+            父级字段名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.TextField">
+            <summary>
+            显示字段名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.ValueField">
+            <summary>
+            值字段名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.TreeView.DataPathField">
+            <summary>
+            数据路径的字段名称
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.UEditor">
+            <summary>
+            百度富文本框
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.UEditor.ToolbarName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.UEditor.UploadUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.UEditor.FilePostName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Utility.RandomUtility">
+            <summary>
+            随机数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.StringUtility.Sub(System.String,System.Int32)">
+            <summary>
+            最长字数
+            </summary>
+            <param name="text"></param>
+            <param name="chatCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.StringUtility.TryChangeType(System.String,System.Type)">
+            <summary>
+            判断是否可以转换数据类型
+            </summary>
+            <param name="strValue"></param>
+            <param name="validateType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.StringUtility.TryChangeType(System.String,System.Type,System.Boolean)">
+            <summary>
+            判断是否可以转换数据类型
+            </summary>
+            <param name="strValue"></param>
+            <param name="validateType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.StringUtility.Split(System.String,System.String[])">
+            <summary>
+            切割字符串.默认为逗号分隔符
+            </summary>
+            <param name="str">准备切割的字符串</param>
+            <param name="separator">切割符号</param>
+            <returns>数组</returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Utility.WebUtil">
+            <summary>
+            Request 辅助功能
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.ToQueryString(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            获取查询的字符串
+            </summary>
+            <param name="nameValueCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.FormInt(System.String,System.Int32)">
+            <summary>
+            获取窗体变量集合。增强 Request.Form
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.FormInt(System.String)">
+            <summary>
+            获取窗体变量集合。增强 Request.Form
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.FormIntList(System.String)">
+            <summary>
+             获取窗体变量集合。增强 Request.Form
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryInt(System.String,System.Int32)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryInt(System.String)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryLong(System.String)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryDateTime(System.String,System.DateTime)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryDateTime(System.String)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryBool(System.String,System.Boolean)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.QueryBool(System.String)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Utility.WebUtil.Query(System.String,System.String)">
+            <summary>
+            获取 HTTP 查询字符串变量集合。增强 Request.QueryString
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini.WidgetAction">
+            <summary>
+            微型组件事务
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_WidgetPath">
+            <summary>
+            组件路径
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_RMode">
+            <summary>
+            执行模式 , 组件名称,组件函数,组件事件
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_SubWidgetName">
+            <summary>
+            组件名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_SubWidgetMethod">
+            <summary>
+            组件函数
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_SubWidgetEvent">
+            <summary>
+            组件事件名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_CID">
+            <summary>
+            客户端ID = ClientID
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_IsUser">
+            <summary>
+            时候为用户自定义
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_EcDelay">
+            <summary>
+            延迟加载
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_Lang">
+            <summary>
+            语言或目录的名称 “CH"、EN
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_WidgetPs">
+            <summary>
+            组件参数
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_Query">
+            <summary>
+            超链接的查询语句
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_IsPost">
+            <summary>
+            post 提交标记，
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_ReturnFormat">
+            <summary>
+            返回客户端的格式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.WidgetAction.IsPostBack">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.SecurityAllow">
+            <summary>
+            安全允许访问
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.GetControlPath">
+            <summary>
+            获取控件路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.CheckBoxClearAll">
+            <summary>
+            清理所有 CheckBox 的默认选项
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.SetChildAttributes(System.Web.UI.Control)">
+            <summary>
+            对控件进行初始值设置
+            </summary>
+            <param name="con"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.GetInvokeParamCount">
+            <summary>
+            获取参数的数量
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.Mini.WidgetAction.m_InvokeReturnValue">
+            <summary>
+            执行返回的值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.GetWidgetMethod(System.Type,System.String,System.Int32)">
+            <summary>
+            获取函数名称
+            </summary>
+            <param name="contT"></param>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.Shell_By_WidgetMethod">
+            <summary>
+            执行控件函数
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.Shell_By_WidgetEvent">
+            <summary>
+            执行控件事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.WidgetAction.Shell_By_Command">
+            <summary>
+            执行普通函数.
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.Window">
+            <summary>
+            Html 窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.#ctor">
+            <summary>
+            Html 窗体构造方法
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Html 窗体构造方法
+            </summary>
+            <param name="width">窗体宽度</param>
+            <param name="height">窗体高度</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.#ctor(System.String)">
+            <summary>
+            Html 窗体构造方法
+            </summary>
+            <param name="title">标题</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Html 窗体构造方法
+            </summary>
+            <param name="title">标题</param>
+            <param name="width">窗体宽度</param>
+            <param name="height">窗体高度</param>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.Modal">
+            <summary>
+            模式窗体
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.Resizable">
+            <summary>
+            允许缩放窗体
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.Window.ContentHtml">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.ShowDialog">
+            <summary>
+            显示模式窗体
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.Window.Show">
+            <summary>
+            显示普通窗体
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.CellAlign">
+            <summary>
+            单元格横排序
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.SortMode">
+            <summary>
+            排序模式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.SortMode.None">
+            <summary>
+            没有
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.SortMode.Default">
+            <summary>
+            默认模式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.SortMode.User">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ScrollBars">
+            <summary>
+            指定哪些滚动条在控件上可见。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ScrollBars.None">
+            <summary>
+            不显示任何滚动条。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ScrollBars.Auto">
+            <summary>
+            自动模式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ScrollBars.Horizontal">
+            <summary>
+            只显示水平滚动条。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ScrollBars.Vertical">
+            <summary>
+            只显示垂直滚动条。
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.ScrollBars.Both">
+            <summary>
+            同时显示水平滚动条和垂直滚动条。
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridRowExpandTemplate">
+            <summary>
+            记录展开的模板类型
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandTemplate.None">
+            <summary>
+            没有
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandTemplate.StringTemplate">
+            <summary>
+            字符串模板
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandTemplate.ControlTemplate">
+            <summary>
+            控件模板
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.DataGridRowExpandMode">
+            <summary>
+            记录展开的模式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandMode.User">
+            <summary>
+            用户点击
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandMode.Expand">
+            <summary>
+            全部展开
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.Mini.DataGridRowExpandMode.Closed">
+            <summary>
+            闭合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ISecControl">
+            <summary>
+            安全组件
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ISecControl.SecFunCode">
+            <summary>
+            代码 集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ISecControl.SecFunID">
+            <summary>
+            ID 集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ISecControl.SecControls">
+            <summary>
+            安全组件的集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini.ISecControl.Visible">
+            <summary>
+            是否可以显示的状态
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.Mini.ISecCommand">
+            <summary>
+            安全指令的接口
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini.ISecCommand.SecCommand(System.String)">
+            <summary>
+            安全指令
+            </summary>
+            <param name="funCode"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini.SecControlCollection">
+            <summary>
+            安全组件的集合
+            </summary>
+        </member>
+        <member name="T:App.Register.RegHelp">
+            <summary>
+            娉ㄥ唽甯姪
+            </summary>
+        </member>
+        <member name="F:App.Register.RegHelp.m_RegCode">
+            <summary>
+            鎺堟潈鐮?
+            </summary>
+        </member>
+        <member name="M:App.Register.RegHelp.SetData(System.Byte[],System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            璁剧疆娉ㄥ唽淇℃伅
+            </summary>
+            <param name="data">瑙ｅ瘑淇℃伅</param>
+            <param name="userId">鐢ㄦ埛ID</param>
+            <param name="toTime">鎺堟潈缁撴潫鏃ユ湡</param>
+            <param name="mode">DEMO,FULL</param>
+            <param name="isValidNow">绔嬪埢楠岃瘉</param>
+        </member>
+        <member name="M:App.Register.RegHelp.IsValidRegister">
+            <summary>
+            鏄惁宸茬粡楠岃瘉娉ㄥ唽
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegHelp.IsRegister">
+            <summary>
+            鏄惁宸茬粡娉ㄥ唽
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetContextValues">
+            <summary>
+            鑾峰彇 Application 閲岄潰鐨勭‖浠跺弬鏁板€?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetMoAddress">
+              <summary> 
+              鑾峰彇缃戝崱纭欢鍦板潃 
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.GetCpuID">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.ZbID">
+            <summary>
+            涓绘澘
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetHDid">
+              <summary> 
+              鑾峰彇纭洏ID     
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:App.Register.RegFactory.AESDecrypt(System.Byte[],System.String)" -->
+    </members>
+</doc>

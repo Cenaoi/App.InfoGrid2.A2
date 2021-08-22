@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.LCodeEngine</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.LCodeEngine.JItemType">
+            <summary>
+            模板项目类型
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.JItemType.String">
+            <summary>
+            普通字符串
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.JItemType.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JItem">
+            <summary>
+            模板项目
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JItem.ItemType">
+            <summary>
+            条目类型
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JItem.Prefix">
+            <summary>
+            前缀
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JItem.Text">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JItem.Description">
+            <summary>
+            字段名描述
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JItemCollection">
+            <summary>
+            模板项目集合
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JTemplate">
+            <summary>
+            模板引擎
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.JTemplate.m_SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.JTemplate.m_ResultText">
+            <summary>
+            返回的字符串
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.JTemplate.m_Items">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.#ctor(System.String)">
+            <summary>
+            (构造函数)模板引擎
+            </summary>
+            <param name="srcText"></param>
+        </member>
+        <member name="P:EC5.LCodeEngine.JTemplate.ResultText">
+            <summary>
+            处理后返回的字符串
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JTemplate.SrcText">
+            <summary>
+            原字符串
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.GetCodeItems">
+            <summary>
+            获取需要处理的变量名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.Exec">
+            <summary>
+            处理执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.ParseItem_ForCode_Fun(EC5.LCodeEngine.JItem,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            函数参数
+            </summary>
+            <param name="item"></param>
+            <param name="modelElem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.ParseItem_ForCode_Table(EC5.LCodeEngine.JItem,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            当前对象
+            </summary>
+            <param name="item"></param>
+            <param name="modelElem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.ParseItem_ForCode_Param(EC5.LCodeEngine.JItem,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            参数对象
+            </summary>
+            <param name="item"></param>
+            <param name="modelElem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.SetParam(System.String,System.Object)">
+            <summary>
+            设置参数
+            </summary>
+            <param name="paramName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EC5.LCodeEngine.JTemplate.CodeAnalysis">
+            <summary>
+            代码解析
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JTemplateFuncManager">
+            <summary>
+            函数管理
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JTemplateFunc">
+            <summary>
+            给模板函数调用的
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.JTemplateFunc.Name">
+            <summary>
+            函数名称
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.JTemplateFuncList">
+            <summary>
+            模板函数方法集
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.LcFieldRule">
+            <summary>
+            代码规则
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.LcFieldRule.m_Field">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.LcFieldRule.m_ListenFields">
+            <summary>
+            监听的字段集合
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.LcFieldRule.DbDecipher">
+            <summary>
+            数据库操作对象
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.LcFieldRule.ListenFields">
+            <summary>
+            监听的字段集合
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.LcFieldRule.Code">
+            <summary>
+            原代码
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.LcFieldRule.Field">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRule.CodeParse">
+            <summary>
+            代码进行解析,并设置监听的字段
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRule.F_StringJoin(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            字符串连接
+            </summary>
+            <param name="table">表名</param>
+            <param name="fields">字段集合</param>
+            <param name="tSqlJoinOn">两个表关联连接的 on 语句</param>
+            <param name="tSqlWhere">筛选过滤</param>
+            <param name="itemFormat">格式化</param>
+            <param name="splceChar">连接字符串</param>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRule.Exec_Func(System.String)">
+            <summary>
+            根据函数执行代码
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRule.Exec(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRule.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.LcFieldRuleCollection">
+            <summary>
+            代码规则集合
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcFieldRuleCollection.ToString">
+            <summary>
+            输出字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.LCodeEngine.LcModelManager">
+            <summary>
+            规则管理器
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModelManager.Exec(System.String,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行
+            </summary>
+            <param name="code"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.LCodeEngine.LcModel">
+            <summary>
+            实体 
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.LcModel.TableName">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.LcModel.m_Fields">
+            <summary>
+            有带公式的字段集合
+            </summary>
+        </member>
+        <member name="F:EC5.LCodeEngine.LcModel.m_ListenFields">
+            <summary>
+            监听的字段集合
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.Clear">
+            <summary>
+            清理
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.Add(System.String,System.String)">
+            <summary>
+            添加
+            </summary>
+            <param name="field"></param>
+            <param name="code"></param>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.IsListen(System.String)">
+            <summary>
+            是否有监听
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.DebugWrite(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            调试输出
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.Exec(System.String,HWQ.Entity.LightModels.LModel,System.String[]@)">
+            <summary>
+            执行
+            </summary>
+            <param name="listenField">listenField</param>
+            <param name="model"></param>
+            <param name="outFields">outFields</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.LcModel.Reset">
+            <summary>
+            重置规则
+            </summary>
+        </member>
+        <member name="T:EC5.LCodeEngine.ScriptTemplate">
+            <summary>
+            脚本模板
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.ScriptTemplate.SrcCode">
+            <summary>
+            源代码
+            </summary>
+        </member>
+        <member name="P:EC5.LCodeEngine.ScriptTemplate.HashCode">
+            <summary>
+            源代码的 Hash 码
+            </summary>
+        </member>
+        <member name="M:EC5.LCodeEngine.ScriptTemplate.Exec(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行脚本
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.LCodeEngine.ScriptTemplate.Parse(System.String)">
+            <summary>
+            解析代码
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

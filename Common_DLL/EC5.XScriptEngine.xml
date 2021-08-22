@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.XScriptEngine</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.XScriptEngine.XScriptElem">
+            <summary>
+            脚本元素
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptElem.AddCodeLine(EC5.XScriptEngine.XScriptElem)">
+            <summary>
+            添加到代码命令行中
+            </summary>
+            <param name="xsElem"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptElem.Exec(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行
+            </summary>
+            <param name="content">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.XScriptEngine.XS_IfCompare">
+            <summary>
+            对比
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.IXS_ConditionElem.Exec(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_ForEach.m_Var">
+            <summary>
+            定义的变量名
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_ForEach.m_Name">
+            <summary>
+            集合名称
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XS_ForEach.ExecLines(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行内部过程
+            </summary>
+            <param name="content">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.XScriptEngine.XS_Return">
+            <summary>
+            返回
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XScriptInstance">
+            <summary>
+            实例化脚本
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XScriptInstance.m_XScript">
+            <summary>
+            脚本内容
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XScriptInstance.m_Content">
+            <summary>
+            脚本需要的上下文
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptInstance.#ctor(EC5.XScriptEngine.XScript)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="xScript"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptInstance.Exec">
+            <summary>
+            执行脚本
+            </summary>
+        </member>
+        <member name="P:EC5.XScriptEngine.XScriptInstance.Content">
+            <summary>
+            脚本需要的上下文
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XSMethodInstance">
+            <summary>
+            方法实例化
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSMethodInstance.Exec(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行
+            </summary>
+            <param name="content">脚本上下文管理</param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSMethod.Exec(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行
+            </summary>
+            <param name="content">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.XScriptEngine.XRegisterFun">
+            <summary>
+            注册函数
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XSFlowType">
+            <summary>
+            代码域的类型
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSFlowType.Class">
+            <summary>
+            类过程
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSFlowType.Fun">
+            <summary>
+            函数过程
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSFlowType.CodeRegion">
+            <summary>
+            代码区域范围
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XSFlowStatus">
+            <summary>
+            代码流程状态
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSFlowStatus.m_Params">
+            <summary>
+            局部参数
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSFlowStatus.SetParam(System.String,System.Object)">
+            <summary>
+            设置参数值
+            </summary>
+            <param name="field"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSFlowStatus.GetParam(System.String)">
+            <summary>
+            获取参数值
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSFlowStatus.ExistParam(System.String)">
+            <summary>
+            判断参数是否存在
+            </summary>
+            <param name="field">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.XScriptEngine.XScriptGlobel">
+            <summary>
+            全局变量
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptGlobel.RegisterFunction(System.String,System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            注册函数
+            </summary>
+            <param name="obj"></param>
+            <param name="mi"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScriptGlobel.GetMethod(System.String)">
+            <summary>
+            按注册名称获取函数
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.XScriptEngine.XSContent">
+            <summary>
+            执行脚本的上下文
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSContent.m_FlowLoopStack">
+            <summary>
+            循环的流程
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XSContent.m_ReturnValue">
+            <summary>
+            全局默认返回的值
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSContent.BeginFlow(EC5.XScriptEngine.XSFlowType)">
+            <summary>
+            开始流程
+            </summary>
+            <param name="flowType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSContent.EndFlow">
+            <summary>
+            结束流程
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSContent.SetParam(System.String,System.Object)">
+            <summary>
+            设置参数值
+            </summary>
+            <param name="field"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSContent.GetParam(System.String)">
+            <summary>
+            获取参数值
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.XScriptEngine.XSContent.ExistParam(System.String)">
+            <summary>
+            判断参数是否存在
+            </summary>
+            <param name="field">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.XScriptEngine.XSContent.ReturnValue">
+            <summary>
+            全局默认返回的值
+            </summary>
+        </member>
+        <member name="P:EC5.XScriptEngine.XSContent.CurFlow">
+            <summary>
+            当前流程
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XS_Call">
+            <summary>
+            调用代码
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Call.m_ReturnValue">
+            <summary>
+            执行结束后，返回的数据结果
+            </summary>
+        </member>
+        <member name="P:EC5.XScriptEngine.XS_Call.ReturnValue">
+            <summary>
+            执行结束后，返回的数据结果
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XS_For.ExecLines(EC5.XScriptEngine.XSContent)">
+            <summary>
+            执行内部过程
+            </summary>
+            <param name="content">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.None">
+            <summary>
+            无效
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.Index">
+            <summary>
+            索引
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.Fun">
+            <summary>
+            函数
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.Param">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="F:EC5.XScriptEngine.XS_Value.CodeAreaType.ParamArray">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="T:EC5.XScriptEngine.XScript">
+            <summary>
+            代码执行指令
+            </summary>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScript.RegisterFunction(System.String,System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            注册函数
+            </summary>
+            <param name="obj"></param>
+            <param name="mi"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScript.LoadXml(System.String)">
+            <summary>
+            加载 XML 数据
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScript.LoadFile(System.String)">
+            <summary>
+            加载脚本文件
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:EC5.XScriptEngine.XScript.GetInstance">
+            <summary>
+            获取实例对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.XScriptEngine.XScript.Globel">
+            <summary>
+            全局变量
+            </summary>
+        </member>
+        <member name="P:EC5.XScriptEngine.XScript.MainMethod">
+            <summary>
+            获取主函数
+            </summary>
+        </member>
+    </members>
+</doc>

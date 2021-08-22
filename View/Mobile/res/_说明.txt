@@ -1,0 +1,8 @@
+﻿
+res/			-资源目录
+
+res/image/		-图片目录
+res/scripts/		-当前手机版的 js 库
+res/scripts/
+res/common.css	-常规自定义样式文件
+ 

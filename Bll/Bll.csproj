@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C777DB6B-E920-4DFF-B349-5757182A3D08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.InfoGrid2.Bll</RootNamespace>
+    <AssemblyName>App.InfoGrid2.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="App.BizCommon">
+      <HintPath>..\Common_DLL\App.BizCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.BizWeb">
+      <HintPath>..\Common_DLL\EasyClick.BizWeb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini, Version=1.1.5252.27108, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini2, Version=1.0.5246.8244, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Common">
+      <HintPath>..\Common_DLL\EC5.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.LCodeEngine">
+      <HintPath>..\Common_DLL\EC5.LCodeEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Configuration">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Web">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Utility">
+      <HintPath>..\Common_DLL\EC5.Utility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HWQ.Entity4, Version=4.18.5297.38746, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Common_DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\Common_DLL\protobuf-net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BizCatalogMgr.cs" />
+    <Compile Include="BizCompanyMgr.cs" />
+    <Compile Include="BizCommonMgr.cs" />
+    <Compile Include="BufferTableHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Builder\TemplateConvert.cs" />
+    <Compile Include="Builder\TemplateItemCollection.cs" />
+    <Compile Include="Builder\TItemScript.cs" />
+    <Compile Include="CustomViewMgr.cs" />
+    <Compile Include="DataMgr.cs" />
+    <Compile Include="DbDecipherAppender.cs" />
+    <Compile Include="DbTrachOperate.cs" />
+    <Compile Include="DisplayRuleMgr.cs" />
+    <Compile Include="ExcelConvert.cs" />
+    <Compile Include="FlowInstMgr.cs" />
+    <Compile Include="FlowMgr.cs" />
+    <Compile Include="FlowUrlMgr.cs" />
+    <Compile Include="ReportCol.cs" />
+    <Compile Include="ReportField.cs" />
+    <Compile Include="SysValidateMgr.cs" />
+    <Compile Include="LoginMgr.cs" />
+    <Compile Include="MapMgr.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Builder\TemplateItem.cs" />
+    <Compile Include="Sec\SecFunMgr.cs" />
+    <Compile Include="TableBufferMgr.cs" />
+    <Compile Include="TableMgr.cs" />
+    <Compile Include="ReportTemplateItem.cs" />
+    <Compile Include="TmpTableMgr.cs" />
+    <Compile Include="TmpViewMgr.cs" />
+    <Compile Include="ViewMgr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{16e4ea2a-b230-4db9-849e-3dd105539d45}</Project>
+      <Name>Model</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

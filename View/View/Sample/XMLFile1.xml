@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page-template>
+  <head>
+    <title value="标题" />
+  </head>
+  <body>
+    <div ec-type="FORM" title="表单头" id="HanderForm1" ec-main-view="34" ec-main-type="VIEW" ec-main-name="UT_003" />
+    <div ec-type="TABS" title="Tabs" id="detailTabPanel">
+      <div ec-type="TAB" title="明细" id="tab1" ec-main-view="35" ec-main-type="VIEW" ec-main-name="UT_004" />
+    </div>
+    <div ec-type="FORM" title="页尾" id="footerForm1" ec-main-view="36" ec-main-type="VIEW" ec-main-name="UT_003" />
+  </body>
+  <mi:aad >
+    
+  </mi:aad>
+  <aa.dds>
+    
+  </aa.dds>
+</page-template>

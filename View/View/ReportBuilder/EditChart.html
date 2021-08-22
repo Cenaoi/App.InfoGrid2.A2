@@ -1,0 +1,262 @@
+﻿<!--这是编辑图表显示窗口-->
+<div class='modal fade bs-example-modal-lg' role='dialog' data-backdrop='false' style='z-index:2000;' aria-hidden="false">
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content' style="overflow:hidden;">
+            <div class='modal-header' style="font-size:21px;text-align:center;background-color:#f5f5f5;">图表窗口</div>
+            <div class='modal-body'>
+                <!--这个 div 是用来居中的-->
+                <div style="margin:auto; width:650px;">
+                    <form class="form-inline">
+                        
+                        
+                        <div class="input-group" style="margin:5px;">
+
+                            <span class="input-group-addon" style=" width:100px;">系列产生在：</span>
+
+                            <div class="form-control"  style="width:196px;">
+
+                                <label>
+
+                                    <input type="radio" style="margin:0pt 10pt 0pt 10pt;" class="cr-item" name="chart_row_col" value="row" data-field="chart_row_col" />
+                                    
+                                    行
+                                </label>
+
+                                <label>
+                                    <input type="radio" style="margin:0pt 10pt 0pt 10pt;" class="cr-item" name="chart_row_col" value="col" data-field="chart_row_col" />
+
+                                    列 
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">时间字段：</span>
+                            <input type="text" class="cr-item form-control" data-field="date_field" />
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">饼图显示字段：</span>
+                            <input type="text" class="cr-item form-control" data-field="row_display_field" />
+                        </div>
+
+                 
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">一列多值：</span>
+                            <div class=" form-control" style="padding:0px;width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="multi_value" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">图表类型：</span>
+                            <select class="cr-item form-control" data-field="chart_type" style="width:196px;">
+                                <option value="bar" selected="selected">柱状</option>
+                                <option value="pie">饼状</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">临时增加索引：</span>
+                            <input type="number" class="cr-item form-control" data-field="temp_x_index" value="0" />
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">数据区位置：</span>
+                            <select class="cr-item form-control" data-field="data_layout" style="width:196px;">
+                                <option value="bottom" selected="selected">底部</option>
+                                <option value="top">顶部</option>
+                            </select>
+                        </div>
+
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">数据缓冲：</span>
+                            <div class=" form-control" style="padding:0px;width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="is_data_buffer" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">期初激活：</span>
+                            <div class=" form-control" style="padding:0px;width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="bb_enabled" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">开始时间：</span>
+                            <input type="text" class="cr-item form-control" data-field="bb_time" />
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">期末激活：</span>
+                            <div class=" form-control" style="padding:0px;width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="eb_enabled" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">结束时间：</span>
+                            <input type="text" class="cr-item form-control" data-field="eb_time" />
+                        </div>
+                     
+                    </form>
+                </div>
+                
+            </div>
+            <div class='modal-footer ' style="text-align:center;">
+                <button class="btn btn-success btn-save btn-lg" style="width:100pt;">保存</button>
+                <button class="btn btn-default  btn-close btn-lg" style="width:100pt;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+
+    //编辑图表对象，唯一的
+    var editChart = function () {
+
+
+
+        
+        //存放的数据
+        this.data_json = {
+            date_field: "COL_3",
+        };
+
+        //整个编辑界面窗口
+        this.window = null;
+
+        //初始化
+        this.initData = function () {
+
+            console.log("11111111111111");
+
+            var me = this;
+
+            //循环赋值给上面属性
+            me.window.find(".cr-item").each(function (i, v) {
+
+                var name = $(v).attr("data-field");
+
+                //如果是input控件并且type是text的就直接赋值进去
+                if (v.type == "text" || v.nodeName == "SELECT" || v.type == "number") {
+
+                   
+                    $(v).val(me.data_json[name]);
+                }
+
+                if (v.type == "checkbox") {
+
+                    $(v).attr("checked", me.data_json[name]);
+                }
+
+                if (v.type == "radio") {
+
+                    if ($(v).val() == me.data_json[name]) {
+
+                        $(v).attr("checked", true);
+
+                    }
+
+                }
+
+            });
+
+
+
+            me.window.click(function () {
+
+                me.window.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.window = null;
+            });
+
+
+
+            //阻止事件冒泡
+            me.window.find(".modal-content").click(function (e) {
+
+                e.stopPropagation();
+
+            });
+            //取消按钮点击事件
+            me.window.find(".btn-close").click(function () {
+
+                me.window.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.window = null;
+            });
+
+
+            //保存按钮点击事件
+            me.window.find(".btn-save").click(function () {
+
+                //循环赋值给上面属性
+                me.window.find(".cr-item").each(function (i, v) {
+
+                    var name = $(v).attr("data-field");
+
+                    //如果是input控件并且type是text的就直接赋值进去
+                    if (v.type == "text" || v.nodeName == "SELECT" || v.type == "number") {
+
+                        me.data_json[name] = $(v).val();
+                    }
+
+                    if (v.type == "checkbox") {
+
+                        me.data_json[name] = v.checked;
+                    }
+
+
+                    if (v.type == "radio") {
+
+                        if (v.checked == true) {
+
+                            me.data_json[name] = $(v).val();
+
+                        }
+
+                    }
+
+                });
+
+
+             
+
+                me.window.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.window = null;
+
+
+            });
+
+
+
+            me.window.modal({ show: "show", backdrop: true });
+
+
+            $("body").append(me.window);
+
+
+        }
+
+    }
+
+</script>
+

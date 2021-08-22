@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68835BF2-8B89-4369-939B-C29582263F66}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EC5.IG2.BizBase</RootNamespace>
+    <AssemblyName>EC5.IG2.BizBase</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Common_DLL\EC5.IG2.BizBase.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="App.BizCommon">
+      <HintPath>..\Common_DLL\App.BizCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini">
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EasyClick.Web.Mini2">
+      <HintPath>..\Common_DLL\EasyClick.Web.Mini2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.BizCoder">
+      <HintPath>..\Common_DLL\EC5.BizCoder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.BizLogger">
+      <HintPath>..\Common_DLL\EC5.BizLogger.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.BizLogger.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EC5.BizLogger.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.DbCascade">
+      <HintPath>..\Common_DLL\EC5.DbCascade.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.DbCascade.Model">
+      <HintPath>..\Common_DLL\EC5.DbCascade.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.LCodeEngine">
+      <HintPath>..\Common_DLL\EC5.LCodeEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.LcValueEngine">
+      <HintPath>..\Common_DLL\EC5.LcValueEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Configuration">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.SystemBoard.Web">
+      <HintPath>..\Common_DLL\EC5.SystemBoard.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Utility, Version=1.1.5636.418, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EC5.Utility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EC5.Utility.Web, Version=1.0.5636.418, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\EC5.Utility.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HWQ.Entity4">
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbCascadeFactory.cs" />
+    <Compile Include="DbCascadeLoader.cs" />
+    <Compile Include="DbCascadeRule.cs" />
+    <Compile Include="LCodeFactory.cs" />
+    <Compile Include="LCodeValueFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

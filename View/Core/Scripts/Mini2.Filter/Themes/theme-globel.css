@@ -1,0 +1,30 @@
+﻿
+
+.mi-filter{
+
+}
+
+.mi-filter-item{
+    position: relative;
+}
+
+.mi-filter-remove {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.mi-filter-remove-inner {
+    width: 16px;
+    height: 16px;
+}
+
+.mi-filter-text{
+    font-size:12px;
+    font-weight:normal;
+    font-family: '微软雅黑'
+}
+
+.mi-filter-item .mi-filter-text{
+    margin-right:30px;
+}

@@ -1,0 +1,774 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.IG2.Core</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.IG2.Core.Ac3DataMgr">
+            <summary>
+            Ac3 数据操作类
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.BizCodeLoader.Load">
+            <summary>
+            加载定义
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.BizHelper">
+            <summary>
+            业务助手类。临时
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.FullForUpdate(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            填充更新的数据
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.FullForInsert(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            填充新建的数据
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ImportData(System.Int32,System.Int32,System.Int32[],System.String,System.Int32,System.Boolean)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="checkeIds">选中的主键ID集合</param>
+            <param name="dialogId">弹出的视图ID</param>
+            <param name="mapId">映射的ID</param>
+            <param name="parentField">上级字段</param>
+            <param name="parentId">上级ID</param>
+            <param name="autoInsert">自动插入数据</param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.Debug_Models(System.Collections.Generic.List{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            日志输出 Debug 调试信息
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.Debug_Model(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            日志输出 Debug 调试信息数据
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeField(System.String,EasyClick.Web.Mini2.Store)">
+            <summary>
+            改变某个字段的值
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为: { field:"字段1", from: 数值, to:数值} . 例: {field:'字段1', from:0, to:2}
+            </param>
+            <param name="mainStore">界面上主数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeField_SubTable(System.String,System.Collections.Generic.SortedList{System.String,EasyClick.Web.Mini2.Store})">
+            <summary>
+            改变某个字段的值
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为: { field:"字段1", from: 数值, to:数值} . 例: {field:'字段1', from:0, to:2}
+            </param>
+            <param name="mainStore">界面上主数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeField(System.String,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store)">
+            <summary>
+            改变某个字段的值
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为: { field:"字段1", from: 数值, to:数值} . 例: {field:'字段1', from:0, to:2}
+            </param>
+            <param name="mainTable">界面上表格的主表</param>
+            <param name="mainStore">界面上主数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeBizSIDAll(System.String,EasyClick.Web.Mini2.Store)">
+            <summary>
+            改变全部业务状态
+            </summary>
+            <param name="psStr"></param>
+            <param name="mainStore">数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeFieldNow(System.String,EasyClick.Web.Mini2.Store,System.Collections.Generic.SortedList{System.String,EasyClick.Web.Mini2.Store})">
+            <summary>
+            把时间字段设置为当前时间
+            </summary>
+            <param name="psStr"></param>
+            <param name="mainStore">数据仓库</param>
+            <param name="subStore">子表数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeFieldNow(System.String,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store,System.Collections.Generic.SortedList{System.String,EasyClick.Web.Mini2.Store})">
+            <summary>
+            把时间字段设置为当前时间
+            </summary>
+            <param name="psStr"></param>
+            <param name="table"></param>
+            <param name="mainStore">数据仓库</param>
+            <param name="subStoreDict">子表数据仓库</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ValidateBlack(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel},EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            验证空值
+            </summary>
+            <param name="models"></param>
+            <param name="mainTable"></param>
+            <param name="mainStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ValidateBlack(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel},System.Int32,EasyClick.Web.Mini2.Store,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            验证空值
+            </summary>
+            <param name="models"></param>
+            <param name="mainTable"></param>
+            <param name="mainStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeBizSID(System.String,System.Int32,EasyClick.Web.Mini2.Store)">
+            <summary>
+            改变 Biz 业务状态
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为:数值,数值. 例:0,2
+            </param>
+            <param name="mainTable">界面上表格的主表</param>
+            <param name="mainStore">界面上主数据仓库</param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeBizSID(System.String,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store)">
+            <summary>
+            改变 Biz 业务状态
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为:数值,数值. 例:0,2
+            </param>
+            <param name="mainTable">界面上表格的主表</param>
+            <param name="mainStore">界面上主数据仓库</param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.ChangeBizSID(System.String,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store,System.Collections.Generic.SortedList{System.String,App.InfoGrid2.Model.DataSet.TableSet})">
+            <summary>
+            改变 Biz 业务状态
+            </summary>
+            <param name="psStr">json 参数.业务值变化状态.
+            格式为:数值,数值. 例:0,2
+            </param>
+            <param name="mainTable">界面上表格的主表</param>
+            <param name="mainStore">界面上主数据仓库</param>
+            <param name="tableSets">表名索引的 TableSet 对象</param>
+        </member>
+        <member name="M:EC5.IG2.Core.BizHelper.Full(EasyClick.Web.Mini2.ComboBox,System.String,System.String,System.String)">
+            <summary>
+            填充下拉框
+            </summary>
+            <param name="comboBox">下拉框控件</param>
+            <param name="tableName">表名</param>
+            <param name="valueField">值的字段名</param>
+            <param name="displayField">显示的字段名</param>
+        </member>
+        <member name="T:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader">
+            <summary>
+            C# 文件动态加载器
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.#ctor">
+            <summary>
+            C# 文件动态加载器（构造函数）
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.m_TypeList">
+            <summary>
+            编译后的 Type 对行啊
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.m_ReferenceedAssembilies">
+            <summary>
+            引用对象
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.Load(System.String)">
+            <summary>
+            加载目录下面的
+            </summary>
+            <param name="dir">目录</param>
+        </member>
+        <member name="M:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.Compiled(System.String)">
+            <summary>
+            编译
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.DymCSharpFile.CSharpFileLoader.CompiledSet(System.String[])">
+            <summary>
+            编译
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.Core.M2Helper">
+            <summary>
+            临时对象。用于不明确的，未归类的函数。
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.M2Helper.GetUserMenuId">
+            <summary>
+            获取用户对应的菜单Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.M2Helper.GetSecFunIds(System.String)">
+            <summary>
+            根据用户 ID ，获取能显示的菜单 ID
+            </summary>
+            <param name="logicCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.Core.M2MapHelper">
+            <summary>
+            实体映射
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.M2MapHelper.MapTable(HWQ.Entity.LightModels.LightModel,System.Int32,HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            映射对象
+            </summary>
+            <param name="srcModel">原实体</param>
+            <param name="mapId">映射ID</param>
+            <param name="toModel">目标实体</param>
+        </member>
+        <member name="M:EC5.IG2.Core.M2MapHelper.MapCol(HWQ.Entity.Decipher.LightDecipher.DbDecipher,App.InfoGrid2.Model.IG2_MAP_COL,HWQ.Entity.LightModels.LightModel,HWQ.Entity.LightModels.LightModel,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            映射列数据
+            </summary>
+            <param name="decipher"></param>
+            <param name="mapCol"></param>
+            <param name="srcModel"></param>
+            <param name="toModel"></param>
+            <param name="srcModelElem"></param>
+            <param name="toModelElem"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitBizData">
+            <summary>
+            初始化 Biz 业务数据
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitJTemplateFunc">
+            <summary>
+            初始化模板的函数
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.Init_Action3">
+            <summary>
+            初始化'联动3'
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetOpCompCode(System.Object[])">
+            <summary>
+            获取当前正在操作的公司代码
+            </summary>
+            <param name="dymPs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.NewCode(System.Object[])">
+            <summary>
+            创建单据编码
+            </summary>
+            <param name="tCode">编码代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetBizUserCode(System.Object[])">
+            <summary>
+            用户代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetBizOrgCode(System.Object[])">
+            <summary>
+            组织结构代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetLoginName(System.Object[])">
+            <summary>
+            真实姓名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetLoginID(System.Object[])">
+            <summary>
+            登录账号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.GetUserIdentity(System.Object[])">
+            <summary>
+            数据库主键id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitBizCode">
+            <summary>
+            初始化编码格式
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitDymModel">
+            <summary>
+            初始化动态实体
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitLCode(App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            初始化 LightCode 简单表达式
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitStoreParam">
+            <summary>
+            初始化数据仓库的参数
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitPlugin">
+            <summary>
+            初始化插件
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.IG2Globel.InitDbcc">
+            <summary>
+            初始化联动事务
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.IG2Param">
+            <summary>
+            IG2 系统设计
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.IG2Param.Role">
+            <summary>
+            系统角色
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.IG2Param.Role.BUILDER">
+            <summary>
+            设计师角色
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.IG2Param.Role.ADMIN">
+            <summary>
+            系统管理员角色
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.IG2Param.Role.EMPLOYEE">
+            <summary>
+            /员工角色
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.IG2Param.Role.OTHER">
+            <summary>
+            其它人员
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.LcValue.LCodeValueLoader.ToLogic(System.String)">
+            <summary>
+            转换逻辑运算符号
+            </summary>
+            <param name="logicStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.Mini2JScriptHelper.UniteMiniSystemJS">
+            <summary>
+            合并 Mini.js
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.TempDataManager.IG2TempMgr">
+            <summary>
+            IG2 临时数据管理
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.TempDataManager.IG2TempMgr.ClearTemp">
+            <summary>
+            清理临时数据表
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2FormFactory.CreateFormControl(EasyClick.Web.Mini2.FormLayout,App.InfoGrid2.Model.IG2_TABLE_COL,App.InfoGrid2.Model.IG2_TABLE)">
+            <summary>
+            创建查询子控件
+            </summary>
+            <param name="formUi"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.M2SearchFormFactory.StoreID">
+            <summary>
+            数据仓库ID
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SearchFormFactory.CreateControls(EasyClick.Web.Mini2.FormLayout,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            定义查询框
+            </summary>
+            <param name="searchForm"></param>
+            <param name="tableSet"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SearchFormFactory.CreateControls(EasyClick.Web.Mini2.FormLayout,System.Collections.Generic.List{App.InfoGrid2.Model.IG2_TABLE_COL})">
+            <summary>
+            定义查询框
+            </summary>
+            <param name="searchForm"></param>
+            <param name="tabCols"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SearchFormFactory.CreateSearchControl(App.InfoGrid2.Model.IG2_TABLE_COL)">
+            <summary>
+            创建查询子控件
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.M2SecurityDataFactory">
+            <summary>
+            权限数据
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityDataFactory.BindStore(EasyClick.Web.Mini2.Store)">
+            <summary>
+            设置归属权限
+            </summary>
+            <param name="uiStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityDataFactory.BindCatalog(EasyClick.Web.Mini2.Store,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            绑定目录权限
+            </summary>
+            <param name="uiStore"></param>
+            <param name="tSet"></param>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.SecUiItemType">
+            <summary>
+            权限 UI 的表格类型
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.UI.SecUiItemType.ALL">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.UI.SecUiItemType.Page">
+            <summary>
+            页面
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.UI.SecUiItemType.Area">
+            <summary>
+            复杂页区域
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.UI.SecUiItemType.Dialog">
+            <summary>
+            弹出窗体
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.M2SecurityUiFactory">
+            <summary>
+            权限数据
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Core.UI.M2SecurityUiFactory.m_SrcTableSet">
+            <summary>
+            源表定义。
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.InitSecUI(System.Int32,System.String,System.String,System.Int32,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            初始化 UI
+            </summary>
+            <param name="pageId"></param>
+            <param name="pageTypeId"></param>
+            <param name="pageSubTypeId">表单子类型: ONE_FORM</param>
+            <param name="srcTableSet">源表定义。</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.InitSecUI(System.Int32,System.String,System.Int32,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            初始化 UI
+            </summary>
+            <param name="pageId"></param>
+            <param name="pageTypeId"></param>
+            <param name="srcTableSet">源表定义。</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.Filter_For_TableSet(System.String,System.String,System.String,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            过滤
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag">安全标记。</param>
+            <param name="pageTypeId"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.Filter(System.String,System.String,System.String,EasyClick.Web.Mini2.Toolbar,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store)">
+            <summary>
+            过滤
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag">安全标记。</param>
+            <param name="pageTypeId"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterToolbar(System.String,System.String,EasyClick.Web.Mini2.Toolbar)">
+            <summary>
+            过滤
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag">安全标记。</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.Filter_TableCols(App.InfoGrid2.Model.SecModels.SEC_UI_TABLE,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store)">
+            <summary>
+            处理表格 UI 权限
+            </summary>
+            <param name="suTable"></param>
+            <param name="uiTable"></param>
+            <param name="uiStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterForItem(System.Int32,System.String,System.String,System.String,System.String,System.String,EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store)">
+            <summary>
+            过滤
+            </summary>
+            <param name="pageId"></param>
+            <param name="secTag"></param>
+            <param name="pageTypeId"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterForItemForm(System.Int32,System.String,System.String,System.String,System.String,System.String,EasyClick.Web.Mini2.FormLayout,EasyClick.Web.Mini2.Store)">
+            <summary>
+            过滤查询表单
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag"></param>
+            <param name="pageAreaId"></param>
+            <param name="uiTable"></param>
+            <param name="uiStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterTableSet(System.String,System.String,System.String,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            过滤 TableSet 里面的字段
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag"></param>
+            <param name="pageAreaId"></param>
+            <param name="uiTable"></param>
+            <param name="uiStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterForForm(System.String,System.String,System.String,EasyClick.Web.Mini2.FormLayout,EasyClick.Web.Mini2.Store)">
+            <summary>
+            过滤查询表单
+            </summary>
+            <param name="displayModeId"></param>
+            <param name="secTag"></param>
+            <param name="pageAreaId"></param>
+            <param name="uiTable"></param>
+            <param name="uiStore"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.FilterReplace(System.String)">
+            <summary>
+            过滤参数替换
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.GetFieldFilterB(App.InfoGrid2.Model.SecModels.SEC_UI_TABLECOL)">
+            <summary>
+            二级过滤
+            </summary>
+            <param name="vField"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2SecurityUiFactory.GetFieldFilter(App.InfoGrid2.Model.SecModels.SEC_UI_TABLECOL)">
+            <summary>
+            一级过滤
+            </summary>
+            <param name="vField"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.M2TableFactory">
+            <summary>
+            界面表格列的构造工厂
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.#ctor(System.Boolean)">
+            <summary>
+            界面表格列的构造工厂(构造函数)
+            </summary>
+            <param name="isPostBack">是否 Post 提交</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.CreateTableColumns(EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store,App.InfoGrid2.Model.DataSet.TableSet,System.Boolean)">
+            <summary>
+            创建表格列
+            </summary>
+            <param name="tableUi"></param>
+            <param name="storeUi"></param>
+            <param name="tableSet"></param>
+            <param name="autoInsertFilter">自动插入过滤条件</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.GetGroupColumn(App.InfoGrid2.Model.IG2_TABLE_COL,EasyClick.Web.Mini2.TableColumnCollection,System.Collections.Generic.List{EasyClick.Web.Mini2.GroupColumn})">
+            <summary>
+            获取组列
+            </summary>
+            <param name="item"></param>
+            <param name="cols"></param>
+            <param name="groups"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.CreateSummary(EasyClick.Web.Mini2.Table,EasyClick.Web.Mini2.Store,App.InfoGrid2.Model.DataSet.TableSet,System.Boolean)">
+            <summary>
+            创建合计栏目
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.CreateGridCol(App.InfoGrid2.Model.IG2_TABLE_COL,System.Boolean)">
+            <summary>
+            创建表格列
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.GetFormat(System.String,System.Int32)">
+            <summary>
+            获取格式化
+            </summary>
+            <param name="dot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.ProTableCol(App.InfoGrid2.Model.IG2_TABLE_COL,EasyClick.Web.Mini2.SelectBaseColumn)">
+            <summary>
+            处理弹出或下拉表格数据的
+            </summary>
+            <param name="item"></param>
+            <param name="col"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2TableFactory.FullItems(EasyClick.Web.Mini2.SelectColumn,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            填充映射条目
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.M2ToolbarFactory.SearchFormID">
+            <summary>
+            查询的表单
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.M2ToolbarFactory.StoreId">
+            <summary>
+            数据仓库ID
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.M2ToolbarFactory.TableId">
+            <summary>
+            表格ID
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ToolbarFactory.CreateItems(EasyClick.Web.Mini2.Toolbar,App.InfoGrid2.Model.DataSet.ToolbarSet,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            创建工具栏条目
+            </summary>
+            <param name="tSet"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ToolbarFactory.CreateItems(EasyClick.Web.Mini2.Toolbar,App.InfoGrid2.Model.DataSet.ToolbarSet)">
+            <summary>
+            创建工具栏条目
+            </summary>
+            <param name="tSet"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ToolbarFactory.CreateDefaultItems(EasyClick.Web.Mini2.Toolbar)">
+            <summary>
+            创建默认按钮
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.BindStore(EasyClick.Web.Mini2.Store)">
+            <summary>
+            绑定数据仓库
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.GetCol(App.InfoGrid2.Model.DataSet.TableSet,System.String)">
+            <summary>
+            获取字段定义
+            </summary>
+            <param name="tSet"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.ValidModelFieldAll(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel,App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            验证实体的全部字段
+            </summary>
+            <param name="store"></param>
+            <param name="model"></param>
+            <param name="tableSet"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.ValidField(App.InfoGrid2.Model.IG2_TABLE_COL,System.String,HWQ.Entity.LightModels.LModel,System.String@)">
+            <summary>
+            验证字段
+            </summary>
+            <param name="col"></param>
+            <param name="field"></param>
+            <param name="model"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.ValueField(Newtonsoft.Json.Linq.JObject,System.String,System.String@)">
+            <summary>
+            初始化数据
+            </summary>
+            <param name="o">json对象</param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2ValidateFactory.ValidValueForRule(Newtonsoft.Json.Linq.JProperty,System.String,System.String@)">
+            <summary>
+            设置值文本框
+            </summary>
+            <param name="prop">Json属性</param>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.VModelConfigColletion">
+            <summary>
+            视图实体集合
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.VModelConfig">
+            <summary>
+            视图实体
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.VFieldConfigCollection">
+            <summary>
+            视图字段配置集合
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.VFieldConfig">
+            <summary>
+            视图字段的配置
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.VFieldConfig.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.VFieldConfig.TarField">
+            <summary>
+            目标字段
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Core.UI.VFieldConfig.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Core.UI.M2VFieldHelper">
+            <summary>
+            视图字段的助手类，配合界面使用
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2VFieldHelper.Full(System.Collections.IList,System.Int32)">
+            <summary>
+            填充实体的视图字段
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EC5.IG2.Core.UI.M2VFieldHelper.FullModel(EC5.IG2.Core.UI.VModelConfig,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            填充视图字段
+            </summary>
+        </member>
+    </members>
+</doc>

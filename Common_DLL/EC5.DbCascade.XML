@@ -1,0 +1,1073 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.DbCascade</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.DbCascade.BizDbCascade">
+            <summary>
+            业务联动数据操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbCascade.DELETE">
+            <summary>
+            数据库删除操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbCascade.UPDATE">
+            <summary>
+            数据库更新操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbCascade.INSERT">
+            <summary>
+            数据库插入操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbCascade.ALL">
+            <summary>
+            数据库全部操作
+            </summary>
+        </member>
+        <member name="E:EC5.DbCascade.BizDbCascade.Updating">
+            <summary>
+            更新事件
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.OnUpdating(System.Object)">
+            <summary>
+            触发更新事件
+            </summary>
+            <param name="model">实体</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.StartCascade(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            开始关联操作
+            </summary>
+            <param name="decipher">数据操作</param>
+            <param name="actCode">操作代码。INSERT-插入操作，UPDATE-更新操作, DELETE-删除操作</param>
+            <param name="rightModel">实体</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccList(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            处理被监听的对象集 
+            </summary>
+            <param name="decipher"></param>
+            <param name="actCode"></param>
+            <param name="modelElem"></param>
+            <param name="rightModel"></param>
+            <param name="parentStep"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccItem(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            
+            </summary>
+            <param name="dbccModel"></param>
+            <param name="leftModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.GetItemValue_ForFun(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,EC5.DbCascade.DbCascadeEngine.DbccItem,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            获取函数值
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="item"></param>
+            <param name="rightModels"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.FilterR_SrcModel(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            过滤右边
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.IsChangedForUpdate(EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            字段是否已经发生变化
+            </summary>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="parStep">上级步骤</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.IsValueChanged(EC5.DbCascade.DbCascadeEngine.DbccListen,HWQ.Entity.LightModels.LModelFieldElementCollection,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            判断值是否发生变化了
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ExecLCode(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="srcRecord"></param>
+            <param name="model"></param>
+            <returns>返回修改过的字段集合</returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccItem_Left_INSERT(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccItem_Left_UPDATE_Common(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            常规更新
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccItem_Left_UPDATE_SubFilter(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel},EC5.DbCascade.BizDbStep)">
+            <summary>
+            子项更新
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.ProDBccItem_Left(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            处理左边事件
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbCascade.CreateMsgStep(System.String,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            创建被阻止的节点
+            </summary>
+            <param name="resultMsg"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="parStep"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbMath.Sum(System.String,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            合计
+            </summary>
+            <param name="field"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbMath.Avg(System.String,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            函数计算。平均
+            </summary>
+            <param name="models"></param>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbMath.LogicAB(System.Object,HWQ.Entity.Filter.Logic,System.Object)">
+            <summary>
+            比较两个值
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="logicAB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.DbCascade.LogOpData">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.LogOpData.TablePk">
+            <summary>
+            主键值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.LogOpData.LogSet.Op">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.LogOpData.LogSet.Field">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.LogOpData.LogSet.SrcValue">
+            <summary>
+            原始值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.LogOpData.LogSet.TarValue">
+            <summary>
+            目标值
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.BizDbStep">
+            <summary>
+            操作步骤
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStep.m_LogEnabled">
+            <summary>
+            激活 日志
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStep.m_Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStep.m_OpDataList">
+            <summary>
+            操作数据的日志
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.ActionId">
+            <summary>
+            动作ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.TableText">
+            <summary>
+            数据表描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.ResultMessage">
+            <summary>
+            返回的消息
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.IsDialogMsg">
+            <summary>
+            是否需要弹出
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.OpDataList">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.LogEnabled">
+            <summary>
+            激活日志记录.默认启动
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor">
+            <summary>
+            步骤（构造函数）
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(EC5.DbCascade.BizDbStepType)">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(EC5.DbCascade.BizDbStepType,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型</param>
+            <param name="model">收影响的实体</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(EC5.DbCascade.BizDbStepType,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型</param>
+            <param name="model">收影响的实体集合</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(System.String)">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型。INSERT,UPDATE,DELETE</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(System.String,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型</param>
+            <param name="model">收影响的实体</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.#ctor(System.String,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            步骤（构造函数）
+            </summary>
+            <param name="stepType">执行步骤的类型</param>
+            <param name="models">收影响的实体</param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.HasChild">
+            <summary>
+            是否有子节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.Childs">
+            <summary>
+            子步骤集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.StepType">
+            <summary>
+            步骤名称
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStep.Models">
+            <summary>
+            当前步骤，受到影响的实体集
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.CreateLog">
+            <summary>
+            创建日志
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.Recursion(EC5.DbCascade.BizDbStep,EC5.DbCascade.BizDbStepCollection)">
+            <summary>
+            递归查找下级数据
+            </summary>
+            <param name="pStep"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.ToArray">
+            <summary>
+            树结构转换为一维数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStep.Dispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.BizDbStepCollection">
+            <summary>
+            操作步骤集合
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(EC5.DbCascade.BizDbStepType)">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(EC5.DbCascade.BizDbStepType,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType">步骤类型</param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(EC5.DbCascade.BizDbStepType,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(System.String)">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(System.String,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepCollection.Add(System.String,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            添加步骤
+            </summary>
+            <param name="stepType"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.DbCascade.BizDbStepPath">
+            <summary>
+            步骤路径
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepPath.m_Root">
+            <summary>
+            根步骤
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepPath.m_Items">
+            <summary>
+            进寨
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepPath.m_Errors">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.BizDbStepPath.Errors">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepPath.Create(System.String,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            创建被阻止的节点
+            </summary>
+            <param name="resultMsg">返回的消息</param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepPath.Error(System.String,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            创建被阻止的节点
+            </summary>
+            <param name="resultMsg">返回的消息</param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.BizDbStepPath.Create(System.String,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            创建被阻止的节点
+            </summary>
+            <param name="resultMsg">返回的消息</param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="parStep">上级步骤</param>
+        </member>
+        <member name="T:EC5.DbCascade.BizDbStepType">
+            <summary>
+            步骤类型
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepType.NONE">
+            <summary>
+            没有任何操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepType.DELETE">
+            <summary>
+            删除操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepType.UPDATE">
+            <summary>
+            更新操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizDbStepType.INSERT">
+            <summary>
+            插入操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizResult.Stoped">
+            <summary>
+            停止执行
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizResult.Resume">
+            <summary>
+            继续执行
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.BizResult.Continue">
+            <summary>
+            下一环节开始 
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccActCodeRSorted">
+            <summary>
+            ActCode 索引类
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccActRSorted">
+            <summary>
+            表名索引类
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.DbCascadeEngine.DbccActRSorted.GetModels(System.String,System.String)">
+            <summary>
+            获取被影响的联动对象
+            </summary>
+            <param name="rTable">右表</param>
+            <param name="rActCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccFilterItem">
+            <summary>
+            过滤条件
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccFilterItem.B_ValueUserFunc">
+            <summary>
+            自定义公式
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccItem">
+            <summary>
+            赋值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.L_Field">
+            <summary>
+            左边字段.变量
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueMode">
+            <summary>
+            值模式. 值类型,值模式.
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueFixed">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueTable">
+            <summary>
+            值的字段 
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueCol">
+            <summary>
+            值的字段
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueTotalFun">
+            <summary>
+            值统计函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.L_ActCode">
+            <summary>
+            更新与新建，分别赋值。。默认是 E-更新。
+            A-新建，E-更新， A-E - 如果不存在就新建
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccItem.R_ValueUserFunc">
+            <summary>
+            自定义公式
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccListen">
+            <summary>
+            监控
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccListen.DBField">
+            <summary>
+            监控字段名称
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccListen.Enabled">
+            <summary>
+            激活
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccListen.FieldText">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccListen.ValueFrom">
+            <summary>
+            起始值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccListen.ValueTo">
+            <summary>
+            结束值
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccListenCollection">
+            <summary>
+            监听的集合类
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccLogic">
+            <summary>
+            过滤逻辑
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccManager">
+            <summary>
+            数据级联管理器
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccManager.Acts">
+            <summary>
+            级联条目
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.L_NotExist_Then">
+            <summary>
+            如果更新的记录不存在，就创建一条记录。
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.R_IsSubFilter">
+            <summary>
+            过滤子项集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.L_IsSubFilter">
+            <summary>
+            过滤子项集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.Enabled">
+            <summary>
+            激活
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ListenLogic">
+            <summary>
+            监听逻辑
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccModel.m_Thens">
+            <summary>
+            条件集合
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccModel.m_ListenFields">
+            <summary>
+            监听字段
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.DbCascadeEngine.DbccModel.HasListen">
+            <summary>
+            是否有需要监听的字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ListenFields">
+            <summary>
+            监听字段集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.Items">
+            <summary>
+            对字段赋值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.Thens">
+            <summary>
+            条件集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.FilterLeft">
+            <summary>
+            左边过滤条件
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.FilterRight">
+            <summary>
+            右边过滤条件
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.AutoContinue">
+            <summary>
+            自动继续触发联动
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ActNewEnabeld">
+            <summary>
+            激活新建的脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ActNewSCode">
+            <summary>
+            新建记录后触发的脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ActUpdateEnabled">
+            <summary>
+            激活更新的脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccModel.ActUpdateSCode">
+            <summary>
+            更新记录后触发的脚本
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccModelCollection">
+            <summary>
+            联动集合
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccThenCollection">
+            <summary>
+            条件集合
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccThen">
+            <summary>
+            条件
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccThen.A_Value">
+            <summary>
+            函数值，普通值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccThen.A_TotalFun">
+            <summary>
+            统计函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccThen.IsStop">
+            <summary>
+            是否停止
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.DbCascadeEngine.DbccThen.ResultMessage">
+            <summary>
+            返回的消息
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.DbCascadeEngine.DbccValueModes">
+            <summary>
+            值模式
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccValueModes.ALL">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccValueModes.Fixed">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccValueModes.Fun">
+            <summary>
+            函数返回值
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccValueModes.Table">
+            <summary>
+            表和字段
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.DbCascadeEngine.DbccValueModes.User_Func">
+            <summary>
+            自定义公式
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.ObjectEventArgs">
+            <summary>
+            实体的事件参数
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.ObjectEventArgs.#ctor(System.Object)">
+            <summary>
+            实体的事件参数
+            </summary>
+            <param name="data">记录对象</param>
+        </member>
+        <member name="P:EC5.DbCascade.ObjectEventArgs.Object">
+            <summary>
+            记录对象
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.ObjectEventHandler">
+            <summary>
+            记录事件定义
+            </summary>
+            <param name="sender">触发源对象</param>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbAction.m_Shelling">
+            <summary>
+            执行中
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.Op">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.Shelling">
+            <summary>
+            执行中
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.Items">
+            <summary>
+            需要处理的实体
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.History">
+            <summary>
+            已经操作的历史记录
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.Table">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbAction.ActionID">
+            <summary>
+            联动规则的 ID
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.V2.BizDbCascadeV2">
+            <summary>
+            业务联动数据操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.DELETE">
+            <summary>
+            数据库删除操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.UPDATE">
+            <summary>
+            数据库更新操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.INSERT">
+            <summary>
+            数据库插入操作
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.ALL">
+            <summary>
+            数据库全部操作
+            </summary>
+        </member>
+        <member name="E:EC5.DbCascade.V2.BizDbCascadeV2.Updating">
+            <summary>
+            更新事件
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.m_ActionList">
+            <summary>
+            准备处理的对象.后进先出
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.m_StepPath">
+            <summary>
+            步骤路径
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.m_RootModel">
+            <summary>
+            根实体
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbCascadeV2.RootModel">
+            <summary>
+            根实体
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.OnUpdating(System.Object)">
+            <summary>
+            触发更新事件
+            </summary>
+            <param name="model">实体</param>
+        </member>
+        <member name="P:EC5.DbCascade.V2.BizDbCascadeV2.MaxStep">
+            <summary>
+            最大执行步数, 如果超过, 就当做死循环处理.
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.StartCascade(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            开始关联操作
+            </summary>
+            <param name="decipher">数据操作</param>
+        </member>
+        <member name="F:EC5.DbCascade.V2.BizDbCascadeV2.m_LogActItems">
+            <summary>
+            处理的联动数量
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.Read(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.BizDbStepPath)">
+            <summary>
+            开始运动执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.FullForUpdate(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            填充更新的数据
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.ProDBccList(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStepPath)">
+            <summary>
+            处理被监听的对象集 
+            </summary>
+            <param name="decipher"></param>
+            <param name="actCode"></param>
+            <param name="modelElem"></param>
+            <param name="rightModel"></param>
+            <param name="stepPath"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDbCascadeV2.LogStep(EC5.DbCascade.DbCascadeEngine.DbccModel,EC5.DbCascade.V2.BizDbAction)">
+            <summary>
+            创建日志
+            </summary>
+            <param name="item"></param>
+            <param name="opAction"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDcHelper.ExecLCode(HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态代码
+            </summary>
+            <param name="store"></param>
+            <param name="srcRecord"></param>
+            <param name="model"></param>
+            <returns>返回修改过的字段集合</returns>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDcHelper.CreateMsgStep(System.String,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStep)">
+            <summary>
+            创建被阻止的节点
+            </summary>
+            <param name="resultMsg">返回的消息</param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="parStep">上级步骤</param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDcHelper.GetFilterValue_ForLeft(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,EC5.DbCascade.DbCascadeEngine.DbccFilterItem,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            右边的值处理
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="filterItem"></param>
+            <param name="rightModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDcHelper.GetFilterValue_ForRight(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,EC5.DbCascade.DbCascadeEngine.DbccFilterItem,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            右边的值处理
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="filterItem"></param>
+            <param name="rightModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ProDBccItem_Left(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStepPath,EC5.DbCascade.V2.BizDbAction@)">
+            <summary>
+            处理左边事件
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ProDBccItem_Left_UPDATE_Common(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStepPath,EC5.DbCascade.V2.BizDbAction@)">
+            <summary>
+            常规更新
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ProDBccItem_Left_UPDATE_SubFilter(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel},EC5.DbCascade.BizDbStepPath,EC5.DbCascade.V2.BizDbAction@)">
+            <summary>
+            子项更新
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ProDBccItem_Left_INSERT(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStepPath,EC5.DbCascade.V2.BizDbAction@)">
+            <summary>
+            
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="newModel">行插入的记录</param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ExecScriptCode(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态脚本
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="curModel"></param>
+            <param name="parentModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Left.ExecScriptCode(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,System.String,HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            执行动态脚本
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="curModel">当前实体</param>
+            <param name="parentModel">上级实体</param>
+        </member>
+        <member name="T:EC5.DbCascade.V2.BizDC_Right">
+            <summary>
+            处理右边
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Right.ProDBccItem(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel,EC5.DbCascade.BizDbStepPath)">
+            <summary>
+            
+            </summary>
+            <param name="dbccModel"></param>
+            <param name="leftModel"></param>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Right.FilterR_SrcModel(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            过滤右边
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Right.IsChangedForUpdate(EC5.DbCascade.DbCascadeEngine.DbccModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            字段是否已经发生变化
+            </summary>
+            <param name="dbccModel"></param>
+            <param name="srcModel"></param>
+            <param name="parStep">上级步骤</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.DbCascade.V2.BizDC_Right.IsValueChanged(EC5.DbCascade.DbCascadeEngine.DbccListen,HWQ.Entity.LightModels.LModelFieldElementCollection,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            判断值是否发生变化了
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.DbCascade.V2.DbOperate">
+            <summary>
+            数据库操作
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.V2.ItemValueHelper.GetItemValue_ForFun(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.DbCascade.DbCascadeEngine.DbccModel,EC5.DbCascade.DbCascadeEngine.DbccItem,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            获取函数值
+            </summary>
+            <param name="decipher"></param>
+            <param name="dbccModel"></param>
+            <param name="item"></param>
+            <param name="rightModels"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.BizLogger</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.BizLogger.LogStepMgr">
+            <summary>
+            日志记录
+            </summary>
+        </member>
+        <member name="M:EC5.BizLogger.LogStepMgr.InsertStep(HWQ.Entity.Decipher.LightDecipher.DbDecipher,EC5.BizLogger.Model.LOG_ACT_OP,EC5.DbCascade.BizDbStep)">
+            <summary>
+            
+            </summary>
+            <param name="decipher"></param>
+            <param name="par"></param>
+            <param name="parStep"></param>
+        </member>
+        <member name="M:EC5.BizLogger.LogStepMgr.Clear(System.DateTime)">
+            <summary>
+            清理联动日志
+            </summary>
+            <param name="lastTime"></param>
+        </member>
+    </members>
+</doc>

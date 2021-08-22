@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<moduleConfig-desc>
+	<appSettings>
+		
+		<!--普通文本类型,默认 type="string" -->
+		<item key="text" desc="文本" type="string" con-type="textbox" />
+
+		<!--布尔值类型-->
+		<item key="WestUri-Visible" desc="左边可视" type="bool" con-type="textbox"  />
+
+		<!--整形型-->
+		<item key="TopView-Height" value="78" type="int" />
+		
+		<!--选择下拉的类型-->
+		<item key="HomePage-Uri" desc="主页主目录" type="string" con-type="select" list-items="/CN|/EN" >
+			<list-item value="/CN"  />
+			<list-item value="/EN" />
+		</item>
+		
+	</appSettings>
+</moduleConfig-desc>

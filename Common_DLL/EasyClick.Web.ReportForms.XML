@@ -1,0 +1,950 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyClick.Web.ReportForms</name>
+    </assembly>
+    <members>
+        <member name="T:EasyClick.Web.ReportForms.UI.RFieldValueCollection">
+            <summary>
+            字段值集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.UI.RFieldTagCollection">
+            <summary>
+            字段标签集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Export.HtmlExport.GetExcel(System.String,EasyClick.Web.ReportForms.CrossReport,EasyClick.Web.ReportForms.UI.RFieldTagCollection)">
+            <summary>
+            获取 Excel 数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Export.HtmlExport.Render(EasyClick.Web.ReportForms.CrossReport,EasyClick.Web.ReportForms.UI.RFieldTagCollection)">
+            <summary>
+            显示
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.CrossReport">
+            <summary>
+            交叉报表模板
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossReport.m_DataTags">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossReport.m_XTotalNodes">
+            <summary>
+            X轴 合计
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossReport.m_YTotalNodes">
+            <summary>
+            Y轴 合计
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossReport.m_RowHands">
+            <summary>
+            Y轴的固定
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossReport.m_RowTotalHands">
+            <summary>
+            Y轴的统计的行
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.CreateTableHead">
+            <summary>
+            创建表格头部
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.CreateTableRowHead">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.SetNodeIndex(EasyClick.Web.ReportForms.Data.RRowCollection)">
+            <summary>
+            设置树节点的索引
+            </summary>
+            <param name="rows"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.InitFixedValue(EasyClick.Web.ReportForms.ReportItem,EasyClick.Web.ReportForms.ValueIndexNode)">
+            <summary>
+            初始化固定值
+            </summary>
+            <param name="rItem"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.ProDataSource(System.Collections.IList)">
+            <summary>
+            分析数据，构造节点
+            </summary>
+            <param name="dataList"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.SetDataSource(System.Collections.IList)">
+            <summary>
+            设置数据源
+            </summary>
+            <param name="dataList"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.ForEach_YTreeNode">
+            <summary>
+            计算 Y 轴的小计
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.ForEach_XTreeNode(EasyClick.Web.ReportForms.CrossRowHeadTreeNode)">
+            <summary>
+            计算 X 轴的小计.
+            </summary>
+            <param name="parent"></param>
+            <remarks>
+            算法：沿着 Y 轴，往下循环计算没一行 RRow 里面的小计。
+            </remarks>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.MergeCell(EasyClick.Web.ReportForms.Data.RCell,EasyClick.Web.ReportForms.Data.RRowCollection)">
+            <summary>
+            合并单元格
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.TreeToBodyData(EasyClick.Web.ReportForms.CrossRowHeadTreeNode,EasyClick.Web.ReportForms.Data.RRowCollection,System.Int32,System.Int32)">
+            <summary>
+            拷贝数据
+            </summary>
+            <param name="parent"></param>
+            <param name="rows"></param>
+            <param name="rowStart"></param>
+            <param name="xOffice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.TreeToRowHand(EasyClick.Web.ReportForms.CrossRowHeadTreeNode,EasyClick.Web.ReportForms.Data.RRowCollection,System.Collections.Generic.List{EasyClick.Web.ReportForms.CrossRowHeadTreeNode},System.Collections.Generic.List{EasyClick.Web.ReportForms.CrossRowHeadTreeNode},System.Int32)">
+            <summary>
+            拷贝行的固定值
+            </summary>
+            <param name="parentNode"></param>
+            <param name="rows"></param>
+            <param name="rowHeads"></param>
+            <param name="rowStart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.GetNodeForLeaf(EasyClick.Web.ReportForms.CrossHeadTreeNode,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="treeRoot"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.FillCellValue(EasyClick.Web.ReportForms.CrossHeadTreeNode,EasyClick.Web.ReportForms.Data.RRow,System.Object)">
+            <summary>
+            填充表格
+            </summary>
+            <param name="node"></param>
+            <param name="row"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.Tree2TableHand(EasyClick.Web.ReportForms.Data.RRowCollection,EasyClick.Web.ReportForms.CrossHeadTreeNode,EasyClick.Web.ReportForms.Data.RTable,System.Int32,System.Int32)">
+            <summary>
+            创建 Table Hand 对象
+            </summary>
+            <param name="parentNode"></param>
+            <param name="table"></param>
+            <param name="depth"></param>
+            <param name="cellStart"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.CreatHeadTreeNode2(EasyClick.Web.ReportForms.ValueIndexNode,EasyClick.Web.ReportForms.CrossHeadTreeNode,System.Collections.Generic.List{EasyClick.Web.ReportForms.ReportItemGroup},System.Collections.Generic.List{EasyClick.Web.ReportForms.CrossHeadTreeNode},System.Int32)">
+            <summary>
+            转换为树节点
+            </summary>
+            <param name="parentValueIndexNode"></param>
+            <param name="parent"></param>
+            <param name="tags"></param>
+            <param name="totalNodes"></param>
+            <param name="colGroupIndex"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossReport.CreateTableRow">
+            <summary>
+            创建表格行
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.CrossReport.ColTags">
+            <summary>
+            列集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.CrossReport.RowTags">
+            <summary>
+            行集合
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RHead">
+            <summary>
+            表格头部
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RRowCollection">
+            <summary>
+            行集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.GetRow(System.Int32)">
+            <summary>
+            获取行对象
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.GetCell(System.Int32,System.Int32)">
+            <summary>
+            获取单元格
+            </summary>
+            <param name="rowIndex">行索引</param>
+            <param name="colIndex">单元格索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.PadRight">
+            <summary>
+            右对齐
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.ProColSpan">
+            <summary>
+            处理单元格 col 合并
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.ProColSpan(System.Int32)">
+            <summary>
+            处理单元格 col 合并
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRowCollection.ProRowSpan">
+            <summary>
+            处理单元格 row 合并
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RCell">
+            <summary>
+            单元格
+            </summary>
+            
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_ColSpan">
+            <summary>
+            合并的列
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_RowSpan">
+            <summary>
+            合并的行
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_Code">
+            <summary>
+            表达式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_MergeOwnerX">
+            <summary>
+            被合并的父单元格坐标
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_MergeOwnerY">
+            <summary>
+            被合并的父单元格坐标
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.Data.RCell.m_IsMergeChild">
+            <summary>
+            被合并的子单元格
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RCell.IsNullValue">
+            <summary>
+            空值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.Data.RCell.IsMergeChild">
+            <summary>
+            被合并的子单元格
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.Data.RCell.MergeOwnerX">
+            <summary>
+            被合并的父单元格坐标
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.Data.RCell.MergeOwnerY">
+            <summary>
+            被合并的父单元格坐标
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.Data.RCell.Visible">
+            <summary>
+            单元格是否可见
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RTableHelper.CreateBody(EasyClick.Web.ReportForms.Data.RTable,System.Int32,System.Int32)">
+            <summary>
+            创建表格
+            </summary>
+            <param name="col"></param>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.FunTypes.SUM">
+            <summary>
+            合计
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.FunTypes.AVERAGE">
+            <summary>
+            平均
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.FunTypes.COUNT">
+            <summary>
+            计数
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RBody">
+            <summary>
+            表格中间
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.CrossRowHeadTreeNode">
+            <summary>
+            行的固定数据
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.CrossHeadTreeNode">
+            <summary>
+            标题节点树
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossHeadTreeNode.m_TotalNode">
+            <summary>
+            需要统计数据的节点
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossHeadTreeNode.m_X">
+            <summary>
+            单元格的索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossHeadTreeNode.GetDepth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.CrossHeadTreeNode.HasChild">
+            <summary>
+            是否有子节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.CrossHeadTreeNode.TotalNode">
+            <summary>
+            指定需要统计的节点
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.CrossHeadTreeNode.NodeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.CrossHeadTreeNode.X">
+            <summary>
+            单元格的索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Export.ExcelExport.Save(System.String,EasyClick.Web.ReportForms.CrossReport)">
+            <summary>
+            保存到 Excel 文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RRow">
+            <summary>
+            行对象
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.Data.RRow.GetCell(System.Int32)">
+            <summary>
+            获取单元格
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.RFieldValueMode">
+            <summary>
+            字段值类型
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.RFieldValueMode.DBValue">
+            <summary>
+            从数据库读取
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.RFieldValueMode.Code">
+            <summary>
+            代码计算出结果
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.RFieldValueMode.FixedValue">
+            <summary>
+            用户设定的固定值
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ReportTable">
+            <summary>
+            普通表格统计报表
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.m_GroupFormats">
+            <summary>
+            分组的字段格式化
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.Process">
+            <summary>
+            处理报表的行数据
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.OnProcess(HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发处理报表的行数据
+            </summary>
+            <param name="target"></param>
+            <param name="srcData"></param>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.m_TargetList">
+            <summary>
+            目标列表
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.m_AuotCreateRows">
+            <summary>
+            固定行，不自动增加
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetCID(HWQ.Entity.LightModels.LModel,System.String[])">
+            <summary>
+            根据 GroupBy 字段，获取统计数据的 唯一标记。
+            </summary>
+            <param name="model"></param>
+            <param name="groupBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetTargetList">
+            <summary>
+            获取最终处理结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetOrderList">
+            <summary>
+            获取最终处理结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.SetInitRows(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            初始化数据行
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.SetSourceData(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            设置数据源
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportTable.GroupFormats">
+            <summary>
+            分组的字段格式化
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportTable.GroupBy">
+            <summary>
+            按组排序。例: "字段1, 字段2, 字段3,..."
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportTable.AutoCreateRows">
+            <summary>
+            根据GroupBy 字段，自动创建行。默认：true
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RFoot">
+            <summary>
+            页脚
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ReportItem">
+            <summary>
+            栏目属性
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_EnabledTotal">
+            <summary>
+            激活汇总
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_Format">
+            <summary>
+            格式化显示：￥{0:#,##0.00}..
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_HeadClassName">
+            <summary>
+            标头样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_CellClassName">
+            <summary>
+            单元格样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_DBValue">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_Code">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_FunName">
+            <summary>
+            函数名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportItem.m_Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.Width">
+            <summary>
+            单元格宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.FixedValues">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.EnabledTotal">
+            <summary>
+            激活汇总。默认值=true
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.FunName">
+            <summary>
+            函数名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.ValueMode">
+            <summary>
+            值格式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.Code">
+            <summary>
+            代码表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.DBValue">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.Style">
+            <summary>
+            自定义样式格式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.HeadClassName">
+            <summary>
+            样式名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.CellClassName">
+            <summary>
+            样式名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.Format">
+            <summary>
+            格式化显示。例如：￥{0:#,##0.00}..
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportItem.DBField">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ReportColumn">
+            <summary>
+            列
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportColumn.ProValue(System.Object)">
+            <summary>
+            处理值
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportColumn.ProValue_ForStr(System.String)">
+            <summary>
+            处理值
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportColumn.Format">
+            <summary>
+            格式化显示，例如: {0:yyyy-MM-dd}
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportColumn.Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.OperatorTypes">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.Equals">
+            <summary>
+            等于符号
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.GreaterThan">
+            <summary>
+            大于
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.GreaterThanOrEqual">
+            <summary>
+            大于或等于
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.Inequality">
+            <summary>
+            不等于
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.LessThan">
+            <summary>
+            小于
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.LessThanOrEqual">
+            <summary>
+            小于或等于
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.Like">
+            <summary>
+            模糊查询
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.LeftLike">
+            <summary>
+            左模糊查询
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.RightLike">
+            <summary>
+            右模糊查询
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.OperatorTypes.In">
+            <summary>
+            列表
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.UI.RFieldValue">
+            <summary>
+            字段值
+            </summary>
+            <summary>
+            列表条目
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.RFieldValue.Type">
+            <summary>
+            值的数据类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.RFieldValue.Operator">
+            <summary>
+            表达式
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.UI.ReportFieldGroup">
+            <summary>
+            报表字段组
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.UI.CrossReport">
+            <summary>
+            交叉报表
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.CrossReport.m_ReportTitle">
+            <summary>
+            报表标题
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.UI.CrossReport.SaveToExcel(System.String)">
+            <summary>
+            保存到 Excel 文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.UI.CrossReport.GetExcel">
+            <summary>
+            获取 Excel 数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.UI.CrossReport.Render">
+            <summary>
+            显示
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.UI.CrossReport.ContainsAttr(System.String)">
+            <summary>
+            是否存在此对应属性
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.ShowColTotal">
+            <summary>
+            显示列的统计
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.ShowRowTotal">
+            <summary>
+            显示行的统计
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.RowTags">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.ColTags">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.DataTags">
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.DataSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.CrossReport.ReportTitle">
+            <summary>
+            报表标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ValueIndexNode.IsInit">
+            <summary>
+            已经初始化
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ValueIndexNodeList.m_List">
+            <summary>
+            不排序的列表
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ReportItemGroup">
+            <summary>
+            组属性
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ProcessReportTableRow">
+            <summary>
+            普通报表处理行
+            </summary>
+            <param name="target">目标行</param>
+            <param name="srcData">明细数据</param>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.UI.ReportField">
+            <summary>
+            报表字段
+            </summary>
+            <summary>
+            
+            </summary>    
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_Format">
+            <summary>
+            格式化显示：￥{0:#,##0.00}..
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_HeadClassName">
+            <summary>
+            标头样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_CellClassName">
+            <summary>
+            单元格样式
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_DBValue">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_Code">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_FunName">
+            <summary>
+            函数名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.UI.ReportField.m_Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.Width">
+            <summary>
+            单元格宽度
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.FixedValues">
+            <summary>
+            固定值
+            </summary>
+            <summary>
+            数据条目集合
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.EnabledTotal">
+            <summary>
+            激活汇总。默认值=true
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.FunName">
+            <summary>
+            函数名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.ValueMode">
+            <summary>
+            值格式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.Code">
+            <summary>
+            代码表达式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.DBValue">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.Style">
+            <summary>
+            自定义样式格式
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.HeadClassName">
+            <summary>
+            样式名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.CellClassName">
+            <summary>
+            样式名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.Format">
+            <summary>
+            格式化显示。例如：￥{0:#,##0.00}..
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.UI.ReportField.DBField">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ItemFixedValue">
+            <summary>
+            栏目的固定值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ItemFixedValue.Text">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ItemFixedValue.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ItemFixedValue.Type">
+            <summary>
+            值的数据类型
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ItemFixedValue.Operator">
+            <summary>
+            表达式
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.Data.RTable">
+            <summary>
+            表格
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossHeadTreeNodeTypes.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.CrossHeadTreeNodeTypes.Total">
+            <summary>
+            统计
+            </summary>
+        </member>
+    </members>
+</doc>

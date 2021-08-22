@@ -1,0 +1,45 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FlowDocListForUser.ascx.cs" Inherits="App.InfoGrid2.View.OneFlowBuilder.FlowDocListForUser" %>
+
+
+<%@ Register Assembly="EasyClick.Web.Mini2" Namespace="EasyClick.Web.Mini2" TagPrefix="mi" %>
+
+
+<form action="" method="post">
+    <mi:Store runat="server" ID="store1" Model="FLOW_INST_PARTY" IdField="FLOW_INST_PARTY_ID" AutoFocus="false" 
+         PageSize="20" SortText="FLOW_INST_PARTY_ID desc"  >
+        <StringFields>EXTEND_DOC_TEXT,EXTEND_DOC_URL</StringFields>
+    </mi:Store>
+    <mi:Viewport runat="server" ID="viewport1">
+
+        <mi:Toolbar runat="server" ID="toolbar1">
+            <mi:ToolBarTitle ID="tableNameTB1" Text="流程定义" />
+
+<%--            <mi:ToolBarButton Text="新增" OnClick="ser:store1.Insert()" />
+            <mi:ToolBarButton Text="保存" OnClick="ser:store1.SaveAll()" />
+            <mi:ToolBarButton Text="刷新" OnClick="ser:store1.Refresh()" />
+            <mi:ToolBarHr />
+            <mi:ToolBarButton Text="删除" BeforeAskText="您确定删除记录?"  OnClick="ser:store1.Delete()" />
+--%>
+
+            
+        </mi:Toolbar>
+
+        <mi:Table runat="server" ID="table1" StoreID="store1" ReadOnly="true" Region="Center" JsonMode="Full">
+            <Columns>
+                <mi:RowNumberer />
+                <mi:RowCheckColumn />
+                <mi:ActionColumn Width="60">
+                    <mi:ActionItem Command="GoViewDoc" DisplayMode="Text" Text="查看" />
+                </mi:ActionColumn>                
+                <mi:BoundField HeaderText="流程实例编码" DataField="INST_CODE" />
+                <mi:BoundField HeaderText="文档名称" DataField="EXTEND_DOC_TEXT" />
+                
+                <mi:BoundField HeaderText="环节名称" DataField="DEF_NODE_TEXT" />
+                <mi:DateTimeColumn HeaderText="创建时间" DataField="ROW_DATE_CREATE" />
+
+            </Columns>
+        </mi:Table>
+
+    </mi:Viewport>
+</form>
+

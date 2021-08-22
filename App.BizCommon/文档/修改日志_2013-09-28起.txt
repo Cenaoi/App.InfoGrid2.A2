@@ -1,0 +1,7 @@
+﻿
+
+v1.2.*
+	修改：
+	1. GlobelParam.SetValue<T>(...)
+	2. GlobelParam.SetValue(...)
+	3. BillIdentityMgr 获取编号执行操作错误 [2014-5-5 11:25]

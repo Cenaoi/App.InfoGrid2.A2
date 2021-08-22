@@ -1,0 +1,1717 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.SystemBoard</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.SystemBoard.BllParam">
+            <summary>
+            业务对象的参数
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.BllParam.Name">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.BllParam.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.BllParamList">
+            <summary>
+            业务参数集合
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.BllParamList.Add(System.String,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="name">参数名</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="T:EC5.SystemBoard.Clouds.CloudManager">
+            <summary>
+            云端管理
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudManager.GetObj">
+            <summary>
+            获取云对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudManager.GetMethod(System.String)">
+            <summary>
+            获取云端方法
+            </summary>
+            <param name="uriString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudManager.GetObj(System.String)">
+            <summary>
+            获取云对象
+            </summary>
+            <param name="groupName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Clouds.CloudMethodBase">
+            <summary>
+            云端方法的基础类
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Clouds.CloudMethodBase.m_ObjectName">
+            <summary>
+            需要实例化的
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Clouds.CloudMethodBase.m_Target">
+            <summary>
+            目标 URL
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Clouds.CloudMethodBase.m_Name">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Clouds.CloudMethodBase.Target">
+            <summary>
+            目标 URL
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudMethodBase.Invoke(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudMethodBase.Invoke``1(System.Object[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Clouds.CloudObject">
+            <summary>
+            云对象,调用业务的方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.CloudObject.GetMethod(System.String)">
+            <summary>
+            获取云端方法
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Clouds.HttpMethod">
+            <summary>
+            HTTP 协议的方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.#ctor">
+            <summary>
+            HTTP 协议方法 的构造方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.InitNet">
+            <summary>
+            初始化 WebClient
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.InitIE6_Headers">
+            <summary>
+            初始化 请求头 模拟 IE6
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.DeserializeObject(System.Byte[])">
+            <summary>
+            把字节反序列化成相应的对象
+            </summary>
+            <param name="pBytes">字节流</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.SerializeObject(System.Object)">
+            <summary>
+            把对象序列化并返回相应的字节
+            </summary>
+            <param name="pObj">需要序列化的对象</param>
+            <returns>byte[]</returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.DeserializeDynamicObj(System.Byte[])">
+            <summary>
+            反序列化对象
+            </summary>
+            <param name="reBytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.WebClientUploadData(System.String,System.Byte[])">
+            <summary>
+            向网络服务器提交方法。
+            </summary>
+            <param name="target"></param>
+            <param name="dmBytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.HttpMethod.Invoke(System.Object[])">
+            <summary>
+            调用网络远程方法
+            </summary>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Clouds.LocalMethod">
+            <summary>
+            本地方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.LocalMethod.#ctor">
+            <summary>
+            本地方法的构造方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Clouds.LocalMethod.Invoke(System.Object[])">
+            <summary>
+            执行
+            </summary>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.DynAppInfo">
+            <summary>
+            动态程序信息
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynAppInfo.m_IconPath">
+            <summary>
+            图标路径
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynAppInfo.m_Text">
+            <summary>
+            文字
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynAppInfo.m_SiteName">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.ModuleInfos">
+            <summary>
+            模块集合
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.SiteName">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.Icon">
+            <summary>
+            App 的图标
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.IconPath">
+            <summary>
+            App 图标路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.Text">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAppInfo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAssembly.AssemblyString">
+            <summary>
+            动态链接库的字符串
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynAssembly.DynamicTypes">
+            <summary>
+            动态库的全部类
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.DynMethodCollection">
+            <summary>
+            方法集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynMethodCollection.m_ItemForNames">
+            <summary>
+            同名不同方法对象
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.DynMethodInfo">
+            <summary>
+            动态方法
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynMethodInfo.m_ObjectFullName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynMethodInfo.m_IsStatic">
+            <summary>
+            是否为静态方法
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynMethodInfo.m_Name">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynMethodInfo.m_Params">
+            <summary>
+            方法的参数名称
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynMethodInfo.SetOwner(EC5.SystemBoard.DynType)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynMethodInfo.ObjectFullName">
+            <summary>
+            对象全名
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynMethodInfo.IsStatic">
+            <summary>
+            是否为静态方法
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynMethodInfo.Name">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynMethodInfo.Params">
+            <summary>
+            方法的参数
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynMethodInfo.GetParamAllTypes">
+            <summary>
+            获取所有参数的 Type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.DynMethodInfo.Close">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.DynModuleInfo">
+            <summary>
+            动态模块信息
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynModuleInfo.m_Name">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynModuleInfo.m_PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.DynModuleInfo.m_RelativeVirtualPath">
+            <summary>
+            相对地址
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynModuleInfo.RelativeVirtualPath">
+            <summary>
+            相对地址
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynModuleInfo.Name">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynModuleInfo.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.DynModuleInfoCollection">
+            <summary>
+            模块集合
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.DynParam">
+            <summary>
+            动态方法的参数
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynParam.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynParam.#ctor(System.String,System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="data">参数值</param>
+        </member>
+        <member name="M:EC5.SystemBoard.DynParam.#ctor(System.String,System.Object,System.Boolean)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="data">参数值</param>
+        </member>
+        <member name="M:EC5.SystemBoard.DynParam.#ctor(System.String,System.Type,System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="paramType">参数类型</param>
+            <param name="data">参数值</param>
+        </member>
+        <member name="P:EC5.SystemBoard.DynParam.ParamType">
+            <summary>
+            参数的类型
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynParam.Name">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynParam.Data">
+            <summary>
+            参数数据
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynParam.IsOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynParam.Close">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.DynReturn">
+            <summary>
+            动态方法返回的值
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynReturn.Exception">
+            <summary>
+            异常的返回值
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynReturn.Value">
+            <summary>
+            返回值对象
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.DynReturn.Params">
+            <summary>
+            返回的参数
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.DynType">
+            <summary>
+            动态类型
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.DynType.GetSrcMethod(System.String,System.Object[])">
+            <summary>
+            获取原方法名称
+            </summary>
+            <param name="method"></param>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="E:EC5.SystemBoard.EcApplication.AuthenticateRequest">
+            <summary>
+            当安全模块已经建立了当前用户的标识后执行。
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.EcApplication.AuthorizeRequest">
+            <summary>
+            当安全模块已经验证了当前用户的授权时执行。
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.EcApplication.BeginRequest">
+            <summary>
+            收到Request时第一个触发的事件，这个方法第一个执行。
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.EcApplication.EndRequest">
+            <summary>
+            EndRequest是在响应Request时最后一个触发的事件，这个方法自然就是最后一个执行的了。 
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.EcApplication.Error">
+            <summary>
+            所有没有处理的错误都会导致这个方法的执行 
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcApplication.m_InitContext">
+            <summary>
+            初始化的内容对象
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcApplication.Context">
+            <summary>
+            用户进程的上下文管理
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcSessionState">
+            <summary>
+            Session
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcContext">
+            <summary>
+            当前用户进程的上下文管理
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcContext.m_Timestamp">
+            <summary>
+            获取当前 HTTP 请求的初始时间戳。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.AllErrors">
+            <summary>
+            所有错误
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcContext.ClearError">
+            <summary>
+            清理错误
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcContext.AddError(System.Exception)">
+            <summary>
+            添加错误
+            </summary>
+            <param name="errorInfo"></param>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.IsDebuggingEnabled">
+            <summary>
+            获取一个值，该值指示当前请求是否处于调试模式。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.Items">
+            <summary>
+            获取可用于在 HTTP 请求过程中在 System.Web.IHttpModule 接口和 System.Web.IHttpHandler 接口之间组织和共享数据的键/值集合。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.ID">
+            <summary>
+            上下文 GUID
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcContext.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.Request">
+            <summary>
+            请求状态
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.User">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.Timestamp">
+            <summary>
+            获取当前 HTTP 请求的初始时间戳。
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcContext.CreateUser">
+            <summary>
+            创建用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.SystemBoard.EcContext.Current">
+            <summary>
+            当前上下文
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcEvent.Create">
+            <summary>
+            创建事件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.EcEvent.Send(System.Object)">
+            <summary>
+            触发事件
+            </summary>
+            <param name="sender"></param>
+            <param name="data"></param>
+        </member>
+        <member name="P:EC5.SystemBoard.EcEvent.Name">
+            <summary>
+            事件名称
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcEventListener">
+            <summary>
+            事件监听
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcEventManager.Send(EC5.SystemBoard.EcEvent,System.Object)">
+            <summary>
+            发送事件消息
+            </summary>
+            <param name="ecEvent"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.EcEventManager.ProListener(EC5.SystemBoard.EcEvent,EC5.SystemBoard.EcEventListener,System.Object)">
+            <summary>
+            执行监听的内容
+            </summary>
+            <param name="ecEvent"></param>
+            <param name="listener"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:EC5.SystemBoard.EcListenerAttribute">
+            <summary>
+            监听
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcListenerAttribute.#ctor(System.String,System.String)">
+            <summary>
+            监听的构造方法
+            </summary>
+            <param name="bllUrl">业务名称,例：“模块名称/Bll/CmsNodeMgr”</param>
+            <param name="eventName">监听的事件名称</param>
+        </member>
+        <member name="M:EC5.SystemBoard.EcListenerAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            监听的构造方法
+            </summary>
+            <param name="moduleName">模块名称</param>
+            <param name="bllUrl">业务名称,例：“Bll/CmsNodeMgr”</param>
+            <param name="eventName">监听的事件名称</param>
+        </member>
+        <member name="P:EC5.SystemBoard.EcListenerAttribute.ModuleName">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcListenerAttribute.EventName">
+            <summary>
+            事件名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcListenerAttribute.BllFullname">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcAppInfo">
+            <summary>
+            应用程序信息
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_DebugModuleCode">
+            <summary>
+            调试模块代码
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_ProbingModuleDir">
+            <summary>
+            区分模块目录
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+            <example>ec5:</example>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+            <example>C:\dir1\dir2.abc</example>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_MainPath">
+            <summary>
+            主窗体路径
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_AppSettings">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.ProbingModuleDir">
+            <summary>
+            探索区分模块.默认值:true
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.MainPath">
+            <summary>
+            主窗体路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.DebugModuleCode">
+            <summary>
+            调试的模块代码
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.IsOneMode">
+            <summary>
+            单件调试模式
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcReflection.EcAppInfo.SetOneMode(System.Boolean,System.String)">
+            <summary>
+            单件调试模式
+            </summary>
+            <param name="isOneMode"></param>
+            <param name="debugModuleCode">模块代码</param>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfo.m_ModuleInfos">
+            <summary>
+            模块信息集合
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcReflection.EcAppInfo.MapPath(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="virtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcAppInfo.ModuleInfos">
+            <summary>
+            模块信息集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcAppInfoList.m_ItemForCode">
+            <summary>
+            代码索引,全部代码小写
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcIntent">
+            <summary>
+            目标
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcIntent.m_Extras">
+            <summary>
+            扩展参数
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcIntent.Extras">
+            <summary>
+            扩展参数
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcModuleInfo">
+            <summary>
+            模块信息
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_Views">
+            <summary>
+            视图集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_Blls">
+            <summary>
+            业务集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_Code">
+            <summary>
+            模块代码
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_Text">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_Desc">
+            <summary>
+            模块描述
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+            <example>ec5:</example>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+            <example>C:\dir1\dir2.abc</example>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_RootNamespace">
+            <summary>
+            根命名空间
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfo.m_AppSettings">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.AppSettings">
+            <summary>
+            模块属性
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.RootNamespace">
+            <summary>
+            根命名空间
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.Code">
+            <summary>
+            模块代码
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.Text">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.Desc">
+            <summary>
+            模块描述
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.RelativeVirtualPath">
+            <summary>
+            模块的虚拟地址
+            </summary>
+            <example>uri://localhost/abc/123</example>
+            <remarks> </remarks>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.PhysicalPath">
+            <summary>
+            模块的物理路径
+            </summary>
+            <example>c:\abc\ss\123</example>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.Views">
+            <summary>
+            视图集合
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcModuleInfo.Blls">
+            <summary>
+            业务集合
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcModuleInfoList">
+            <summary>
+            模块集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcModuleInfoList.m_ItemForCode">
+            <summary>
+            代码索引,全部代码小写
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcReflection.EcModuleInfoList.ContainsCode(System.String)">
+            <summary>
+            确定包含模块代码
+            </summary>
+            <param name="moduleCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcTypeInfo">
+            <summary>
+            类型信息
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcTypeInfo.m_Extension">
+            <summary>
+            视图扩展名
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcReflection.EcTypeInfo.Extension">
+            <summary>
+            扩展名
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcReflection.EcTypeInfoList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcReflection.EcTypeInfoList.m_ItemForCode">
+            <summary>
+            代码索引,全部代码小写
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcReflection.EcTypeInfoList.Contains(System.String)">
+            <summary>
+            判断是否包含路径名
+            </summary>
+            <param name="typeFullname"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.EcRequest">
+            <summary>
+            用户请求对象
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcRequest.m_Uri">
+            <summary>
+            调用的对象名称
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcRequest.m_ContentLength">
+            <summary>
+            指定客户端发送的内容长度（以字节计）。
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcRequest.m_IsAuthenticated">
+            <summary>
+            获取一个值，该值指示是否验证了请求。
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcRequest.m_IsLocal">
+            <summary>
+            获取一个值，该值指示该请求是否来自本地计算机。
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcRequest.m_UserHostAddress">
+            <summary>
+            获取远程客户端的 IP 主机地址。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcRequest.Uri">
+            <summary>
+            调用的对象名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcRequest.ContentLength">
+            <summary>
+            指定客户端发送的内容长度（以字节计）。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcRequest.IsAuthenticated">
+            <summary>
+            获取一个值，该值指示是否验证了请求。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcRequest.IsLocal">
+            <summary>
+            获取一个值，该值指示该请求是否来自本地计算机。
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcRequest.UserHostAddress">
+            <summary>
+            获取远程客户端的 IP 主机地址。
+            </summary>
+            <return>远程客户端的 IP 地址。</return>
+        </member>
+        <member name="T:EC5.SystemBoard.EcUserOrgState">
+            <summary>
+            用户的组织机构、部门...
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserOrgState.m_OrgID">
+            <summary>
+            组织机构/部门ID
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserOrgState.m_OrgName">
+            <summary>
+            组织机构/部门名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserOrgState.OrgID">
+            <summary>
+            组织机构/部门ID
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserOrgState.OrgName">
+            <summary>
+            组织机构/部门名称
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcUserRole">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRole.#ctor">
+            <summary>
+            权限角色
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRole.#ctor(System.String)">
+            <summary>
+            权限角色
+            </summary>
+            <param name="name">角色名称</param>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserRole.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.EcUserRoleCollection">
+            <summary>
+            用户角色集合
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRoleCollection.#ctor">
+            <summary>
+            用户角色集合
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRoleCollection.Exist(System.String)">
+            <summary>
+            判断是否存在此角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRoleCollection.ExistList(System.String[])">
+            <summary>
+            判断是否存在此角色
+            </summary>
+            <param name="roleNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserRoleCollection.Add(System.String)">
+            <summary>
+            添加角色
+            </summary>
+            <param name="roleName"></param>
+        </member>
+        <member name="T:EC5.SystemBoard.EcUserState">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_HostMac">
+            <summary>
+            网卡 MAC 地址
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_LoginID">
+            <summary>
+            通常用来存放登陆账号
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_LoginName">
+            <summary>
+            登陆的用户名称
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_Identity">
+            <summary>
+            存放自动ID，或唯一ID的
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_FirstOrg">
+            <summary>
+            首先组织机构
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_OrgList">
+            <summary>
+            组织机构列表
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.EcUserState.m_IsVirtual">
+            <summary>
+            虚拟用户；
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.Identity">
+            <summary>
+            自动ID，或唯一 的ID
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.LoginName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.IsVirtual">
+            <summary>
+            虚拟用户
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.FirstOrg">
+            <summary>
+            首选组织机构
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.OrgList">
+            <summary>
+            组织机构列表
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserState.AddOrg(EC5.SystemBoard.EcUserOrgState)">
+            <summary>
+            添加组织机构/部门
+            </summary>
+            <param name="orgState"></param>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.DbDecipherName">
+            <summary>
+            数据库配置名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.ExpandPropertys">
+            <summary>
+            扩展参数
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.FirstRoleName">
+            <summary>
+            首个角色名称
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.Roles">
+            <summary>
+            角色集合
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.HostIP">
+            <summary>
+            主机 IP
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.HostName">
+            <summary>
+            主机名
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.HostMac">
+            <summary>
+            主机 MAC 地址
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.LoginID">
+            <summary>
+            登录 ID ,通常用来存放登陆账号
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.EcUserState.LoginPass">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.EcUserState.Clear">
+            <summary>
+            清空用户信息
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.IBllAction">
+            <summary>
+            业务对象接口
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.IBllAction.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.ICloudMethod">
+            <summary>
+            云端的方法名
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Interfaces.ICloudMethod.Target">
+            <summary>
+            接收数据的地址
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ICloudMethod.Invoke(System.Object[])">
+            <summary>
+            执行命令
+            </summary>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ICloudMethod.Invoke``1(System.Object[])">
+            <summary>
+            执行命令
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ps"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.ILoginAction">
+            <summary>
+            登录的接口
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ILoginAction.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.LoginMethodAttribute">
+            <summary>
+            登录方法名称
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.ISecurity">
+            <summary>
+            权限接口
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ISecurity.Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ISecurity.Allow">
+            <summary>
+            运行通过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Interfaces.ISecurity.Allow(System.String)">
+            <summary>
+            运行通过
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.SystemBoard.Interfaces.IView">
+            <summary>
+            视图接口
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.CreateDirectory(System.String,System.Security.AccessControl.DirectorySecurity)">
+            <summary>
+            创建指定路径中的所有目录，并应用指定的 Windows 安全性。
+            </summary>
+            <param name="path">要创建的目录。</param>
+            <param name="directorySecurity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.CreateDirectory(System.String)">
+            <summary>
+            按 path 的指定创建所有目录和子目录。
+            </summary>
+            <param name="path">要创建的目录。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.Delete(System.String,System.Boolean)">
+            <summary>
+            删除指定的目录并（如果指示）删除该目录中的任何子目录。
+            </summary>
+            <param name="path">要移除的目录的名称。</param>
+            <param name="recursive">若要移除 path 中的目录、子目录和文件，则为 true；否则为 false。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.Delete(System.String)">
+            <summary>
+            从指定路径删除空目录。 
+            </summary>
+            <param name="path">要移除的目录的名称。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.Exists(System.String)">
+            <summary>
+            确定给定路径是否引用磁盘上的现有目录。 
+            </summary>
+            <param name="path">要测试的路径。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.GetFiles(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            返回指定目录中文件的名称，该目录与指定搜索模式匹配并使用某个值确定是否在子目录中搜索。
+            </summary>
+            <param name="path">要搜索的目录。</param>
+            <param name="searchPattern">要与 path 中的文件名匹配的搜索字符串。此参数不能以两个句点（“..”）结束，不能在 DirectorySeparatorChar 或 AltDirectorySeparatorChar 的前面包含两个句点（“..”），也不能包含 InvalidPathChars 中的任何字符。</param>
+            <param name="searchOption">SearchOption 值之一，指定搜索操作应包括所有子目录还是仅包括当前目录。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.GetFiles(System.String,System.String)">
+            <summary>
+            返回指定目录中与指定搜索模式匹配的文件的名称。
+            </summary>
+            <param name="path">将从其检索文件的目录。</param>
+            <param name="searchPattern"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcDirectory.GetFiles(System.String)">
+            <summary>
+            返回指定目录中的文件的名称。 
+            </summary>
+            <param name="path">将从其检索文件的目录。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.AutoCreateDirectory(System.String)">
+            <summary>
+            自动创建目录路径
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.ReadAllBytes(System.String)">
+            <summary>
+            已重载。 将指定的字符串追加到文件中，如果文件还不存在则创建该文件。 
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.ReadAllLines(System.String)">
+            <summary>
+            打开一个文本文件，读取文件的所有行，然后关闭该文件。 
+            </summary>
+            <param name="path">要打开以进行读取的文件。 </param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.ReadAllLines(System.String,System.Text.Encoding)">
+            <summary>
+            打开一个文本文件，读取文件的所有行，然后关闭该文件。 
+            </summary>
+            <param name="path">要打开以进行读取的文件。</param>
+            <param name="encoding">应用到文件内容的编码。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.ReadAllText(System.String)">
+            <summary>
+            打开一个文件，使用指定的编码读取文件的所有行，然后关闭该文件。 
+            </summary>
+            <param name="path">要打开以进行读取的文件。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.ReadAllText(System.String,System.Text.Encoding)">
+            <summary>
+            打开一个文件，使用指定的编码读取文件的所有行，然后关闭该文件。 
+            </summary>
+            <param name="path">要打开以进行读取的文件。</param>
+            <param name="encoding">应用到文件内容的编码。</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllBytes(System.String,System.Byte[])">
+            <summary>
+            创建一个新文件，在其中写入指定的字节数组，然后关闭该文件。如果目标文件已存在，则改写该文件。 
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="bytes">要写入文件的字节。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllBytes(System.String,System.Byte[],System.Boolean)">
+            <summary>
+            创建一个新文件，在其中写入指定的字节数组，然后关闭该文件。如果目标文件已存在，则改写该文件。 
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="bytes">要写入文件的字节。</param>
+            <param name="autoCreateDir">如果目录不存在，自动创建目录。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllLines(System.String,System.String[])">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllLines(System.String,System.String[],System.Boolean)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="autoCreateDir">如果目录不存在，自动创建目录。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllLines(System.String,System.String[],System.Text.Encoding)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="encoding">一个 Encoding 对象，表示应用于字符串数组的字符编码。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllLines(System.String,System.String[],System.Text.Encoding,System.Boolean)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="encoding">一个 Encoding 对象，表示应用于字符串数组的字符编码。</param>
+            <param name="autoCreateDir">如果目录不存在，自动创建目录。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="encoding">一个 Encoding 对象，表示应用于字符串数组的编码。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllText(System.String,System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="encoding">一个 Encoding 对象，表示应用于字符串数组的编码。</param>
+            <param name="autoCreateDir">如果目录不存在，自动创建目录。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllText(System.String,System.String)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.WriteAllText(System.String,System.String,System.Boolean)">
+            <summary>
+            创建一个新文件，使用指定的编码在其中写入指定的字符串数组，然后关闭文件。如果目标文件已存在，则改写该文件。
+            </summary>
+            <param name="path">要写入的文件。</param>
+            <param name="contents">要写入文件的字符串数组。</param>
+            <param name="autoCreateDir">如果目录不存在，自动创建目录。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.Delete(System.String)">
+            <summary>
+            删除指定的文件。如果指定的文件不存在，则不引发异常
+            </summary>
+            <param name="path">要删除的文件的名称。</param>
+        </member>
+        <member name="M:EC5.SystemBoard.IO.EcFile.Exists(System.String)">
+            <summary>
+            确定指定的文件是否存在。
+            </summary>
+            <param name="path">要检查的文件。</param>
+            <returns>如果调用方具有要求的权限并且 path 包含现有文件的名称，则为 true；否则为 false。如果 path 为 空引用（在 Visual Basic 中为 Nothing）、无效路径或零长度字符串，则此方法也将返回 false。如果调用方不具有读取指定文件所需的足够权限，则不引发异常并且该方法返回 false，这与 path 是否存在无关。 </returns>
+            <remarks>不应使用 Exists 方法来验证路径，此方法仅检查 path 中指定的文件是否存在。将无效路径传递到 Exists 将返回 false。</remarks>
+        </member>
+        <member name="T:EC5.SystemBoard.Settings">
+            <summary>
+            参数设置
+            </summary>
+        </member>
+        <member name="T:EC5.SystemBoard.SysBoardManager">
+            <summary>
+            底板管理
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.SysBoardManager.AssemblyLoading">
+            <summary>
+             Assembly 加载过程的事件
+            </summary>
+        </member>
+        <member name="E:EC5.SystemBoard.SysBoardManager.AssemblyLoader">
+            <summary>
+             Assembly 加载结束的事件
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.OnAssemblyLoading(EC5.SystemBoard.EcAssemblyEventArgs)">
+            <summary>
+            触发加载 Assembly 过程的事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.OnAssemblyLoader(EC5.SystemBoard.EcAssemblyEventArgs)">
+            <summary>
+            触发加载 Assembly 结束的事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:EC5.SystemBoard.SysBoardManager.m_Apps">
+            <summary>
+            集合
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.SysBoardManager.m_NetMainVersion">
+            <summary>
+            net 框架的主版本号
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.SysBoardManager.NetMainVersion">
+            <summary>
+            获取 Net 主版本号.
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.SysBoardManager.Apps">
+            <summary>
+            APP 集合
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.SysBoardManager.CurrentApp">
+            <summary>
+            默认 APP
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.SysBoardManager.DefaultAppCode">
+            <summary>
+            默认主程序代码
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetModuleInfo(System.String)">
+            <summary>
+            获取模块信息
+            </summary>
+            <param name="moduleCode">模块代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetModuleInfo(System.String,System.String)">
+            <summary>
+            获取模块信息
+            </summary>
+            <param name="appCode"></param>
+            <param name="moduleCode">模块代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetModuleDirs(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            递归获取模块目录
+            </summary>
+            <param name="rootDir"></param>
+            <param name="paths"></param>
+            <param name="parentDir"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetModuleDirs(EC5.SystemBoard.Configuration.AppConfig,System.String)">
+            <summary>
+            获取模块目录
+            </summary>
+            <param name="appConfig"></param>
+            <param name="moduleRootDir">模块根目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.UpdateContextProperty(System.String,System.String[])">
+            <summary>
+            特殊配置：动态加载的目录。 因为 ASP.NET 2.0 配置动态目录的方法失效，所以采用以下方法。
+            </summary>
+            <param name="relativeVirtualPath"></param>
+            <param name="moduleDirs"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.LoadGlobelTempAssemblyList(EC5.SystemBoard.EcReflection.EcAppInfo,System.Collections.Generic.List{EC5.SystemBoard.SysBoardManager.TmpAssembly})">
+            <summary>
+            加载 bin 目录下面的 dll 文件
+            </summary>
+            <param name="app"></param>
+            <param name="tmpAssemblyList"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.OpenAppConfig(EC5.SystemBoard.Configuration.AppConfig)">
+            <summary>
+            打开 App 的配置文件
+            </summary>
+            <param name="appConfig"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.LoadModuleInfo(EC5.SystemBoard.EcReflection.EcAppInfo,System.String)">
+            <summary>
+            加载模块信息
+            </summary>
+            <param name="app"></param>
+            <param name="moduleDir">模块目录</param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetEventFields(System.Type)">
+            <summary>
+            获取事件字段
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetListenerMethods(System.Type)">
+            <summary>
+            获取监听的对象方法
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.LinkListenerAndEvent(System.String,EC5.SystemBoard.EcReflection.EcTypeInfo,System.Collections.Generic.List{System.Reflection.MethodInfo})">
+            <summary>
+            链接监听对象和事件源
+            </summary>
+            <param name="moduleName"></param>
+            <param name="typeInfo"></param>
+            <param name="listenerMethods"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.CreateInstanceEvent(System.String,EC5.SystemBoard.EcReflection.EcTypeInfo,System.Collections.Generic.List{System.Reflection.FieldInfo})">
+            <summary>
+            创建事件的实例对象
+            </summary>
+            <param name="moduleName"></param>
+            <param name="typeInfo"></param>
+            <param name="eventFields"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.LoadViewForAssembly(System.Reflection.Assembly,EC5.SystemBoard.EcReflection.EcModuleInfo)">
+            <summary>
+            加载视图对象
+            </summary>
+            <param name="ass"></param>
+            <param name="moduleInfo"></param>
+        </member>
+        <member name="F:EC5.SystemBoard.SysBoardManager.m_NotClassBill">
+            <summary>
+            未归类
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.SysBoardManager.m_NotClassView">
+            <summary>
+            未归类
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.SysBoardManager.m_NotClassEntity">
+            <summary>
+            未归类
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.LoadBllForAssembly(System.Reflection.Assembly,EC5.SystemBoard.EcReflection.EcModuleInfo)">
+            <summary>
+            加载业务对象
+            </summary>
+            <param name="ass"></param>
+            <param name="moduleInfo"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.EqualsBaseInterface(System.Type,System.String)">
+            <summary>
+            判断 是否继承 baseT
+            </summary>
+            <param name="t1"></param>
+            <param name="baseT"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.RenewBllUri(System.String)">
+            <summary>
+            转换映射业务路径。
+            </summary>
+            <param name="uriStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.RenewViewUri(System.String)">
+            <summary>
+            转换映射视图路径。
+            </summary>
+            <param name="uriStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.InvokeBLL(System.String,System.Object[])">
+            <summary>
+            执行业务方法对象。
+            业务名称例：(bll://app/admin/bll?action=GetName)
+            </summary>
+            <param name="urlString">业务名称例：(bll://app/admin/bll?action=GetName)</param>
+            <param name="args">方法内的参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetBllType(System.String)">
+            <summary>
+            获取业务对象
+            </summary>
+            <param name="uriStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetViewType(System.String)">
+            <summary>
+            获取视图对象
+            </summary>
+            <param name="uriStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.SysBoardManager.GetModuleForUri(System.String)">
+            <summary>
+            获取视图对象
+            </summary>
+            <param name="uriStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:App.Register.RegHelp">
+            <summary>
+            注册帮助
+            </summary>
+        </member>
+        <member name="F:App.Register.RegHelp.m_RegCode">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="M:App.Register.RegHelp.SetData(System.Byte[],System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            设置注册信息
+            </summary>
+            <param name="data">解密信息</param>
+            <param name="userId">用户ID</param>
+            <param name="toTime">授权结束日期</param>
+            <param name="mode">DEMO,FULL</param>
+            <param name="isValidNow">立刻验证</param>
+        </member>
+        <member name="M:App.Register.RegHelp.IsValidRegister">
+            <summary>
+            是否已经验证注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegHelp.IsRegister">
+            <summary>
+            是否已经注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetContextValues">
+            <summary>
+            获取 Application 里面的硬件参数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetMoAddress">
+              <summary> 
+              获取网卡硬件地址 
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.GetCpuID">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.ZbID">
+            <summary>
+            主板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetHDid">
+              <summary> 
+              获取硬盘ID     
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.AESDecrypt(System.Byte[],System.String)">
+            <summary>
+            AES 解密(高级加密标准，是下一代的加密算法标准，速度快，安全级别高，目前 AES 标准的一个实现是 Rijndael 算法)
+            </summary>
+            <param name="DecryptData">待解密密文</param>
+            <param name="DecryptKey">解密密钥</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

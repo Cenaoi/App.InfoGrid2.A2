@@ -1,0 +1,48 @@
+﻿{
+    //全局配置
+    /*
+    * 电脑端:
+    *  
+    *  复杂表: "/App/InfoGrid2/View/OneForm/FormEditPreview.aspx?row_pk={{EXTEND_ROW_ID}}&pageId={{EXTEND_PAGE_ID}}&menu_id={{EXTEND_MENU_ID}}&alias_title={{EXTEND_DOC_TEXT}}",
+    *  单  表: "/App/InfoGrid2/View/OneForm/FormOneEditPreview.aspx?row_pk={{EXTEND_ROW_ID}}&pageId=1735&menu_id=687&alias_title={{EXTEND_DOC_TEXT}}",
+    * 
+    * 手机端:
+    *
+    *   流程中报销主界面:  
+    *       "/WF/View/Reim/ShowReimbur.aspx?reim_id={{EXTEND_ROW_ID}}"
+    *
+    *   流程中周报告明细:
+    *       "/WF/View/Report/ReportFlow.aspx?report_id={{EXTEND_ROW_ID}}"
+    *
+    */
+
+    "globel": {
+
+    },
+
+    //局部配置
+    "table-define": {
+
+        //月度报销单
+        "UT_346": {
+
+            "company": [
+                {
+                    "menu_id": 687,
+                    "url": "/App/InfoGrid2/View/OneForm/FormOneEditPreview.aspx?row_pk={{EXTEND_ROW_ID}}&pageId=1735&menu_id=687&alias_title={{EXTEND_DOC_TEXT}}"
+                },
+                {
+                    "menu_id": 683,
+                    "url": "/App/InfoGrid2/View/OneForm/FormEditPreview.aspx?row_pk={{EXTEND_ROW_ID}}&pageId=1702&menu_id=683&alias_title={{EXTEND_DOC_TEXT}}"
+                }
+            ],
+            "mobile": "/WF/View/Reim/ShowReimbur.aspx?reim_id={{EXTEND_ROW_ID}}"
+        },
+
+        //周报告
+        "UT_371": {
+            "company": "/App/InfoGrid2/View/OneForm/FormOneEditPreview.aspx?row_pk={{EXTEND_ROW_ID}}&pageId=1894&menu_id=755&alias_title={{EXTEND_DOC_TEXT}}",
+            "mobile": "/WF/View/Report/ReportFlow.aspx?report_id={{EXTEND_ROW_ID}}"
+        }
+    }
+}

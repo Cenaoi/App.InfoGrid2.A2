@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyClick.BizWeb", "EasyClick.BizWeb.csproj", "{8EF8D775-3615-4275-AD57-D56DBCDE390B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_4.0.Net|Any CPU = Debug_4.0.Net|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Debug_4.0.Net|Any CPU.ActiveCfg = Debug_4.0.Net|Any CPU
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Debug_4.0.Net|Any CPU.Build.0 = Debug_4.0.Net|Any CPU
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF8D775-3615-4275-AD57-D56DBCDE390B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

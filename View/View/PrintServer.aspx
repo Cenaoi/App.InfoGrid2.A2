@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PrintServer.aspx.cs" Inherits="App.InfoGrid2.View.PrintServer" %>

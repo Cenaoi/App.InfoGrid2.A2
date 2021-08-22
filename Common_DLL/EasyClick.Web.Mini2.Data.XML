@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyClick.Web.Mini2.Data</name>
+    </assembly>
+    <members>
+        <member name="T:EasyClick.Web.Mini2.Data.IfUtil">
+            <summary>
+            条件如果
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.IfUtil.NotBlank(System.String,System.String)">
+            <summary>
+            如果第一个参数不为空，就返回第一个参数，否则返回第二个参数
+            </summary>
+            <param name="field"></param>
+            <param name="falseText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.IfUtil.NotBlank(System.Object,System.String)">
+            <summary>
+            如果第一个参数不为空，就返回第一个参数，否则返回第二个参数
+            </summary>
+            <param name="field"></param>
+            <param name="falseText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.IfUtil.ParseNum(System.Object)">
+            <summary>
+            去除 Decimal 对象后面的0
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.IfUtil.NotBlank_AppendFormat(System.Text.StringBuilder,System.String,System.String)">
+            <summary>
+            如果第3个参数 Value 不等于空，就格式化合并
+            </summary>
+            <param name="sb"></param>
+            <param name="foramt"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.EntityFormEngine">
+            <summary>
+            实体表单引擎
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityFormEngine.OpenDecipher">
+            <summary>
+            打开数据源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.Mini2.Data.EntityFormEngine.Model">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityFormEngine.FindFieldControls(EasyClick.Web.Mini2.FormLayout)">
+            <summary>
+            查找字段的控件
+            </summary>
+            <param name="layout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityFormEngine.SetData(EasyClick.Web.Mini2.FormLayout,System.Object)">
+            <summary>
+            设置数据
+            </summary>
+            <param name="layout"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityFormEngine.EditData(EasyClick.Web.Mini2.FormLayout,System.Object)">
+            <summary>
+            编辑数据
+            </summary>
+            <param name="layout"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityFormEngine.GetData(EasyClick.Web.Mini2.FormLayout)">
+            <summary>
+            获取数据
+            </summary>
+            <param name="layout"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.EntityStoreEngine">
+            <summary>
+            实体仓库构造工厂
+            </summary>
+            <summary>
+            实体仓库引擎
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.OnLoad">
+            <summary>
+            load 初始化
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetDataTable">
+            <summary>
+            获取数据 DataTable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetList">
+            <summary>
+            获取数据实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.LoadPage(System.Int32)">
+            <summary>
+            加载分页数据
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.LoadSummary">
+            <summary>
+            加载汇总信息
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetSummary(System.String,EasyClick.Web.Mini2.SummaryType,EasyClick.Web.Mini2.ParamCollection)">
+            <summary>
+            获取某个字段的汇总信息（单表）
+            </summary>
+            <param name="field">字段名</param>
+            <param name="summartyType">类型</param>
+            <param name="summaryFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetSummary(System.String,EasyClick.Web.Mini2.SummaryType)">
+            <summary>
+            获取某个字段的汇总信息（单表）
+            </summary>
+            <param name="field">字段名</param>
+            <param name="summartyType">类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.Select">
+            <summary>
+            全部数据 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetUpdateInfos(EasyClick.Web.Mini2.Data.DataRecord,HWQ.Entity.LightModels.LModelElement)">
+            <summary>
+            获取需要更新实体信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.OnUpdatedModels(EasyClick.Web.Mini2.Data.DataBatch,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.Decipher.LightDecipher.DbDecipher,HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            触发事件
+            </summary>
+            <param name="batch"></param>
+            <param name="modelElem"></param>
+            <param name="decipher"></param>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.GetUpdatingModels(EasyClick.Web.Mini2.Data.DataBatch,HWQ.Entity.LightModels.LModelElement,HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.Boolean@)">
+            <summary>
+            获取需要更新的是具体对象
+            </summary>
+            <param name="batch">数据批次，从json转换过来的对象。</param>
+            <param name="modelElem"></param>
+            <param name="decipher"></param>
+            <param name="cancel">是否取消更新</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.ThrowException(System.Boolean@,EasyClick.Web.Mini2.ObjectEventArgs[])">
+            <summary>
+            触发异常
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.SaveAll_ForTran">
+            <summary>
+            保存全部（事务模式）
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.SaveAll">
+            <summary>
+            保存全部
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.SaveAll(EasyClick.Web.Mini2.Store,HWQ.Entity.Decipher.LightDecipher.DbDecipher,EasyClick.Web.Mini2.ObjectEventArgs[]@,EasyClick.Web.Mini2.ObjectEventArgs[]@)">
+            <summary>
+            
+            </summary>
+            <param name="uiStore">UI 数据仓库</param>
+            <param name="decipher">数据操作对象</param>
+            <param name="saveingEaList">保存前触发的异常事件</param>
+            <param name="savedEaList">保存后触发的异常事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.ResetSummary(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String[])">
+            <summary>
+            重置合计项目
+            </summary>
+            <param name="fields"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.Update">
+            <summary>
+            （功能未启用）更新记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.Insert">
+            <summary>
+            插入操作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.AddFilter(HWQ.Entity.LightModels.LightModelFilter,EasyClick.Web.Mini2.ParamCollection)">
+            <summary>
+            添加过滤参数
+            </summary>
+            <param name="filter"></param>
+            <param name="paramList"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.Delete">
+            <summary>
+            删除记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.DeleteRecycle(EasyClick.Web.Mini2.Store,HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            删除到回收站
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.DeleteRecycle_Item(EasyClick.Web.Mini2.Store,HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.Web.HttpContext,HWQ.Entity.LightModels.LModel,System.String[],System.Boolean,System.Exception@,System.Boolean@)">
+            <summary>
+            
+            </summary>
+            <param name="uiStore"></param>
+            <param name="decipher"></param>
+            <param name="context"></param>
+            <param name="model"></param>
+            <param name="recyFields"></param>
+            <param name="isExceptionHandled"></param>
+            <param name="cancel"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.SortReset">
+            <summary>
+            排序重置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.MoveDown">
+            <summary>
+            焦点行下移
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.MoveUp">
+            <summary>
+            上移动
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.SetCurRecord(EasyClick.Web.Mini2.Data.DataRecord)">
+            <summary>
+            设置当前焦点行
+            </summary>
+            <param name="record">数据记录</param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.HasChild(System.Object)">
+            <summary>
+            判断是否有子节点
+            </summary>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.OpenDecipher">
+            <summary>
+            打开数据源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterAll(System.String,System.Object)">
+            <summary>
+            过滤全部
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterChangedStatus(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            改变状态过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterChangedStatus(System.String,System.Object)">
+            <summary>
+            改变状态过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.NewDefaultValues(System.String,System.Object)">
+            <summary>
+            新记录默认值
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterDelete(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            删除过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterDelete(System.String,System.Object)">
+            <summary>
+            删除过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterSelect(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            选择查询过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityStoreEngine.FilterSelect(System.String,System.Object)">
+            <summary>
+            选择查询过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.EntityTreeStoreEngine">
+            <summary>
+            Tree 数据仓库引擎
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.EntityTreeStoreEngine.Rename(System.String,System.String)">
+            <summary>
+            重命名
+            </summary>
+            <param name="oldText"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.LFilterHelper">
+            <summary>
+            实体过滤助手
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.LFilterHelper.FullFilter(HWQ.Entity.LightModels.LightModelFilter,EasyClick.Web.Mini2.Panel)">
+            <summary>
+            填充过滤器
+            </summary>
+            <param name="filter"></param>
+            <param name="panel"></param>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.LFilterHelper.FindFieldControls(EasyClick.Web.Mini2.Panel)">
+            <summary>
+            查找字段的控件
+            </summary>
+            <param name="layout"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.RecordSortFactory">
+            <summary>
+            记录排序构造工厂
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini2.Data.RecordSortFactory.FilterMethod">
+            <summary>
+            过滤函数
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini2.Data.RecordSortFactory.TableName">
+            <summary>
+            数据表名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini2.Data.RecordSortFactory.IdField">
+            <summary>
+            数据表主键名
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.Mini2.Data.RecordSortFactory.SortField">
+            <summary>
+            排序的字段名
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.RecordSortFactory.SortReset">
+            <summary>
+            初始化索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.RecordSortFactory.IsCreateSortTag">
+            <summary>
+            判断是否已经建立排序索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.RecordSortFactory.MoveUp(System.Int32[])">
+            <summary>
+            向上移动
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.RecordSortFactory.MoveDown(System.Int32[])">
+            <summary>
+            向下移动
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.SqlEngineHelper.GetCountTSql(EasyClick.Web.Mini2.Store)">
+            <summary>
+            获取记录的总数量
+            </summary>
+            <param name="storeUI"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.SqlEngineHelper.GetTSQL(EasyClick.Web.Mini2.Store,System.Int32,System.Boolean)">
+            <summary>
+            获取 T-SQL 语句
+            </summary>
+            <param name="storeUI"></param>
+            <param name="page">页码</param>
+            <param name="isPager">是否分页</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.Mini2.Data.StoreFilterItems">
+            <summary>
+            数据仓库过滤条目
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.StoreFilterItems.Add(System.String,System.Object)">
+            <summary>
+            添加过滤条件
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="value">字段值</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.Mini2.Data.StoreFilterItems.Add(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            添加过滤条件
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="value">字段值</param>
+            <param name="logic">逻辑</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1545 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyClick.BizWeb</name>
+    </assembly>
+    <members>
+        <member name="T:EasyClick.BizWeb.Affair.AffairCategory">
+            <summary>
+            事务类别
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.Affair.AffairInfo">
+            <summary>
+            事务信息
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.Affair.AffairInfo.Name">
+            <summary>
+            事务名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.Affair.AffairInfo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.Affair.AffairInfo.Exe">
+            <summary>
+            执行命令
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.Affair.AffairInfoList">
+            <summary>
+            事务集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.Affair.AffairInfoList.Exe">
+            <summary>
+            执行命令
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.Affair.AffairManager">
+            <summary>
+            事务管理
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.Affair.AffairManager.Configer(System.String)">
+            <summary>
+            配置事务
+            </summary>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="T:EasyClick.BizWeb.BizHttpRoutingModule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.BizHttpRoutingModule.AESEncryptBytes(System.String,System.String)">
+            <summary>
+            AES 加密(高级加密标准，是下一代的加密算法标准，速度快，安全级别高，目前 AES 标准的一个实现是 Rijndael 算法)
+            </summary>
+            <param name="EncryptString"></param>
+            <param name="EncryptKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.BizWeb.BizRes">
+            <summary>
+            业务资源
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.BizRes.#cctor">
+            <summary>
+            业务资源
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.BizRes.m_RES_VERSION">
+            <summary>
+            资源版本号
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.BizRes.m_RES_DOMAIN">
+            <summary>
+            资源域名
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.BizRes.DomainEnabled">
+            <summary>
+            远程域名激活
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.BizRes.ResVersion">
+            <summary>
+            资源版本号
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.BizRes.ResDomain">
+            <summary>
+            资源域名
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.BizRes.Write(System.String)">
+            <summary>
+            输出资源文件
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.BizRes.Script(System.String)">
+            <summary>
+            资源脚本
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.BizRes.Style(System.String)">
+            <summary>
+            样式资源
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.BizWeb.EC5HttpApplication">
+            <summary>
+            改写了 System.Web.HttpApplication
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.EC5HttpApplication.m_DefaultModuleName">
+            <summary>
+            默认模块名称
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.EC5HttpApplication.m_InitSuccess">
+            <summary>
+            初始化成功
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.EC5HttpApplication.m_MainWebSite">
+            <summary>
+            网站配置信息
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="defaultModuleName">默认模块名称</param>
+        </member>
+        <member name="P:EasyClick.BizWeb.EC5HttpApplication.DefaultModuleName">
+            <summary>
+            默认模块名称
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.InitLog">
+            <summary>
+            初始化 Log4Net
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.LoadOneselfEntity">
+            <summary>
+            加载 Bin 目录下面的实体
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.ReadModuleConfig(System.String,EC5.SystemBoard.EcReflection.EcModuleInfo)">
+            <summary>
+            读取 module.config 文件
+            </summary>
+            <param name="modulePPath"></param>
+            <param name="module"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.SetupOneselfMode(System.String)">
+            <summary>
+            配置自己网站模式
+            </summary>
+            <param name="modelName"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.InitMainWebSite">
+            <summary>
+            初始化配置文件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.EC5_Init">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            步骤1
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_AuthenticateRequest(System.Object,System.EventArgs)">
+            <summary>
+            步骤2
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_AuthorizeRequest(System.Object,System.EventArgs)">
+            <summary>
+            步骤3；当安全模块已经验证了当前用户的授权时执行 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_ResolveRequestCache(System.Object,System.EventArgs)">
+            <summary>
+            步骤4:当ASP.NET完成授权事件以使缓存模块从缓存中为请求提供服务时发生，从而跳过处理程序（页面或者是WebService）的执行。
+            这样做可以改善网站的性能，这个事件还可以用来判断正文是不是从Cache中得到的。  
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_AcquireRequestState(System.Object,System.EventArgs)">
+            <summary>
+            步骤5；读取了Session所需的特定信息并且在把这些信息填充到Session之前执行
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_PreRequestHandlerExecute(System.Object,System.EventArgs)">
+            <summary>
+            步骤6；在合适的处理程序执行请求前调用，
+                   这个时候，Session就可以用了 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.EC5HttpApplication.Application_PostRequestHandlerExecute(System.Object,System.EventArgs)">
+            <summary>
+            步骤7.当处理程序完成对请求的处理后被调用
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.Sec_Page_Enabled">
+            <summary>
+            激活安全模块
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.IsRegisterNow">
+            <summary>
+            立刻验证注册
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.AutoCreateTable">
+            <summary>
+            自动创建数据表
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.ValidDifferenceTableALL">
+            <summary>
+            验证差异
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.AutoCreateDesc">
+            <summary>
+            自动创建描述
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.MainWebSiteConfig.AutoCreatePrimaryKey">
+            <summary>
+            自动创建主键
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.MiniExpand.ModelJsonFactory">
+            <summary>
+            实体转换为 Json 的处理工厂
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.NameControlIndex">
+            <summary>
+            按控件名
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.UIControlManager">
+            <summary>
+            UI 控件管理
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UIControlManager.m_TagControls">
+            <summary>
+            控件集合,key=前缀，value=集合
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UIControlManager.InitControlIndex">
+            <summary>
+            初始化控件索引
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UIControlManager.GetItem(System.String,System.String)">
+            <summary>
+            获取控件类型
+            </summary>
+            <param name="tag">前缀</param>
+            <param name="name">控件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UIControlManager.GetItems(System.String)">
+            <summary>
+            获取控件类型
+            </summary>
+            <param name="tag">前缀</param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.DataGridViewAction">
+            <summary>
+            DataGridView 动作操作
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.#ctor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.#ctor(System.Type,EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="modelT"></param>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.#ctor(System.String,EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="modelName"></param>
+            <param name="grid"></param>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.SecAdd">
+            <summary>
+            权限：允许添加
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.SecSave">
+            <summary>
+            权限：允许保存
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.SecDelete">
+            <summary>
+            权限：允许删除
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.SecSelect">
+            <summary>
+            权限：允许查询
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.ReadOnly">
+            <summary>
+            只读
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.DataGridViewAction.m_ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.Models">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.GoPageLast(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            跳到最后页
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.ValidateDelete(System.Int32[]@,System.Int32[]@)">
+            <summary>
+            验证删除的记录
+            </summary>
+            <param name="ids"></param>
+            <param name="guids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.DeleteForFilter">
+            <summary>
+            删除筛选内容
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction.ValidateErrors">
+            <summary>
+            验证错误信息
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.ValidateGridFor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            验证单元格填写内容
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.ValidateCellValue(HWQ.Entity.LightModels.LModelElement,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{EasyClick.Web.Mini.InputFieldError})">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="modelElem"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.SetCellValue(HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LightModel,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取单元格数值
+            </summary>
+            <param name="modelElem">实体元素</param>
+            <param name="model">实体实例</param>
+            <param name="row">单元格行</param>
+            <param name="updateFields">需要更新的字段</param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction.InitSearch(System.Web.UI.Control,System.String)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+            <param name="group"></param>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.ModelCancelEventArgs.Fields">
+            <summary>
+            被更新的字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.ListItemEditorGrid">
+            <summary>
+            属性编辑表格
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.BizDataHelper.Fill(EasyClick.Web.Mini.MiniHtmlListBase,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel},System.String)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="listControl"></param>
+            <param name="valueField"></param>
+            <param name="textField"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.BizDataHelper.Fill(EasyClick.Web.Mini.MiniHtmlListBase,System.Collections.Generic.IList{HWQ.Entity.LightModels.LModel},System.String,System.String)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="listControl"></param>
+            <param name="valueField"></param>
+            <param name="textField"></param>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.DataGridViewAction`1">
+            <summary>
+            DataGridView 动作操作
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.#ctor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.SecAdd">
+            <summary>
+            权限：允许添加
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.SecSave">
+            <summary>
+            权限：允许保存
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.SecDelete">
+            <summary>
+            权限：允许删除
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.SecSelect">
+            <summary>
+            权限：允许查询
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.ReadOnly">
+            <summary>
+            只读
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.DataGridViewAction`1.m_ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Adding">
+            <summary>
+            添加过程的事件.
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnAdding(`0)">
+            <summary>
+            触发添加过程的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.AddingCancel">
+            <summary>
+            添加过程的事件(可取消事件).
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnAddingCancel(EasyClick.BizWeb.UI.ModelCancelEventArgs{`0})">
+            <summary>
+            触发添加过程的事件(可取消事件).
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Added">
+            <summary>
+            添加实体结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnAdded(`0)">
+            <summary>
+            添加实体结束触发的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Saving">
+            <summary>
+            保存过程的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnSaving(EasyClick.BizWeb.UI.ModelCancelEventArgs{`0})">
+            <summary>
+            触发保存过程的事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Saved">
+            <summary>
+            保存结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnSaved(`0)">
+            <summary>
+            触发保存结束的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Validating">
+            <summary>
+            验证过程的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnValidating(EasyClick.BizWeb.UI.ModelCancelEventArgs{`0})">
+            <summary>
+            触发验证过程的事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Validated">
+            <summary>
+            验证结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnValidated(`0)">
+            <summary>
+            触发验证结束的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Deleting">
+            <summary>
+            删除过程的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnDeleting(`0)">
+            <summary>
+            触发删除过程的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Deleted">
+            <summary>
+            删除结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnDeleted(`0)">
+            <summary>
+            触发删除结束的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnDeleted(`0,HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            出发删除结束的事件
+            </summary>
+            <param name="m"></param>
+            <param name="decipher"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Updating">
+            <summary>
+            更新过程的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnUpdating(`0)">
+            <summary>
+            触发更新过程的事件
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.Updated">
+            <summary>
+            更新结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnUpdated(`0,HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            触发更新结束的事件
+            </summary>
+            <param name="m"></param>
+            <param name="decipher"></param>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.GoPaging">
+            <summary>
+            页面跳转过程的事件
+            </summary>
+        </member>
+        <member name="E:EasyClick.BizWeb.UI.DataGridViewAction`1.GoPaged">
+            <summary>
+            页面跳转结束的事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnGoPageing(System.Collections.Generic.IList{`0})">
+            <summary>
+            触发页面跳转过程的事件
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.OnGoPaged(System.Collections.Generic.IList{`0})">
+            <summary>
+            触发页面跳转结束的事件
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.Focus">
+            <summary>
+            设置焦点
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GetModelList">
+            <summary>
+            获取没有分页的实体集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.Refresh">
+            <summary>
+            刷新列表
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GoPageLast(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            跳到最后页
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GetModelsForCheckedInt">
+            <summary>
+            获取被选中的实体
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GetCheckedIntList">
+            <summary>
+            获取复选框打钩的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ChangeStatus(System.String,HWQ.Entity.Filter.Logic,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            改变字段状态值.
+            一般情况下修改"状态"字段 STATUS_ID 的值.
+            </summary>
+            <param name="statusFieldName">字段名称</param>
+            <param name="logic">逻辑条件</param>
+            <param name="srcStatusId">原状态值</param>
+            <param name="targetStatusId">目标状态值</param>
+            <param name="autoTooltip">自动提示</param>
+            <returns>修改的记录数量</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ChangeStatus(System.String,System.Int32,System.Int32)">
+            <summary>
+            改变字段状态值.
+            一般情况下修改"状态"字段 STATUS_ID 的值.
+            </summary>
+            <param name="statusFieldName">字段名称</param>
+            <param name="srcStatusId">原状态值</param>
+            <param name="targetStatusId">目标状态值</param>
+            <returns>修改的记录数量</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ChangeStatus(System.String,HWQ.Entity.Filter.Logic,System.Int32,System.Int32)">
+            <summary>
+            改变字段状态值.
+            一般情况下修改"状态"字段 STATUS_ID 的值.
+            </summary>
+            <param name="statusFieldName">字段名称</param>
+            <param name="logic">逻辑条件</param>
+            <param name="srcStatusId">原状态值</param>
+            <param name="targetStatusId">目标状态值</param>
+            <returns>修改的记录数量</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ChangeStatus(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            改变字段状态值.
+            一般情况下修改"状态"字段 STATUS_ID 的值.
+            </summary>
+            <param name="statusFieldName">字段名称</param>
+            <param name="srcStatusId">原状态值</param>
+            <param name="targetStatusId">目标状态值</param>
+            <param name="autoTooltip">自动提示</param>
+            <returns>修改的记录数量</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.DeleteForFilter">
+            <summary>
+            删除筛选内容
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.DeleteItems">
+            <summary>
+            删除被选中的记录
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.DataGridViewAction`1.ValidateErrors">
+            <summary>
+            验证后,产生的错误信息
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ValidateGridFor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.ValidateCellValue(HWQ.Entity.LightModels.LModelElement,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{EasyClick.Web.Mini.InputFieldError})">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="modelElem"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.SetCellValue(HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LightModel,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取单元格数值
+            </summary>
+            <param name="modelElem">实体元素</param>
+            <param name="model">实体实例</param>
+            <param name="row">单元格行</param>
+            <param name="updateFields">需要更新的字段</param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GetModelForFocusPk(System.String[])">
+            <summary>
+            获取焦点行的值
+            </summary>
+            <param name="fields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.GetLModelForFocusPk(System.String[])">
+            <summary>
+            获取焦点行的值
+            </summary>
+            <param name="fields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.InitSearch(System.Web.UI.Control)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.InitSearch(System.Web.UI.Control,System.String)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+            <param name="group"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.SearchJoin(System.Type,System.String)">
+            <summary>
+            查询关联
+            </summary>
+            <param name="modelT"></param>
+            <param name="on"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.DataGridViewAction`1.SearchJoin(HWQ.Entity.LightModels.JoinTypes,System.Type,System.String)">
+            <summary>
+            查询关联
+            </summary>
+            <param name="modelT"></param>
+            <param name="on"></param>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.EcOctopus">
+            <summary>
+            章鱼（将由 FromAction 静态对象代替)
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.SetModel(System.Object)">
+            <summary>
+            （将由 FromAction 静态对象代替)
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.SetModel(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            （将由 FromAction 静态对象代替)
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.GetModel``1">
+            <summary>
+            （将由 FromAction 静态对象代替)
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.ModifyModel(System.Object)">
+            <summary>
+            修改实体
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.ModifyModel(System.Web.UI.Control,System.Object)">
+            <summary>
+            修改实体
+            </summary>
+            <param name="parent"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcOctopus.GetModel(System.Type)">
+            <summary>
+            （将由 FromAction 静态对象代替)
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.EcWidgetAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcWidgetAction.ToJson(System.String)">
+            <summary>
+            字符串转换为 json 数据;
+            默认左右两边是用双引号括起来的
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcWidgetAction.Shell_By_WidgetMethod">
+            <summary>
+            执行控件函数
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcWidgetAction.Shell_By_WidgetEvent">
+            <summary>
+            执行控件事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.EcWidgetAction.Shell_By_Command">
+            <summary>
+            执行普通函数.
+            </summary>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.ExcelAction`1">
+            <summary>
+            Excel 文件辅助类
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.ExcelAction`1.#ctor">
+            <summary>
+            Excel 文件辅助类
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.ExcelAction`1.#ctor(EasyClick.Web.Mini.DataGrid)">
+            <summary>
+            Excel 文件辅助类
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.ExcelAction`1.#ctor(EasyClick.Web.Mini.DataGrid,HWQ.Entity.LightModels.LModelList{`0})">
+            <summary>
+            Excel 文件辅助类
+            </summary>
+            <param name="grid"></param>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.ExcelAction`1.#ctor(EasyClick.Web.Mini.DataGridView,`0[])">
+            <summary>
+            Excel 文件辅助类
+            </summary>
+            <param name="grid"></param>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.ExcelAction`1.ToHtml">
+            <summary>
+            输出 Excel 的 Html 格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.FormAction">
+            <summary>
+            表单对象
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.FindDBCotrols(System.Web.UI.Control,System.String,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            查找 DBField 属性的控件
+            </summary>
+            <param name="parent"></param>
+            <param name="group"></param>
+            <param name="cons"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.ExistPropName(System.Reflection.PropertyInfo[],System.String)">
+            <summary>
+            判断集合中是否存在字段
+            </summary>
+            <param name="propList">属性集合</param>
+            <param name="dbField">字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.GetProp(System.Reflection.PropertyInfo[],System.String)">
+            <summary>
+            按属性名称从属性列表中查找
+            </summary>
+            <param name="propList">属性列表</param>
+            <param name="propName">要查找的属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.EditModel(System.Web.UI.Control,System.String,System.Object)">
+            <summary>
+            编辑实体对象
+            </summary>
+            <param name="parent"></param>
+            <param name="groupName"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.EditModel(System.Web.UI.Control,System.Object)">
+            <summary>
+            编辑实体对象
+            </summary>
+            <param name="parent"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.GetModel``1(System.Web.UI.Control,System.String)">
+            <summary>
+            获取实体对象
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+            <param name="parent"></param>
+            <param name="groupName">组名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.GetModel``1(System.Web.UI.Control)">
+            <summary>
+            获取实体对象
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.GetModel(System.Web.UI.Control,System.String,System.Type)">
+            <summary>
+            获取实体对象
+            </summary>
+            <param name="parent"></param>
+            <param name="groupName">组名</param>
+            <param name="modelT">实体类型</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.GetModel(System.Web.UI.Control,System.Type)">
+            <summary>
+            获取实体对象
+            </summary>
+            <param name="parent"></param>
+            <param name="modelT">实体类型</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.SetModel(System.Web.UI.Control,System.String,System.Object)">
+            <summary>
+            设置实体对象
+            </summary>
+            <param name="parent"></param>
+            <param name="groupName">组名称</param>
+            <param name="model">实体对象</param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.SetModel(System.Web.UI.Control,System.Object)">
+            <summary>
+            设置实体
+            </summary>
+            <param name="parent"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.FormAction.SetModel(System.Web.UI.Control,System.ComponentModel.ICustomTypeDescriptor)">
+            <summary>
+            设置实体
+            </summary>
+            <param name="parent"></param>
+            <param name="model"></param>
+        </member>
+        <member name="T:EasyClick.BizWeb.UI.TreeViewAction`2">
+            <summary>
+            树节点
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+            <typeparam name="PkValueT"></typeparam>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.TreeViewAction`2.m_FilterSearch">
+            <summary>
+            查询过滤条件
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.FilterSearch(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            查询过滤
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="value">过滤值</param>
+            <param name="logic">逻辑</param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.FilterSearch(System.String,System.Object)">
+            <summary>
+            查询过滤
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="value">过滤值</param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.LoadNodes">
+            <summary>
+            初始化节点
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.ExplandNodes(HWQ.Entity.LightModels.LModelList{`0})">
+            <summary>
+            展开节点
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.CoventNode(System.Object,`1@)">
+            <summary>
+            实体转换为 TreeNode 
+            </summary>
+            <param name="m">实体</param>
+            <param name="pkValue">主键值</param>
+            <returns>TreeNode</returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.InitTreeNode(EasyClick.Web.Mini.TreeView,HWQ.Entity.LightModels.LModelGroup{`0,`1},`1)">
+            <summary>
+            初始化树节点
+            </summary>
+            <param name="tree"></param>
+            <param name="groupList"></param>
+            <param name="rootId"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.InitTreeNodes(EasyClick.Web.Mini.TreeNode,HWQ.Entity.LightModels.LModelGroup{`0,`1},`1)">
+            <summary>
+            初始化树节点
+            </summary>
+            <param name="treeNode"></param>
+            <param name="groupList"></param>
+            <param name="parentId"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.GetNodeText(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            获取节点 Text
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.GetNodeValue(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            获取节点 Value
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.GetNodeDataPath(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            获取节点 DataPath
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.GetNodeType(HWQ.Entity.LightModels.LightModel)">
+            <summary>
+            获取节点的 Type
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.TreeViewAction`2.m_NodeTypeChangeList">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.TreeViewAction`2.NodeTypeChange(System.String,System.String)">
+            <summary>
+            节点类型的转换
+            </summary>
+            <param name="nodeTypeA">节点类型 A</param>
+            <param name="nodeTypeB">节点类型 B</param>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_UriString">
+            <summary>
+            地址字符串
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_PanelID">
+            <summary>
+            容器ID,给 AJAX 使用的
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_Query">
+            <summary>
+            网页上的请求信息
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_EcDelay">
+            <summary>
+            延迟加载
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_EcReturnFormat">
+            <summary>
+            返回的数据格式 [html|script]
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_DisplayLanguage">
+            <summary>
+            注意：不要放入默认值
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.EcDelay">
+            <summary>
+            延迟加载，默认 true
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.EcReturnFormat">
+            <summary>
+            返回的数据类型,[html|script]
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.PanelID">
+            <summary>
+            容器ID,给 AJAX 使用的
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.Ajax">
+            <summary>
+            启动 Ajax  ,默认 false 
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.EcDesignMode">
+            <summary>
+            获取一个值，用以指示当前是否处于设计模式。
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.Params">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.DisplayLanguage">
+            <summary>
+            语言. CH/EN/....
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.UriString">
+            <summary>
+            组件路径
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.CreateParentBox">
+            <summary>
+            创建父容器
+            </summary>
+        </member>
+        <member name="F:EasyClick.BizWeb.UI.Widget.m_ExTemplate">
+            <summary>
+            扩展属性的模板
+            </summary>
+        </member>
+        <member name="P:EasyClick.BizWeb.UI.Widget.ExTemplate">
+            <summary>
+            扩展属性的模板
+            </summary>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.Widget.SetChildAttributes(System.Web.UI.UserControl)">
+            <summary>
+            给设置子组件的属性
+            </summary>
+            <param name="con"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.UI.Widget.GetVirtualPath(System.String)">
+            <summary>
+            获取虚拟路径
+            </summary>
+            <param name="viewUri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.GetControls(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="serverControls">服务器控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.GetControls(System.String,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="serverControls">服务器控件</param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.ProNoPrefix(System.Xml.XmlNode,System.Collections.Generic.List{System.Web.UI.Control},System.Web.UI.Control,System.Xml.XmlNode,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            处理没有前缀的节点
+            </summary>
+            <param name="parent"></param>
+            <param name="list"></param>
+            <param name="parentControl"></param>
+            <param name="xnode"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.ProPrefix(System.Xml.XmlNode,System.Collections.Generic.List{System.Web.UI.Control},System.Web.UI.Control,System.Xml.XmlNode,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            处理有前缀的节点
+            </summary>
+            <param name="parent"></param>
+            <param name="list"></param>
+            <param name="parentControl"></param>
+            <param name="xnode"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.RecursionControls(System.Xml.XmlNode,System.Collections.Generic.List{System.Web.UI.Control},System.Web.UI.Control,System.Collections.Generic.List{System.Web.UI.Control})">
+            <summary>
+            递归处理控件
+            </summary>
+            <param name="parent"></param>
+            <param name="list"></param>
+            <param name="parentControl"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.ProParseChildren(System.Web.UI.ParseChildrenAttribute,System.Type,System.Object,System.Xml.XmlNode)">
+            <summary>
+            处理控件有 ParseChildrenAttribute 属性
+            </summary>
+            <param name="parseChildren"></param>
+            <param name="conT"></param>
+            <param name="con"></param>
+            <param name="xnode"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.ProServerControl(System.Type,System.Object,System.Xml.XmlNode)">
+            <summary>
+            处理服务器控件
+            </summary>
+            <param name="conT"></param>
+            <param name="con"></param>
+            <param name="xnode"></param>
+        </member>
+        <member name="M:EasyClick.BizWeb.XHtmlHelper.ProControlAttr(System.Type,System.Object,System.Xml.XmlNode)">
+            <summary>
+            处理控件属性
+            </summary>
+            <param name="objT"></param>
+            <param name="obj"></param>
+            <param name="xNode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ProcessReportTableRow">
+            <summary>
+            普通报表处理行
+            </summary>
+            <param name="target">目标行</param>
+            <param name="srcData">明细数据</param>
+        </member>
+        <member name="T:EasyClick.Web.ReportForms.ReportTable">
+            <summary>
+            普通表格统计报表
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportTable.GroupBy">
+            <summary>
+            按组排序。例: "字段1, 字段2, 字段3,..."
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.Process">
+            <summary>
+            处理报表的行数据
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.OnProcess(HWQ.Entity.LightModels.LModel,HWQ.Entity.LightModels.LModel)">
+            <summary>
+            触发处理报表的行数据
+            </summary>
+            <param name="target"></param>
+            <param name="srcData"></param>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.m_TargetList">
+            <summary>
+            目标列表
+            </summary>
+        </member>
+        <member name="F:EasyClick.Web.ReportForms.ReportTable.m_AuotCreateRows">
+            <summary>
+            固定行，不自动增加
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.ReportForms.ReportTable.AutoCreateRows">
+            <summary>
+            根据GroupBy 字段，自动创建行。默认：true
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetCID(HWQ.Entity.LightModels.LModel,System.String[])">
+            <summary>
+            根据 GroupBy 字段，获取统计数据的 唯一标记。
+            </summary>
+            <param name="model"></param>
+            <param name="groupBy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetTargetList">
+            <summary>
+            获取最终处理结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.GetOrderList">
+            <summary>
+            获取最终处理结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.SetInitRows(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            初始化数据行
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="M:EasyClick.Web.ReportForms.ReportTable.SetSourceData(HWQ.Entity.LightModels.LModelList{HWQ.Entity.LightModels.LModel})">
+            <summary>
+            设置数据源
+            </summary>
+            <param name="models"></param>
+        </member>
+        <member name="T:EC5.SystemBoard.Web.BizHttpApp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Web.BizHttpApp.m_SecModuleList">
+            <summary>
+            安全对象模块
+            </summary>
+        </member>
+        <member name="F:EC5.SystemBoard.Web.BizHttpApp.m_SecPageEnabled">
+            <summary>
+            激活安全模块
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Web.BizHttpApp.SecPageEnabled">
+            <summary>
+            激活安全模块
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Web.BizHttpApp.SecModuleList">
+            <summary>
+            安全对象模块
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Web.BizHttpApp.AppCode">
+            <summary>
+            App 代码。例如：app
+            </summary>
+        </member>
+        <member name="P:EC5.SystemBoard.Web.BizHttpApp.AppPath">
+            <summary>
+            App 代码路径。例如：~/App
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.InitSecurity">
+            <summary>
+            初始化安全模块
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.LoadSecurity(System.String)">
+            <summary>
+            加载安全模块
+            </summary>
+            <param name="binDir"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.InitMini">
+            <summary>
+            初始化 Web.Mini 
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.InitSysBoard">
+            <summary>
+            初始化地板
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.ProResultData">
+            <summary>
+            处理数据
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.ViewUriMap(System.Object,System.EventArgs)">
+            <summary>
+            视图地址映射
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.ViewUriMap_Globel(System.Web.HttpContext,System.String[],System.String,System.Uri)">
+            <summary>
+            视图地址映射 
+            </summary>
+            <param name="httpContext"></param>
+            <param name="items"></param>
+            <param name="miniPage"></param>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.ResUriMap(System.Object,System.EventArgs)">
+            <summary>
+            重定向资源
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.SecAllow">
+            <summary>
+            安全通行验证
+            </summary>
+        </member>
+        <member name="M:EC5.SystemBoard.Web.BizHttpApp.SessionEnd(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:App.Register.RegHelp">
+            <summary>
+            注册帮助
+            </summary>
+        </member>
+        <member name="F:App.Register.RegHelp.m_RegCode">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="M:App.Register.RegHelp.SetData(System.Byte[],System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            设置注册信息
+            </summary>
+            <param name="data">解密信息</param>
+            <param name="userId">用户ID</param>
+            <param name="toTime">授权结束日期</param>
+            <param name="mode">DEMO,FULL</param>
+            <param name="isValidNow">立刻验证</param>
+        </member>
+        <member name="M:App.Register.RegHelp.IsValidRegister">
+            <summary>
+            是否已经验证注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegHelp.IsRegister">
+            <summary>
+            是否已经注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetContextValues">
+            <summary>
+            获取 Application 里面的硬件参数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetMoAddress">
+              <summary> 
+              获取网卡硬件地址 
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.GetCpuID">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.ZbID">
+            <summary>
+            主板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:App.Register.RegFactory.GetHDid">
+              <summary> 
+              获取硬盘ID     
+              </summary> 
+              <returns> string </returns> 
+        </member>
+        <member name="M:App.Register.RegFactory.AESDecrypt(System.Byte[],System.String)">
+            <summary>
+            AES 解密(高级加密标准，是下一代的加密算法标准，速度快，安全级别高，目前 AES 标准的一个实现是 Rijndael 算法)
+            </summary>
+            <param name="DecryptData">待解密密文</param>
+            <param name="DecryptKey">解密密钥</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

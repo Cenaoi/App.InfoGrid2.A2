@@ -1,0 +1,12 @@
+﻿@charset "utf-8";
+
+.znic-grid-checkcol-io1 .mi-grid-checkcolumn{
+	background:url(ZNIC/images/form/checkbox.png) no-repeat;
+    background-position: 0 0;
+}
+
+.znic-grid-checkcol-io1  .mi-grid-checkcolumn-checked{
+	background:url(ZNIC/images/form/checkbox.png) no-repeat;
+    background-position: 0 -15px;
+}
+

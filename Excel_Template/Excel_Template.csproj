@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9D86076-2053-404C-9478-ED0E83EEEC4D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App.InfoGrid2.Excel_Template</RootNamespace>
+    <AssemblyName>App.InfoGrid2.Excel_Template</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Common_DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <DocumentationFile>..\Common_DLL\App.InfoGrid2.Excel_Template.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EC5.Utility">
+      <HintPath>..\..\..\2012_项目\EasyClick_Web_v5\Common_DLL\EC5.Utility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HWQ.Entity4">
+      <HintPath>..\Common_DLL\HWQ.Entity4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Common_DLL\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common_DLL\NOPI4.0\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bll\BusHelper.cs" />
+    <Compile Include="Bll\NOPIUtil.cs" />
+    <Compile Include="CellPro.cs" />
+    <Compile Include="DataGroup.cs" />
+    <Compile Include="DataSet.cs" />
+    <Compile Include="ExcelParam.cs" />
+    <Compile Include="ImportExcelUtil.cs" />
+    <Compile Include="JTemplate.cs" />
+    <Compile Include="NOPIHandler.cs" />
+    <Compile Include="NOPIHandlerEX.cs" />
+    <Compile Include="NOPIHandlerEX2.cs" />
+    <Compile Include="PrintPro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RmbUtil.cs" />
+    <Compile Include="RowPro.cs" />
+    <Compile Include="SheetMargin.cs" />
+    <Compile Include="SheetPro.cs" />
+    <Compile Include="JSqlTemplate.cs" />
+    <Compile Include="V1\CellPro.cs" />
+    <Compile Include="V1\CellTypeName.cs" />
+    <Compile Include="V1\ColumnRepeatTemp.cs" />
+    <Compile Include="V1\DataAreaType.cs" />
+    <Compile Include="V1\DefPictures.cs" />
+    <Compile Include="V1\MoreSubTableDataSet.cs" />
+    <Compile Include="V1\MoreSubTableTemp.cs" />
+    <Compile Include="V1\NoneTemp.cs" />
+    <Compile Include="V1\RowMergeImgTemp.cs" />
+    <Compile Include="V1\RowPro.cs" />
+    <Compile Include="V1\RowProCollection.cs" />
+    <Compile Include="V1\SheetMargin.cs" />
+    <Compile Include="V1\SheetParam.cs" />
+    <Compile Include="V1\SubTableParam.cs" />
+    <Compile Include="V1\TemplateUtilV1.cs" />
+    <Compile Include="V1\TempParam.cs" />
+    <Compile Include="V1\TempSheet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{16e4ea2a-b230-4db9-849e-3dd105539d45}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<flow version="1.2">
+  <flow-def menu_id="00" 表类型="复杂表|单表|复杂表 "  ui_id="23">
+    
+    <!-- 一旦提交,就触发开始事件 -->
+    <node type="START" code="start_1" text="开始" identifier="" remark="">
+    </node>
+    
+    
+    <node type="" code="node_0" text="起草" identifier="" remark="">
+
+      <!--连接线-->
+      <line to_node_code="node_2" text="提交" />
+
+      <!--参与者集合-->
+      <party type_id="USER" user_code="" user_text="陈经理(部门经理)" />
+    </node>
+
+    <!-- ======================================================================== -->
+    
+    <node type="" code="node_2" text="部门经理审核" identifier="" remark="">
+      <line to_node_code="node_4" text="审核" remark="" />
+      <line to_node_code="node_0" text="打回给起草人" tag="打回" />
+
+      <!--参与者集合-->
+      <party type_id="USER" user_code="" user_text="阿斯达(总经理)" />
+      <party type_id="USER" user_code="" user_text="阿斯达(总经理)" />
+    </node>
+
+
+    <node type="" code="node_4" text="总经理审核" identifier="" remark="" P_IS_COUNTERSIGN="true" P_COUNTERSIGN_TYPE="bx" visible="false">
+      <line to_node_code="node_6" text="审核" remark="" />
+      <line to_node_code="node_2" text="打回给部门经理"  tag="打回"  />
+      
+      <!--参与者集合-->
+      <party type_id="USER" user_code="" user_text="阿斯达(总经理)" />
+      <party type_id="USER" user_code="" user_text="阿斯达(总经理)" />
+      <party type_id="USER" user_code="" user_text="阿斯达(总经理)" />
+    </node>        
+
+    <node type="" code="node_6" text="文控人员审核" identifier="" remark="">
+      <line to_node_code="node_8" text="审核" remark="" />  
+    </node>
+  
+    <!-- 自动节点 -->
+    <node type="" code="node_8" text="归档并授权" identifier="biz_end" remark="">
+      <line to_node_code="node_10" text="" remark="" />
+    </node>
+
+
+    <!-- ======================================================================== -->
+    
+    <!--结束-->
+    <node type="END" code="node_10" text="结束" identifier="" remark="">      
+    </node>    
+  </flow-def>
+</flow>

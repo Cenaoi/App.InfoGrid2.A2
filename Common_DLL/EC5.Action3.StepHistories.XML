@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.Action3.StepHistories</name>
+    </assembly>
+    <members>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpField.NAME">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpField.DISPLAY">
+            <summary>
+            字段显示
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpField.SRC_VALUE">
+            <summary>
+            原始值
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpField.VALUE">
+            <summary>
+            变化值
+            </summary>
+        </member>
+        <member name="T:EC5.Action3.StepHistories.ModelXml.LogOpTable">
+            <summary>
+            操作的表
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpTable.PK">
+            <summary>
+            主键值
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.ModelXml.LogOpTable.METHOD">
+            <summary>
+            操作函数
+            </summary>
+        </member>
+        <member name="T:EC5.Action3.StepHistories.Model.LOG_AC3_INST">
+            <summary>
+            实例日志
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.LOG_AC3_INST_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.INST_CODE">
+            <summary>
+            实例编码
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.EXEC_TIME">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.ELAPSED_TICKS">
+            <summary>
+            执行时间(cpu 时间)
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.REMARK">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.SUCCESS">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.ERROR_TEXT">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.START_DWG_CODE">
+            <summary>
+            开始的画板编码
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_INST.ROW_DATE_CREATE">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:EC5.Action3.StepHistories.Model.LOG_AC3_NODE">
+            <summary>
+            实例节点
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.LOG_AC3_NODE_ID">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.INST_CODE">
+            <summary>
+            实例编码
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.NODE_CODE">
+            <summary>
+            节点编码
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.PARENT_CODE">
+            <summary>
+            上级节点编码
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.NODE_TYPE">
+            <summary>
+            节点类型: lt_group=监听组,op_group=操作组,lt_item=监听项, op-item
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.DB_METHOD">
+            <summary>
+            数据库操作类型
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.DB_TABLE">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.DB_TABLE_TEXT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.DATA_XML">
+            <summary>
+            操作
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.EXEC_TIME">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.ELAPSED_TICKS">
+            <summary>
+            执行时间(cpu 时间)
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SUCCESS">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.ERROR_TEXT">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_NODE_CODE">
+            <summary>
+            从哪个节点过来
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_NODE_TEXT">
+            <summary>
+            从哪个节点过来
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_NEXT_LINE_CODE">
+            <summary>
+            下一个理由
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_FROM_LINE_CODE">
+            <summary>
+            从哪个路由过来
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_NEXT_LINE_TEXT">
+            <summary>
+            下个路由线描述
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.SRC_FROM_LINE_TEXT">
+            <summary>
+            从哪个路由过来
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.ROUTE_COUNT">
+            <summary>
+            路由的数量
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.Model.LOG_AC3_NODE.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="T:EC5.Action3.StepHistories.StepHistory">
+            <summary>
+            步骤历史
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.StepHistory.Decipher">
+            <summary>
+            数据操作
+            </summary>
+        </member>
+        <member name="P:EC5.Action3.StepHistories.StepHistory.Context">
+            <summary>
+            编码上下文
+            </summary>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.Exec(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            执行解析
+            </summary>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.NewNodeCode">
+            <summary>
+            新节点编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.CreateNodeList(EC5.Action3.CodeProcessors.CodeContext,EC5.Action3.StepHistories.Model.LOG_AC3_INST@,System.Collections.Generic.List{EC5.Action3.StepHistories.Model.LOG_AC3_NODE}@)">
+            <summary>
+            创建节点集合
+            </summary>
+            <param name="context"></param>
+            <param name="logInst"></param>
+            <param name="logNodeList"></param>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.ProOperateGroup(System.Collections.Generic.List{EC5.Action3.StepHistories.Model.LOG_AC3_NODE},EC5.Action3.StepHistories.Model.LOG_AC3_INST,System.String,EC5.Action3.CodeProcessors.TreeOperateGroup)">
+            <summary>
+            
+            </summary>
+            <param name="nodeList"></param>
+            <param name="inst"></param>
+            <param name="parentCode"></param>
+            <param name="opGroup"></param>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.ProListenGroup(System.Collections.Generic.List{EC5.Action3.StepHistories.Model.LOG_AC3_NODE},EC5.Action3.StepHistories.Model.LOG_AC3_INST,System.String,EC5.Action3.CodeProcessors.TreeListenGroup)">
+            <summary>
+            
+            </summary>
+            <param name="nodeList"></param>
+            <param name="inst"></param>
+            <param name="parentCode"></param>
+            <param name="ltGroup"></param>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.ConventToOpNode(System.String,System.String,EC5.Action3.CodeProcessors.TreeFlowStart,EC5.Action3.StepHistories.Model.LOG_AC3_NODE,EC5.Action3.CodeProcessors.TreeOperateItem)">
+            <summary>
+            TreeOperateItem 转换为 LOG_AC3_NODE
+            </summary>
+            <param name="instCode"></param>
+            <param name="parentCode"></param>
+            <param name="flowStart"></param>
+            <param name="opGroupNode"></param>
+            <param name="opItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.ConventToOpNode(System.String,System.String,EC5.Action3.CodeProcessors.TreeOperateGroup,EC5.Action3.StepHistories.Model.LOG_AC3_NODE,EC5.Action3.CodeProcessors.TreeOperateItem)">
+            <summary>
+            TreeOperateItem 转换为 LOG_AC3_NODE
+            </summary>
+            <param name="instCode"></param>
+            <param name="parentCode"></param>
+            <param name="opGroup"></param>
+            <param name="opGroupNode"></param>
+            <param name="opItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.Action3.StepHistories.StepHistory.ConventToLtNode(System.String,EC5.Action3.CodeProcessors.TreeListenGroup,EC5.Action3.StepHistories.Model.LOG_AC3_NODE,EC5.Action3.CodeProcessors.TreeListenItem)">
+            <summary>
+            TreeOperateItem 转换为 LOG_AC3_NODE
+            </summary>
+            <param name="instCode"></param>
+            <param name="ltGroup"></param>
+            <param name="ltGroupNode"></param>
+            <param name="ltItem"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

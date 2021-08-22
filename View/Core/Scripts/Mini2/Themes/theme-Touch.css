@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+
+*{ font-size:12pt;}
+
+.mi-grid-cell-inner{
+
+}
+
+.mi-column-header-text{
+
+}
+
+.mi-btn-default-toolbar-small .mi-btn-inner {
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: 微软雅黑;
+}
+
+.mi-toolbar {
+    font-size: 12pt;
+    border-style: solid;
+    padding: 2px 0 0px 8px;
+}
+
+.mi-form-item, .mi-form-field {
+    font: normal 12pt 微软雅黑,新宋体,helvetica, arial, verdana, sans-serif;
+}
+
+.mi-form-item-label {
+    font-size:12pt;
+}
+
+.mi-btn-default-small .mi-btn-inner {
+    font-size: 12pt;
+    padding: 0 5px;
+}
+
+.mi-tab-default .mi-tab-inner {
+    font-size: 12pt;
+    line-height: 18px;
+}
+
+.mi-form-text {
+    height: 32px;
+    line-height: 16px;
+}
+
+.mi-form-trigger-wrap .mi-form-text {
+
+    height: 30px;
+}
+
+.mi-boundlist-item {
+    line-height: 26px;
+}
+
+.mi-form-item-label {
+    font: normal 12pt 微软雅黑,新宋体,helvetica, arial, verdana, sans-serif;
+    margin-top: 8px;
+}
+
+

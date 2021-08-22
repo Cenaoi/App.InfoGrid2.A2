@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SysHeartbeat.aspx.cs" Inherits="App.InfoGrid2.View.Explorer.SysHeartbeat" %>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.IO</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.IO.HttpResult">
+            <summary>
+            Json 数据包
+            </summary>
+        </member>
+        <member name="M:EC5.IO.HttpResult.ParseJson(System.String)">
+            <summary>
+            把 Json 数据转换为 SModel 对象
+            </summary>
+            <param name="jsonData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IO.HttpSuccessResult">
+            <summary>
+            成功的数据包
+            </summary>
+        </member>
+        <member name="T:EC5.IO.HttpErrorResult">
+            <summary>
+            失败的数据包
+            </summary>
+        </member>
+        <member name="P:EC5.IO.HttpErrorResult.error_code">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+    </members>
+</doc>

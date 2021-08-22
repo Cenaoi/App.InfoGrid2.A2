@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyClick.Web.MiniBiz</name>
+    </assembly>
+    <members>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.#ctor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="F:EasyClick.Web.MiniBiz.DataSource`1.m_ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.GoPageLast(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            跳到最后页
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.SaveRows">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,System.Int32[],System.Int32)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,System.Int32[],System.Int32,System.Boolean)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <param name="autoTooltip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,HWQ.Entity.Filter.Logic,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="logic"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <param name="autoTooltip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,System.Int32,System.Int32)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,HWQ.Entity.Filter.Logic,System.Int32,System.Int32)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="logic"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ChangeStatus(System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            改变状态
+            </summary>
+            <param name="statusFieldName"></param>
+            <param name="srcStatusId"></param>
+            <param name="targetStatusId"></param>
+            <param name="autoTooltip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.DeleteForFilter">
+            <summary>
+            删除筛选内容
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ValidateGridFor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.ValidateCellValue(HWQ.Entity.LightModels.LModelElement,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{EasyClick.Web.Mini.InputFieldError})">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="modelElem"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.SetCellValue(HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LightModel,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取单元格数值
+            </summary>
+            <param name="modelElem">实体元素</param>
+            <param name="model">实体实例</param>
+            <param name="row">单元格行</param>
+            <param name="updateFields">需要更新的字段</param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource`1.InitSearch(System.Web.UI.Control,System.String)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+            <param name="group"></param>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.SecAdd">
+            <summary>
+            权限：允许添加
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.SecSave">
+            <summary>
+            权限：允许保存
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.SecDelete">
+            <summary>
+            权限：允许删除
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.SecSelect">
+            <summary>
+            权限：允许查询
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.ReadOnly">
+            <summary>
+            只读
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource`1.ValidateErrors">
+            <summary>
+            获取验证的错误信息
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.EntityDataStore">
+            <summary>
+            实体数据仓库.
+            GridEdit 控件，监听 EntityDtaStore 控件事件
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.AllFilter(System.String,System.Object)">
+            <summary>
+            过滤全部
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.ChangedStatusFilter(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            改变状态过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.ChangedStatusFilter(System.String,System.Object)">
+            <summary>
+            改变状态过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.NewDefaultValues(System.String,System.Object)">
+            <summary>
+            新记录默认值
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.DeleteFilter(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            删除过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.DeleteFilter(System.String,System.Object)">
+            <summary>
+            删除过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.SelectFilter(System.String,System.Object,HWQ.Entity.Filter.Logic)">
+            <summary>
+            选择查询过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <param name="logic"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.SelectFilter(System.String,System.Object)">
+            <summary>
+            选择查询过滤
+            </summary>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:EasyClick.Web.MiniBiz.EntityDataStore.m_Model">
+            <summary>
+            实体模型名称
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.Select">
+            <summary>
+            执行查询记录命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.Update">
+            <summary>
+            执行更新记录命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.Insert">
+            <summary>
+            执行插入记录命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.Delete">
+            <summary>
+            删除记录命令
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.EntityDataStore.LoadPage(System.Int32)">
+            <summary>
+            获取页数据行
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.EntityDataStore.Model">
+            <summary>
+            实体模型名称
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.ModelCancelEventArgs.Fields">
+            <summary>
+            被更新的字段
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.ModelListEventArgs`1">
+            <summary>
+            数据源的事件参数
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.ModelListCancelEventArgs">
+            <summary>
+            可取消的数据源的事件参数
+            </summary>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.ModelListCancelEventArgs`1">
+            <summary>
+            可取消的事件参数
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.ModelCancelEventHandler">
+            <summary>
+            可取消的事件源
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.ModelCancelEventHandler`1">
+            <summary>
+            可取消的事件源
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:EasyClick.Web.MiniBiz.TreeViewAction`2">
+            <summary>
+            树节点
+            </summary>
+            <typeparam name="ModelT"></typeparam>
+            <typeparam name="PkValueT"></typeparam>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.TreeViewAction`2.LoadNodes">
+            <summary>
+            初始化节点
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.TreeViewAction`2.ExplandNodes(HWQ.Entity.LightModels.LModelList{`0})">
+            <summary>
+            展开节点
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.#ctor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.#ctor(System.Type,EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="modelT"></param>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.#ctor(System.String,EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            DataGridView 动作操作的构造方法
+            </summary>
+            <param name="modelName"></param>
+            <param name="grid"></param>
+        </member>
+        <member name="F:EasyClick.Web.MiniBiz.DataSource.m_ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.GoPageLast(HWQ.Entity.Decipher.LightDecipher.DbDecipher)">
+            <summary>
+            跳到最后页
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.SaveRows">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.ValidateDelete(System.Int32[]@,System.Int32[]@)">
+            <summary>
+            验证删除的记录
+            </summary>
+            <param name="ids"></param>
+            <param name="guids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.DeleteForFilter">
+            <summary>
+            删除筛选内容
+            </summary>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.ValidateGridFor(EasyClick.Web.Mini.DataGridView)">
+            <summary>
+            验证单元格填写内容
+            </summary>
+            <param name="grid"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.ValidateCellValue(HWQ.Entity.LightModels.LModelElement,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{EasyClick.Web.Mini.InputFieldError})">
+            <summary>
+            验证单元格
+            </summary>
+            <param name="modelElem"></param>
+            <param name="row"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.SetCellValue(HWQ.Entity.LightModels.LModelElement,HWQ.Entity.LightModels.LightModel,EasyClick.Web.Mini.DataStoreRow,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取单元格数值
+            </summary>
+            <param name="modelElem">实体元素</param>
+            <param name="model">实体实例</param>
+            <param name="row">单元格行</param>
+            <param name="updateFields">需要更新的字段</param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.InitSearch(System.Web.UI.Control)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+        </member>
+        <member name="M:EasyClick.Web.MiniBiz.DataSource.InitSearch(System.Web.UI.Control,System.String)">
+            <summary>
+            初始化查询参数
+            </summary>
+            <param name="owner"></param>
+            <param name="group"></param>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.SecAdd">
+            <summary>
+            权限：允许添加
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.SecSave">
+            <summary>
+            权限：允许保存
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.SecDelete">
+            <summary>
+            权限：允许删除
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.SecSelect">
+            <summary>
+            权限：允许查询
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.ReadOnly">
+            <summary>
+            只读
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.ValidateSaveing">
+            <summary>
+            保存前验证
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.Models">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EasyClick.Web.MiniBiz.DataSource.ValidateErrors">
+            <summary>
+            验证错误信息
+            </summary>
+        </member>
+    </members>
+</doc>

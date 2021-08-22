@@ -1,0 +1,1 @@
+Mini2.Guid=new function(){Mini2.apply(this,{newGuid:function(){var a="",b,c;for(b=1;b<=32;b++){c=Math.floor(Math.random()*16).toString(16);a+=c;if((b==8)||(b==12)||(b==16)||(b==20)){a+="-"}}return a}})};

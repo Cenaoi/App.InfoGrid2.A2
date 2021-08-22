@@ -1,0 +1,1 @@
+Mini2.Function={bind:function(c,e,b,a){if(arguments.length===2){return function(){return c.apply(e,arguments)}}var d=c,f=Array.prototype.slice;return function(){var g=b||arguments;if(a===true){g=f.call(arguments,0);g=g.concat(b)}else{if(typeof a=="number"){g=f.call(arguments,0);Mini2.Array.insert(g,a,b)}}return d.apply(e||Ext.global,g)}}};

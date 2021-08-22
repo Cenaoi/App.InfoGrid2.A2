@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.Common</name>
+    </assembly>
+    <members>
+        <member name="T:EC5._IpUtil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EC5.IntList">
+            <summary>
+            整形集合
+            </summary>
+        </member>
+        <member name="T:EC5.IPAddressRange">
+            <summary>
+            IP 段
+            </summary>
+        </member>
+        <member name="M:EC5.IPAddressRange.#ctor">
+            <summary>
+            IP 段
+            </summary>
+        </member>
+        <member name="M:EC5.IPAddressRange.#ctor(System.UInt32)">
+            <summary>
+            IP 段
+            </summary>
+            <param name="ip"></param>
+        </member>
+        <member name="P:EC5.IPAddressRange.Tag">
+            <summary>
+            自定义标签
+            </summary>
+        </member>
+        <member name="P:EC5.IPAddressRange.IsSingle">
+            <summary>
+            是否单一 IP
+            </summary>
+        </member>
+        <member name="P:EC5.IPAddressRange.IPStart">
+            <summary>
+            起始 IP
+            </summary>
+        </member>
+        <member name="P:EC5.IPAddressRange.IPEnd">
+            <summary>
+            结尾 IP
+            </summary>
+        </member>
+        <member name="T:EC5.IPAddressRangeList">
+            <summary>
+            IP 地址集合
+            </summary>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Contains(System.Byte[])">
+            <summary>
+            判断IP 是否存在
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Contains(System.String)">
+            <summary>
+            判断IP 是否存在
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Contains(System.UInt32)">
+            <summary>
+            判断IP 是否存在
+            </summary>
+            <param name="ipLong"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Add(System.String)">
+            <summary>
+            添加单个 IP
+            </summary>
+            <param name="ip"></param>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Add(System.String,System.String)">
+            <summary>
+            添加 IP 段
+            </summary>
+            <param name="ipStart">起始 IP</param>
+            <param name="ipEnd">结束 IP</param>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Clear">
+            <summary>
+            清理
+            </summary>
+        </member>
+        <member name="M:EC5.IPAddressRangeList.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:EC5.IPAddressRangeList.Count">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="T:EC5.ResultCustomData">
+            <summary>
+            自定义参数
+            </summary>
+        </member>
+        <member name="T:EC5.ResultBase">
+            <summary>
+            返回结果的基类
+            </summary>
+        </member>
+        <member name="F:EC5.ResultBase.m_Custom">
+            <summary>
+            其它参数
+            </summary>
+        </member>
+        <member name="M:EC5.ResultBase.#ctor">
+            <summary>
+            (构造函数)返回结果的基类
+            </summary>
+        </member>
+        <member name="M:EC5.ResultBase.#ctor(System.String)">
+            <summary>
+            (构造函数)返回结果的基类
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:EC5.ResultBase.#ctor(System.Int32,System.String)">
+            <summary>
+            (构造函数)返回结果的基类
+            </summary>
+            <param name="code">代码.0=正确,其它=错误</param>
+            <param name="message">消息</param>
+        </member>
+        <member name="M:EC5.ResultBase.HasCustom">
+            <summary>
+            是否有自定义参数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.ResultBase.Dispose">
+            <summary>
+            垃圾回收
+            </summary>
+        </member>
+        <member name="P:EC5.ResultBase.Item(System.String)">
+            <summary>
+            直接返回自定义参数值
+            </summary>
+            <param name="customnName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:EC5.ResultBase.Code">
+            <summary>
+            返回的代码.
+            0=成功, 其它=失败信息
+            </summary>
+        </member>
+        <member name="P:EC5.ResultBase.Message">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+        <member name="P:EC5.ResultBase.Custom">
+            <summary>
+            自定义参数
+            </summary>
+        </member>
+        <member name="T:EC5.Settings">
+            <summary>
+            字符串的设置参数集合
+            </summary>
+        </member>
+        <member name="T:EC5.StringList">
+            <summary>
+            字符串集合
+            </summary>
+        </member>
+    </members>
+</doc>

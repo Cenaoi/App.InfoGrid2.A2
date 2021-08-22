@@ -1,0 +1,549 @@
+﻿
+.mi-form-item-label{
+    padding-top:3px;
+    font-size: 12px;
+}
+
+.mi-form-item-body > .mi-form-text{    
+    height: 30px;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.mi-form-item-body > table.mi-form-trigger-wrap{
+    height:28px;
+    line-height:28px;
+}
+
+.mi-form-item-readonly input.mi-form-text, .mi-form-item-readonly table.mi-form-trigger-wrap {
+    border-style: solid;
+    height:27px;
+    line-height:27px;
+    background-color:#eee;
+
+}
+
+.mi-form-item-readonly > .mi-form-item-input-row > .mi-form-item-body {
+    background-color:#eee;
+
+}
+
+
+
+
+.mi-form-item-readonly .mi-form-item-body >.mi-form-text{
+    color: #555;
+    height:30px;
+    background-color: #eee;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+
+.mi-form-item-readonly >.mi-form-text{
+    background-color: #eee;
+    opacity: 1;
+}
+
+.mi-form-trigger-wrap{
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0px 0px 0px 12px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.mi-form-focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+
+.mi-form-item-body > .mi-form-label{
+    height: 30px;
+    padding-top: 3px;
+    padding-left:10px;
+    line-height: 30px;
+}
+
+
+.mi-form-item-body .mi-form-focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+
+.mi-form-trigger-wrap .mi-trigger-cell
+{
+    padding-top: 4px;
+    background-color: transparent;
+}
+
+
+ .mi-form-trigger-input-cell > input.mi-form-text{
+     font-size: 12px;
+     border:none;      
+     padding:0px;
+ }
+
+ .mi-form-trigger-wrap .mi-form-trigger-input-cell {
+    padding:0px;
+ }
+
+.mi-form-item-body > .mi-form-textarea{
+    height:120px;
+}
+
+
+.mi-btn{
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.mi-btn{
+    font-family:'Microsoft MHei','微软雅黑','新宋体';
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+
+    min-height:30px;
+}
+
+.mi-btn .mi-btn-inner{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+.mi-btn.mi-focus, .mi-btn:focus, .mi-btn:hover {
+    color: #333;
+    text-decoration: none;
+    background-color: #e6e6e6;
+}
+
+.mi-btn-default-small{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+
+    max-height:30px;
+}
+
+.mi-btn-default-small:hover{
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.mi-btn-default-medium{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+
+    max-height:30px;
+}
+
+.mi-btn-default-medium:hover{
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+
+.mi-boundlist {
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 3px;
+
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.mi-menu{
+    border-radius: 4px;
+}
+
+.a.mi-tab-win10 {
+    padding-top: 4px;
+    height: 25px;
+}
+
+.mi-tab-default .mi-tab-inner {
+    font-size: 12px;
+    font-weight: 400;
+    font-family:微软雅黑,新宋体,宋体;
+    line-height: 16px;
+}
+
+
+.mi-tab-default i.mi-tab-icon-el{
+    font-size:14px;
+}
+
+a.mi-tab-default i.mi-tab-icon-el{
+    color:#000;
+
+}
+
+.mi-menu-item-link i.mi-menu-item-icon {
+    font-size:14px;
+}
+
+a.mi-menu-item-link i.mi-menu-item-icon {
+    color:#000;
+
+}
+
+
+
+/******* 工具栏 *******/
+.mi-toolbar-separator-horizontal{
+    height:20px;
+}
+
+.mi-toolbar-group{
+
+}
+
+.mi-toolbar-group>.mi-btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.mi-toolbar-group > .mi-btn:first-child{
+  margin-left: 0;
+  &:not(:last-child):not(.dropdown-toggle) {
+    .border-right-radius(0);
+  }
+}
+
+.mi-toolbar-group>.mi-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+
+.mi-toolbar-group>.mi-btn:last-child:not(:first-child), .mi-toolbar-group>.dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.mi-toolbar-group .mi-btn+.mi-btn, .mi-toolbar-group .mi-btn+.mi-toolbar-group, .mi-toolbar-group .mi-toolbar-group+.mi-btn, .mi-toolbar-group .mi-toolbar-group+.mi-toolbar-group {
+    margin-left: -1px;
+}
+
+/**空白按钮**/
+.mi-btn-white{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.mi-btn-white i.mi-btn-icon-el{
+    color:black;
+}
+
+.mi-btn-white .mi-btn-inner{
+    color: #333;
+}
+
+.mi-btn-white:hover, .mi-btn-white:focus{
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+/*绿色**/
+.mi-btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+.mi-btn-success i.mi-btn-icon-el{
+    color:#FFF;
+}
+
+.mi-btn-success:hover,
+.mi-btn-success:focus {
+  background-color: #419641;
+    border-color: #3e8f3e;
+  background-position: 0 -15px;
+}
+.mi-btn-success:active,
+.mi-btn-success.active {
+  background-color: #419641;
+  border-color: #3e8f3e;
+}
+
+.mi-btn-success .mi-btn-inner{
+    color: #FFF;
+}
+
+/* 深蓝色 (默认) */
+.mi-btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.mi-btn-primary i.mi-btn-icon-el{
+    color:#FFF;
+}
+
+.mi-btn-primary .mi-btn-inner{
+    color: #FFF;
+}
+
+.mi-btn-primary:hover,
+.mi-btn-primary:focus {
+  background-color: #286090;
+  border-color: #122b40;
+}
+.mi-btn-primary:active,
+.mi-btn-primary.active {
+  background-color: #286090;
+  border-color: #122b40;
+}
+
+
+
+/* 危险 (红色) */
+.mi-btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.mi-btn-danger .mi-btn-inner{
+    color: #FFF;
+}
+.mi-btn-danger i.mi-btn-icon-el{
+    color:#FFF;
+}
+
+.mi-btn-danger:hover,
+.mi-btn-danger:focus {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+.mi-btn-danger:active,
+.mi-btn-danger.active {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+
+/* 浅蓝色 (一般信息) */
+.mi-btn-info{
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.mi-btn-info i.mi-btn-icon-el{
+    color:#FFF;
+}
+.mi-btn-info:hover,
+.mi-btn-info:focus {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+.mi-btn-info:active,
+.mi-btn-info.active {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.mi-btn-info .mi-btn-inner{
+    color: #FFF;
+}
+
+/* 橘黄色 (警告) */
+.mi-btn-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+.mi-btn-warning i.mi-btn-icon-el{
+    color:#FFF;
+}
+
+
+.mi-btn-warning:hover,
+.mi-btn-warning:focus {
+    color: #fff;
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+.mi-btn-warning:active,
+.mi-btn-warning.active {
+    color: #fff;
+    background-color: #ec971f;
+    border-color: #d58512;
+}
+
+.mi-btn-warning .mi-btn-inner{
+    color: #FFF;
+}
+
+/* 蓝色 (超链接) */
+.mi-btn-link {
+    color: #337ab7;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.mi-btn-link:hover,
+.mi-btn-link:focus {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.mi-btn-link:active,
+.mi-btn-link.active {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.mi-btn-link .mi-btn-inner{
+    font-weight: 400;
+    color: #337ab7;
+}
+
+
+.mi-btn-link:hover .mi-btn-inner{
+    font-weight: 400;
+    color: #337ab7;
+    text-decoration:underline;
+}
+
+
+
+.btn-outline-primary{
+
+}
+
+
+
+/* Window */
+
+.mi-window-header > .mi-header-body > .mi-box-inner {
+    overflow:visible;
+}
+
+.mi-field-default .webuploader-element-invisible{
+    display:none;
+}
+
+.mi-field-helper-cell .tooltip{
+    display:inline-block;
+            max-height: 100px;
+        z-index:1000;
+}
+
+.mi-window-proxy {
+    border-color: #777;
+}
+
+
+
+.mi-trigger-cell-left{
+    width: 24px;
+    background-color:#EEE;
+    text-align: center;    
+    border-right: 1px solid #ccc;
+}
+
+.mi-trigger-cell-left >.mi-form-trigger{
+    background-image:none;
+    font-size: 12px;
+    color:#999;
+}
+
+.mi-trigger-cell-right{
+    background-image:none;
+    width: 24px;
+    background-color:#EEE;
+    text-align: center;    
+    border-left: 1px solid #ccc;
+}
+
+.mi-trigger-cell-right >.mi-form-trigger{
+    background-image:none;
+    font-size: 12px;
+    color:#999;
+}
+
+.mi-form-trigger-wrap-touch .mi-form-trigger{
+    height:14px;
+}
+
+
+.mi-form-trigger-wrap-touch .mi-form-trigger-input-cell > .mi-form-text{
+    padding-left:6px; 
+    padding-right:6px;
+    text-align: center;
+}
+
+.mi-form-trigger-wrap-touch .mi-trigger-cell{
+    padding: 0px;
+    background-color:#EEE;
+}
+
+
+.mi-btn-remove{
+
+}
+
+.mi-btn-remove:hover{
+    
+}
+
+
+.mi-dataview-item .mi-field{
+    margin-right:8px;
+    margin-top:8px;
+}

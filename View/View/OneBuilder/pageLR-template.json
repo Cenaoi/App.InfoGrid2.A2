@@ -1,0 +1,44 @@
+﻿{
+	"childs": [{
+		"ec-tag" : "head",
+		"childs" : [{
+			"ec-tag" : "title",
+			"value" : "标题"
+		},{
+			"ec-tag":"script",
+			"src":"/Core/Scripts/jquery/jquery-1.8.3.js"
+		}]
+	},{
+		"ec-tag" : "body",
+		"childs":[{
+			"ec-tag" : "div",
+			"id" : "search1",
+			"ec-type" : "SEARCH",
+			"title" : "查询区域",
+			"ec-main-view": 94
+			
+		},{
+			"ec-tag" : "div",
+			"id" : "MAIN",
+			"ec-type" : "BOX",
+			"title" : "父框架",
+			"ec-main-view": 94
+		},{
+			"ec-tag" : "div",
+			"id" : "",
+			"ec-type" : "TABS",
+			"title" : "Tab 标签",
+			"childs":[{
+				"ec-tag" : "div",
+				"id" : "TAB_1",
+				"ec-type" : "TAB",
+				"title" : "Tab-1"
+			},{
+				"ec-tag" : "div",
+				"id" : "TAB_2",
+				"ec-type" : "TAB",
+				"title" : "Tab-2"
+			}]
+		}]	
+	}]
+}

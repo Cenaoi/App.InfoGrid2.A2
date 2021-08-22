@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OneMapping.aspx.cs" Inherits="App.InfoGrid2.View.OneSearch.OneMapping" %>

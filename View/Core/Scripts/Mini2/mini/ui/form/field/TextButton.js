@@ -1,0 +1,1 @@
+Mini2.define("Mini2.ui.form.field.TextButton",{extend:"Mini2.ui.form.field.Trigger",onButtonClick:function(){var a=this;var b=Mini2.create("Mini2.ui.Window",{mode:true,text:"文本框",buttons:[{text:"确定",width:100},{text:"取消",width:100,click:Mini2.emptyFn}]});b.show()}});

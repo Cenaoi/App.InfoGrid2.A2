@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginHandle.aspx.cs" Inherits="App.InfoGrid2.Login.LoginHandle" %>

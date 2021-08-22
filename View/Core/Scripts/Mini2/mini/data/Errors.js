@@ -1,0 +1,1 @@
+Mini2.define("Mini2.data.Errors",{extend:"Mini2.collection.ArrayList",isValid:function(){return this.length===0},getByField:function(c){var b=[],a,d;for(d=0;d<this.length;d++){a=this.items[d];if(a.field==c){b.push(a)}}return b}});Mini2.define("Mini2.data.Invalids",{length:0,items:[]});

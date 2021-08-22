@@ -1,0 +1,180 @@
+﻿
+
+
+<script src="/Core/Scripts/Mini2/dev/template.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/Mini.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/class/ClassManager.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ajax.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/lang/Timer.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Guid.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Function.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Json.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Array.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Date.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/String.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/Number.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/lang/log.js" type="text/javascript" ></script>
+
+
+
+<script src="/Core/Scripts/Mini2/dev/util/Filter.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/util/Sorter.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/util/Format.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/collection/ArrayList.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/SystemInfo.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/LoaderManager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/TweenManager.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/EventBuilder.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/EventHandler.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/EventManager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ModelManager.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/data/AbstractStore.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Errors.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Field.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Model.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Validations.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/ResultSet.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Field.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/StoreManager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Store.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/data/TreeModel.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/Tree.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/data/TreeStore.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/SecManager.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/FocusManager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Component.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Editor.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/EcView.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/WindowManager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/WindowHeader.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Window.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/MessageBox.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Toast.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Pagination.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/Offline.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/icon/Manager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/icon/Plugin.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/button/Button.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/container/DockingContainer.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/container/Viewport.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/form/Base.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Base.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/form/Labelable.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/CheckboxGroup.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/RadioGroup.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/Label.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Text.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Password.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Trigger.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Field.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Hidden.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/CheckBox.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/TextButton.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/TextArea.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboBox.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboBoxBase.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboGrid.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ComboTree.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Date.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/DateRange.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Time.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Number.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/NumRange.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Radio.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/Image.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ClipImage.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ProgressBar.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/ListBox.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/HtmlEditor.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/FileUpload.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/MoreFileUpload.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/form/field/CodeEditor.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/CellFocusRegion.js	" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/header/Container.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Column.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Action.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Boolean.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Password.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Date.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Time.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/CheckColumn.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/RowNumberer.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/RowCheckColumn.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Number.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/Template.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/TextArea.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/MoreFileColumn.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/PropertyColumn.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/feature/Summary.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/column/TreeColumn.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/CellContext.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/grid/CellEditor.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/tree/Panel.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/tab/Tab.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/tab/Panel.js" type="text/javascript" ></script>
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/layout/container/Border.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/layout/container/Form.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/layout/container/HBox.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/layout/container/VBox.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/panel/Panel.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/panel/FormPanel.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/panel/AbstractTable.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/panel/Table.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/panel/AbstractDataView.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/panel/DataView.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/panel/TreeTable.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/grid/property/Grid.js" type="text/javascript" ></script>
+
+<script src="/Core/Scripts/Mini2/dev/ui/toolbar/Button.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/toolbar/Title.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/toolbar/Template.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/toolbar/Toolbar.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/toolbar/Group.js" type="text/javascript" ></script>
+
+
+
+<script src="/Core/Scripts/Mini2/dev/ui/menu/Menu.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/menu/MenuPanel.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/menu/Item.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/menu/Manager.js" type="text/javascript" ></script>
+<script src="/Core/Scripts/Mini2/dev/ui/menu/Separator.js" type="text/javascript" ></script>

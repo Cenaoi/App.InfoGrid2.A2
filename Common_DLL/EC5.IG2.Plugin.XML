@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.IG2.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.IG2.Plugin.Custom.BillPlugin">
+            <summary>
+            单据提交(插件)
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.BillPlugin.Submit">
+            <summary>
+            提交单据.
+            </summary>
+            <param name="storeUi"></param>
+            <param name="tableUi"></param>
+            <param name="billCodeField">提单的代码字段</param>
+            <param name="billCode">单据代码</param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.BillPlugin.ValidModel(EasyClick.Web.Mini2.Store,HWQ.Entity.LightModels.LModel,EasyClick.Web.Mini2.Data.DataRecord,System.String[],System.String[])">
+            <summary>
+            验证实体
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.IG2.Plugin.Custom.ImportPlug">
+            <summary>
+            导入数据(插件)
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.ImportPlug.TableDialog">
+            <summary>
+            弹出模式窗体来选择的.
+            </summary>
+            <param name="storeUi"></param>
+            <param name="tableUi"></param>
+            <param name="plugParam"></param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.ImportPlug.NextSetp">
+            <summary>
+            下一步步骤
+            </summary>
+            <param name="storeUi">数据源</param>
+            <param name="tableUi">数据源表格</param>
+            <param name="plugParam"></param>
+        </member>
+        <member name="T:EC5.IG2.Plugin.Custom.InputOutExcelPlugin">
+            <summary>
+            导出Excel插件
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.IncludeFieldName">
+            <summary>
+            包含字段名
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.Title">
+            <summary>
+            页面上的标题
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.InputOut">
+            <summary>
+            导出
+            修改于2018 - 11- 22 
+            小渔夫
+            storeUi.Select() 改成 storeUi.GetList()
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.InputOutExcelFile(System.Int32,System.Collections.Generic.List{HWQ.Entity.LightModels.LModel},System.String)">
+            <summary>
+            导出Excel文件
+            </summary>
+            <param name="id">表ID</param>
+            <param name="models">数据仓库</param>
+            <param name="path">Excel文件存放路径</param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.GetVisibleCount(System.Collections.Generic.List{App.InfoGrid2.Model.IG2_TABLE_COL})">
+            <summary>
+            获取显示列的数量
+            </summary>
+            <param name="cols"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.SetHead(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook,System.String)">
+            <summary>
+            这是设置标题样式和值的
+            </summary>
+            <param name="sheet"></param>
+            <param name="count"></param>
+            <param name="workbook"></param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.GetDisplayCols(App.InfoGrid2.Model.DataSet.TableSet)">
+            <summary>
+            获取显示的列
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.InputOutExcelPlugin.ACOUNT(NPOI.SS.UserModel.ISheet,NPOI.SS.UserModel.IWorkbook,System.Collections.Generic.List{App.InfoGrid2.Model.IG2_TABLE_COL},System.Int32)">
+            <summary>
+            合计
+            </summary>
+            <param name="sheet"></param>
+            <param name="workbook"></param>
+            <param name="cols"></param>
+            <param name="rowIndex"></param>
+        </member>
+        <member name="T:EC5.IG2.Plugin.Custom.PrintPlugin">
+            <summary>
+            打印插件
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.PrintPlugin.InputOutExcelFile(System.Int32,System.Collections.Generic.List{HWQ.Entity.LightModels.LModel},System.String)">
+            <summary>
+            导出Excel文件
+            </summary>
+            <param name="id">表ID</param>
+            <param name="title">Excel第一行标题</param>
+            <param name="models">数据仓库</param>
+            <param name="path">Excel文件存放路径</param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.Custom.PrintPlugin.SetHead(NPOI.SS.UserModel.ISheet,System.Int32,NPOI.SS.UserModel.IWorkbook,System.String)">
+            <summary>
+            这是设置标题样式和值的
+            </summary>
+            <param name="sheet"></param>
+            <param name="count"></param>
+            <param name="workbook"></param>
+        </member>
+        <member name="T:EC5.IG2.Plugin.PagePluginEventArgs">
+            <summary>
+            插件差数
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePluginEventArgs.Action">
+            <summary>
+            事件动作名
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Plugin.PagePlugin">
+            <summary>
+            页面插件
+            </summary>
+        </member>
+        <member name="E:EC5.IG2.Plugin.PagePlugin.DymEvent">
+            <summary>
+            用户事件
+            </summary>
+        </member>
+        <member name="M:EC5.IG2.Plugin.PagePlugin.OnDymEvent(System.String,System.String,System.Object)">
+            <summary>
+            触发用户事件
+            </summary>
+            <param name="action"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:EC5.IG2.Plugin.PagePlugin.OnDymEvent(EC5.IG2.Plugin.PagePluginEventArgs)">
+            <summary>
+            触发用户事件
+            </summary>
+            <param name="action"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="F:EC5.IG2.Plugin.PagePlugin.m_SrcStore">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="F:EC5.IG2.Plugin.PagePlugin.m_SrcTable">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.SrcUrl">
+            <summary>
+            触发源地址
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.SrcStore">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.SrcTable">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.ClassName">
+            <summary>
+            动态类名
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.Method">
+            <summary>
+            执行主函数
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.Params">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.Main">
+            <summary>
+            主版面
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.MainStore">
+            <summary>
+            主数据仓库
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.MainTable">
+            <summary>
+            主表
+            </summary>
+        </member>
+        <member name="P:EC5.IG2.Plugin.PagePlugin.UserParams">
+            <summary>
+            用户动态参数
+            </summary>
+        </member>
+        <member name="T:EC5.IG2.Plugin.PluginManager">
+            <summary>
+            插件管理
+            </summary>
+        </member>
+    </members>
+</doc>

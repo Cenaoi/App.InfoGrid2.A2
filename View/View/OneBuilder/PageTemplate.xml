@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page-template>
+	<head>
+		<title>标题</title>
+
+		<script src="dddd"></script>
+
+	</head>
+	<body>
+		<div id="SEARCH" ec-type="SEARCH" ec-area="" title="查询区域">
+						
+		</div>
+		<div id="MAIN" ec-type="BOX" title="父框架">
+						
+		</div>
+		<div ec5type="TABS" title="子框架">
+			<div id="TAB-1" ec-type="TAB" title="子框架-1">
+				
+			</div>
+			<div id="TAB-2" ec-type="TAB" title="子框架-2">
+
+			</div>
+			<div id="TAB-2" ec-type="TAB" title="子框架-3">
+
+			</div>
+		</div>
+	</body>
+</page-template>

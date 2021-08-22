@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.BizCoder</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.BizCoder.BizCodeDefine">
+            <summary>
+            业务编码定义
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.TCode">
+            <summary>
+            编码名称
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.GroupName">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.NumStart">
+            <summary>
+            起始值
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.NumEnd">
+            <summary>
+            终止值
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.NumCur">
+            <summary>
+            当前值
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.NumAdd">
+            <summary>
+            递增值
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.CodePrefix">
+            <summary>
+            编码前缀
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.CodeSuffix">
+            <summary>
+            编码后缀
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.TFormat">
+            <summary>
+            格式化内容
+            </summary>
+        </member>
+        <member name="P:EC5.BizCoder.BizCodeDefine.CodeMode">
+            <summary>
+            编码模式
+            </summary>
+        </member>
+        <member name="T:EC5.BizCoder.BizCodeDefineList">
+            <summary>
+            编码集合
+            </summary>
+        </member>
+        <member name="M:EC5.BizCoder.BizCodeMgr.SetCdoeDefineList(EC5.BizCoder.BizCodeDefineList)">
+            <summary>
+            设置定义规则
+            </summary>
+            <param name="codeDefList"></param>
+        </member>
+        <member name="M:EC5.BizCoder.BizCodeMgr.NewCode(System.String)">
+            <summary>
+            根据代码获取编号
+            </summary>
+            <param name="tCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.BizCoder.BizCodeMgr.NewCode(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String)">
+            <summary>
+            根据代码获取编号
+            </summary>
+            <param name="tCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EC5.BizCoder.BizCodeMgr.GetCodeIdentity(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.String,EC5.BizCoder.BizCodeMode,System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            获取递增值
+            </summary>
+            <param name="decipher"></param>
+            <param name="tCode"></param>
+            <param name="codeMode"></param>
+            <param name="defaultValue"></param>
+            <param name="numAdd"></param>
+            <param name="curTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EC5.BizCoder.BizCodeMode">
+            <summary>
+            编码模式
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Auto">
+            <summary>
+            自动，无限制
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Year">
+            <summary>
+            根据年份
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Month">
+            <summary>
+            根据月份
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Day">
+            <summary>
+            根据日期
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Quarter">
+            <summary>
+            根据季度
+            </summary>
+        </member>
+        <member name="F:EC5.BizCoder.BizCodeMode.Week">
+            <summary>
+            根据周
+            </summary>
+        </member>
+    </members>
+</doc>

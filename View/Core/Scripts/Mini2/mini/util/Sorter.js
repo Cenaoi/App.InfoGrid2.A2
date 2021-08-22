@@ -1,0 +1,1 @@
+Mini2.define("Mini2.util.Sorter",{direction:"ASC",constructor:function(a){var b=this;Mini2.apply(b,a);alert("dddddddddddddddddddddddddddd")},serialize:function(){return{root:this.root,property:this.property,direction:this.direction}}});

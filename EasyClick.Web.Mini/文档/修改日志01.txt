@@ -1,0 +1,11 @@
+﻿
+
+v1.0
+
+增加: 
+1. DataGrid 控件和 DataGridView 控件增加 OddClass 属性, 隔行样式. [2013-7-9 15:00]
+2. 增加百度富文本框 UEditor
+
+修改:
+1. TableLayoutPanel 单元格全部向上对齐.
+2. DataGrid.Columns 列字段格式化显示不出来的 bug [2014-6-3 17:13].

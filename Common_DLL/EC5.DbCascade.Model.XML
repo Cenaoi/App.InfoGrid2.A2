@@ -1,0 +1,713 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EC5.DbCascade.Model</name>
+    </assembly>
+    <members>
+        <member name="T:EC5.DbCascade.Model.DataSet.DbccActionSet">
+            <summary>
+            动作事务
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.Model.DataSet.DbccActionSet.m_FilterLeft">
+            <summary>
+            左边过滤条件
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.Model.DataSet.DbccActionSet.m_FilterRigth">
+            <summary>
+            右边过滤条件
+            </summary>
+        </member>
+        <member name="F:EC5.DbCascade.Model.DataSet.DbccActionSet.m_ListenFields">
+            <summary>
+            监控的字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.DataSet.DbccActionSet.ListenFields">
+            <summary>
+            监控的字段集
+            </summary>
+        </member>
+        <member name="M:EC5.DbCascade.Model.DataSet.DbccActionSet.Select(HWQ.Entity.Decipher.LightDecipher.DbDecipher,System.Int32)">
+            <summary>
+            选择集合
+            </summary>
+            <param name="decipher"></param>
+            <param name="actId">主表主键ID</param>
+        </member>
+        <member name="T:EC5.DbCascade.Model.IG2_ACTION">
+            <summary>
+            数据表关联操作
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.IG2_ACTION_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_ACT_CODE">
+            <summary>
+            左-动作代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_NOT_EXIST_THEN">
+            <summary>
+            更新数据的新条件。
+            如果更新的记录不存在，就创建一条记录出来.
+            NONE-不处理， A-新建
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_ACT_CODE">
+            <summary>
+            右-动作代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_TABLE_ID">
+            <summary>
+            左-表ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_TABLE">
+            <summary>
+            左-数据表名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_TABLE_TEXT">
+            <summary>
+            左-表描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_TABLE_UID">
+            <summary>
+            左-表GUID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_TABLE_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_TABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_TABLE_TEXT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_TABLE_UID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_COL">
+            <summary>
+            左-列名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_COL_TEXT">
+            <summary>
+            左-列描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_COL">
+            <summary>
+            右-列名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_COL_TEXT">
+            <summary>
+            右-列描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_VALUE_MODE">
+            <summary>
+            值模式
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_VALUE_FIXED">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_VALUE_FUN">
+            <summary>
+            函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_VALUE_MODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_VALUE_FIXED">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_VALUE_FUN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.REMARK">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.LINK_TYPE_ID">
+            <summary>
+            链接类型
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.L_IS_SUB_FILTER">
+            <summary>
+            是否过滤子集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.R_IS_SUB_FILTER">
+            <summary>
+            是否过滤子集合
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ENABLED">
+            <summary>
+            激活
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.LISTEN_AO">
+            <summary>
+            监听，与或格式 ..AND , OR
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.EXEC_SEQ">
+            <summary>
+            执行的SEQ, 数值越大, 越早执行.
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ACT_NEW_ENABLED">
+            <summary>
+            激活联动执行脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ACT_NEW_SCODE">
+            <summary>
+            新建操作后,执行的脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ACT_UPDATE_ENABLED">
+            <summary>
+            激活更新执行脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ACT_UPDATE_SCODE">
+            <summary>
+            更新操作后,执行的脚本
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.AUTO_CONTINUE">
+            <summary>
+            执行继续触发联动
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_SID">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_DATE_UPDATE">
+            <summary>
+            记录更新时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_DATE_DELETE">
+            <summary>
+            记录删除时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_USER_SEQ">
+            <summary>
+            记录用户自定义排序
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_AUTHOR_ROLE_CODE">
+            <summary>
+            记录创建角色代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_AUTHOR_COMP_CODE">
+            <summary>
+            记录创建公司代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_AUTHOR_ORG_CODE">
+            <summary>
+            记录创建部门代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION.ROW_AUTHOR_USER_CODE">
+            <summary>
+            记录创建人员代码
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.Model.IG2_ACTION_FILTER">
+            <summary>
+            过滤条件
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.IG2_ACTION_FILTER_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.IG2_ACTION_ID">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.L_R_TAG">
+            <summary>
+            左右:L-左边;R-右边
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.A_TABLE_NAME">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.A_COL">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.A_COL_TEXT">
+            <summary>
+            字段名称描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.A_LOGIN">
+            <summary>
+            逻辑.大于,小于,等于....
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_MODE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_TABLE">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_TABLE_TEXT">
+            <summary>
+            表名描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_COL">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_COL_TEXT">
+            <summary>
+            字段名描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_LOGIN">
+            <summary>
+            逻辑.大于,小于,等于....
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_MODE">
+            <summary>
+            值模式
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_FIXED">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_FUN">
+            <summary>
+            函数值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.B_VALUE_USER_FUNC">
+            <summary>
+            自定义公式
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_SID">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_DATE_UPDATE">
+            <summary>
+            记录更新时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_DATE_DELETE">
+            <summary>
+            记录删除时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_USER_SEQ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_AUTHOR_ROLE_CODE">
+            <summary>
+            记录创建角色代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_AUTHOR_COMP_CODE">
+            <summary>
+            记录创建公司代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_AUTHOR_ORG_CODE">
+            <summary>
+            记录创建部门代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_FILTER.ROW_AUTHOR_USER_CODE">
+            <summary>
+            记录创建人员代码
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.Model.IG2_ACTION_ITEM">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.IG2_ACTION_ITEM_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.IG2_ACTION_ID">
+            <summary>
+            关联表ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ITEM_TYPE_ID">
+            <summary>
+            条目类型.FILTER-过滤;SET-赋值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.L_TABLE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.L_TABLE_TEXT">
+            <summary>
+            左表描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.L_COL">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.L_COL_TEXT">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_TOTAL_FUN">
+            <summary>
+            值统计函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_LOGIC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_MODE">
+            <summary>
+            值模式
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_FIXED">
+            <summary>
+            固定值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_FUN">
+            <summary>
+            函数值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.LINK_TYPE_ID">
+            <summary>
+            链接类型
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_TABLE">
+            <summary>
+            （值的表模式）表名称
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_TABLE_TEXT">
+            <summary>
+            数据表名描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_COL">
+            <summary>
+            （值的表模式）表字段名称
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_COL_TEXT">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.R_VALUE_USER_FUNC">
+            <summary>
+            自定义公式
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.REMARK">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.L_ACT_CODE">
+            <summary>
+            更新与新建，分别赋值。。默认是 E-更新
+            A-新建，E-更新， A-E - 如果不存在就新建
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_SID">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_DATE_UPDATE">
+            <summary>
+            记录更新时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_DATE_DELETE">
+            <summary>
+            记录删除时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_USER_SEQ">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_AUTHOR_ROLE_CODE">
+            <summary>
+            记录创建角色代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_AUTHOR_COMP_CODE">
+            <summary>
+            记录创建公司代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_AUTHOR_ORG_CODE">
+            <summary>
+            记录创建部门代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_ITEM.ROW_AUTHOR_USER_CODE">
+            <summary>
+            记录创建人员代码
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.Model.IG2_ACTION_LISTEN">
+            <summary>
+            监听右边字段
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.IG2_ACTION_LISTEN_ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.IG2_ACTION_ID">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.R_DB_FIELD">
+            <summary>
+            数据库字段
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.R_FIELD_TEXT">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.LISTEN_ENABLED">
+            <summary>
+            激活监听
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.VALUE_FROM">
+            <summary>
+            起始值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.VALUE_TO">
+            <summary>
+            结束值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_SID">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_DATE_UPDATE">
+            <summary>
+            记录更新时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_DATE_DELETE">
+            <summary>
+            记录删除时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_USER_SEQ">
+            <summary>
+            记录排序
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_AUTHOR_ROLE_CODE">
+            <summary>
+            记录创建角色代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_AUTHOR_COMP_CODE">
+            <summary>
+            记录创建公司代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_AUTHOR_ORG_CODE">
+            <summary>
+            记录创建部门代码
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_LISTEN.ROW_AUTHOR_USER_CODE">
+            <summary>
+            记录创建人员代码
+            </summary>
+        </member>
+        <member name="T:EC5.DbCascade.Model.IG2_ACTION_THEN">
+            <summary>
+            条件判断
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.IG2_ACTION_THEN_ID">
+            <summary>
+            条件判断ID
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.IG2_ACTION_ID">
+            <summary>
+            关联操作
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_TYPE_ID">
+            <summary>
+            判断类型:COUNT-记录数量, FIRST_FIELD-第一行字段的某个值，TOTAL_FUN-统计函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_FIELD_TEXT">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_FIELD">
+            <summary>
+            内部字段名
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_LOGIN">
+            <summary>
+            逻辑
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_VALUE">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.A_TOTAL_FUN">
+            <summary>
+            统计函数
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.IS_STOP">
+            <summary>
+            是否停止继续执行
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.RSULT_MESSAGE">
+            <summary>
+            返回的消息
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.ROW_SID">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.ROW_DATE_CREATE">
+            <summary>
+            记录创建时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.ROW_DATE_UPDATE">
+            <summary>
+            记录更新时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.ROW_DATE_DELETE">
+            <summary>
+            记录删除时间
+            </summary>
+        </member>
+        <member name="P:EC5.DbCascade.Model.IG2_ACTION_THEN.ROW_USER_SEQ">
+            <summary>
+            记录自定义排序
+            </summary>
+        </member>
+    </members>
+</doc>

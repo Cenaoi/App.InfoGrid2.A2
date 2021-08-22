@@ -1,0 +1,1 @@
+Mini2.define("Mini2.ui.grid.column.Boolean",{extend:"Mini2.ui.grid.column.Colunm",trueText:"true",falseText:"false",undefinedText:"&#160;",renderer:function(h,d,a,e,f,b,g){var c=this;if(h===undefined){return c.undefinedText}if(!h||h==="false"){return c.falseText}return c.trueText}});

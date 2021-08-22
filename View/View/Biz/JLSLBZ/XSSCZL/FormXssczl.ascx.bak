@@ -1,0 +1,622 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FormXssczl.ascx.cs"
+    Inherits="App.InfoGrid2.View.Biz.JLSLBZ.XSSCZL.FormXssczl" %>
+<%@ Register Assembly="EasyClick.Web.Mini2" Namespace="EasyClick.Web.Mini2" TagPrefix="mi" %>
+<style type="text/css">
+    .page-head
+    {
+         font-size:26px;
+         font-weight:bold;
+    }
+</style>
+
+<% if (false)
+   { %>
+<script src="/Core/Scripts/jquery/jquery-1.4.1-vsdoc.js" type="text/javascript"></script>
+<% } %>
+<form action="" method="post">
+
+<!--UT_102 吸塑指令单-订单明细-->
+<mi:Store runat="server" ID="StoreUT102" Model="UT_102" IdField="ROW_IDENTITY_ID" DeleteRecycle="true">
+    <FilterParams>
+        <mi:QueryStringParam Name="COL_13" QueryStringField="id" />
+        <mi:Param Name="ROW_SID" DefaultValue="0" Logic="&gt;=" />
+    </FilterParams>
+    <DeleteQuery>
+        <mi:ControlParam Name="ROW_IDENTITY_ID" ControlID="mainClientTable" PropertyName="CheckedRows" />
+    </DeleteQuery>
+
+    <DeleteRecycleParams>
+        <mi:Param Name="ROW_SID" DefaultValue="-3" />
+        <mi:ServerParam Name="ROW_DATE_DELETE" ServerField="TIME_NOW" />    
+    </DeleteRecycleParams>
+    
+    <InsertParams>
+        <mi:QueryStringParam Name="COL_13" QueryStringField="id" />
+        <mi:Param Name="COL_16" DefaultValue="吸塑成品" />
+    </InsertParams>
+</mi:Store>
+<!--	UT_103	吸塑指令单-主材料	-->
+<mi:Store runat="server" ID="StoreUT103" Model="UT_103" IdField="ROW_IDENTITY_ID" DeleteRecycle="true">
+    <FilterParams>
+        <mi:QueryStringParam Name="COL_15" QueryStringField="id" />
+        <mi:Param Name="ROW_SID" DefaultValue="0" Logic="&gt;=" />
+    </FilterParams>
+    <DeleteQuery>
+        <mi:ControlParam Name="ROW_IDENTITY_ID" ControlID="Table103" PropertyName="CheckedRows" />
+    </DeleteQuery>
+
+    <DeleteRecycleParams>
+        <mi:Param Name="ROW_SID" DefaultValue="-3" />
+        <mi:ServerParam Name="ROW_DATE_DELETE" ServerField="TIME_NOW" />    
+    </DeleteRecycleParams>
+    <InsertParams>
+        <mi:QueryStringParam Name="COL_15" QueryStringField="id" />
+    </InsertParams>
+</mi:Store>
+<!--	UT_104	吸塑指令单-工序工艺	-->
+<mi:Store runat="server" ID="StoreUT104" Model="UT_104" IdField="ROW_IDENTITY_ID" DeleteRecycle="true" SortText="COL_GXSX asc">
+    <FilterParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="ROW_SID" DefaultValue="0" Logic="&gt;=" />
+        <mi:Param Name="COL_29" DefaultValue="999"/>
+    </FilterParams>
+    <DeleteQuery>
+        <mi:ControlParam Name="ROW_IDENTITY_ID" ControlID="Table104" PropertyName="CheckedRows" />
+    </DeleteQuery>
+
+    <DeleteRecycleParams>
+        <mi:Param Name="ROW_SID" DefaultValue="-3" />
+        <mi:ServerParam Name="ROW_DATE_DELETE" ServerField="TIME_NOW" />    
+    </DeleteRecycleParams>
+
+    <InsertParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="COL_29" DefaultValue="999"/>
+    </InsertParams>
+</mi:Store>
+
+<!--UT_105  吸塑指令单-模具-->
+<mi:Store runat="server" ID="StoreUT105" Model="UT_104" IdField="ROW_IDENTITY_ID" DeleteRecycle="true">
+    <FilterParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="ROW_SID" DefaultValue="0" Logic="&gt;=" />
+        <mi:Param Name="COL_29" DefaultValue="888"/>
+    </FilterParams>
+    <DeleteQuery>
+        <mi:ControlParam Name="ROW_IDENTITY_ID" ControlID="Table105" PropertyName="CheckedRows" />
+    </DeleteQuery>
+
+    <DeleteRecycleParams>
+        <mi:Param Name="ROW_SID" DefaultValue="-3" />
+        <mi:ServerParam Name="ROW_DATE_DELETE" ServerField="TIME_NOW" />    
+    </DeleteRecycleParams>
+    <InsertParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="COL_29" DefaultValue="888"/>
+    </InsertParams>
+</mi:Store>
+
+
+<!--UT_106  吸塑指令单-刀具-->
+<mi:Store runat="server" ID="StoreUT106" Model="UT_104" IdField="ROW_IDENTITY_ID" DeleteRecycle="true">
+    <FilterParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="ROW_SID" DefaultValue="0" Logic="&gt;=" />
+        <mi:Param Name="COL_29" DefaultValue="777"/>
+    </FilterParams>    
+    <DeleteQuery>
+        <mi:ControlParam Name="ROW_IDENTITY_ID" ControlID="Table106" PropertyName="CheckedRows" />
+    </DeleteQuery>
+
+    <DeleteRecycleParams>
+        <mi:Param Name="ROW_SID" DefaultValue="-3" />
+        <mi:ServerParam Name="ROW_DATE_DELETE" ServerField="TIME_NOW" />    
+    </DeleteRecycleParams>
+    <InsertParams>
+        <mi:QueryStringParam Name="COL_12" QueryStringField="id" />
+        <mi:Param Name="COL_29" DefaultValue="777"/>
+    </InsertParams>
+</mi:Store>
+
+<mi:Viewport runat="server" ID="viewport1" Padding="4" ItemMarginRight="6">
+    <mi:Panel runat="server" ID="HeadPanel" Height="40" Scroll="None" PaddingTop="10">
+        <mi:Label runat="server" ID="headLab" Value="吸塑生产指令单" HideLabel="true" Dock="Center" Mode="Transform" />
+    </mi:Panel>
+    <mi:Panel runat="server" ID="TopPanel" Region="North" Scroll="None" AutoSize="true" >
+
+        <mi:Toolbar runat="server" ID="topToolbar" >
+            <mi:ToolBarButton Text="增加产品组" OnClick="showDialgoForTable(this)" />
+            <mi:ToolBarButton Text="智能工艺信息校正" Command="AutoInputData"/>
+            <mi:ToolBarButton Text="手工翻单" />
+            <mi:ToolBarButton Text="查看生产记录" />
+            <mi:ToolBarHr />
+            <mi:ToolBarButton Text="提交" Command="GoSubmit" />
+            <mi:ToolBarButton Text="撤销审核" Command="GoSubmit" />
+            <mi:ToolBarButton Text="结案" Command="GoSubmit" />
+            <mi:ToolBarButton Text="撤销结案" Command="GoSubmit" />
+
+
+            <mi:ToolBarButton Text="打印" OnClick="PrintExcel()" />
+            <mi:ToolBarButton Text="自动计算" OnClick="PrintExcel()" />
+
+        </mi:Toolbar>
+
+        <mi:FormLayout runat="server" ID="mainForm" ItemWidth="210"  FlowDirection="LeftToRight" ItemLabelAlign="Right" Dock="Full"
+             ItemClass="mi-box-item" Layout="HBox">
+            <mi:DatePicker runat="server" ID="TextBox12" FieldLabel="时间" />
+            <mi:TextBox  runat="server" ID="TextBox1" FieldLabel="生产单号"  />
+            <mi:ComboBox runat="server" ID="comboBox2" FieldLabel="单据类型" >
+                <mi:ListItem Value="模板" Text="模板" />
+                <mi:ListItem Value="正常生产单" Text="正常生产单" />
+            </mi:ComboBox>
+            <mi:ComboBox runat="server" ID="comboBox1" FieldLabel="生产模式">
+                <mi:ListItem Value="整单外发" Text="整单外发" />
+                <mi:ListItem Value="自制" Text="自制" />
+            </mi:ComboBox>
+            <mi:ComboBox runat="server" ID="comboBox3" FieldLabel="是否生产" DefaultValue="是" Width="45" TriggerMode="None" >
+
+                <mi:ListItem Value="是" Text="是" />
+                <mi:ListItem Value="否" Text="否" />
+            </mi:ComboBox>
+        </mi:FormLayout>
+
+    </mi:Panel>
+
+    <mi:Panel runat="server" ID="Panel1" Region="North" Scroll="None" Height="200" >
+        <mi:Toolbar runat="server" ID="Toolbar2" >
+            <mi:ToolBarTitle Text="订单" />
+            <mi:ToolBarButton Text="新增" OnClick="ser:StoreUT102.Insert();"  />
+            <mi:ToolBarButton Text="刷新" OnClick="ser:StoreUT102.Refresh();"  />
+            <mi:ToolBarHr />
+            <mi:ToolBarButton Text="删除" BeforeAskText="确定删除记录?" OnClick="ser:StoreUT102.Delete();" />
+        </mi:Toolbar>
+
+        <mi:Table runat="server" ID="mainClientTable" Dock="Full" StoreID="StoreUT102"  PagerVisible="false" SummaryVisible="true">
+            <Columns>
+                <mi:RowNumberer />
+                <mi:RowCheckColumn />
+                <mi:TriggerColumn HeaderText="客户编号" DataField="COL_22" ButtonClass="mi-icon-more" 
+                    OnButtonClick="showDialgoForTable_103(this)" 
+                    OnMaping="mapping_103(this)"
+                    Tag='{"type_id":"VIEW","view_id":275, "one_field":"COL_1", "table_name":"UT_071","owner_table_id":213}' Width="90" >
+                    <MapItems>
+                        <mi:MapItem SrcField="COL_2" TargetField="COL_1" Remark="客户名称" />
+                    </MapItems>
+                </mi:TriggerColumn>
+                <mi:BoundField HeaderText="客户名称" DataField="COL_1"  Width="200" />
+                <mi:BoundField HeaderText="订单号" DataField="COL_2" Width="90" />
+                <mi:TriggerColumn HeaderText="产品编号" DataField="COL_3" Width="90" ButtonClass="mi-icon-more" 
+                    OnButtonClick="showDialgoForTable_103(this)" 
+                    Tag='{"type_id":"VIEW","view_id":276,"table_name":"UT_082","owner_table_id":213}' >
+                    <MapItems>
+                    </MapItems>
+                </mi:TriggerColumn>
+                <mi:BoundField HeaderText="产品名称" DataField="COL_4" Width="200" EditorMode="None" />
+                <mi:BoundField HeaderText="规格" DataField="COL_5"  Width="70" />
+                <mi:BoundField HeaderText="计量单位" DataField="COL_6" Width="70"/>
+                <mi:NumColumn HeaderText="订单数量" DataField="COL_7" Width="70" />
+                
+                <mi:NumColumn HeaderText="单价" DataField="COL_32" Width="70" />
+
+                <mi:NumColumn HeaderText="排摸个数" DataField="COL_8"  Width="70"/>
+                <mi:NumColumn HeaderText="生产数量" DataField="COL_9" SummaryType="SUM" Width="70" />
+                <mi:NumColumn HeaderText="当前库存数量" DataField="COL_10" SummaryType="SUM" Width="90"/>
+                <mi:DateColumn HeaderText="计划完工时间" DataField="COL_11" Width="90" />
+              
+                <mi:BoundField HeaderText="备注" DataField="COL_26" Width="200" />
+                <mi:BoundField HeaderText="用料说明" DataField="COL_12" Width="90"/>
+
+                <mi:BoundField HeaderText="送货地址" DataField="COL_25" Width="90" />
+                
+
+<%--                <mi:BoundField HeaderText="自定义1" DataField="COL_27" />
+                <mi:BoundField HeaderText="自定义2" DataField="COL_28" />
+                <mi:BoundField HeaderText="自定义3" DataField="COL_29" />
+                <mi:BoundField HeaderText="自定义4" DataField="COL_30" />
+                <mi:BoundField HeaderText="自定义5" DataField="COL_31" />--%>
+
+<%--           增加下列字段:
+
+                <mi:BoundField HeaderText="产品类型编码" DataField=""  />
+                <mi:BoundField HeaderText="产品类型" DataField=""  />
+                <mi:BoundField HeaderText="仓库编码" DataField=""  />
+                <mi:BoundField HeaderText="仓库名称" DataField="" />--%>
+
+            </Columns>
+        </mi:Table>
+    </mi:Panel>
+
+    <mi:Panel runat="server" Region="Center" ID="centerPanel1" ItemClass="mi-box-item" Layout="VBox" Scroll="Vertical">
+
+        <mi:Panel runat="server" ID="panelXX1" Dock="Top" Scroll="None" Height="110">
+            <mi:Toolbar runat="server" ID="Toolbar1" >
+                <mi:ToolBarTitle Text="主材料" />
+                <mi:ToolBarButton Text="新建" OnClick="ser:StoreUT103.Insert();"  />
+                <mi:ToolBarButton Text="刷新" OnClick="ser:StoreUT103.Refresh();"  />
+                <mi:ToolBarHr />
+                <mi:ToolBarButton Text="删除" BeforeAskText="确定删除记录?" OnClick="ser:StoreUT103.Delete();" />
+            </mi:Toolbar>
+
+            <mi:Table runat="server" ID="Table103" Dock="Full" StoreID="StoreUT103" PagerVisible="false" Height="160" >
+                <Columns>
+                    <mi:RowNumberer />
+                    <mi:RowCheckColumn />
+                    <mi:TriggerColumn HeaderText="材料编号" DataField="COL_1"  Width="80"
+                        OnMaping="mapping_103(this)"
+                        OnButtonClick="showDialgoForTable_103(this)" ButtonClass="mi-icon-more" 
+                        Tag='{"type_id":"VIEW","view_id":241, "one_field":"COL_2", "table_name":"UT_083","owner_table_id":214}'
+                        >
+                        <MapItems>
+                            <mi:MapItem SrcField="COL_3" TargetField="COL_2" Remark="材料名称" />
+                            <mi:MapItem SrcField="COL_4" TargetField="COL_3" Remark="材料规格" />
+                            <mi:MapItem SrcField="COL_6" TargetField="COL_4" Remark="宽度" />
+                            <mi:MapItem SrcField="COL_7" TargetField="COL_5" Remark="密度" />
+                            <mi:MapItem SrcField="COL_8" TargetField="COL_17" Remark="厚度" />
+                        </MapItems>
+                    </mi:TriggerColumn>
+                    <mi:BoundField HeaderText="材料名称" DataField="COL_2" Width="180" />
+                    <mi:BoundField HeaderText="规格" DataField="COL_3" Width="70" />
+                    <mi:NumColumn HeaderText="宽度" DataField="COL_4" Width="45" />
+                    <mi:NumColumn HeaderText="密度" DataField="COL_5" Width="45" />
+                    <mi:NumColumn HeaderText="厚度" DataField="COL_17" Width="45" />
+                    <mi:NumColumn HeaderText="板长" DataField="COL_6" Width="45" />
+                    <mi:NumColumn HeaderText="长度" DataField="COL_19" Width="45" />
+
+                    <mi:NumColumn HeaderText="计划拉片张数" DataField="COL_7"  SummaryType="SUM" Width="90" />
+                    <mi:NumColumn HeaderText="损耗张数" DataField="COL_11"  Width="70"  />
+                    <mi:NumColumn HeaderText="实需拉片张数" DataField="COL_8"  SummaryType="SUM" Width="90" />
+                    
+                    <mi:NumColumn HeaderText="50KG生产个数" DataField="COL_18" Width="95" />
+
+                    <mi:BoundField HeaderText="计量单位" DataField="COL_9"  Width="70" />
+                    <mi:NumColumn HeaderText="计划用量" DataField="COL_10" Width="70" Visible="false"  />
+                    
+                    <mi:NumColumn HeaderText="实际用量" DataField="COL_12" Width="90"   />
+                    
+                    <mi:SelectColumn HeaderText="是否需要植绒" DataField="COL_13" TriggerMode="None" Width="90">
+                        <mi:ListItem TextEx="--空--" />
+                        <mi:ListItem Text="植绒" Value="植绒" />
+                    </mi:SelectColumn>
+                    <mi:BoundField HeaderText="备注" DataField="COL_14" Width="200" />
+
+                    <%-- 增加
+                                    <mi:BoundField HeaderText="仓库编码" DataField=""  />
+                <mi:BoundField HeaderText="仓库名称" DataField="" />--%>
+                </Columns>
+            </mi:Table>
+        </mi:Panel>
+        
+        <mi:Panel runat="server" ID="panel2" Dock="Top" Scroll="None" Height="110">
+            <mi:Toolbar runat="server" ID="Toolbar4" >
+                <mi:ToolBarTitle Text="模具" />
+                <mi:ToolBarButton Text="新建" OnClick="ser:StoreUT105.Insert();"  />
+                <mi:ToolBarButton Text="刷新" OnClick="ser:StoreUT105.Refresh();"  />
+                <mi:ToolBarHr />
+                <mi:ToolBarButton Text="删除" BeforeAskText="确定删除记录?" OnClick="ser:StoreUT105.Delete();" />
+            </mi:Toolbar>
+
+            <mi:Table runat="server" ID="Table105" Dock="Full" StoreID="StoreUT105" Height="100" PagerVisible="false">
+                <Columns>
+                    <mi:RowNumberer />
+                    <mi:RowCheckColumn />
+                    <mi:TriggerColumn HeaderText="模具编号" DataField="COL_27" OnButtonClick="showDialgoForTable_103(this)" ButtonClass="mi-icon-more" Width="90"
+                        Tag='{"type_id":"VIEW","view_id":243,"table_name":"UT_104","owner_table_id":236}' />
+                    
+                    <mi:BoundField HeaderText="模具名称" DataField="COL_1" Width="180" />
+                    <mi:BoundField HeaderText="新旧" DataField="COL_26" Width="45" />
+                    <mi:BoundField HeaderText="数量" DataField="COL_9" Width="70" />
+                    <mi:SelectColumn HeaderText="来源" DataField="COL_2" Width="100">
+                        <mi:ListItem Text="自制" Value="自制" />
+                        <mi:ListItem Text="委外加工" Value="委外加工" />
+                    </mi:SelectColumn>
+                    <mi:BoundField HeaderText="存放位置" DataField="COL_39" Width="120" />
+                    <mi:BoundField HeaderText="工艺详细要求" DataField="COL_6" Width="150" />
+                    <mi:BoundField HeaderText="备注" DataField="COL_10" Width="200" />
+
+
+                    <%-- 增加
+                                    <mi:BoundField HeaderText="仓库编码" DataField=""  />
+                <mi:BoundField HeaderText="仓库名称" DataField="" />--%>
+                </Columns>
+            </mi:Table>
+        </mi:Panel>
+        
+        <mi:Panel runat="server" ID="panel3" Dock="Top" Scroll="None" Height="110">
+            <mi:Toolbar runat="server" ID="Toolbar5" >
+                <mi:ToolBarTitle Text="刀具" />
+                <mi:ToolBarButton Text="新建" OnClick="ser:StoreUT106.Insert();"  />
+                <mi:ToolBarButton Text="刷新" OnClick="ser:StoreUT106.Refresh();"  />
+                <mi:ToolBarHr />
+                <mi:ToolBarButton Text="删除" BeforeAskText="确定删除记录?" OnClick="ser:StoreUT106.Delete();" />
+            </mi:Toolbar>
+
+            <mi:Table runat="server" ID="Table106" Dock="Full" StoreID="StoreUT106" Height="100" PagerVisible="false">
+                <Columns>
+                    <mi:RowNumberer />
+                    <mi:RowCheckColumn />
+                    <mi:TriggerColumn HeaderText="刀具编号" DataField="COL_27" OnButtonClick="showDialgoForTable_103(this)" ButtonClass="mi-icon-more"  Width="90"
+                        Tag='{"type_id":"VIEW","view_id":244,"table_name":"UT_108","owner_table_id":237}'                         >
+                        <MapItems>
+                        </MapItems>
+                    </mi:TriggerColumn>
+                    <mi:BoundField HeaderText="刀具名称" DataField="COL_1" Width="180" />
+                    <mi:BoundField HeaderText="新旧" DataField="COL_26" Width="45" />
+                    <mi:BoundField HeaderText="数量" DataField="COL_9"  Width="70"/>
+                    <mi:SelectColumn HeaderText="来源" DataField="COL_2" Width="100">
+                        <mi:ListItem Text="自制" Value="自制" />
+                        <mi:ListItem Text="委外加工" Value="委外加工" />
+                    </mi:SelectColumn>
+                    <mi:BoundField HeaderText="存放位置" DataField="COL_39" Width="120" />
+                    <mi:BoundField HeaderText="工艺详细要求" DataField="COL_6" Width="150" />
+                    <mi:BoundField HeaderText="备注" DataField="COL_10" Width="200" />
+
+                    
+                    <%-- 增加
+                                    <mi:BoundField HeaderText="仓库编码" DataField=""  />
+                <mi:BoundField HeaderText="仓库名称" DataField="" />--%>
+                </Columns>
+            </mi:Table>
+        </mi:Panel>
+
+        
+        <mi:Panel runat="server" ID="panel4" Dock="Top" Scroll="None" Height="200">
+        <mi:Toolbar runat="server" ID="Toolbar3" >
+            <mi:ToolBarTitle Text="工艺工序" />
+            <mi:ToolBarButton Text="新建" OnClick="ser:StoreUT104.Insert();"  />
+            <mi:ToolBarButton Text="刷新" OnClick="ser:StoreUT104.Refresh();"  />
+            <mi:ToolBarHr />
+            <mi:ToolBarButton Text="删除" BeforeAskText="确定删除记录?" OnClick="ser:StoreUT104.Delete();" />
+        </mi:Toolbar>
+
+        <mi:Table runat="server" ID="Table104" Dock="Full" StoreID="StoreUT104" PagerVisible="false" SummaryVisible="true" Height="160">
+            <Columns>
+                <mi:RowNumberer />
+                <mi:RowCheckColumn />
+                <mi:BoundField HeaderText="工序顺序" DataField="COL_GXSX" Width="70" />
+                <mi:TriggerColumn HeaderText="工序名称" DataField="COL_1" OnButtonClick="showDialgoForTable_103(this)" ButtonClass="mi-icon-more" 
+                    Tag='{"type_id":"VIEW","view_id":247,"table_name":"UT_107","owner_table_id":235}' Width="90" />
+                <mi:SelectColumn HeaderText="工序来源" DataField="COL_2" Width="100">
+                        <mi:ListItem Text="自制" Value="自制" />
+                        <mi:ListItem Text="委外加工" Value="委外加工" />
+                    </mi:SelectColumn>
+                <mi:BoundField HeaderText="部件名称" DataField="COL_3" Width="90" />
+                <mi:BoundField HeaderText="计量单位" DataField="COL_4" Width="70" />
+                <mi:NumColumn HeaderText="单个用量" DataField="COL_5" Width="70"/>
+                <mi:BoundField HeaderText="工序详细要求" DataField="COL_6" Width="150" />
+                <mi:NumColumn HeaderText="计划数量" DataField="COL_7" Width="70"/>
+                <mi:NumColumn HeaderText="损耗" DataField="COL_8"  Width="70" />
+                <mi:CheckColumn HeaderText="上报产量" DataField="COL_13" Width="70" />
+                <mi:NumColumn HeaderText="实需产量" DataField="COL_9" Width="70"  />
+                <mi:BoundField HeaderText="备注" DataField="COL_10" Width="200" />
+            </Columns>
+        </mi:Table>
+        </mi:Panel>
+        <mi:TabPanel runat="server" ID="TabPanel2" Region="Center" Plain="True">
+            <mi:Tab runat="server" ID="tab3" Text="备注" Scroll="None">
+                <mi:Textarea runat="server" ID="remarkTb" HideLabel="true" Width="400" />
+            </mi:Tab>
+        </mi:TabPanel>
+    </mi:Panel>
+</mi:Viewport>
+</form>
+<script type"text/javascript">
+
+    function form_Closed(e) {
+        var me = this,
+            record = me.record,
+            editor = me.editor;
+
+        if (e.result != 'ok') { return; }
+
+        var row = e.row;
+        var map = e.map;
+
+
+        for (var i = 0; i < map.length; i++) {
+            var m = map[i];
+            var v = row[m.src];
+
+            record.set(m.to, v);
+
+            if (editor.dataIndex == m.to) {
+                editor.setValue(v);
+            }
+        }
+
+    }
+
+
+
+    function showDialgoForTable(owner) {
+
+        var me = owner,
+            tag = me.tag;
+        var record = me.record;
+
+//        if (!tag || tag == '') {
+//            return;
+//        }
+
+        //var ps = eval('(' + tag + ')');
+
+        var ps = {
+            type_id : '',
+            view_id : 233
+        };
+
+
+        var filter2 = '[{field:"UT_091.COL_1",logic:"=",value:"吸塑成品"}]';
+
+        var base64 = window.BASE64.encoder(filter2);
+
+        var urlStr = $.format("/App/InfoGrid2/view/MoreView/DataImportDialog.aspx?type={0}&id={1}&filter2={2}",
+            ps.type_id, ps.view_id, base64);
+
+        var win = Mini2.create('Mini2.ui.Window', {
+            mode: true,
+            text: '选择',
+            iframe: true,
+            width: 800,
+            height: 600,
+            state: 'max',
+            startPosition: 'center_screen',
+            url: urlStr
+        });
+
+
+        win.editor = me;
+        win.record = record;
+        win.show();
+
+        win.formClosed(function (e) {
+            if (e.result != 'ok') { return; }
+
+            widget1.subMethod($('form:first'), {
+                action: 'GoInBill1',
+                actionPs: e.ids
+            });
+
+        });
+    }
+
+    function showDialogForTable_103_click(owner) {
+
+
+
+    }
+
+    function RndNum(n) {
+        var rnd = "";
+        for (var i = 0; i < n; i++)
+            rnd += Math.floor(Math.random() * 10);
+        return rnd;
+    }
+
+    function mapping_103(owner) {
+
+        var me = owner,
+            tag = me.tag;
+        var record = me.record;
+
+        if (!tag || tag == '') {
+            return;
+        }
+
+        return;
+
+        var ps = eval('(' + tag + ')');
+
+        var one_field = ps.one_field;//  代码字段
+        var id = owner.getValue();
+        var mapItems = owner.mapItems;
+
+
+
+        var urlStr = $.format("/App/InfoGrid2/view/MoreView/OneMapAction.aspx?type={0}&viewId={1}&id={2}&one_field={3}&_rum={4}",
+            ps.type_id, ps.view_id, id, one_field, RndNum(8));
+
+        $.get(urlStr, {}, function (responseText, textStatus) {
+
+            var model = eval('(' + responseText + ')');
+
+            setMapValues(record, model, mapItems);
+
+        });
+
+    }
+
+        //设置映射值
+    function setMapValues(record, model, mapItems) {
+
+        var me = this,
+            i,
+            item,
+            srcValue;
+
+        if (mapItems && model) {
+
+            for (i = 0; i < mapItems.length; i++) {
+
+                item = mapItems[i];
+
+                if ('' == item.srcField || '' == item.targetField) {
+                    continue;
+                }
+
+                srcValue = model[item.srcField];
+
+                record.set(item.targetField, srcValue);
+            }
+
+        }
+    }
+
+
+    function PrintExcel() {
+        var win = Mini2.create('Mini2.ui.Window', {
+            mode: true,
+            text: '选择',
+            iframe: true,
+            width: 800,
+            height: 600,
+            state: 'max',
+            startPosition: 'center_screen',
+            url: "/App/InfoGrid2/View/PrintTemplate/SelectPrint.aspx"
+        });
+
+
+        
+        win.show();
+
+        win.formClosed(function (e) {
+            if (e.result != 'ok') { return; }
+
+            widget1.subMethod($('form:first'), {
+                action: 'Print',
+                actionPs: e.id
+            });
+
+        });
+     }
+
+
+
+    function showDialgoForTable_103(owner) {
+
+        var me = owner,
+            tag = me.tag;
+        var record = me.record;
+
+        if (!tag || tag == '') {
+            return;
+        }
+
+        var ps = eval('(' + tag + ')');
+
+        var urlStr = $.format("/App/InfoGrid2/view/OneSearch/SelectPreview.aspx?type={0}&viewId={1}",
+            ps.type_id, ps.view_id);
+
+
+
+        var win = Mini2.create('Mini2.ui.Window', {
+            mode: true,
+            text: '选择',
+            iframe: true,
+            width: 800,
+            height: 600,
+            state: 'max',
+            startPosition: 'center_screen',
+            url: urlStr
+        });
+
+        win.editor = me;
+        win.record = record;
+        win.show();
+
+        win.formClosed(form_Closed);
+
+    }
+
+
+
+</script>

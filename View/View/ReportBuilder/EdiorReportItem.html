@@ -1,0 +1,364 @@
+﻿
+<!--这是编辑交叉表子项窗口-->
+<div class='modal fade bs-example-modal-lg' role='dialog'  data-backdrop='false' style='z-index:2000;' aria-hidden="false">
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content' style="overflow:hidden;">
+            <div class='modal-header' style="font-size:21px;text-align:center;background-color:#f5f5f5;">列表窗口</div>
+            <div class='modal-body'>
+                <!--这个 div 是用来居中的-->
+                <div style="margin:auto; width:650px;">
+                    <form class="form-inline">
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">字段名：</span>
+                            <input type="text" class="cr-item form-control" data-field="field" disabled="disabled" />
+                        </div>
+                       
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">描述：</span>
+                            <input type="text" class="cr-item form-control" data-field="desc"/>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">表名：</span>
+                            <input type="text" class="cr-item form-control" data-field="tableName" disabled="disabled" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">DBValue：</span>
+                            <input type="text" class="cr-item form-control" data-field="db_value" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">格式化：</span>
+                            <input type="text" class="cr-item form-control" data-field="format" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">标题：</span>
+                            <input type="text" class="cr-item form-control" data-field="title" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">格式类型：</span>
+                            <select class="cr-item form-control" data-field="format_type" style="width:196px;">
+                                <option value="default" selected="selected">默认</option>
+                                <option value="Week">星期</option>
+                                <option value="quarter">季度</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">宽度：</span>
+                            <input type="number" class="cr-item form-control" data-field="width" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">Style：</span>
+                            <input type="text" class="cr-item form-control" data-field="style" />
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">自定义公式：</span>
+                            <input type="text" class="cr-item form-control" data-field="use_expr" />
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">值模式：</span>
+                            <select class="cr-item form-control" data-field="value_mode" style="width:196px;">
+                                <option value="DBValue" selected="selected">数据值</option>
+                                <option value="FixedValue">固定值</option>
+                                <option value="Code">代码</option>
+                            </select>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">函数：</span>
+                            <select class="cr-item form-control" data-field="fun_name" style="width:196px;">
+                                <option value="COUNT" selected="selected">计数</option>
+                                <option value="SUM">求和</option>
+                            </select>
+                        </div>
+       
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">小计：</span>
+                            <div class=" form-control" style="padding:0px;width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="total" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">一个子节点：</span>
+                            <div class="form-control" style="padding:0px; width:196px;">
+                                <input type="checkbox" class="cr-item" data-field="one_child" style="margin:5px 0px 5px 20px;width:20px;height:20px;" />
+                            </div>
+                        </div>
+
+                        <div class="input-group" style="margin:5px;">
+                            <span class="input-group-addon" style=" width:100px;">排序：</span>
+                            <select class="cr-item form-control" data-field="order_type" style="width:196px;">
+                                <option value="asc" selected="selected">升序(asc) A -> Z</option>
+                                <option value="desc">降序(desc) Z -> A </option>
+                            </select>
+                        </div>      
+
+                    </form>
+                </div>
+                <div class="row" style="margin-top:50px;margin-bottom:10px;">
+                    <div class="col-lg-12">
+
+                        <button class="btn btn-default btn-insert-row" >新增行</button>
+
+                        <button class="btn btn-default btn-delete-row" >删除行</button>
+
+                    </div>
+                </div>
+                <table class="table">
+                    <thead >
+                        <tr>
+                            <th><input type="checkbox" class="check-all-item" /></th>
+                            <th class="text-center">固定值</th>
+                            <th class="text-center" >标签</th>
+                            <th class="text-center" >数据类型</th>
+                            <th class="text-center">逻辑条件</th>
+                        </tr>
+                    </thead>
+                    <tbody  class="DynamicRow">
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class='modal-footer ' style="text-align:center;">
+                <button class="btn btn-success btn-save btn-lg" style="width:100pt;">保存</button>
+                <button class="btn btn-default  btn-close btn-lg" style="width:100pt;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    var editCrItem = function () {
+
+        //整个编辑界面窗口
+        this.crItemEl = null;
+        //编辑每个标签列的属性 第一个参数是传过来的节点对象 
+        this.editCRItem = function (liEl) {
+
+            var me = this;
+
+            //拿到节点数据
+            var data = liEl.data("EX");
+
+
+            //循环赋值给上面属性
+            me.crItemEl.find(".cr-item").each(function (i, v) {
+
+                var name = $(v).attr("data-field");
+
+                //如果是input控件并且type是text的就直接赋值进去
+                if (v.type == "text" || v.nodeName == "SELECT" || v.type == "number") {
+
+                    $(v).val(data[name]);
+                }
+
+                if (v.type == "checkbox") {
+
+                    $(v).attr("checked", data[name]);
+                }
+
+            });
+
+
+            for (var item in data.fixed_values) {
+
+                me.insetRowItem(data.fixed_values[item]);
+
+            }
+
+            me.crItemEl.click(function () {
+
+                me.crItemEl.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.crItemEl = null;
+            });
+
+            //阻止事件冒泡
+            me.crItemEl.find(".modal-content").click(function (e) {
+
+                e.stopPropagation();
+
+            });
+            //取消按钮点击事件
+            me.crItemEl.find(".btn-close").click(function () {
+
+                me.crItemEl.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.crItemEl = null;
+            });
+
+            //保存按钮点击事件
+            me.crItemEl.find(".btn-save").click(function () {
+
+                //循环赋值给上面属性
+                me.crItemEl.find(".cr-item").each(function (i, v) {
+
+                    var name = $(v).attr("data-field");
+
+                    //如果是input控件并且type是text的就直接赋值进去
+                    if (v.type == "text" || v.nodeName == "SELECT" || v.type == "number") {
+
+                        data[name] = $(v).val();
+                    }
+
+                    if (v.type == "checkbox") {
+
+                        data[name] = v.checked;
+                    }
+
+                });
+
+
+                //清除掉之前数组的数据
+                data.fixed_values = [];
+
+                me.crItemEl.find(".DynamicRow").children("tr").each(function (i, v) {
+
+                    var valueObject = {};
+
+                    $(v).find(".pro-value").each(function (j, vv) {
+
+                        var name = $(vv).attr("data-field");
+
+                        valueObject[name] = $(vv).val();
+                    });
+
+                    //把数据放进集合里面去
+                    data.fixed_values.push(valueObject);
+
+                });
+
+
+                liEl.data("EX", data);
+
+                me.crItemEl.remove();
+
+                $(".modal-backdrop").remove();
+
+                me.crItemEl = null;
+
+            });
+
+            //新增行按钮点击事件
+            me.crItemEl.find(".btn-insert-row").click(function () {
+
+                me.insetRowItem();
+
+            });
+
+            //删除行按钮点击事件
+            me.crItemEl.find(".btn-delete-row").click(function () {
+
+                me.DeleteRowItem();
+
+            });
+
+            //全选按钮点击事件
+            me.crItemEl.find(".check-all-item").click(function () {
+
+                me.checkedAllItem();
+
+            });
+
+
+            
+            me.crItemEl.modal({ show: "show", backdrop: true });
+
+
+            $("body").append(me.crItemEl);
+
+        }
+
+        //插入
+        this.insetRowItem = function (object) {
+
+            var me = this;
+
+            //如果对象为空就初始化一个空对象
+            object = object == null ? {} : object;
+
+            var trEl = "<tr >" +
+                            "<td class='column-check'><input type='checkbox' name='row' /></td>" +
+                            "<td><input type='text' class='pro-value form-control'  value='{{value}}' data-field='value' /></td>" +
+                            "<td><input type='text' class='pro-value form-control'  value='{{text}}' data-field='text'  /></td>" +
+                            "<td><input type='text' class='pro-value form-control'  value='{{type}}' data-field='type'  /></td>" +
+                            "<td>" +
+                                "<select  value='{$T.operators}' data-field='operator' class='pro-value form-control' >" +
+                                    "<option value='Equals' {{if  operators=='Equals' }}selected{{/if}}>等于</option>" +
+                                    "<option value='Inequality' {{if  operators=='Inequality' }}selected{{/if}}>不等于</option>" +
+                                    "<option value='GreaterThan' {{if  operators=='GreaterThan' }}selected{{/if}} >大于</option>" +
+                                    "<option value='LessThan' {{if  operators=='LessThan' }}selected{{/if}} >小于</option>" +
+                                    "<option value='GreaterThanOrEqual' {{if  operators=='GreaterThanOrEqual' }}selected{{/if}} >大于或等于</option>" +
+                                    "<option value='LessThanOrEqual' {{if  operators=='LessThanOrEqual' }}selected{{/if}} >小于或等于</option>" +
+                                    "<option value='Like'  {{if  operators=='Like' }}selected{{/if}} >模糊查询</option>" +
+                                    "<option value='LeftLike' {{if  operators=='LeftLike' }}selected{{/if}} >左模糊查询</option>" +
+                                    "<option value='RightLike' {{if  operators=='RightLike' }}selected{{/if}} >右模糊查询</option>" +
+                                    "<option value='In' {{if  operators=='In' }}selected{{/if}}>列表</option>" +
+                                "</select>" +
+                            "</td>" +
+                        "</tr>";
+
+            var render = template.compile(trEl);
+
+            var htmlEl = $(render(object));
+
+            me.crItemEl.find(".DynamicRow").append(htmlEl);
+        }
+
+
+        //删除行
+        this.DeleteRowItem = function () {
+
+            var me = this;
+
+            //找到模板下面所有打钩的复选框
+            var checkBoxList = me.crItemEl.find(".DynamicRow").find("input[type='checkbox']");
+
+            //把所打钩的这一行节点给删除掉
+            checkBoxList.each(function (i, v) {
+
+                var b = v.checked;
+
+                if (b) {
+
+                    $(v).parent().parent().remove();
+                }
+            });
+        }
+
+        //全选和全不选事件
+        this.checkedAllItem = function (el) {
+
+            var me = this;
+
+            //找到模板下面所有打钩的复选框
+            var checkBoxList = me.crItemEl.find(".DynamicRow").find("input[type='checkbox']");
+
+            //把所打钩的这一行节点给删除掉
+            checkBoxList.each(function (i, v) {
+
+                var b = el.checked;
+
+                if (b) {
+                    v.checked = true;
+                } else {
+                    v.checked = false;
+                }
+
+            });
+        }
+
+
+
+    }
+
+
+    
+</script>
+
