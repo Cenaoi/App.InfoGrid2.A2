@@ -377,12 +377,38 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             lm.SetTakeChange(true);
             lm["ROW_DATE_UPDATE"] = DateTime.Now;
-            lm["COL_167"] = parcelInfo.GetString("COL_167");
-            lm["COL_168"] = parcelInfo.GetInt("COL_168");
-            lm["COL_169"] = parcelInfo.GetInt("COL_169");
+
             lm["COL_170"] = parcelInfo.GetString("COL_170");
             lm["COL_171"] = parcelInfo.GetInt("COL_171");
             lm["COL_172"] = parcelInfo.GetInt("COL_172");
+
+            lm["COL_167"] = parcelInfo.GetString("COL_167");
+            lm["COL_168"] = parcelInfo.GetInt("COL_168");
+            lm["COL_169"] = parcelInfo.GetInt("COL_169");
+            lm["COL_232"] = parcelInfo.GetInt("COL_232");
+
+            lm["COL_198"] = parcelInfo.GetString("COL_198");
+            lm["COL_199"] = parcelInfo.GetInt("COL_199");
+            lm["COL_200"] = parcelInfo.GetInt("COL_200");
+            lm["COL_233"] = parcelInfo.GetInt("COL_233");
+
+            lm["COL_201"] = parcelInfo.GetString("COL_201");
+            lm["COL_204"] = parcelInfo.GetInt("COL_204");
+            lm["COL_207"] = parcelInfo.GetInt("COL_207");
+            lm["COL_234"] = parcelInfo.GetInt("COL_234");
+
+            lm["COL_202"] = parcelInfo.GetString("COL_202");
+            lm["COL_205"] = parcelInfo.GetInt("COL_205");
+            lm["COL_208"] = parcelInfo.GetInt("COL_208");
+            lm["COL_235"] = parcelInfo.GetInt("COL_235");
+
+            lm["COL_203"] = parcelInfo.GetString("COL_203");
+            lm["COL_206"] = parcelInfo.GetInt("COL_206");
+            lm["COL_209"] = parcelInfo.GetInt("COL_209");
+            lm["COL_236"] = parcelInfo.GetInt("COL_236");
+
+            lm["COL_227"] = parcelInfo.GetInt("COL_227");
+            lm["COL_237"] = parcelInfo.GetInt("COL_237");
 
             DbDecipher decipher = ModelAction.OpenDecipher();
 
@@ -764,6 +790,8 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             string strPrinterInfo = WebUtil.FormTrim("printerInfo");
 
+            bool isFinish = WebUtil.FormBool("isFinish");
+
             SModel user = ApiHelper.GetUserInfo(userId);
 
             if (user == null)
@@ -803,24 +831,49 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             SModelList list = ApiHelper.GetTaskOrderItems(orderId);
 
+            DbDecipher decipher = ModelAction.OpenDecipher();
+
             SModelList printFileList = new SModelList();
 
             foreach (var item in list)
             {
                 int id = item.GetInt("ROW_IDENTITY_ID");
 
-                int count = item.GetInt("COL_169");
+                int count = item.GetInt("COL_169") + item.GetInt("COL_200") +
+                    item.GetInt("COL_207") + item.GetInt("COL_208") + item.GetInt("COL_209");
 
                 item["OrderNo"] = order.Get<string>("COL_27");
                 item["BatchNo"] = $"{DateTime.Now:yyyyMMdd}";
 
-                for (int i = 0; i < count; i++)
+                string col10 = item.GetString("COL_10");
+                if (!string.IsNullOrWhiteSpace(col10))
+                {
+                    string[] col10vals = col10.Split(',');
+
+                    if (col10vals.Length == 2)
+                    {
+                        item["OrderNo"] = col10vals[0];
+                        item["COL_89"] = col10vals[1];
+                    }
+                }
+
+                SModel printData = item;
+
+                printData["COL_9"] = item.GetInt("COL_168") + item.GetInt("COL_199") +
+                item.GetInt("COL_204") + item.GetInt("COL_205") + item.GetInt("COL_206");
+                printData["COL_4"] = "套";
+
+                if (!isFinish)
+                {
+                    printData["COL_4"] = "PCS";
+                    printData["COL_9"] = printData.GetInt("COL_9") * 100;
+                }
+
+                    for (int i = 0; i < count; i++)
                 {
                     int r = ApiHelper.GetRandomNumber(1, 9999);
 
                     string fileName = $"ORDER_FINISH_{r:0000}_{id}.emf";
-
-                    SModel printData = item;
 
                     string savePath = "/_Temporary/PrintFile/" + fileName;
 
@@ -839,9 +892,18 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                     printFileList.Add(printFile);
                 }
-            }
 
-            DbDecipher decipher = ModelAction.OpenDecipher();
+                if (!isFinish)
+                {
+                    LModel taskItem = ApiHelper.GetTaskOrderItemInfo(orderId, id);
+                    taskItem.SetTakeChange(true);
+                    taskItem["COL_238"] = DateTime.Now;
+
+                    decipher.UpdateModel(taskItem, true);
+
+                    EC5.IG2.BizBase.DbCascadeRule.Update(taskItem);
+                }
+            }
 
             try
             {
@@ -883,16 +945,19 @@ namespace App.InfoGrid2.GBZZZD.Api
                     fileCodes.Add(fileCode);
                 }
 
-                //order.SetTakeChange(true);
-                //order["ROW_DATE_UPDATE"] = DateTime.Now;
-                //order["COL_72"] = 103;
-                //order["COL_73"] = "已完成";
-
-                //decipher.UpdateModel(order, true);
-
                 decipher.TransactionCommit();
 
-                //EC5.IG2.BizBase.DbCascadeRule.Update(order);
+                if (isFinish)
+                {
+                    order.SetTakeChange(true);
+                    order["ROW_DATE_UPDATE"] = DateTime.Now;
+                    order["COL_72"] = 103;
+                    order["COL_73"] = "已完成";
+
+                    decipher.UpdateModel(order, true);
+
+                    EC5.IG2.BizBase.DbCascadeRule.Update(order);
+                }
 
                 SModel result = new SModel()
                 {
