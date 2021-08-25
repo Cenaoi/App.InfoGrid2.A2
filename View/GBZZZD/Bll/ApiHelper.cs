@@ -228,6 +228,22 @@ namespace App.InfoGrid2.GBZZZD.Bll
         }
 
 
+        /// <summary>
+        /// 尝试获取值
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static int TryGetInt(string str)
+        {
+            int v = 0;
+
+            if (!int.TryParse(str, out v)) 
+            {
+                return 0;
+            }
+
+            return v;
+        }
 
     }
 }

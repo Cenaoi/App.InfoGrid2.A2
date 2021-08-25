@@ -4,7 +4,7 @@
     <options width="378" height="276"></options>
   </head>
   <body>
-    <rect points='{"x1": 65,"y1": 0}' field="COL_109"></rect>
+    <rect points='{"x1": 2,"y1": 0}' field="COL_109"></rect>
     <rect points='{"x1": 65,"y1": 0}' label="批号：" field="BatchNo"></rect>
     <rect>
       <rect points='{"x1": 2,"y1": 8,"width":13,"height":25}' label="物料名称" align="center" border="true"></rect>
