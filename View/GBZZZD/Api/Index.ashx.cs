@@ -258,7 +258,7 @@ namespace App.InfoGrid2.GBZZZD.Api
             LightModelFilter filter = new LightModelFilter("UT_104");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_12", orderId);
-            filter.And("COL_183", userId);
+            //filter.And("COL_183", userId);
             filter.And("BIZ_SID", 2);
             filter.And("COL_195", bizSid);
             filter.Limit = Limit.ByPageIndex(limit, page);
@@ -420,7 +420,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             decipher.UpdateModel(lm, true);
 
-            //EC5.IG2.BizBase.DbCascadeRule.Update(lm);
+            EC5.IG2.BizBase.DbCascadeRule.Update(lm);
 
             return HttpResult.SuccessMsg("ok");
         }
@@ -756,11 +756,11 @@ namespace App.InfoGrid2.GBZZZD.Api
                 order["COL_88"] = userId;
                 order["COL_112"] = DateTime.Now; 
 
-                //decipher.UpdateModel(order, true);
+                decipher.UpdateModel(order, true);
 
                 decipher.TransactionCommit();
 
-                //EC5.IG2.BizBase.DbCascadeRule.Update(order);
+                EC5.IG2.BizBase.DbCascadeRule.Update(order);
 
                 SModel result = new SModel()
                 {
@@ -945,8 +945,6 @@ namespace App.InfoGrid2.GBZZZD.Api
                     fileCodes.Add(fileCode);
                 }
 
-                decipher.TransactionCommit();
-
                 order.SetTakeChange(true);
                 order["ROW_DATE_UPDATE"] = DateTime.Now;
                 order["COL_72"] = 103;
@@ -954,7 +952,9 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                 decipher.UpdateModel(order, true);
 
-                //EC5.IG2.BizBase.DbCascadeRule.Update(order);
+                decipher.TransactionCommit();
+
+                EC5.IG2.BizBase.DbCascadeRule.Update(order);
 
                 SModel result = new SModel()
                 {
@@ -1031,7 +1031,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                         printer = new LModel("UT_475")
                         {
-                            ["ROW_IDENTITY_ID"] = i++,
+                            //["ROW_IDENTITY_ID"] = i++,
                             ["ROW_DATE_CREATE"] = DateTime.Now,
                             //["COL_4"] = tpGuid,
                             ["COL_1"] = pName,
@@ -1335,7 +1335,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             decipher.UpdateModel(taskItem, true);
 
-            //EC5.IG2.BizBase.DbCascadeRule.Update(taskItem);
+            EC5.IG2.BizBase.DbCascadeRule.Update(taskItem);
 
             try
             {
