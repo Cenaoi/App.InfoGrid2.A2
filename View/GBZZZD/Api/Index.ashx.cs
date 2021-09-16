@@ -424,35 +424,35 @@ namespace App.InfoGrid2.GBZZZD.Api
             //lm["COL_172"] = parcelInfo.GetInt("COL_172");
 
             lm["COL_167"] = parcelInfo.GetString("COL_167");
-            lm["COL_168"] = parcelInfo.GetInt("COL_168");
-            lm["COL_169"] = parcelInfo.GetInt("COL_169");
-            lm["COL_232"] = parcelInfo.GetInt("COL_232");
+            lm["COL_168"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_168"));
+            lm["COL_169"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_169"));
+            lm["COL_232"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_232"));
 
             lm["COL_198"] = parcelInfo.GetString("COL_198");
-            lm["COL_199"] = parcelInfo.GetInt("COL_199");
-            lm["COL_200"] = parcelInfo.GetInt("COL_200");
-            lm["COL_233"] = parcelInfo.GetInt("COL_233");
+            lm["COL_199"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_199"));
+            lm["COL_200"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_200"));
+            lm["COL_233"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_233"));
 
             lm["COL_201"] = parcelInfo.GetString("COL_201");
-            lm["COL_204"] = parcelInfo.GetInt("COL_204");
-            lm["COL_207"] = parcelInfo.GetInt("COL_207");
-            lm["COL_234"] = parcelInfo.GetInt("COL_234");
+            lm["COL_204"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_204"));
+            lm["COL_207"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_207"));
+            lm["COL_234"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_234"));
 
             lm["COL_202"] = parcelInfo.GetString("COL_202");
-            lm["COL_205"] = parcelInfo.GetInt("COL_205");
-            lm["COL_208"] = parcelInfo.GetInt("COL_208");
-            lm["COL_235"] = parcelInfo.GetInt("COL_235");
+            lm["COL_205"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_205"));
+            lm["COL_208"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_208"));
+            lm["COL_235"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_235"));
 
             lm["COL_203"] = parcelInfo.GetString("COL_203");
-            lm["COL_206"] = parcelInfo.GetInt("COL_206");
-            lm["COL_209"] = parcelInfo.GetInt("COL_209");
-            lm["COL_236"] = parcelInfo.GetInt("COL_236");
+            lm["COL_206"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_206"));
+            lm["COL_209"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_209"));
+            lm["COL_236"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_236"));
 
-            lm["COL_227"] = parcelInfo.GetInt("COL_227");
-            lm["COL_237"] = parcelInfo.GetInt("COL_237");
+            lm["COL_227"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_227"));
+            lm["COL_237"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_237"));
 
-            lm["COL_222"] = parcelInfo.GetInt("COL_222");
-            lm["COL_223"] = parcelInfo.GetInt("COL_223");
+            lm["COL_222"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_222"));
+            lm["COL_223"] = ApiHelper.TryGetInt(parcelInfo.GetString("COL_223"));
 
             DbDecipher decipher = ModelAction.OpenDecipher();
 
