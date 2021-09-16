@@ -144,9 +144,11 @@ namespace App.InfoGrid2.GBZZZD.Api
         {
             string userId = ApiHelper.GetUserId(context);
             string bizSid = WebUtil.FormTrim("bizSid");
-            string orderNo = WebUtil.FormTrim("orderNo");
+            //string orderNo = WebUtil.FormTrim("orderNo");
             int page = WebUtil.FormInt("page");
             int limit = WebUtil.FormInt("limit");
+
+            string searchDataStr = WebUtil.FormTrim("searchData");
 
             SModel user = ApiHelper.GetUserInfo(userId);
 
@@ -155,14 +157,50 @@ namespace App.InfoGrid2.GBZZZD.Api
                 return HttpResult.Error("找不到这个用户");
             }
 
+            SModel searchData = null;
+
+            if (!string.IsNullOrWhiteSpace(searchDataStr))
+            {
+                searchData = SModel.ParseJson(searchDataStr);
+            }
+
             LightModelFilter filter = new LightModelFilter("UT_101");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("BIZ_SID", 2);
             filter.And("COL_72", bizSid);
 
-            if (!string.IsNullOrWhiteSpace(orderNo)) 
+            //if (!string.IsNullOrWhiteSpace(orderNo)) 
+            //{
+            //    filter.And("COL_27", $"%{orderNo}%", HWQ.Entity.Filter.Logic.Like);
+            //}
+
+            if (searchData != null)
             {
-                filter.And("COL_27", $"%{orderNo}%", HWQ.Entity.Filter.Logic.Like);
+                string finishTime = searchData.GetString("finishTime");
+                string customerText = searchData.GetString("customerText");
+                string taskOrderNo = searchData.GetString("taskOrderNo");
+
+                if (!string.IsNullOrWhiteSpace(finishTime))
+                {
+                    if (DateTime.TryParse(finishTime, out DateTime col76))
+                    {
+                        DateTime startTime = EC5.Utility.DateUtil.StartDate(col76);
+                        DateTime endTime = EC5.Utility.DateUtil.EndDate(col76);
+
+                        filter.And("COL_76", startTime, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+                        filter.And("COL_76", endTime, HWQ.Entity.Filter.Logic.LessThanOrEqual);
+                    }
+                }
+
+                if (!string.IsNullOrWhiteSpace(customerText))
+                {
+                    filter.And("COL_33", $"%{customerText}%", HWQ.Entity.Filter.Logic.Like);
+                }
+
+                if (!string.IsNullOrWhiteSpace(taskOrderNo))
+                {
+                    filter.And("COL_27", $"%{taskOrderNo}%", HWQ.Entity.Filter.Logic.Like);
+                }
             }
 
             if (bizSid == "101" || bizSid == "102")
