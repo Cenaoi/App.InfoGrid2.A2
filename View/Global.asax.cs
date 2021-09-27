@@ -87,6 +87,24 @@ namespace App.InfoGrid2
 
             //WebTaskManager.Add(distrTask);
 
+            if ("GBZZZD" == proj_tag)
+            {
+                GBZZZD.Task.SyncSaleOrderTask syncSaleOrderTask = new GBZZZD.Task.SyncSaleOrderTask();
+
+                WebTaskManager.Add(syncSaleOrderTask);
+
+                GBZZZD.Task.SyncSaleOrderItemsTask syncSaleOrderItemTask = new GBZZZD.Task.SyncSaleOrderItemsTask();
+
+                WebTaskManager.Add(syncSaleOrderItemTask);
+
+                GBZZZD.Task.SyncOrderTask syncOrderTask = new GBZZZD.Task.SyncOrderTask();
+
+                WebTaskManager.Add(syncOrderTask);
+
+                GBZZZD.Task.SyncOrderItemsTask syncOrderTaskItem = new GBZZZD.Task.SyncOrderItemsTask();
+
+                WebTaskManager.Add(syncOrderTaskItem);
+            }
 
             if (m_Timer == null)
             {

@@ -2971,6 +2971,11 @@
     </Compile>
     <Compile Include="GBZZZD\Bll\ApiHelper.cs" />
     <Compile Include="GBZZZD\Bll\PrintHelper.cs" />
+    <Compile Include="GBZZZD\Task\SyncOrderHelper.cs" />
+    <Compile Include="GBZZZD\Task\SyncOrderItemsTask.cs" />
+    <Compile Include="GBZZZD\Task\SyncOrderTask.cs" />
+    <Compile Include="GBZZZD\Task\SyncSaleOrderItemsTask.cs" />
+    <Compile Include="GBZZZD\Task\SyncSaleOrderTask.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
