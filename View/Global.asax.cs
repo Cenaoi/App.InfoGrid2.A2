@@ -89,6 +89,10 @@ namespace App.InfoGrid2
 
             if ("GBZZZD" == proj_tag)
             {
+                GBZZZD.Task.SyncOrderHelper.SDbConn = DbDecipherManager.GetConnectionString("GUBO_2021");
+
+                GBZZZD.Task.SyncOrderHelper.TDbConn = DbDecipherManager.GetConnectionString("ERP_YD_2021");
+
                 GBZZZD.Task.SyncSaleOrderTask syncSaleOrderTask = new GBZZZD.Task.SyncSaleOrderTask();
 
                 WebTaskManager.Add(syncSaleOrderTask);
