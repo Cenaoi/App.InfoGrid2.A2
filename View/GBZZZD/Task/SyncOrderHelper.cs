@@ -156,7 +156,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             decipher.UpdateSModel(item, "UT_090", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
                         }
 
-                        log.Debug($"更新销售订单（ut90），数量：{orderList.Count}");
+                        log.Debug($"更新销售订单（ut90），数量：{uList.Count}");
                     }
 
                 }
@@ -334,7 +334,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             decipher.UpdateSModel(item, "UT_091", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
                         }
 
-                        log.Debug($"更新销售订单明细（ut91），数量：{orderList.Count}");
+                        log.Debug($"更新销售订单明细（ut91），数量：{uList.Count}");
                     }
 
                 }
@@ -414,7 +414,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             LModelList orderList = new LModelList();
 
-            SModelList uList = new SModelList();
+            LModelList uList = new LModelList();
 
             try
             {
@@ -431,12 +431,12 @@ namespace App.InfoGrid2.GBZZZD.Task
                             dec = dec.Substring(0, 50);
                         }
 
-                        SModel ut101 = ExistsPickingOrder(decipher, pkid);
+                        LModel ut101 = ExistsPickingOrder(decipher, pkid);
 
                         if (ut101 == null)
                         {
                             //新增
-                            LModel lmut101 = new LModel("UT_101")
+                            ut101 = new LModel("UT_101")
                             {
                                 ["COL_33"] = "", //string
                                 ["COL_71"] = item.GetString("Man"),
@@ -462,12 +462,12 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
-                            orderList.Add(lmut101);
+                            orderList.Add(ut101);
                         }
                         else
                         {
                             //更新
-                            //ut101.SetTakeChange(true);
+                            ut101.SetTakeChange(true);
                             //ut101["COL_33"] = item.GetString("");
                             ut101["COL_71"] = item.GetString("GetMan");
                             ut101["COL_1"] = item.GetString("BillNo");
@@ -501,12 +501,17 @@ namespace App.InfoGrid2.GBZZZD.Task
 
                     if (uList.Count > 0)
                     {
+                        //foreach (var item in uList)
+                        //{
+                        //    decipher.UpdateSModel(item, "UT_101", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
+                        //}
+
                         foreach (var item in uList)
                         {
-                            decipher.UpdateSModel(item, "UT_101", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
+                            decipher.UpdateModel(item, true);
                         }
 
-                        log.Debug($"更新拣货订单（ut101），数量：{orderList.Count}");
+                        log.Debug($"更新拣货订单（ut101），数量：{uList.Count}");
                     }
 
                 }
@@ -528,12 +533,12 @@ namespace App.InfoGrid2.GBZZZD.Task
         /// <param name="decipher"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static SModel ExistsPickingOrder(DbDecipher decipher, int id)
+        public static LModel ExistsPickingOrder(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_101");
             filter.And("COL_103", id);
 
-            SModel model = decipher.GetSModel(filter);
+            LModel model = decipher.GetModel(filter);
 
             return model;
         }
@@ -677,7 +682,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             decipher.UpdateSModel(item, "UT_104", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
                         }
 
-                        log.Debug($"更新拣货订单明细（ut104），数量：{orderList.Count}");
+                        log.Debug($"更新拣货订单明细（ut104），数量：{uList.Count}");
                     }
 
                 }
