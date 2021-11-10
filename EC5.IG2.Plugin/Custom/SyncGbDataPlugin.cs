@@ -7,6 +7,9 @@ using System.Text;
 
 namespace EC5.IG2.Plugin.Custom
 {
+    /// <summary>
+    /// 同步固铂数据插件
+    /// </summary>
     public class SyncGbDataPlugin: PagePlugin
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
