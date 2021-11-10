@@ -156,6 +156,7 @@
     <Compile Include="Custom\BillPlugin.cs" />
     <Compile Include="Custom\ImportPlug.cs" />
     <Compile Include="Custom\InputOutExcelPlugin.cs" />
+    <Compile Include="Custom\SyncGbDataPlugin.cs" />
     <Compile Include="PagePlugin.cs" />
     <Compile Include="PluginManager.cs" />
     <Compile Include="Custom\PrintPlugin.cs" />
