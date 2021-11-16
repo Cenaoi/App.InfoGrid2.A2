@@ -1,4 +1,5 @@
-﻿using HWQ.Entity.Decipher.LightDecipher;
+﻿using EasyClick.Web.Mini2;
+using HWQ.Entity.Decipher.LightDecipher;
 using HWQ.Entity.LightModels;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,29 @@ namespace EC5.IG2.Plugin.Custom
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        /// <summary>
+        /// 提交
+        /// </summary>
         public void Submit()
         {
+            string paramStr = this.Params;
 
+            log.Debug("提交参数(20211114)：" + paramStr);
+
+            try
+            {
+                ImportGoods();
+
+                ImportCustomer();
+
+                MessageBox.Alert("同步成功");
+            }
+            catch (Exception ex)
+            {
+                log.Error("同步数据失败", ex);
+
+                MessageBox.Alert("同步失败");
+            }    
         }
 
         #region 同步产品档案
@@ -88,7 +109,7 @@ namespace EC5.IG2.Plugin.Custom
                                 ["COL_155"] = item.GetString("Origin"),
                                 ["COL_77"] = item.GetString("Property"),
                                 //[""] = item.GetString("PackModel"),
-                                ["COL_31"] = item.GetDouble("PackQty1"),
+                                ["COL_31"] = GetDouble(item, "PackQty1"),
                                 ["COL_29"] = item.GetString("PackUnit1"),
                                 ["COL_5"] = item.GetString("Unit"),
                                 //[""] = item.GetString("Spell"),
@@ -104,8 +125,8 @@ namespace EC5.IG2.Plugin.Custom
                                 ["COL_41"] = item.GetDateTime("BeginDate"),
                                 ["COL_73"] = item.GetDateTime("EditDate"),
                                 //[""] = item.GetInt("ProviderID"),
-                                ["COL_156"] = item.GetDouble("ReferPrice"),
-                                ["COL_157"] = item.GetDouble("WeightRate")
+                                ["COL_156"] = GetDouble(item, "ReferPrice"),
+                                ["COL_157"] = GetDouble(item, "WeightRate")
                             };
 
                             list.Add(lm);
@@ -122,7 +143,7 @@ namespace EC5.IG2.Plugin.Custom
                             ut83["COL_155"] = item.GetString("Origin");
                             ut83["COL_77"] = item.GetString("Property");
                             //ut83[""] = item.GetString("PackModel");
-                            ut83["COL_31"] = item.GetDouble("PackQty1");
+                            ut83["COL_31"] = GetDouble(item, "PackQty1");
                             ut83["COL_29"] = item.GetString("PackUnit1");
                             ut83["COL_5"] = item.GetString("Unit");
                             //ut83[""] = item.GetString("Spell");
@@ -138,8 +159,8 @@ namespace EC5.IG2.Plugin.Custom
                             ut83["COL_41"] = item.GetDateTime("BeginDate");
                             ut83["COL_73"] = item.GetDateTime("EditDate");
                             //ut83[""] = item.GetInt("ProviderID");
-                            ut83["COL_156"] = item.GetDouble("ReferPrice");
-                            ut83["COL_157"] = item.GetDouble("WeightRate");
+                            ut83["COL_156"] = GetDouble(item, "ReferPrice");
+                            ut83["COL_157"] = GetDouble(item, "WeightRate");
 
                             uList.Add(ut83);
                         }
@@ -168,7 +189,7 @@ namespace EC5.IG2.Plugin.Custom
             {
                 log.Error($"同步产品档案出错，源数据数量：{list.Count}", ex);
 
-                return false;
+                throw new Exception($"同步产品档案出错，源数据数量：{list.Count}", ex);
             }
 
             return true;
@@ -344,7 +365,7 @@ namespace EC5.IG2.Plugin.Custom
             {
                 log.Error($"同步客户档案出错，源数据数量：{list.Count}", ex);
 
-                return false;
+                throw new Exception($"同步客户档案出错，源数据数量：{list.Count}", ex);
             }
 
             return true;
@@ -368,6 +389,21 @@ namespace EC5.IG2.Plugin.Custom
 
 
         #endregion
+
+
+        public double GetDouble(SModel data, string field)
+        {
+            double res = 0;
+
+            string vStr = data.GetString(field);
+
+            if (!string.IsNullOrWhiteSpace(vStr))
+            {
+                res = data.GetDouble(field, 0);
+            }
+
+            return res;
+        }
 
 
     }

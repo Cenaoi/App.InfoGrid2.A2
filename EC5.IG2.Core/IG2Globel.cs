@@ -435,7 +435,8 @@ namespace EC5.IG2.Core
 
             PluginManager.Add(typeof(InputOutExcelPlugin).FullName, typeof(InputOutExcelPlugin));
             PluginManager.Add(typeof(PrintPlugin).FullName, typeof(PrintPlugin));
-
+            PluginManager.Add(typeof(SyncGbDataPlugin).FullName, typeof(SyncGbDataPlugin));
+            PluginManager.Add(typeof(ImportGbDataPlugin).FullName, typeof(ImportGbDataPlugin));
         }
 
 

@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Custom\BillPlugin.cs" />
+    <Compile Include="Custom\ImportGbDataPlugin.cs" />
     <Compile Include="Custom\ImportPlug.cs" />
     <Compile Include="Custom\InputOutExcelPlugin.cs" />
     <Compile Include="Custom\SyncGbDataPlugin.cs" />
