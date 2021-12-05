@@ -181,6 +181,7 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static SModel ExistsSaleOrder(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_090");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_106", id);
 
             SModel model = decipher.GetSModel(filter);
@@ -242,7 +243,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             try
             {
-                using (DbDecipher decipher  = DbDecipherManager.GetDecipherOpen())
+                using (DbDecipher decipher = DbDecipherManager.GetDecipherOpen())
                 {
                     foreach (var item in list)
                     {
@@ -359,6 +360,7 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static SModel ExistsSaleOrderItem(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_091");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_129", id);
 
             SModel model = decipher.GetSModel(filter);
@@ -380,9 +382,10 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static SModelList GetPickingOrderList()
         {
             string sql = $"select *, GetMan as man," +
-                $"(Select Code From Depot Where TreeID = DepotID) as DepotCode, " +
-                $"(Select Name From Depot Where TreeID = DepotID) as DepotName  " +
-                $" from Get ";
+                $"(Select sum(Qty1) From GetList a Where a.BillNo = t.BillNo) as QtyTotal," +
+                $"(Select Code From Depot b Where b.TreeID = t.DepotID) as DepotCode, " +
+                $"(Select Name From Depot c Where c.TreeID = t.DepotID) as DepotName  " +
+                $" from Get t";
 
             SModelList list = new SModelList();
 
@@ -416,6 +419,8 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             LModelList uList = new LModelList();
 
+            Dictionary<int, SModel> ut71List = new Dictionary<int, SModel>();
+
             try
             {
                 using (DbDecipher decipher = DbDecipherManager.GetDecipherOpen())
@@ -425,6 +430,15 @@ namespace App.InfoGrid2.GBZZZD.Task
                         int pkid = item.GetInt("ID");
 
                         string dec = item.GetString("Des");
+
+                        int customerID = item.GetInt("CustomerID");
+
+                        if (!ut71List.TryGetValue(customerID, out SModel ut71))
+                        {
+                            ut71 = GetUT71(decipher, customerID);
+
+                            ut71List.Add(customerID, ut71);
+                        }
 
                         if (!string.IsNullOrWhiteSpace(dec) && dec.Length > 50)
                         {
@@ -440,7 +454,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             {
                                 ["COL_33"] = "", //string
                                 ["COL_71"] = item.GetString("Man"),
-                                ["COL_72"] = 100,
+                                ["COL_72"] = 101,
                                 ["COL_73"] = "未开始",
                                 ["COL_1"] = item.GetString("BillNo"),
                                 ["COL_4"] = item.GetDateTime("FillDate"),
@@ -457,10 +471,19 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["COL_108"] = item.GetString("PlantID"),
                                 ["COL_109"] = item.GetString("SourceDes"),
                                 ["COL_110"] = item.GetString("SourceForm"),
-                                ["COL_31"] = item.GetInt("CustomerID"),
+                                ["COL_92"] = item.GetInt("CustomerID"),
                                 ["BIZ_SID"] = 2,
-                                ["ROW_DATE_CREATE"] = DateTime.Now
+                                ["ROW_DATE_CREATE"] = DateTime.Now,
+                                ["COL_11"] = item.GetString("TabMan"),
+                                ["COL_19"] = item.GetDecimal("QtyTotal")
                             };
+
+                            if (ut71 != null)
+                            {
+                                ut101["COL_31"] = ut71.GetInt("ROW_IDENTITY_ID");
+                                ut101["COL_32"] = ut71.GetString("COL_1");
+                                ut101["COL_33"] = ut71.GetString("COL_2");
+                            }
 
                             orderList.Add(ut101);
                         }
@@ -485,8 +508,17 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut101["COL_108"] = item.GetString("PlantID");
                             ut101["COL_109"] = item.GetString("SourceDes");
                             ut101["COL_110"] = item.GetString("SourceForm");
-                            ut101["COL_31"] = item.GetInt("CustomerID");
+                            ut101["COL_92"] = item.GetInt("CustomerID");
                             ut101["ROW_DATE_UPDATE"] = DateTime.Now;
+                            ut101["COL_11"] = item.GetString("TabMan");
+                            ut101["COL_19"] = item.GetDecimal("QtyTotal");
+
+                            if (ut71 != null)
+                            {
+                                ut101["COL_31"] = ut71.GetInt("ROW_IDENTITY_ID");
+                                ut101["COL_32"] = ut71.GetString("COL_1");
+                                ut101["COL_33"] = ut71.GetString("COL_2");
+                            }
 
                             uList.Add(ut101);
                         }
@@ -536,6 +568,7 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static LModel ExistsPickingOrder(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_101");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_103", id);
 
             LModel model = decipher.GetModel(filter);
@@ -591,9 +624,11 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             log.Debug($"获取到拣货订单明细，数量：{list.Count}");
 
-            LModelList orderList = new LModelList();
+            LModelList orderItemList = new LModelList();
 
             SModelList uList = new SModelList();
+
+            Dictionary<string, SModel> orderList = new Dictionary<string, SModel>();
 
             try
             {
@@ -602,6 +637,15 @@ namespace App.InfoGrid2.GBZZZD.Task
                     foreach (var item in list)
                     {
                         int pkid = item.GetInt("ID");
+
+                        string billNo = item.GetString("BillNo");
+
+                        if (!orderList.TryGetValue(billNo, out SModel ut101))
+                        {
+                            ut101 = GetUT101ByBillNo(decipher, billNo);
+
+                            orderList.Add(billNo, ut101);
+                        }
 
                         SModel ut104 = ExistsPickingOrderItem(decipher, pkid);
 
@@ -624,7 +668,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 //["COL_112"] = item.GetDateTime(""),
                                 //["COL_110"] = item.GetDateTime(""),
                                 ["COL_10"] = item.GetString("Des"),
-                                ["COL_195"] = 100,
+                                ["COL_195"] = 101,
                                 ["COL_32"] = "未开始",
                                 ["COL_196"] = DateTime.Now,
                                 ["BIZ_SID"] = 2,
@@ -637,7 +681,16 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
-                            orderList.Add(lmut104);
+                            if (ut101 != null)
+                            {
+                                lmut104["COL_12"] = ut101.GetInt("ROW_IDENTITY_ID");
+                                lmut104["COL_180"] = ut101.GetInt("COL_92");
+                                lmut104["COL_108"] = ut101.GetString("COL_32");
+                                lmut104["COL_109"] = ut101.GetString("COL_33");
+                                lmut104["COL_107"] = ut101.GetInt("COL_31");
+                            }
+
+                            orderItemList.Add(lmut104);
                         }
                         else
                         {
@@ -664,15 +717,24 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut104["COL_15"] = item.GetString("DepotName");  //Select DepotName From Depot Where TreeID=DepotID
                             ut104["ROW_DATE_UPDATE"] = DateTime.Now;
 
+                            if (ut101 != null)
+                            {
+                                ut104["COL_12"] = ut101.GetInt("ROW_IDENTITY_ID");
+                                ut104["COL_180"] = ut101.GetInt("COL_92");
+                                ut104["COL_108"] = ut101.GetString("COL_32");
+                                ut104["COL_109"] = ut101.GetString("COL_33");
+                                ut104["COL_107"] = ut101.GetInt("COL_31");
+                            }
+
                             uList.Add(ut104);
                         }
                     }
 
-                    if (orderList.Count > 0)
+                    if (orderItemList.Count > 0)
                     {
-                        decipher.InsertModels(orderList);
+                        decipher.InsertModels(orderItemList);
 
-                        log.Debug($"新增拣货订单明细（ut104），数量：{orderList.Count}");
+                        log.Debug($"新增拣货订单明细（ut104），数量：{orderItemList.Count}");
                     }
 
                     if (uList.Count > 0)
@@ -707,6 +769,7 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static SModel ExistsPickingOrderItem(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_104");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_224", id);
 
             SModel model = decipher.GetSModel(filter);
@@ -716,6 +779,44 @@ namespace App.InfoGrid2.GBZZZD.Task
 
 
         #endregion
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
+        public static SModel GetUT71(DbDecipher decipher, int customerID)
+        {
+            LightModelFilter filter = new LightModelFilter("UT_071");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("COL_141", customerID);
+
+            SModel model = decipher.GetSModel(filter);
+
+            return model;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="billNo"></param>
+        /// <returns></returns>
+        public static SModel GetUT101ByBillNo(DbDecipher decipher, string billNo)
+        {
+            LightModelFilter filter = new LightModelFilter("UT_101");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("COL_1", billNo);
+
+            SModel model = decipher.GetSModel(filter);
+
+            return model;
+        }
+
+
 
     }
 }

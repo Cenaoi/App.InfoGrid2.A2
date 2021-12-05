@@ -20,9 +20,9 @@ namespace EC5.IG2.Plugin.Custom
         /// </summary>
         public void Submit()
         {
-            string paramStr = this.Params;
+            //string paramStr = this.Params;
 
-            log.Debug("提交参数(20211114)：" + paramStr);
+            //log.Debug("提交参数(20211114)：" + paramStr);
 
             try
             {
@@ -301,7 +301,8 @@ namespace EC5.IG2.Plugin.Custom
                                 ["BIZ_CHECK_DATE"] = item.GetDateTime("EditDate"),
                                 //[""] = item.GetString("Spell"),
                                 ["COL_10"] = item.GetString("des"),
-                                //[""] = item.GetBool("UseCredit")
+                                //[""] = item.GetBool("UseCredit"),
+                                ["COL_12"] = "True"
                             };
 
                             list.Add(lm);
@@ -337,6 +338,7 @@ namespace EC5.IG2.Plugin.Custom
                             //ut71[""] = item.GetString("Spell");
                             ut71["COL_10"] = item.GetString("des");
                             //ut71[""] = item.GetBool("UseCredit");
+                            ut71["COL_12"] = "True";
 
                             uList.Add(ut71);
                         }

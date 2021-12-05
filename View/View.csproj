@@ -129,7 +129,8 @@
     <Reference Include="EC5.IG2.BizBase">
       <HintPath>..\Common_DLL\EC5.IG2.BizBase.dll</HintPath>
     </Reference>
-    <Reference Include="EC5.IG2.Core">
+    <Reference Include="EC5.IG2.Core, Version=1.0.7758.41125, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Common_DLL\EC5.IG2.Core.dll</HintPath>
     </Reference>
     <Reference Include="EC5.IG2.Plugin">
@@ -2973,6 +2974,7 @@
     <Compile Include="GBZZZD\Bll\PrintHelper.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderHelper.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderItemsTask.cs" />
+    <Compile Include="GBZZZD\Task\ImportOrderDataTask.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderTask.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderItemsTask.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderTask.cs" />

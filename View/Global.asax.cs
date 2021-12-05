@@ -93,6 +93,10 @@ namespace App.InfoGrid2
 
                 GBZZZD.Task.SyncOrderHelper.TDbConn = DbDecipherManager.GetConnectionString("ERP_YD_2021");
 
+                GBZZZD.Task.ImportOrderDataTask importOrderDataTask = new GBZZZD.Task.ImportOrderDataTask();
+
+                WebTaskManager.Add(importOrderDataTask);
+
                 GBZZZD.Task.SyncSaleOrderTask syncSaleOrderTask = new GBZZZD.Task.SyncSaleOrderTask();
 
                 WebTaskManager.Add(syncSaleOrderTask);

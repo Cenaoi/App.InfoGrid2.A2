@@ -176,19 +176,25 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             if (searchData != null)
             {
-                string finishTime = searchData.GetString("finishTime");
+                string finishTimeRangeStr = searchData.GetString("finishTimeRange");
                 string customerText = searchData.GetString("customerText");
                 string taskOrderNo = searchData.GetString("taskOrderNo");
+                string orderNo = searchData.GetString("orderNo");
 
-                if (!string.IsNullOrWhiteSpace(finishTime))
+                if (!string.IsNullOrWhiteSpace(finishTimeRangeStr))
                 {
-                    if (DateTime.TryParse(finishTime, out DateTime col76))
-                    {
-                        DateTime startTime = EC5.Utility.DateUtil.StartDate(col76);
-                        DateTime endTime = EC5.Utility.DateUtil.EndDate(col76);
+                    string[] finishTimeRange = finishTimeRangeStr.Split(',');
 
-                        filter.And("COL_76", startTime, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
-                        filter.And("COL_76", endTime, HWQ.Entity.Filter.Logic.LessThanOrEqual);
+                    if (finishTimeRange.Length == 2)
+                    {
+                        if (DateTime.TryParse(finishTimeRange[0], out DateTime finishTimeS) && DateTime.TryParse(finishTimeRange[1], out DateTime finishTimeE))
+                        {
+                            DateTime startTime = EC5.Utility.DateUtil.StartDate(finishTimeS);
+                            DateTime endTime = EC5.Utility.DateUtil.EndDate(finishTimeE);
+
+                            filter.And("COL_76", startTime, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+                            filter.And("COL_76", endTime, HWQ.Entity.Filter.Logic.LessThan);
+                        }
                     }
                 }
 
@@ -197,9 +203,14 @@ namespace App.InfoGrid2.GBZZZD.Api
                     filter.And("COL_33", $"%{customerText}%", HWQ.Entity.Filter.Logic.Like);
                 }
 
+                if (!string.IsNullOrWhiteSpace(orderNo))
+                {
+                    filter.And("COL_27", $"%{orderNo}%", HWQ.Entity.Filter.Logic.Like);
+                }
+
                 if (!string.IsNullOrWhiteSpace(taskOrderNo))
                 {
-                    filter.And("COL_27", $"%{taskOrderNo}%", HWQ.Entity.Filter.Logic.Like);
+                    filter.And("COL_1", $"%{taskOrderNo}%", HWQ.Entity.Filter.Logic.Like);
                 }
             }
 
