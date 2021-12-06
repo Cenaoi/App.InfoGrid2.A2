@@ -475,7 +475,8 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["BIZ_SID"] = 2,
                                 ["ROW_DATE_CREATE"] = DateTime.Now,
                                 ["COL_11"] = item.GetString("TabMan"),
-                                ["COL_19"] = item.GetDecimal("QtyTotal")
+                                ["COL_19"] = item.GetDecimal("QtyTotal"),
+                                ["COL_59"] = item.GetDateTime("FillDate")
                             };
 
                             if (ut71 != null)
@@ -512,6 +513,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut101["ROW_DATE_UPDATE"] = DateTime.Now;
                             ut101["COL_11"] = item.GetString("TabMan");
                             ut101["COL_19"] = item.GetDecimal("QtyTotal");
+                            ut101["COL_59"] = item.GetDateTime("FillDate");
 
                             if (ut71 != null)
                             {
@@ -688,6 +690,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 lmut104["COL_108"] = ut101.GetString("COL_32");
                                 lmut104["COL_109"] = ut101.GetString("COL_33");
                                 lmut104["COL_107"] = ut101.GetInt("COL_31");
+                                lmut104["COL_110"] = ut101.GetDateTime("COL_59");
                             }
 
                             orderItemList.Add(lmut104);
@@ -724,6 +727,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ut104["COL_108"] = ut101.GetString("COL_32");
                                 ut104["COL_109"] = ut101.GetString("COL_33");
                                 ut104["COL_107"] = ut101.GetInt("COL_31");
+                                ut104["COL_110"] = ut101.GetDateTime("COL_59");
                             }
 
                             uList.Add(ut104);
