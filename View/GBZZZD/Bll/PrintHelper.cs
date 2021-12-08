@@ -433,8 +433,12 @@ namespace App.InfoGrid2.GBZZZD.Bll
                     {
                         if (formData.HasField(f)) 
                         {
-                            value = formData.GetString(f);
+                            value += formData.GetString(f);
                         }
+                        else
+                        {
+                            value += f.Replace("'", "");
+                        }    
                     }
                 }
 
@@ -548,11 +552,20 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
                             string field = col.GetString("field");
 
+                            string dataType = col.GetString("dataType");
+
                             Rectangle cellRect = new Rectangle(colRect.X1, rowIndex * rowHeight + colsRect.Y1 + rowHeight, colRect.Rectangle.Width, colRect.Rectangle.Height);
 
                             if (!string.IsNullOrWhiteSpace(field) && row.HasField(field))
                             {
                                 string value = row.GetString(field);
+
+                                if (!string.IsNullOrWhiteSpace(dataType) && dataType == "decimal")
+                                {
+                                    decimal typeVal = row.GetDecimal(field);
+
+                                    value = $"{typeVal:g0}";
+                                }
 
                                 this._Graphics.DrawString(value, rectFont, Brushes.Black, cellRect, format);
                             }

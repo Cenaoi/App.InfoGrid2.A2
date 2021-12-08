@@ -472,7 +472,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["COL_109"] = item.GetString("SourceDes"),
                                 ["COL_110"] = item.GetString("SourceForm"),
                                 ["COL_92"] = item.GetInt("CustomerID"),
-                                ["BIZ_SID"] = 2,
+                                ["BIZ_SID"] = item.GetInt("State") + 2,
                                 ["ROW_DATE_CREATE"] = DateTime.Now,
                                 ["COL_11"] = item.GetString("TabMan"),
                                 ["COL_19"] = item.GetDecimal("QtyTotal"),
@@ -691,6 +691,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 lmut104["COL_109"] = ut101.GetString("COL_33");
                                 lmut104["COL_107"] = ut101.GetInt("COL_31");
                                 lmut104["COL_110"] = ut101.GetDateTime("COL_59");
+                                lmut104["BIZ_SID"] = ut101.GetInt("BIZ_SID");
                             }
 
                             orderItemList.Add(lmut104);
@@ -728,6 +729,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ut104["COL_109"] = ut101.GetString("COL_33");
                                 ut104["COL_107"] = ut101.GetInt("COL_31");
                                 ut104["COL_110"] = ut101.GetDateTime("COL_59");
+                                ut104["BIZ_SID"] = ut101.GetInt("BIZ_SID");
                             }
 
                             uList.Add(ut104);

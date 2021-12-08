@@ -29,7 +29,7 @@ namespace App.InfoGrid2.GBZZZD.Task
             try
             {
                 EC5.IG2.Plugin.PluginBll.BizHelper.SDbConn = DbDecipherManager.GetConnectionString("GUBO_2021");
-
+                
                 EC5.IG2.Plugin.PluginBll.ImportHelper.HandleImport();
             }
             catch (Exception ex)

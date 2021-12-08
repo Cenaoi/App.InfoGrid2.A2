@@ -751,7 +751,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                 printFileList.Add(printFile);
 
-                printRecordCount -= pageCount;
+                printRecordCount -= pageCount; 
 
                 pageIndex++;
             }
@@ -759,7 +759,7 @@ namespace App.InfoGrid2.GBZZZD.Api
             DbDecipher decipher = ModelAction.OpenDecipher();
 
             try
-            {
+            { 
                 int findex = 1;
 
                 int r = ApiHelper.GetRandomNumber(1, 9999);
@@ -1049,15 +1049,15 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             string[] printerNameArr = printerNames.Split(',');
 
-            //LightModelFilter filter = new LightModelFilter("");
-            //filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
-            //filter.And("", tpGuid);
+            LightModelFilter filter = new LightModelFilter("UT_494");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("COL_18", tpGuid);
 
             DbDecipher decipher = ModelAction.OpenDecipher();
 
-            //List<LModel> list = decipher.GetModelList(filter);
+            List<LModel> list = decipher.GetModelList(filter);
 
-            List<LModel> list = new List<LModel>();
+            //List<LModel> list = new List<LModel>();
 
             List<LModel> res = new List<LModel>();
 
@@ -1071,25 +1071,36 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                     if (list.Count > 0)
                     {
-                        printer = list.First(item => item.Get<string>("COL_1") == pName);
+                        printer = list.First(item => item.Get<string>("COL_18") == tpGuid && item.Get<string>("COL_17") == pName);
                     }
 
                     if (printer == null)
                     {
                         string pCode = Guid.NewGuid().ToString().Replace("-", "");
 
-                        printer = new LModel("UT_475")
+                        printer = new LModel("UT_494")
                         {
-                            //["ROW_IDENTITY_ID"] = i++,
+                            //["BIZ_PRINT_TEMPLATE_ID"] = i++,
                             ["ROW_DATE_CREATE"] = DateTime.Now,
-                            //["COL_4"] = tpGuid,
-                            ["COL_1"] = pName,
-                            ["COL_2"] = pCode,
-                            ["COL_3"] = "",
+                            ["COL_18"] = tpGuid,
+                            ["COL_17"] = pName,
+                            ["COL_16"] = pCode,
+                            ["COL_21"] = "",
                         };
 
-                        //decipher.InsertModel(printer);
+                        try
+                        {
+                            decipher.InsertModel(printer);
+
+                            //printer["ROW_IDENTITY_ID"] = pkid;      
+                        }
+                        catch (Exception ex)
+                        {
+                            log.Error("插入打印机信息出错", ex);
+                        }
                     }
+
+                    printer["BIZ_PRINT_TEMPLATE_ID"] = printer["ROW_IDENTITY_ID"];
 
                     res.Add(printer);
                 }
@@ -1110,6 +1121,11 @@ namespace App.InfoGrid2.GBZZZD.Api
         public HttpResult GetPrintFileList()
         {
             string printerNo = WebUtil.FormTrim("printerNo");
+
+            if (string.IsNullOrWhiteSpace(printerNo))
+            {
+                return HttpResult.Error("请传入打印机编号");
+            }
 
             LightModelFilter filter = new LightModelFilter("UT_475");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
