@@ -26,7 +26,7 @@
     </rect>
     <rect>
       <rect points='{"x1": 2,"y1": 58,"width":13,"height":12}' label="备注" align="center" border="true"></rect>
-      <rect points='{"x1": 15,"y1": 58,"width":82,"height":12}' field="" align="center" border="true"></rect>
+      <rect points='{"x1": 15,"y1": 58,"width":82,"height":12}' field="COL_10" align="center" border="true"></rect>
     </rect>
   </body>
 </page>

@@ -72,7 +72,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                 {
                     foreach (var item in list)
                     {
-                        int pkid = item.GetInt("ID");
+                        int pkid = TryGetInt(item, "ID");
 
                         SModel ut90 = ExistsSaleOrder(decipher, pkid);
 
@@ -81,27 +81,27 @@ namespace App.InfoGrid2.GBZZZD.Task
                             //新增
                             LModel lmut90 = new LModel("UT_090")
                             {
-                                ["BIZ_SID"] = item.GetInt("State"),
-                                //["BIZ_CHECK_DATE"] = item.GetDateTime(""),
+                                ["BIZ_SID"] = TryGetInt(item, "State"),
+                                //["BIZ_CHECK_DATE"] = TryGetDateTime(item, ""),
                                 //["BIZ_CHECK_USER_TEXT"] = item.GetString(""),
                                 ["COL_1"] = item.GetString("BillNo"),
                                 ["COL_84"] = item.GetString("TabMan"),
                                 //["COL_12"] = item.GetString(""),//Max(C.Code)
                                 ["COL_4"] = item.GetString("LinkMan"),
                                 //["COL_6"] = item.GetString(""),
-                                ["COL_9"] = item.GetDecimal("MustReceiveTotal"),
-                                ["COL_80"] = item.GetDateTime("PlanDeliverDate"),
+                                ["COL_9"] = TryGetDecimal(item, "MustReceiveTotal"),
+                                ["COL_80"] = TryGetDateTime(item, "PlanDeliverDate"),
                                 ["COL_10"] = item.GetString("Des"),
-                                ["COL_107"] = item.GetInt("CustomerID"),
+                                ["COL_107"] = TryGetInt(item, "CustomerID"),
                                 ["COL_109"] = item.GetString("LiftNo"),
                                 ["COL_54"] = item.GetString("SourceDes"),
-                                ["COL_2"] = item.GetDateTime("FillDate"),
-                                ["COL_8"] = item.GetInt("CustomerID"),
+                                ["COL_2"] = TryGetDateTime(item, "FillDate"),
+                                ["COL_8"] = TryGetInt(item, "CustomerID"),
                                 //["COL_3"] = item.GetString(""),//Max(C.Name)
                                 ["COL_5"] = item.GetString("Tel"),
                                 ["COL_7"] = item.GetString("Address"),
-                                ["COL_106"] = item.GetInt("ID"),
-                                ["COL_110"] = item.GetDateTime("EditDate"),
+                                ["COL_106"] = TryGetInt(item, "ID"),
+                                ["COL_110"] = TryGetDateTime(item, "EditDate"),
                                 ["COL_111"] = item.GetString("TransTypeName"),
                                 ["COL_112"] = item.GetString("FeeTypeName"),
                                 ["ROW_DATE_CREATE"] = DateTime.Now
@@ -113,27 +113,27 @@ namespace App.InfoGrid2.GBZZZD.Task
                         {
                             //更新
                             //ut90.SetTakeChange(true);
-                            ut90["BIZ_SID"] = item.GetInt("State");
-                            //ut90["BIZ_CHECK_DATE"] = item.GetDateTime("");
+                            ut90["BIZ_SID"] = TryGetInt(item, "State");
+                            //ut90["BIZ_CHECK_DATE"] = TryGetDateTime(item, "");
                             //ut90["BIZ_CHECK_USER_TEXT"] = item.GetString("");
                             ut90["COL_1"] = item.GetString("BillNo");
                             ut90["COL_84"] = item.GetString("TabMan");
                             //ut90["COL_12"] = item.GetString("");//Max(C.Code)
                             ut90["COL_4"] = item.GetString("LinkMan");
                             //ut90["COL_6"] = item.GetString("");
-                            ut90["COL_9"] = item.GetDecimal("MustReceiveTotal");
-                            ut90["COL_80"] = item.GetDateTime("PlanDeliverDate");
+                            ut90["COL_9"] = TryGetDecimal(item, "MustReceiveTotal");
+                            ut90["COL_80"] = TryGetDateTime(item, "PlanDeliverDate");
                             ut90["COL_10"] = item.GetString("Des");
-                            ut90["COL_107"] = item.GetInt("CustomerID");
+                            ut90["COL_107"] = TryGetInt(item, "CustomerID");
                             ut90["COL_109"] = item.GetString("LiftNo");
                             ut90["COL_54"] = item.GetString("SourceDes");
-                            ut90["COL_2"] = item.GetDateTime("FillDate");
-                            ut90["COL_8"] = item.GetInt("CustomerID");
+                            ut90["COL_2"] = TryGetDateTime(item, "FillDate");
+                            ut90["COL_8"] = TryGetInt(item, "CustomerID");
                             //ut90["COL_3"] = item.GetString("");//Max(C.Name)
                             ut90["COL_5"] = item.GetString("Tel");
                             ut90["COL_7"] = item.GetString("Address");
-                            ut90["COL_106"] = item.GetInt("ID");
-                            ut90["COL_110"] = item.GetDateTime("EditDate");
+                            ut90["COL_106"] = TryGetInt(item, "ID");
+                            ut90["COL_110"] = TryGetDateTime(item, "EditDate");
                             ut90["COL_111"] = item.GetString("TransTypeName");
                             ut90["COL_112"] = item.GetString("FeeTypeName");
                             ut90["ROW_DATE_UPDATE"] = DateTime.Now;
@@ -247,7 +247,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                 {
                     foreach (var item in list)
                     {
-                        int pkid = item.GetInt("ID");
+                        int pkid = TryGetInt(item, "ID");
 
                         SModel ut91 = ExistsSaleOrderItem(decipher, pkid);
 
@@ -260,27 +260,27 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["COL_19"] = item.GetString("SourceBillNo"),
                                 ["COL_2"] = item.GetString("GoodsCode"), //Select GoodsCode From Goods Where ID=GoodsID
                                 ["COL_3"] = item.GetString("GoodsName"), //Select GoodsName From Goods Where ID=GoodsID
-                                //["COL_104"] = item.GetInt("OrderNo"),
-                                ["COL_105"] = item.GetDecimal("WeightRate"),
+                                //["COL_104"] = TryGetInt(item, "OrderNo"),
+                                ["COL_105"] = TryGetDecimal(item, "WeightRate"),
                                 //["COL_115"] = item.GetDecimal(""),
                                 ["COL_25"] = item.GetString("Des"),
                                 ["COL_4"] = item.GetString("Model"),
                                 ["COL_47"] = item.GetString("PackUnit1"),
-                                ["COL_48"] = item.GetDecimal("PackQty1"),
-                                ["COL_49"] = item.GetDecimal("Piece1"),
+                                ["COL_48"] = TryGetDecimal(item, "PackQty1"),
+                                ["COL_49"] = TryGetDecimal(item, "Piece1"),
                                 ["COL_5"] = item.GetString("Unit"),
-                                ["COL_6"] = item.GetDecimal("Price"),
-                                ["COL_82"] = item.GetDecimal("OutPrice"),
-                                ["COL_7"] = item.GetDecimal("Qty1"),
-                                ["COL_8"] = item.GetDecimal("Total"),
+                                ["COL_6"] = TryGetDecimal(item, "Price"),
+                                ["COL_82"] = TryGetDecimal(item, "OutPrice"),
+                                ["COL_7"] = TryGetDecimal(item, "Qty1"),
+                                ["COL_8"] = TryGetDecimal(item, "Total"),
                                 ["COL_11"] = item.GetString("Des"),
                                 //[""] = item.GetString("DepotID"),
                                 ["COL_22"] = item.GetString("DepotCode"), //Select DepotCode From Depot Where TreeID=DepotID
                                 ["COL_23"] = item.GetString("DepotName"), //Select DepotName From Depot Where TreeID=DepotID
-                                ["COL_29"] = item.GetInt("GoodsID"),
-                                ["COL_131"] = item.GetInt("GoodsID"),
-                                ["COL_129"] = item.GetInt("ID"),
-                                ["COL_138"] = item.GetDecimal("CostPrice"),
+                                ["COL_29"] = TryGetInt(item, "GoodsID"),
+                                ["COL_131"] = TryGetInt(item, "GoodsID"),
+                                ["COL_129"] = TryGetInt(item, "ID"),
+                                ["COL_138"] = TryGetDecimal(item, "CostPrice"),
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
@@ -294,27 +294,27 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut91["COL_19"] = item.GetString("SourceBillNo");
                             ut91["COL_2"] = item.GetString("GoodsCode"); //Select GoodsCode From Goods Where ID=GoodsID
                             ut91["COL_3"] = item.GetString("GoodsName"); //Select GoodsName From Goods Where ID=GoodsID
-                            //ut91["COL_104"] = item.GetInt("OrderNo");
-                            ut91["COL_105"] = item.GetDecimal("WeightRate");
+                            //ut91["COL_104"] = TryGetInt(item, "OrderNo");
+                            ut91["COL_105"] = TryGetDecimal(item, "WeightRate");
                             //ut91["COL_115"] = item.GetDecimal("");
                             ut91["COL_25"] = item.GetString("Des");
                             ut91["COL_4"] = item.GetString("Model");
                             ut91["COL_47"] = item.GetString("PackUnit1");
-                            ut91["COL_48"] = item.GetDecimal("PackQty1");
-                            ut91["COL_49"] = item.GetDecimal("Piece1");
+                            ut91["COL_48"] = TryGetDecimal(item, "PackQty1");
+                             ut91["COL_49"] = TryGetDecimal(item, "Piece1");
                             ut91["COL_5"] = item.GetString("Unit");
-                            ut91["COL_6"] = item.GetDecimal("Price");
-                            ut91["COL_82"] = item.GetDecimal("OutPrice");
-                            ut91["COL_7"] = item.GetDecimal("Qty1");
-                            ut91["COL_8"] = item.GetDecimal("Total");
+                            ut91["COL_6"] = TryGetDecimal(item, "Price");
+                            ut91["COL_82"] = TryGetDecimal(item, "OutPrice");
+                            ut91["COL_7"] = TryGetDecimal(item, "Qty1");
+                            ut91["COL_8"] = TryGetDecimal(item, "Total");
                             ut91["COL_11"] = item.GetString("Des");
                             //ut91[""] = item.GetString("DepotID");
                             ut91["COL_22"] = item.GetString("DepotCode"); //Select DepotCode From Depot Where TreeID=DepotID
                             ut91["COL_23"] = item.GetString("DepotName"); //Select DepotName From Depot Where TreeID=DepotID
-                            ut91["COL_29"] = item.GetInt("GoodsID");
-                            ut91["COL_131"] = item.GetInt("GoodsID");
-                            ut91["COL_129"] = item.GetInt("ID");
-                            ut91["COL_138"] = item.GetDecimal("CostPrice");
+                            ut91["COL_29"] = TryGetInt(item, "GoodsID");
+                            ut91["COL_131"] = TryGetInt(item, "GoodsID");
+                            ut91["COL_129"] = TryGetInt(item, "ID");
+                            ut91["COL_138"] = TryGetDecimal(item, "CostPrice");
                             ut91["ROW_DATE_UPDATE"] = DateTime.Now;
 
                             uList.Add(ut91);
@@ -381,7 +381,7 @@ namespace App.InfoGrid2.GBZZZD.Task
         /// <returns></returns>
         public static SModelList GetPickingOrderList()
         {
-            string sql = $"select *, GetMan as man," +
+            string sql = $"select *," +
                 $"(Select sum(Qty1) From GetList a Where a.BillNo = t.BillNo) as QtyTotal," +
                 $"(Select Code From Depot b Where b.TreeID = t.DepotID) as DepotCode, " +
                 $"(Select Name From Depot c Where c.TreeID = t.DepotID) as DepotName  " +
@@ -427,11 +427,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                 {
                     foreach (var item in list)
                     {
-                        int pkid = item.GetInt("ID");
+                        int pkid = TryGetInt(item, "ID");
 
                         string dec = item.GetString("Des");
 
-                        int customerID = item.GetInt("CustomerID");
+                        int customerID = TryGetInt(item, "CustomerID");
 
                         if (!ut71List.TryGetValue(customerID, out SModel ut71))
                         {
@@ -453,35 +453,35 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut101 = new LModel("UT_101")
                             {
                                 ["COL_33"] = "", //string
-                                ["COL_71"] = item.GetString("Man"),
+                                //["COL_71"] = item.GetString("GetMan"),
                                 ["COL_72"] = 101,
                                 ["COL_73"] = "未开始",
                                 ["COL_1"] = item.GetString("BillNo"),
-                                ["COL_4"] = item.GetDateTime("FillDate"),
+                                ["COL_4"] = TryGetDateTime(item, "FillDate"),
                                 ["COL_16"] = item.GetString("BranchID"),
                                 ["COL_88"] = 0,
                                 ["COL_6"] = dec,
-                                ["BIZ_CHECK_DATE"] = item.GetDateTime("ConfirmDate"),
+                                ["BIZ_CHECK_DATE"] = TryGetDateTime(item, "ConfirmDate"),
                                 ["BIZ_CHECK_USER_TEXT"] = item.GetString("ConfirmMan"),
-                                ["COL_103"] = item.GetInt("ID"),
-                                ["COL_104"] = item.GetDateTime("EditDate"),
-                                ["COL_105"] = item.GetInt("DepotID"),
+                                ["COL_103"] = TryGetInt(item, "ID"),
+                                ["COL_104"] = TryGetDateTime(item, "EditDate"),
+                                ["COL_105"] = TryGetInt(item, "DepotID"),
                                 ["COL_106"] = item.GetString("DepotCode"),
                                 ["COL_107"] = item.GetString("DepotName"),
                                 ["COL_108"] = item.GetString("PlantID"),
                                 ["COL_109"] = item.GetString("SourceDes"),
                                 ["COL_110"] = item.GetString("SourceForm"),
-                                ["COL_92"] = item.GetInt("CustomerID"),
-                                ["BIZ_SID"] = item.GetInt("State") + 2,
+                                ["COL_92"] = TryGetInt(item, "CustomerID"),
+                                ["BIZ_SID"] = TryGetInt(item, "State") + 2,
                                 ["ROW_DATE_CREATE"] = DateTime.Now,
                                 ["COL_11"] = item.GetString("TabMan"),
-                                ["COL_19"] = item.GetDecimal("QtyTotal"),
-                                ["COL_59"] = item.GetDateTime("FillDate")
+                                ["COL_19"] = TryGetDecimal(item, "QtyTotal"),
+                                ["COL_59"] = TryGetDateTime(item, "FillDate")
                             };
 
                             if (ut71 != null)
                             {
-                                ut101["COL_31"] = ut71.GetInt("ROW_IDENTITY_ID");
+                                ut101["COL_31"] = TryGetInt(ut71, "ROW_IDENTITY_ID");
                                 ut101["COL_32"] = ut71.GetString("COL_1");
                                 ut101["COL_33"] = ut71.GetString("COL_2");
                             }
@@ -493,31 +493,31 @@ namespace App.InfoGrid2.GBZZZD.Task
                             //更新
                             ut101.SetTakeChange(true);
                             //ut101["COL_33"] = item.GetString("");
-                            ut101["COL_71"] = item.GetString("GetMan");
+                            //ut101["COL_71"] = item.GetString("GetMan");
                             ut101["COL_1"] = item.GetString("BillNo");
-                            ut101["COL_4"] = item.GetDateTime("FillDate");
+                            ut101["COL_4"] = TryGetDateTime(item, "FillDate");
                             ut101["COL_16"] = item.GetString("BranchID");
-                            //ut101["COL_88"] = item.GetInt("");
+                            //ut101["COL_88"] = TryGetInt(item, "");
                             ut101["COL_6"] = dec;
-                            ut101["BIZ_CHECK_DATE"] = item.GetDateTime("ConfirmDate");
+                            ut101["BIZ_CHECK_DATE"] = TryGetDateTime(item, "ConfirmDate");
                             ut101["BIZ_CHECK_USER_TEXT"] = item.GetString("ConfirmMan");
-                            ut101["COL_103"] = item.GetInt("ID");
-                            ut101["COL_104"] = item.GetDateTime("EditDate");
-                            ut101["COL_105"] = item.GetInt("DepotID");
+                            ut101["COL_103"] = TryGetInt(item, "ID");
+                            ut101["COL_104"] = TryGetDateTime(item, "EditDate");
+                            ut101["COL_105"] = TryGetInt(item, "DepotID");
                             ut101["COL_106"] = item.GetString("DepotCode");
                             ut101["COL_107"] = item.GetString("DepotName");
                             ut101["COL_108"] = item.GetString("PlantID");
                             ut101["COL_109"] = item.GetString("SourceDes");
                             ut101["COL_110"] = item.GetString("SourceForm");
-                            ut101["COL_92"] = item.GetInt("CustomerID");
+                            ut101["COL_92"] = TryGetInt(item, "CustomerID");
                             ut101["ROW_DATE_UPDATE"] = DateTime.Now;
                             ut101["COL_11"] = item.GetString("TabMan");
-                            ut101["COL_19"] = item.GetDecimal("QtyTotal");
-                            ut101["COL_59"] = item.GetDateTime("FillDate");
+                            ut101["COL_19"] = TryGetDecimal(item, "QtyTotal");
+                            ut101["COL_59"] = TryGetDateTime(item, "FillDate");
 
                             if (ut71 != null)
                             {
-                                ut101["COL_31"] = ut71.GetInt("ROW_IDENTITY_ID");
+                                ut101["COL_31"] = TryGetInt(ut71, "ROW_IDENTITY_ID");
                                 ut101["COL_32"] = ut71.GetString("COL_1");
                                 ut101["COL_33"] = ut71.GetString("COL_2");
                             }
@@ -638,7 +638,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                 {
                     foreach (var item in list)
                     {
-                        int pkid = item.GetInt("ID");
+                        int pkid = TryGetInt(item, "ID");
 
                         string billNo = item.GetString("BillNo");
 
@@ -656,28 +656,28 @@ namespace App.InfoGrid2.GBZZZD.Task
                             //新增
                             LModel lmut104 = new LModel("UT_104")
                             {
-                                ["COL_180"] = item.GetInt("CustomerID"),
-                                //["COL_181"] = item.GetDateTime(""),
+                                ["COL_180"] = TryGetInt(item, "CustomerID"),
+                                //["COL_181"] = TryGetDateTime(item, ""),
                                 //["COL_109"] = item.GetString(""),
                                 ["COL_16"] = item.GetString("SourceBillNo"),
-                                ["COL_88"] = item.GetInt("GoodsID"),
+                                ["COL_88"] = TryGetInt(item, "GoodsID"),
                                 ["COL_89"] = item.GetString("GoodsCode"), //Select GoodsCode From Goods Where ID=GoodsID
                                 ["COL_3"] = item.GetString("GoodsName"), //Select GoodsName From Goods Where ID=GoodsID
                                 ["COL_90"] = item.GetString("Model"),
                                 ["COL_4"] = item.GetString("Unit"),
-                                ["COL_55"] = item.GetDecimal("Qty"),
-                                ["COL_9"] = item.GetDecimal("Qty"),
-                                //["COL_112"] = item.GetDateTime(""),
-                                //["COL_110"] = item.GetDateTime(""),
+                                ["COL_55"] = TryGetDecimal(item, "Qty"), 
+                                ["COL_9"] = TryGetDecimal(item, "Qty"), 
+                                //["COL_112"] = TryGetDateTime(item, ""),
+                                //["COL_110"] = TryGetDateTime(item, ""),
                                 ["COL_10"] = item.GetString("Des"),
                                 ["COL_195"] = 101,
                                 ["COL_32"] = "未开始",
                                 ["COL_196"] = DateTime.Now,
                                 ["BIZ_SID"] = 2,
-                                ["COL_224"] = item.GetInt("ID"),
+                                ["COL_224"] = TryGetInt(item, "ID"),
                                 ["COL_225"] = DateTime.Now,
                                 ["COL_11"] = item.GetString("BillNo"),
-                                ["COL_226"] = item.GetInt("DepotID"),
+                                ["COL_226"] = TryGetInt(item, "DepotID"),
                                 ["COL_14"] = item.GetString("DepotCode"), //Select DepotCode From Depot Where TreeID=DepotID
                                 ["COL_15"] = item.GetString("DepotName"),  //Select DepotName From Depot Where TreeID=DepotID
                                 ["ROW_DATE_CREATE"] = DateTime.Now
@@ -685,13 +685,14 @@ namespace App.InfoGrid2.GBZZZD.Task
 
                             if (ut101 != null)
                             {
-                                lmut104["COL_12"] = ut101.GetInt("ROW_IDENTITY_ID");
-                                lmut104["COL_180"] = ut101.GetInt("COL_92");
+                                lmut104["COL_12"] = TryGetInt(ut101, "ROW_IDENTITY_ID");
+                                lmut104["COL_180"] = TryGetInt(ut101, "COL_92");
                                 lmut104["COL_108"] = ut101.GetString("COL_32");
                                 lmut104["COL_109"] = ut101.GetString("COL_33");
-                                lmut104["COL_107"] = ut101.GetInt("COL_31");
-                                lmut104["COL_110"] = ut101.GetDateTime("COL_59");
-                                lmut104["BIZ_SID"] = ut101.GetInt("BIZ_SID");
+                                lmut104["COL_107"] = TryGetInt(ut101, "COL_31");
+                                lmut104["COL_110"] = TryGetDateTime(ut101, "COL_59");
+                                lmut104["BIZ_SID"] = TryGetInt(ut101, "BIZ_SID");
+                                lmut104["COL_103"] = TryGetDateTime(ut101, "COL_59");
                             }
 
                             orderItemList.Add(lmut104);
@@ -700,36 +701,37 @@ namespace App.InfoGrid2.GBZZZD.Task
                         {
                             //更新
                             //ut104.SetTakeChange(true);
-                            ut104["COL_180"] = item.GetInt("CustomerID");
-                            //ut104["COL_181"] = item.GetDateTime("");
+                            ut104["COL_180"] = TryGetInt(item, "CustomerID");
+                            //ut104["COL_181"] = TryGetDateTime(item, "");
                             //ut104["COL_109"] = item.GetString("");
                             ut104["COL_16"] = item.GetString("SourceBillNo");
-                            ut104["COL_88"] = item.GetInt("GoodsID");
+                            ut104["COL_88"] = TryGetInt(item, "GoodsID");
                             //ut104["COL_89"] = item.GetString("GoodsCode"); //Select GoodsCode From Goods Where ID=GoodsID
                             //ut104["COL_3"] = item.GetString("GoodsName"); //Select GoodsName From Goods Where ID=GoodsID
                             ut104["COL_90"] = item.GetString("Model");
                             ut104["COL_4"] = item.GetString("Unit");
-                            ut104["COL_55"] = item.GetDecimal("Qty");
-                            ut104["COL_9"] = item.GetDecimal("Qty");
-                            //ut104["COL_112"] = item.GetDateTime("");
-                            //ut104["COL_110"] = item.GetDateTime("");
+                            ut104["COL_55"] = TryGetDecimal(item, "Qty");
+                            ut104["COL_9"] = TryGetDecimal(item, "Qty");
+                            //ut104["COL_112"] = TryGetDateTime(item, "");
+                            //ut104["COL_110"] = TryGetDateTime(item, "");
                             ut104["COL_10"] = item.GetString("Des");
-                            ut104["COL_224"] = item.GetInt("ID");
+                            ut104["COL_224"] = TryGetInt(item, "ID");
                             ut104["COL_11"] = item.GetString("BillNo");
-                            ut104["COL_226"] = item.GetInt("DepotID");
+                            ut104["COL_226"] = TryGetInt(item, "DepotID");
                             ut104["COL_14"] = item.GetString("DepotCode"); //Select DepotCode From Depot Where TreeID=DepotID
                             ut104["COL_15"] = item.GetString("DepotName");  //Select DepotName From Depot Where TreeID=DepotID
                             ut104["ROW_DATE_UPDATE"] = DateTime.Now;
 
                             if (ut101 != null)
                             {
-                                ut104["COL_12"] = ut101.GetInt("ROW_IDENTITY_ID");
-                                ut104["COL_180"] = ut101.GetInt("COL_92");
+                                ut104["COL_12"] = TryGetInt(ut101, "ROW_IDENTITY_ID");
+                                ut104["COL_180"] = TryGetInt(ut101, "COL_92");
                                 ut104["COL_108"] = ut101.GetString("COL_32");
                                 ut104["COL_109"] = ut101.GetString("COL_33");
-                                ut104["COL_107"] = ut101.GetInt("COL_31");
-                                ut104["COL_110"] = ut101.GetDateTime("COL_59");
-                                ut104["BIZ_SID"] = ut101.GetInt("BIZ_SID");
+                                ut104["COL_107"] = TryGetInt(ut101, "COL_31");
+                                ut104["COL_110"] = TryGetDateTime(ut101, "COL_59");
+                                ut104["BIZ_SID"] = TryGetInt(ut101, "BIZ_SID");
+                                ut104["COL_103"] = TryGetDateTime(ut101, "COL_59");
                             }
 
                             uList.Add(ut104);
@@ -822,6 +824,83 @@ namespace App.InfoGrid2.GBZZZD.Task
             return model;
         }
 
+
+        /// <summary>
+        /// 尝试获取整形类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static int TryGetInt(SModel sm, string field)
+        {
+            string str = sm.GetString(field);
+
+            int v = 0;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return 0;
+            }
+
+            if (!int.TryParse(str, out v))
+            {
+                return 0;
+            }
+
+            return v;
+        }
+
+
+        /// <summary>
+        /// 尝试获取数值类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static decimal TryGetDecimal(SModel sm, string field)
+        {
+            string str = sm.GetString(field);
+
+            decimal res = 0;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return 0;
+            }
+
+            if (!decimal.TryParse(str, out res))
+            {
+                return 0;
+            }
+
+            return res;
+        }
+
+
+        /// <summary>
+        /// 尝试获取日期时间类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static DateTime TryGetDateTime(SModel sm, string field)
+        {
+            string str = sm.GetString(field);
+
+            DateTime res = DateTime.Now;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return DateTime.Now;
+            }
+
+            if (!DateTime.TryParse(str, out res))
+            {
+                return DateTime.Now;
+            }
+
+            return res;
+        }
 
 
     }

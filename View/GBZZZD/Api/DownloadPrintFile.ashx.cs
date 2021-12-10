@@ -25,17 +25,44 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             int fileId = WebUtil.QueryInt("fileId");
 
-            string filePathStr = WebUtil.QueryTrim("filePath");
+            string filePath = WebUtil.QueryTrim("filePath");
 
-            if (!string.IsNullOrWhiteSpace(filePathStr))
+            if (fileId == 0 && string.IsNullOrWhiteSpace(filePath))
             {
-                filePathStr = System.Web.HttpContext.Current.Server.MapPath(filePathStr);
+                context.Response.Write(HttpResult.Error("请传入文件Id").ToJson());
+            }
+            else
+            {
+                if (fileId != 0)
+                {
+                    LModel printFile = ApiHelper.GetPrintFileInfo(fileId);
 
-                System.IO.FileInfo file = new System.IO.FileInfo(filePathStr);
+                    filePath = printFile.Get<string>("COL_10");
 
-                byte[] fileData = File.ReadAllBytes(filePathStr);
+                    //string filePath = @"D:\图片\桌面.jpg";
+                }
 
-                string fileName = Path.GetFileName(filePathStr);
+                filePath = System.Web.HttpContext.Current.Server.MapPath(filePath);
+
+                if (!File.Exists(filePath))
+                {
+                    context.Response.Write(HttpResult.Error("找不到文件").ToJson());
+
+                    return;
+                }
+
+                System.IO.FileInfo file = new System.IO.FileInfo(filePath);
+
+                //byte[] fileData = File.ReadAllBytes(filePath);
+
+                //string fileName = Path.GetFileName(filePath);
+
+                //context.Response.ContentType = "application/octet-stream";
+                //context.Response.AddHeader("Content-Disposition", fileName);
+
+                //context.Response.BinaryWrite(fileData);
+
+                //context.Response.End();
 
                 context.Response.Clear();
                 context.Response.Charset = "UTF-8";
@@ -51,41 +78,6 @@ namespace App.InfoGrid2.GBZZZD.Api
                 context.Response.WriteFile(file.FullName);
                 // 停止页面的执行
                 context.Response.End();
-            }
-            else
-            {
-                if (fileId == 0)
-                {
-                    context.Response.Write(HttpResult.Error("请传入文件Id").ToJson());
-                }
-                else
-                {
-                    LModel printFile = ApiHelper.GetPrintFileInfo(fileId);
-
-                    string filePath = printFile.Get<string>("COL_10");
-
-                    //string filePath = @"D:\图片\桌面.jpg";
-
-                    filePath = System.Web.HttpContext.Current.Server.MapPath(filePath);
-
-                    string fileName = Path.GetFileName(filePath);
-
-                    if (!File.Exists(filePath))
-                    {
-                        context.Response.Write(HttpResult.Error("找不到文件").ToJson());
-
-                        return;
-                    }
-
-                    byte[] fileData = File.ReadAllBytes(filePath);
-
-                    context.Response.ContentType = "application/octet-stream";
-                    context.Response.AddHeader("Content-Disposition", fileName);
-
-                    context.Response.BinaryWrite(fileData);
-
-                    context.Response.End();
-                }
             }
         }
 

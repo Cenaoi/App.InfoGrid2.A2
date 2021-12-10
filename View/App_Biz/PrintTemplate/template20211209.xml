@@ -26,7 +26,7 @@
     <rect points='{"x1": 200,"y1": 18,"width": 91,"height":11}' label="NO." field="COL_1" align='right'></rect>
     <rect points='{"x1": 200,"y1": 27,"width": 91,"height":11}' label="计划交货日期：" field="COL_59" align='right'></rect>
     <rect points='{"x1": 200,"y1": 36,"width": 91,"height":11}' label="制单日期：" field="COL_4" align='right'></rect>
-    <rect points='{"x1": 8,"y1": 43,"width": 260,"height":11}' label="客户(订货单号)：" field="COL_33+'/'+COL_6"></rect>
+    <rect points='{"x1": 8,"y1": 43,"width": 100,"height":11}' label="客户(订货单号)：" field="COL_33+'/'+COL_6"></rect>
 
     <table points='{"x1": 5,"y1": 54,"height": 111,"width": 285}' rowCount='9' rowHeight='11' dataSource='UT_104_LIST' border='true' showSummary='true' summaryText='合计'>
       <cols points='{"x1": 0,"y1": 0,"height": 91,"width": 285}'>

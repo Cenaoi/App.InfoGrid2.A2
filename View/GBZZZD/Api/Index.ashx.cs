@@ -180,6 +180,7 @@ namespace App.InfoGrid2.GBZZZD.Api
                 string customerText = searchData.GetString("customerText");
                 string taskOrderNo = searchData.GetString("taskOrderNo");
                 string orderNo = searchData.GetString("orderNo");
+                string remark = searchData.GetString("remark");
 
                 if (!string.IsNullOrWhiteSpace(finishTimeRangeStr))
                 {
@@ -212,9 +213,18 @@ namespace App.InfoGrid2.GBZZZD.Api
                 {
                     filter.And("COL_1", $"%{taskOrderNo}%", HWQ.Entity.Filter.Logic.Like);
                 }
+
+                if (!string.IsNullOrWhiteSpace(remark))
+                {
+                    filter.And("COL_6", $"%{remark}%", HWQ.Entity.Filter.Logic.Like);
+                }
             }
 
-            if (bizSid == "101" || bizSid == "102")
+            if (bizSid == "101")
+            {
+                filter.TSqlOrderBy = "COL_77 desc, ROW_IDENTITY_ID asc";
+            }
+            else if (bizSid == "102")
             {
                 filter.TSqlOrderBy = "COL_77 asc, ROW_IDENTITY_ID asc";
             }
@@ -727,7 +737,7 @@ namespace App.InfoGrid2.GBZZZD.Api
                     recordList.Add(record);
                 }
 
-                int r = ApiHelper.GetRandomNumber(1, 9999);
+                int r = EC5.Utility.RandomUtil.Next(1, 9999);
 
                 string fileName = $"ORDER_{r:0000}_{orderId}.emf";
 
@@ -762,7 +772,7 @@ namespace App.InfoGrid2.GBZZZD.Api
             { 
                 int findex = 1;
 
-                int r = ApiHelper.GetRandomNumber(1, 9999);
+                int r = EC5.Utility.RandomUtil.Next(1, 9999);
 
                 string batchCode = $"{DateTime.Now:yyyyMMddHHmmss}{r:0000}";
 
@@ -837,7 +847,7 @@ namespace App.InfoGrid2.GBZZZD.Api
         /// 打印任务单完成标签
         /// </summary>
         /// <returns></returns>
-        public HttpResult PrintTaskOrderFinishTag(HttpContext context)
+        public HttpResult PrintTaskOrderFinishTagV0(HttpContext context)
         {
             string userId = ApiHelper.GetUserId(context);
 
@@ -931,7 +941,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
                 for (int i = 0; i < count; i++)
                 {
-                    int r = ApiHelper.GetRandomNumber(1, 9999);
+                    int r = EC5.Utility.RandomUtil.Next(1, 9999);
 
                     string fileName = $"ORDER_FINISH_{r:0000}_{id}.emf";
 
@@ -958,7 +968,227 @@ namespace App.InfoGrid2.GBZZZD.Api
             {
                 int findex = 1;
 
-                int r = ApiHelper.GetRandomNumber(1, 9999);
+                int r = EC5.Utility.RandomUtil.Next(1, 9999);
+
+                string batchCode = $"{DateTime.Now:yyyyMMddHHmmss}{r:0000}";
+
+                List<string> fileCodes = new List<string>();
+
+                decipher.BeginTransaction();
+
+                foreach (var item in printFileList)
+                {
+                    string fileCode = $"{batchCode}_{findex++:000}";
+
+                    LModel lm = new LModel("UT_475")
+                    {
+                        ["COL_1"] = fileCode,
+                        ["COL_2"] = DateTime.Now,
+                        ["COL_3"] = order.Get<string>("COL_27"),
+                        ["COL_4"] = orderId,
+                        ["COL_5"] = 2,
+                        ["COL_6"] = 1,
+                        ["COL_7"] = user.GetString("COL_32"),
+                        ["COL_8"] = user.GetString("COL_2"),
+                        ["COL_9"] = item.GetString("name"),
+                        ["COL_10"] = item.GetString("path"),
+                        ["COL_11"] = printerInfo.GetString("printerNo"),
+                        ["COL_12"] = DateTime.Now,
+                        //["COL_13"] = "",
+                        //["COL_14"] = "",
+                        ["COL_15"] = 0
+                    };
+
+                    decipher.InsertModel(lm);
+
+                    fileCodes.Add(fileCode);
+                }
+
+                order.SetTakeChange(true);
+                order["ROW_DATE_UPDATE"] = DateTime.Now;
+                order["COL_72"] = 103;
+                order["COL_73"] = "已完成";
+
+                decipher.UpdateModel(order, true);
+
+                decipher.TransactionCommit();
+
+                EC5.IG2.BizBase.DbCascadeRule.Update(order);
+
+                SModel result = new SModel()
+                {
+                    ["pid"] = 0,
+                    ["print_batch_code"] = batchCode,
+                    ["print_count"] = printFileList.Count,
+                    ["printer_info"] = printerInfo.ToJson(),
+                    ["print_file_codes"] = string.Join(",", fileCodes)
+                };
+
+                return HttpResult.Success(result);
+            }
+            catch (Exception ex)
+            {
+                log.Error("新增任务完成标签打印文件记录失败", ex);
+
+                decipher.TransactionRollback();
+
+                return HttpResult.Error("新增任务完成标签打印文件记录失败");
+            }
+        }
+
+
+        /// <summary>
+        /// 打印任务单完成标签
+        /// </summary>
+        /// <returns></returns>
+        public HttpResult PrintTaskOrderFinishTag(HttpContext context)
+        {
+            string userId = ApiHelper.GetUserId(context);
+
+            int orderId = WebUtil.FormInt("orderId");
+
+            string strPrinterInfo = WebUtil.FormTrim("printerInfo");
+
+            SModel user = ApiHelper.GetUserInfo(userId);
+
+            if (user == null)
+            {
+                return HttpResult.Error("找不到这个用户");
+            }
+
+            if (orderId == 0)
+            {
+                return HttpResult.Error("请传入任务ID");
+            }
+
+            if (string.IsNullOrWhiteSpace(strPrinterInfo))
+            {
+                return HttpResult.Error("请传入打印机信息");
+            }
+
+            SModel printerInfo = null;
+
+            try
+            {
+                printerInfo = SModel.ParseJson(strPrinterInfo);
+            }
+            catch (Exception ex)
+            {
+                log.Error("打印机信息数据格式错误. json:" + strPrinterInfo, ex);
+
+                return HttpResult.Error("打印机信息数据格式错误");
+            }
+
+            LModel order = ApiHelper.GetTaskOrder(userId, orderId);
+
+            if (order == null)
+            {
+                return HttpResult.Error("找不到这个任务单");
+            }
+
+            SModelList list = ApiHelper.GetTaskOrderItems(orderId);
+
+            DbDecipher decipher = ModelAction.OpenDecipher();
+
+            SModelList printFileList = new SModelList();
+
+            Dictionary<string, string> jsFieldList = new Dictionary<string, string>();
+            jsFieldList.Add("COL_169", "COL_168");
+            jsFieldList.Add("COL_200", "COL_199");
+            jsFieldList.Add("COL_207", "COL_204");
+            jsFieldList.Add("COL_208", "COL_205");
+            jsFieldList.Add("COL_209", "COL_206");
+
+            foreach (var item in list)
+            {
+                int id = item.GetInt("ROW_IDENTITY_ID");
+
+                SModel printData = item;
+
+                printData["OrderNo"] = order.Get<string>("COL_27");
+                printData["BatchNo"] = $"{DateTime.Now:yyyyMMdd}";
+
+                string col10 = item.GetString("COL_10");
+                if (!string.IsNullOrWhiteSpace(col10))
+                {
+                    string[] col10vals = col10.Split(',');
+
+                    if (col10vals.Length == 2)
+                    {
+                        printData["OrderNo"] = col10vals[0];
+                        printData["COL_89"] = col10vals[1];
+                    }
+                }
+
+                string printTemplateName = printerInfo.GetString("template");
+
+                int jsTotalCount = 0;
+                int fileCount = 0;
+
+                foreach (var jskv in jsFieldList)
+                {
+                    int jsCount = item.Get<int>(jskv.Key);
+
+                    if (jsCount == 0)
+                    {
+                        continue;
+                    }
+
+                    jsTotalCount += jsCount;
+
+                    if (printTemplateName == "散件标签(PCS)")
+                    {
+                        printData["COL_4"] = "PCS";
+                        printData["COL_9"] = item.Get<int>(jskv.Value);
+                    }
+                    else
+                    {
+                        printData["COL_4"] = "套";
+                        printData["COL_9"] = item.Get<int>(jskv.Value) * 0.01;
+                    }
+
+                    int rv = EC5.Utility.RandomUtil.Next(1, 9999);
+
+                    for (int i = 0; i < jsCount; i++)
+                    {
+                        string fileName = $"ORDER_FINISH_{rv:0000}_{i}_{id}.emf";
+
+                        string savePath = "/_Temporary/PrintFile/" + fileName;
+
+                        bool success = PrintHelper.Instance.DrawTaskFinishTagPrintFile(savePath, printData);
+
+                        if (!success)
+                        {
+                            return HttpResult.Error("生成打印文件失败");
+                        }
+
+                        SModel printFile = new SModel()
+                        {
+                            ["path"] = savePath,
+                            ["name"] = fileName
+                        };
+
+                        printFileList.Add(printFile);
+
+                        fileCount += 1;
+                    }
+                }
+
+                log.Debug($"需要打印文件数量：{jsTotalCount}");
+
+                log.Debug($"打印文件数量：{fileCount}");
+
+                if (jsTotalCount != fileCount)
+                {
+                    log.Debug("打印数量不对");
+                }
+            }
+
+            try
+            {
+                int findex = 1;
+
+                int r = EC5.Utility.RandomUtil.Next(1, 9999);
 
                 string batchCode = $"{DateTime.Now:yyyyMMddHHmmss}{r:0000}";
 
@@ -1338,13 +1568,11 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             int id = taskItem.Get<int>("ROW_IDENTITY_ID");
 
-            int count = taskItem.Get<int>("COL_169") + taskItem.Get<int>("COL_200") +
-                taskItem.Get<int>("COL_207") + taskItem.Get<int>("COL_208") + taskItem.Get<int>("COL_209");
-
             printData["OrderNo"] = order.Get<string>("COL_27");
             printData["BatchNo"] = $"{DateTime.Now:yyyyMMdd}";
 
             string col10 = taskItem.Get<string>("COL_10");
+
             if (!string.IsNullOrWhiteSpace(col10))
             {
                 string[] col10vals = col10.Split(',');
@@ -1355,45 +1583,121 @@ namespace App.InfoGrid2.GBZZZD.Api
                     printData["COL_89"] = col10vals[1];
                 }
             }
+            else
+            {
+                printData["COL_89"] = "";
+            }
 
-            printData["COL_9"] = taskItem.Get<int>("COL_168") + taskItem.Get<int>("COL_199") +
-            taskItem.Get<int>("COL_204") + taskItem.Get<int>("COL_205") + taskItem.Get<int>("COL_206");
+            //int count = taskItem.Get<int>("COL_169") + taskItem.Get<int>("COL_200") +
+            //    taskItem.Get<int>("COL_207") + taskItem.Get<int>("COL_208") + taskItem.Get<int>("COL_209");
+
+            //printData["COL_9"] = taskItem.Get<int>("COL_168") + taskItem.Get<int>("COL_199") +
+            //taskItem.Get<int>("COL_204") + taskItem.Get<int>("COL_205") + taskItem.Get<int>("COL_206");
 
             string printTemplateName = printerInfo.GetString("template");
 
-            if (printTemplateName == "散件标签(PCS)")
+            //for (int i = 0; i < count; i++)
+            //{
+            //    int r = ApiHelper.GetRandomNumber(1, 9999);
+
+            //    string fileName = $"ORDER_FINISH_{r:0000}_{id}.emf";
+
+            //    string savePath = "/_Temporary/PrintFile/" + fileName;
+
+            //    bool success = PrintHelper.Instance.DrawTaskFinishTagPrintFile(savePath, printData);
+
+            //    if (!success)
+            //    {
+            //        return HttpResult.Error("生成打印文件失败");
+            //    }
+
+            //    SModel printFile = new SModel()
+            //    {
+            //        ["path"] = savePath,
+            //        ["name"] = fileName
+            //    };
+
+            //    printFileList.Add(printFile);
+            //}
+            Dictionary<string, string> jsFieldList = new Dictionary<string, string>();
+            jsFieldList.Add("COL_169", "COL_168");
+            jsFieldList.Add("COL_200", "COL_199");
+            jsFieldList.Add("COL_207", "COL_204");
+            jsFieldList.Add("COL_208", "COL_205");
+            jsFieldList.Add("COL_209", "COL_206");
+
+            int jsTotalCount = 0;
+            int fileCount = 0;
+
+            List<string> allFileNameList = new List<string>();
+
+            foreach (var item in jsFieldList)
             {
-                printData["COL_4"] = "PCS";
-                printData["COL_9"] = printData.GetInt("COL_9") * 100;
-            }
-            else
-            {
-                printData["COL_4"] = "套";
-            }
+                int jsCount = taskItem.Get<int>(item.Key);
 
-            for (int i = 0; i < count; i++)
-            {
-                int r = ApiHelper.GetRandomNumber(1, 9999);
-
-                string fileName = $"ORDER_FINISH_{r:0000}_{id}.emf";
-
-                string savePath = "/_Temporary/PrintFile/" + fileName;
-
-                bool success = PrintHelper.Instance.DrawTaskFinishTagPrintFile(savePath, printData);
-
-                if (!success)
+                if (jsCount == 0)
                 {
-                    return HttpResult.Error("生成打印文件失败");
+                    continue;
                 }
 
-                SModel printFile = new SModel()
-                {
-                    ["path"] = savePath,
-                    ["name"] = fileName
-                };
+                jsTotalCount += jsCount;
 
-                printFileList.Add(printFile);
+                if (printTemplateName == "散件标签(PCS)")
+                {
+                    printData["COL_4"] = "PCS";
+                    printData["COL_9"] = taskItem.Get<int>(item.Value);
+                }
+                else
+                {
+                    printData["COL_4"] = "套";
+                    printData["COL_9"] = taskItem.Get<int>(item.Value) * 0.01;
+                }
+
+                int rv = EC5.Utility.RandomUtil.Next(1, 9999);
+
+                for (int i = 0; i < jsCount; i++)
+                {
+                    string fileName = $"ORDER_FINISH_{rv:0000}_{i}_{id}.emf";
+
+                    if (allFileNameList.Contains(fileName))
+                    {
+                        rv = EC5.Utility.RandomUtil.Next(1, 9999);
+
+                        fileName = $"ORDER_FINISH_{rv:0000}_{i}_{id}.emf";
+                    }
+
+                    allFileNameList.Add(fileName);
+
+                    string savePath = "/_Temporary/PrintFile/" + fileName;
+
+                    bool success = PrintHelper.Instance.DrawTaskFinishTagPrintFile(savePath, printData);
+
+                    if (!success)
+                    {
+                        return HttpResult.Error("生成打印文件失败");
+                    }
+
+                    SModel printFile = new SModel()
+                    {
+                        ["path"] = savePath,
+                        ["name"] = fileName
+                    };
+
+                    printFileList.Add(printFile);
+
+                    fileCount += 1;
+                }
             }
+
+            log.Debug($"需要打印文件数量：{jsTotalCount}");
+
+            log.Debug($"打印文件数量：{fileCount}");
+
+            if (jsTotalCount != fileCount)
+            {
+                log.Debug("打印数量不对");
+            }
+
 
             taskItem.SetTakeChange(true);
             taskItem["COL_238"] = DateTime.Now;
@@ -1406,7 +1710,7 @@ namespace App.InfoGrid2.GBZZZD.Api
             {
                 int findex = 1;
 
-                int r = ApiHelper.GetRandomNumber(1, 9999);
+                int r = EC5.Utility.RandomUtil.Next(1, 9999);
 
                 string batchCode = $"{DateTime.Now:yyyyMMddHHmmss}{r:0000}";
 
