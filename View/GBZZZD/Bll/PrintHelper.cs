@@ -75,7 +75,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <param name="path"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        private bool DrawPrintFile(string templatePath, string path, SModel data) 
+        private bool DrawPrintFile(string templatePath, string path, SModel data)
         {
             XmlElement root = null;
 
@@ -166,7 +166,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <summary>
         /// 默认字体
         /// </summary>
-        Font m_DefaultFont = new Font(new FontFamily("黑体"), 12);
+        Font m_DefaultFont = new Font(new FontFamily("黑体"), 10);
 
         /// <summary>
         /// 绘制打印内容
@@ -174,7 +174,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <param name="bodyNode"></param>
         /// <param name="nodeInfo"></param>
         /// <param name="data"></param>
-        private void DrawEmf(XmlNode bodyNode, SModel nodeInfo, SModel data) 
+        private void DrawEmf(XmlNode bodyNode, SModel nodeInfo, SModel data)
         {
             SModelList childNodeList = new SModelList();
 
@@ -215,7 +215,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// </summary>
         /// <param name="node"></param>
         /// <param name="item"></param>
-        private void GetAttrInfo(XmlNode node, SModel item) 
+        private void GetAttrInfo(XmlNode node, SModel item)
         {
             foreach (var node_attr in node.Attributes)
             {
@@ -247,7 +247,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        private StringFormat GetTextAlign(SModel item) 
+        private StringFormat GetTextAlign(SModel item)
         {
             string align = item.GetString("align");
 
@@ -256,7 +256,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
             format.LineAlignment = StringAlignment.Center;
             //format.FormatFlags = StringFormatFlags.DirectionVertical;
             if (align == "center")
-            {            
+            {
                 format.Alignment = StringAlignment.Center;
             }
             else if (align == "right")
@@ -266,13 +266,13 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
             return format;
         }
-      
+
         /// <summary>
         /// 获取字体
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        private Font GetFont(SModel item) 
+        private Font GetFont(SModel item)
         {
             Font font = m_DefaultFont;
 
@@ -293,7 +293,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <param name="left"></param>
         /// <param name="top"></param>
         /// <param name="width"></param>
-        private void DrawHorizontalLine(Pen pen, int left, int top, int width) 
+        private void DrawHorizontalLine(Pen pen, int left, int top, int width)
         {
             this._Graphics.DrawLine(pen, left, top, left + width, top);
         }
@@ -309,12 +309,12 @@ namespace App.InfoGrid2.GBZZZD.Bll
         {
             this._Graphics.DrawLine(pen, left, top, left, top + height);
         }
-        
+
         /// <summary>
         /// 画边框
         /// </summary>
         /// <param name="item"></param>
-        private void DrawBorder(SModel item) 
+        private void DrawBorder(SModel item)
         {
             DrawTopBorder(Pens.Black, item);
             DrawBottomBorder(Pens.Black, item);
@@ -360,7 +360,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// </summary>
         /// <param name="pen"></param>
         /// <param name="item"></param>
-        private void DrawLeftBorder(Pen pen, SModel item) 
+        private void DrawLeftBorder(Pen pen, SModel item)
         {
             int x1 = item.GetInt("x1");
             int y1 = item.GetInt("y1");
@@ -377,7 +377,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// </summary>
         /// <param name="pen"></param>
         /// <param name="item"></param>
-        private void DrawBottomBorder(Pen pen, SModel item) 
+        private void DrawBottomBorder(Pen pen, SModel item)
         {
             int x1 = item.GetInt("x1");
             int y1 = item.GetInt("y1");
@@ -408,7 +408,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
             bool hasBorder = item.GetBool("border");
 
-            if (hasBorder) 
+            if (hasBorder)
             {
                 DrawBorder(item);
             }
@@ -425,20 +425,20 @@ namespace App.InfoGrid2.GBZZZD.Bll
                 {
                     value = formData.GetString(name);
                 }
-                else 
+                else
                 {
                     string[] fields = name.Split('+');
 
                     foreach (var f in fields)
                     {
-                        if (formData.HasField(f)) 
+                        if (formData.HasField(f))
                         {
                             value += formData.GetString(f);
                         }
                         else
                         {
                             value += f.Replace("'", "");
-                        }    
+                        }
                     }
                 }
 
@@ -452,7 +452,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
             Brush brush = SystemBrushes.ControlText;
 
-            if (hasBorder) 
+            if (hasBorder)
             {
                 //item["x1"] += 3;
                 //item["y1"] += 2;
@@ -562,7 +562,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
                                 if (!string.IsNullOrWhiteSpace(dataType) && dataType == "decimal")
                                 {
-                                    decimal typeVal = row.GetDecimal(field);
+                                    decimal typeVal = TryGetDecimal(row, field);
 
                                     value = $"{typeVal:g0}";
                                 }
@@ -582,7 +582,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
                         StringFormat format = GetTextAlign(col);
 
-                        Rectangle cellRect = new Rectangle(colRect.X1, (rowCount - 1) * rowHeight + colsRect.Y1 + 1, colRect.Rectangle.Width, colRect.Rectangle.Height);
+                        Rectangle cellRect = new Rectangle(colRect.X1, (rowCount - 1) * rowHeight + colsRect.Y1, colRect.Rectangle.Width, colRect.Rectangle.Height);
 
                         string stext = table.GetString("summaryText");
 
@@ -595,13 +595,15 @@ namespace App.InfoGrid2.GBZZZD.Bll
                                 continue;
                             }
 
-                            int total = 0;
+                            decimal total = 0;
 
                             string field = colItem.GetString("field");
 
                             foreach (var dataItem in dataList)
                             {
-                                int fv = dataItem.GetInt(field);
+                                //int fv = dataItem.GetInt(field);
+
+                                decimal fv = TryGetDecimal(dataItem, field);
 
                                 total += fv;
                             }
@@ -612,11 +614,37 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
                             Rectangle cellItemRect = new Rectangle(colItemRect.X1, (rowCount - 1) * rowHeight + colItemRect.Y1, colItemRect.Rectangle.Width, colItemRect.Rectangle.Height);
 
-                            this._Graphics.DrawString($"{total}", rectFont, Brushes.Black, cellItemRect, itemFormat);
+                            this._Graphics.DrawString($"{total:g0}", rectFont, Brushes.Black, cellItemRect, itemFormat);
                         }
                     }
                 }
             }
+        }
+
+
+        /// <summary>
+        /// 尝试获取数值类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static decimal TryGetDecimal(SModel sm, string field)
+        {
+            string str = sm.GetString(field);
+
+            decimal res = 0;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return 0;
+            }
+
+            if (!decimal.TryParse(str, out res))
+            {
+                return 0;
+            }
+
+            return res;
         }
 
 
@@ -635,6 +663,8 @@ namespace App.InfoGrid2.GBZZZD.Bll
             //字体缩放的
             //g.ScaleTransform(0.85f, 0.85f);
         }
+
+
 
     }
 

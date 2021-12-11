@@ -1265,19 +1265,30 @@ namespace App.InfoGrid2.GBZZZD.Api
         {
             string tpGuid = WebUtil.FormTrim("tpGuid");
 
-            string printerNames = WebUtil.FormTrim("printerNames");
+            string printerInfos = WebUtil.FormTrim("printerInfos");
 
             if (string.IsNullOrWhiteSpace(tpGuid))
             {
                 return HttpResult.Error("请传入tpGuid");
             }
 
-            if (string.IsNullOrWhiteSpace(printerNames))
+            if (string.IsNullOrWhiteSpace(printerInfos))
             {
-                return HttpResult.Error("请传入printerNames");
+                return HttpResult.Error("请传入printerInfos");
             }
 
-            string[] printerNameArr = printerNames.Split(',');
+            SModelList printerInfoList = new SModelList();
+
+            try
+            {
+                printerInfoList = SModelList.ParseJson(printerInfos);
+            }
+            catch (Exception ex)
+            {
+                log.Error($"传入的打印机信息数据格式错误，json：{printerInfos}", ex);
+
+                return HttpResult.Error("传入的打印机信息数据格式错误");
+            }
 
             LightModelFilter filter = new LightModelFilter("UT_494");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
@@ -1289,14 +1300,16 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             //List<LModel> list = new List<LModel>();
 
-            List<LModel> res = new List<LModel>();
+            SModelList res = new SModelList();
 
             int i = 1;
 
             try
             {
-                foreach (var pName in printerNameArr)
+                foreach (var pi in printerInfoList)
                 {
+                    string pName = pi.GetString("name");
+
                     LModel printer = null;
 
                     if (list.Count > 0)
@@ -1315,7 +1328,8 @@ namespace App.InfoGrid2.GBZZZD.Api
                             ["COL_18"] = tpGuid,
                             ["COL_17"] = pName,
                             ["COL_16"] = pCode,
-                            ["COL_21"] = "",
+                            ["COL_20"] = pi.GetString("template"),
+                            ["COL_21"] = pi.GetString("type")
                         };
 
                         try
@@ -1329,10 +1343,28 @@ namespace App.InfoGrid2.GBZZZD.Api
                             log.Error("插入打印机信息出错", ex);
                         }
                     }
+                    else
+                    {
+                        printer.SetTakeChange(true);
+                        printer["ROW_DATE_UPDATE"] = DateTime.Now;
+                        printer["COL_20"] = pi.GetString("template");
+                        printer["COL_21"] = pi.GetString("type");
+
+                        decipher.UpdateModel(printer, true);
+                    }
 
                     printer["BIZ_PRINT_TEMPLATE_ID"] = printer["ROW_IDENTITY_ID"];
 
-                    res.Add(printer);
+                    SModel pinfo = new SModel()
+                    {
+                        ["COL_18"] = printer.Get<string>("COL_18"),
+                        ["COL_17"] = printer.Get<string>("COL_17"),
+                        ["COL_16"] = printer.Get<string>("COL_16"),
+                        ["COL_20"] = printer.Get<string>("COL_20"),
+                        ["COL_21"] = printer.Get<string>("COL_21")
+                    };
+
+                    res.Add(pinfo);
                 }
             }
             catch (Exception ex)
