@@ -1,8 +1,11 @@
 ﻿//using HWQ.Entity.Caching;
+using HWQ.Entity;
 using HWQ.Entity.Decipher.LightDecipher;
 using HWQ.Entity.LightModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -293,7 +296,8 @@ namespace EC5.IG2.Plugin.PluginBll
                     importDataInfo.OrderInfo["TabMan"] = fileInfo.GetString("COL_63");
 
                     //新增订单
-                    decipher.InsertSModel(importDataInfo.OrderInfo, out int orderId);
+                    //decipher.InsertSModel(importDataInfo.OrderInfo, out int orderId);
+                    InsertSModel(decipher, "SaleOrder", importDataInfo.OrderInfo, out int orderId);
 
                     res.OrderId = orderId;
 
@@ -306,9 +310,10 @@ namespace EC5.IG2.Plugin.PluginBll
                         try
                         {
                             //新增订单明细
-                            int count = decipher.InsertSModel(item);
+                            //int count = decipher.InsertSModel(item);
+                            InsertSModel(decipher, "SaleOrderList", item, out int orderItemId);
 
-                            finishCount += count;
+                            finishCount += 1;
                         }
                         catch (Exception ex)
                         {
@@ -332,6 +337,93 @@ namespace EC5.IG2.Plugin.PluginBll
             }
 
             return res;
+        }
+
+
+        /// <summary>
+        /// 插入SModel数据
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="tableName"></param>
+        /// <param name="model"></param>
+        /// <param name="identity"></param>
+        public static int InsertSModel(DbDecipher decipher, string tableName, SModel model, out int identity)
+        {
+            identity = 0;
+
+            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder2 = new StringBuilder();
+            StringBuilder stringBuilder3 = new StringBuilder();
+
+            string cmdText = "";
+
+            SqlConnection conn = (SqlConnection)decipher.Connection;
+
+            try
+            {
+                using (SqlCommand sqlCommand = new SqlCommand(cmdText, conn))
+                {
+                    int num = 0;
+                    foreach (KeyValuePair<string, object> keyValuePair in model)
+                    {
+                        string text = "@" + keyValuePair.Key;
+                        object obj = keyValuePair.Value;
+                        bool flag2 = DBNull.Value == keyValuePair.Value;
+
+                        if (flag2)
+                        {
+                            obj = null;
+                        }
+
+                        bool flag3 = obj != null;
+
+                        if (flag3)
+                        {
+                            Type type = keyValuePair.Value.GetType();
+                            SqlDbType dbType = ModelConvert.ToSqlDbType(type);
+                            SqlParameter sqlParameter = new SqlParameter(text, dbType);
+                            sqlParameter.Value = obj;
+                            sqlCommand.Parameters.Add(sqlParameter);
+                        }
+                        else
+                        {
+                            SqlParameter value = new SqlParameter(text, DBNull.Value);
+                            sqlCommand.Parameters.Add(value);
+                        }
+
+                        bool flag4 = num++ > 0;
+
+                        if (flag4)
+                        {
+                            stringBuilder.Append(",");
+                            stringBuilder2.Append(",");
+                        }
+
+                        stringBuilder.Append(keyValuePair.Key);
+                        stringBuilder2.Append(text);
+                    }
+
+                    stringBuilder3.AppendFormat("INSERT INTO {0} ", tableName);
+                    stringBuilder3.Append("(");
+                    stringBuilder3.Append(stringBuilder.ToString());
+                    stringBuilder3.Append(") VALUES (");
+                    stringBuilder3.Append(stringBuilder2.ToString());
+                    stringBuilder3.Append(")");
+                    stringBuilder3.Append(";SELECT Scope_identity() AS 'Identity'");
+
+                    sqlCommand.CommandText = stringBuilder3.ToString();
+
+                    object ret = sqlCommand.ExecuteScalar();
+
+                    identity = Convert.ToInt32(ret);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("插入数据出错", ex);
+            }
+
+            return 1;
         }
 
 
