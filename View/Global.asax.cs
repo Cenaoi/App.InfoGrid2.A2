@@ -101,9 +101,9 @@ namespace App.InfoGrid2
 
                 WebTaskManager.Add(syncSaleOrderTask);
 
-                GBZZZD.Task.SyncSaleOrderItemsTask syncSaleOrderItemTask = new GBZZZD.Task.SyncSaleOrderItemsTask();
+                //GBZZZD.Task.SyncSaleOrderItemsTask syncSaleOrderItemTask = new GBZZZD.Task.SyncSaleOrderItemsTask();
 
-                WebTaskManager.Add(syncSaleOrderItemTask);
+                //WebTaskManager.Add(syncSaleOrderItemTask);
 
                 GBZZZD.Task.SyncOrderTask syncOrderTask = new GBZZZD.Task.SyncOrderTask();
 

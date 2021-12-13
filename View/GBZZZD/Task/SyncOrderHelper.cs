@@ -66,6 +66,15 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             SModelList uList = new SModelList();
 
+            LModelList orderItemList = new LModelList();
+
+            SModelList orderItemUpList = new SModelList();
+
+            int orderCount = 0;
+            int orderUpCount = 0;
+            int orderItemCount = 0;
+            int orderItemUpCount = 0;
+
             try
             {
                 using (DbDecipher decipher = DbDecipherManager.GetDecipherOpen())
@@ -73,8 +82,16 @@ namespace App.InfoGrid2.GBZZZD.Task
                     foreach (var item in list)
                     {
                         int pkid = TryGetInt(item, "ID");
+                        string billNo = item.GetString("BillNo");
 
-                        SModel ut90 = ExistsSaleOrder(decipher, pkid);
+                        if (string.IsNullOrWhiteSpace(billNo))
+                        {
+                            continue;
+                        }
+
+                        SModel ut90 = ExistsSaleOrder(decipher, billNo);
+
+                        int orderId = 0;
 
                         if (ut90 == null)
                         {
@@ -84,7 +101,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["BIZ_SID"] = TryGetInt(item, "State"),
                                 //["BIZ_CHECK_DATE"] = TryGetDateTime(item, ""),
                                 //["BIZ_CHECK_USER_TEXT"] = item.GetString(""),
-                                ["COL_1"] = item.GetString("BillNo"),
+                                ["COL_1"] = billNo,
                                 ["COL_84"] = item.GetString("TabMan"),
                                 //["COL_12"] = item.GetString(""),//Max(C.Code)
                                 ["COL_4"] = item.GetString("LinkMan"),
@@ -107,7 +124,13 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
-                            orderList.Add(lmut90);
+                            decipher.InsertModel(lmut90);
+
+                            orderId = lmut90.Get<int>("ROW_IDENTITY_ID");
+
+                            orderCount += 1;
+
+                            //orderList.Add(lmut90);
                         }
                         else
                         {
@@ -137,27 +160,81 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut90["COL_111"] = item.GetString("TransTypeName");
                             ut90["COL_112"] = item.GetString("FeeTypeName");
                             ut90["ROW_DATE_UPDATE"] = DateTime.Now;
+                            ut90["ROW_SID"] = 0;
 
-                            uList.Add(ut90);
+                            //uList.Add(ut90);
+
+                            decipher.UpdateSModel(ut90, "UT_090", $" ROW_IDENTITY_ID = {ut90["ROW_IDENTITY_ID"]} ");
+
+                            orderId = ut90.GetInt("ROW_IDENTITY_ID");
+
+                            orderUpCount += 1;
                         }
-                    }
 
-                    if (orderList.Count > 0)
-                    {
-                        decipher.InsertModels(orderList);
-
-                        log.Debug($"新增销售订单（ut90），数量：{orderList.Count}");
-                    }
-
-                    if (uList.Count > 0)
-                    {
-                        foreach (var item in uList)
+                        //根据单号获取最新的明细数据
+                        SModelList itemList = GetSaleOrderItemList(billNo);
+                        //根据单号删除原来明细数据
+                        DeleteSaleOrderItem(decipher, billNo);
+                        //转换新增的明细数据
+                        foreach (var itemData in itemList)
                         {
-                            decipher.UpdateSModel(item, "UT_090", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
-                        }
+                            int itemId = TryGetInt(itemData, "ID");
 
-                        log.Debug($"更新销售订单（ut90），数量：{uList.Count}");
+                            SModel utsm91 = ExistsSaleOrderItem(decipher, itemId);
+
+                            if (utsm91 == null)
+                            {
+                                LModel ut91 = TransitionUT_091(itemData);
+                                ut91["COL_12"] = orderId;
+                                //orderItemList.Add(ut91);
+
+                                decipher.InsertModel(ut91);
+
+                                orderItemCount += 1;
+                            }
+                            else
+                            {
+                                TransitionUT_091(itemData, utsm91);
+                                utsm91["ROW_SID"] = 0;
+                                utsm91["ROW_DATE_UPDATE"] = DateTime.Now;
+                                utsm91["COL_12"] = orderId;
+                                //orderItemUpList.Add(utsm91);
+
+                                decipher.UpdateSModel(utsm91, "UT_091", $" ROW_IDENTITY_ID = {utsm91["ROW_IDENTITY_ID"]} ");
+
+                                orderItemUpCount += 1;
+                            }           
+                        }
                     }
+
+                    log.Debug($"新增销售订单（ut90），数量：{orderCount}");
+                    log.Debug($"更新销售订单（ut90），数量：{orderUpCount}");
+                    log.Debug($"新增销售订单明细（ut91），数量：{orderItemCount}");
+                    log.Debug($"更新销售订单明细（ut91），数量：{orderItemUpCount}");
+
+                    //if (orderList.Count > 0)
+                    //{
+                    //    decipher.InsertModels(orderList);
+
+                    //    log.Debug($"新增销售订单（ut90），数量：{orderList.Count}");
+                    //}
+
+                    //if (uList.Count > 0)
+                    //{
+                    //    foreach (var item in uList)
+                    //    {
+                    //        decipher.UpdateSModel(item, "UT_090", $" ROW_IDENTITY_ID = {item["ROW_IDENTITY_ID"]} ");
+                    //    }
+
+                    //    log.Debug($"更新销售订单（ut90），数量：{uList.Count}");
+                    //}
+
+                    //if (orderItemList.Count > 0)
+                    //{
+                    //    decipher.InsertModels(orderItemList);
+
+                    //    log.Debug($"新增销售订单明细（ut91），数量：{orderItemList.Count}");
+                    //}
 
                 }
             }
@@ -190,6 +267,60 @@ namespace App.InfoGrid2.GBZZZD.Task
         }
 
 
+        /// <summary>
+        /// 销售订单是否存在
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="billNo"></param>
+        /// <returns></returns>
+        public static SModel ExistsSaleOrder(DbDecipher decipher, string billNo)
+        {
+            LightModelFilter filter = new LightModelFilter("UT_090");
+            //filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("COL_1", billNo);
+
+            SModel model = decipher.GetSModel(filter);
+
+            return model;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="decipher"></param>
+        public static void DeleteSaleOrder(DbDecipher decipher)
+        {
+            SModel upValue = new SModel()
+            {
+                ["ROW_SID"] = -3,
+                ["ROW_DATE_DELETE"] = DateTime.Now
+            };
+
+            decipher.UpdateSModel(upValue, "UT_090", "");
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="billNo"></param>
+        public static void DeleteSaleOrderItem(DbDecipher decipher, string billNo)
+        {
+            //LightModelFilter filterDel = new LightModelFilter("UT_091");
+            //filterDel.And("COL_19", billNo);
+
+            SModel upValue = new SModel()
+            {
+                ["ROW_SID"] = -3,
+                ["ROW_DATE_DELETE"] = DateTime.Now
+            };
+
+            decipher.UpdateSModel(upValue, "UT_091", $" COL_19 = '{billNo}' ");
+        }
+
+
         #endregion
 
 
@@ -208,6 +339,38 @@ namespace App.InfoGrid2.GBZZZD.Task
                 $"(Select Code From Depot Where TreeID = DepotID) as DepotCode, " +
                 $"(Select Name From Depot Where TreeID = DepotID) as DepotName  " +
                 $" from SaleOrderList  ";
+
+            SModelList list = new SModelList();
+
+            using (DbDecipher decipher = new SqlServer2005Decipher(SDbConn))
+            {
+                decipher.Open();
+
+                list = decipher.GetSModelList(sql);
+            }
+
+            return list;
+        }
+
+
+        /// <summary>
+        /// 根据单号获取销售订单明细源数据
+        /// </summary>
+        /// <param name="billNo"></param>
+        /// <returns></returns>
+        public static SModelList GetSaleOrderItemList(string billNo)
+        {
+            string sql = $"select *,  " +
+            $"(Select Code From Goods Where ID = GoodsID) as GoodsCode, " +
+            $"(Select Name From Goods Where ID = GoodsID) as GoodsName, " +
+            $"(Select Code From Depot Where TreeID = DepotID) as DepotCode, " +
+            $"(Select Name From Depot Where TreeID = DepotID) as DepotName  " +
+            $" from SaleOrderList  ";
+
+            if (!string.IsNullOrWhiteSpace(billNo))
+            {
+                sql += $" where BillNo = '{billNo}' ";
+            }
 
             SModelList list = new SModelList();
 
@@ -254,68 +417,13 @@ namespace App.InfoGrid2.GBZZZD.Task
                         if (ut91 == null)
                         {
                             //新增
-                            LModel lmut91 = new LModel("UT_091")
-                            {
-                                ["BIZ_SID"] = 2,
-                                ["COL_19"] = item.GetString("SourceBillNo"),
-                                ["COL_2"] = item.GetString("GoodsCode"), //Select GoodsCode From Goods Where ID=GoodsID
-                                ["COL_3"] = item.GetString("GoodsName"), //Select GoodsName From Goods Where ID=GoodsID
-                                //["COL_104"] = TryGetInt(item, "OrderNo"),
-                                ["COL_105"] = TryGetDecimal(item, "WeightRate"),
-                                //["COL_115"] = item.GetDecimal(""),
-                                ["COL_25"] = item.GetString("Des"),
-                                ["COL_4"] = item.GetString("Model"),
-                                ["COL_47"] = item.GetString("PackUnit1"),
-                                ["COL_48"] = TryGetDecimal(item, "PackQty1"),
-                                ["COL_49"] = TryGetDecimal(item, "Piece1"),
-                                ["COL_5"] = item.GetString("Unit"),
-                                ["COL_6"] = TryGetDecimal(item, "Price"),
-                                ["COL_82"] = TryGetDecimal(item, "OutPrice"),
-                                ["COL_7"] = TryGetDecimal(item, "Qty1"),
-                                ["COL_8"] = TryGetDecimal(item, "Total"),
-                                ["COL_11"] = item.GetString("Des"),
-                                //[""] = item.GetString("DepotID"),
-                                ["COL_22"] = item.GetString("DepotCode"), //Select DepotCode From Depot Where TreeID=DepotID
-                                ["COL_23"] = item.GetString("DepotName"), //Select DepotName From Depot Where TreeID=DepotID
-                                ["COL_29"] = TryGetInt(item, "GoodsID"),
-                                ["COL_131"] = TryGetInt(item, "GoodsID"),
-                                ["COL_129"] = TryGetInt(item, "ID"),
-                                ["COL_138"] = TryGetDecimal(item, "CostPrice"),
-                                ["ROW_DATE_CREATE"] = DateTime.Now
-                            };
-
-                            orderList.Add(lmut91);
+                            LModel lmut91 = TransitionUT_091(item);
+                            //???
+                            //orderList.Add(lmut91);
                         }
                         else
                         {
-                            //更新
-                            //ut91.SetTakeChange(true);
-                            ////ut91["BIZ_SID"] = 2;
-                            ut91["COL_19"] = item.GetString("SourceBillNo");
-                            ut91["COL_2"] = item.GetString("GoodsCode"); //Select GoodsCode From Goods Where ID=GoodsID
-                            ut91["COL_3"] = item.GetString("GoodsName"); //Select GoodsName From Goods Where ID=GoodsID
-                            //ut91["COL_104"] = TryGetInt(item, "OrderNo");
-                            ut91["COL_105"] = TryGetDecimal(item, "WeightRate");
-                            //ut91["COL_115"] = item.GetDecimal("");
-                            ut91["COL_25"] = item.GetString("Des");
-                            ut91["COL_4"] = item.GetString("Model");
-                            ut91["COL_47"] = item.GetString("PackUnit1");
-                            ut91["COL_48"] = TryGetDecimal(item, "PackQty1");
-                             ut91["COL_49"] = TryGetDecimal(item, "Piece1");
-                            ut91["COL_5"] = item.GetString("Unit");
-                            ut91["COL_6"] = TryGetDecimal(item, "Price");
-                            ut91["COL_82"] = TryGetDecimal(item, "OutPrice");
-                            ut91["COL_7"] = TryGetDecimal(item, "Qty1");
-                            ut91["COL_8"] = TryGetDecimal(item, "Total");
-                            ut91["COL_11"] = item.GetString("Des");
-                            //ut91[""] = item.GetString("DepotID");
-                            ut91["COL_22"] = item.GetString("DepotCode"); //Select DepotCode From Depot Where TreeID=DepotID
-                            ut91["COL_23"] = item.GetString("DepotName"); //Select DepotName From Depot Where TreeID=DepotID
-                            ut91["COL_29"] = TryGetInt(item, "GoodsID");
-                            ut91["COL_131"] = TryGetInt(item, "GoodsID");
-                            ut91["COL_129"] = TryGetInt(item, "ID");
-                            ut91["COL_138"] = TryGetDecimal(item, "CostPrice");
-                            ut91["ROW_DATE_UPDATE"] = DateTime.Now;
+                            TransitionUT_091(item, ut91);
 
                             uList.Add(ut91);
                         }
@@ -360,12 +468,92 @@ namespace App.InfoGrid2.GBZZZD.Task
         public static SModel ExistsSaleOrderItem(DbDecipher decipher, int id)
         {
             LightModelFilter filter = new LightModelFilter("UT_091");
-            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            //filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_129", id);
 
             SModel model = decipher.GetSModel(filter);
 
             return model;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static LModel TransitionUT_091(SModel item)
+        {
+            //新增
+            LModel lmut91 = new LModel("UT_091")
+            {
+                ["BIZ_SID"] = 2,
+                ["COL_19"] = item.GetString("BillNo"), //BillNo
+                ["COL_2"] = item.GetString("GoodsCode"), //Select GoodsCode From Goods Where ID=GoodsID
+                ["COL_3"] = item.GetString("GoodsName"), //Select GoodsName From Goods Where ID=GoodsID
+                //["COL_104"] = TryGetInt(item, "OrderNo"),
+                ["COL_105"] = TryGetDecimal(item, "WeightRate"),
+                //["COL_115"] = item.GetDecimal(""),
+                ["COL_25"] = item.GetString("Des"),
+                ["COL_4"] = item.GetString("Model"),
+                ["COL_47"] = item.GetString("PackUnit1"),
+                ["COL_48"] = TryGetDecimal(item, "PackQty1"),
+                ["COL_49"] = TryGetDecimal(item, "Piece1"),
+                ["COL_5"] = item.GetString("Unit"),
+                ["COL_6"] = TryGetDecimal(item, "Price"),
+                ["COL_82"] = TryGetDecimal(item, "OutPrice"),
+                ["COL_7"] = TryGetDecimal(item, "Qty1"),
+                ["COL_8"] = TryGetDecimal(item, "Total"),
+                ["COL_11"] = item.GetString("Des"),
+                //[""] = item.GetString("DepotID"),
+                ["COL_22"] = item.GetString("DepotCode"), //Select DepotCode From Depot Where TreeID=DepotID
+                ["COL_23"] = item.GetString("DepotName"), //Select DepotName From Depot Where TreeID=DepotID
+                ["COL_29"] = TryGetInt(item, "GoodsID"),
+                ["COL_131"] = TryGetInt(item, "GoodsID"),
+                ["COL_129"] = TryGetInt(item, "ID"),
+                ["COL_138"] = TryGetDecimal(item, "CostPrice"),
+                ["ROW_DATE_CREATE"] = DateTime.Now
+            };
+
+            return lmut91;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="ut91"></param>
+        public static void TransitionUT_091(SModel item,SModel ut91)
+        {
+            //更新
+            //ut91.SetTakeChange(true);
+            ////ut91["BIZ_SID"] = 2;
+            ut91["COL_19"] = item.GetString("BillNo");
+            ut91["COL_2"] = item.GetString("GoodsCode"); //Select GoodsCode From Goods Where ID=GoodsID
+            ut91["COL_3"] = item.GetString("GoodsName"); //Select GoodsName From Goods Where ID=GoodsID
+             //ut91["COL_104"] = TryGetInt(item, "OrderNo");
+            ut91["COL_105"] = TryGetDecimal(item, "WeightRate");
+            //ut91["COL_115"] = item.GetDecimal("");
+            ut91["COL_25"] = item.GetString("Des");
+            ut91["COL_4"] = item.GetString("Model");
+            ut91["COL_47"] = item.GetString("PackUnit1");
+            ut91["COL_48"] = TryGetDecimal(item, "PackQty1");
+            ut91["COL_49"] = TryGetDecimal(item, "Piece1");
+            ut91["COL_5"] = item.GetString("Unit");
+            ut91["COL_6"] = TryGetDecimal(item, "Price");
+            ut91["COL_82"] = TryGetDecimal(item, "OutPrice");
+            ut91["COL_7"] = TryGetDecimal(item, "Qty1");
+            ut91["COL_8"] = TryGetDecimal(item, "Total");
+            ut91["COL_11"] = item.GetString("Des");
+            //ut91[""] = item.GetString("DepotID");
+            ut91["COL_22"] = item.GetString("DepotCode"); //Select DepotCode From Depot Where TreeID=DepotID
+            ut91["COL_23"] = item.GetString("DepotName"); //Select DepotName From Depot Where TreeID=DepotID
+            ut91["COL_29"] = TryGetInt(item, "GoodsID");
+            ut91["COL_131"] = TryGetInt(item, "GoodsID");
+            ut91["COL_129"] = TryGetInt(item, "ID");
+            ut91["COL_138"] = TryGetDecimal(item, "CostPrice");
+            ut91["ROW_DATE_UPDATE"] = DateTime.Now;
         }
 
 
