@@ -124,6 +124,10 @@ namespace App.InfoGrid2.GBZZZD.Bll
                     //g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                     //g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     this._Graphics.PageUnit = GraphicsUnit.Millimeter;
+                    this._Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    this._Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    this._Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                    this._Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                     //字体缩放的
                     //g.ScaleTransform(1, 1);
                     //画边框
@@ -166,7 +170,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <summary>
         /// 默认字体
         /// </summary>
-        Font m_DefaultFont = new Font(new FontFamily("黑体"), 10);
+        Font m_DefaultFont = new Font(new FontFamily("黑体"), 11, FontStyle.Bold);
 
         /// <summary>
         /// 绘制打印内容
@@ -280,7 +284,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
             if (font_size > 0)
             {
-                font = new Font(new FontFamily("黑体"), font_size);
+                font = new Font(new FontFamily("黑体"), font_size, FontStyle.Bold);
             }
 
             return font;
@@ -295,7 +299,9 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <param name="width"></param>
         private void DrawHorizontalLine(Pen pen, int left, int top, int width)
         {
-            this._Graphics.DrawLine(pen, left, top, left + width, top);
+            Pen dpen = new Pen(Color.FromArgb(0, 0, 0), 0.5f);
+
+            this._Graphics.DrawLine(dpen, left, top, left + width, top);
         }
 
         /// <summary>
@@ -307,7 +313,9 @@ namespace App.InfoGrid2.GBZZZD.Bll
         /// <param name="height"></param>
         private void DrawVerticalLine(Pen pen, int left, int top, int height)
         {
-            this._Graphics.DrawLine(pen, left, top, left, top + height);
+            Pen dpen = new Pen(Color.FromArgb(0, 0, 0), 0.5f);
+
+            this._Graphics.DrawLine(dpen, left, top, left, top + height);
         }
 
         /// <summary>

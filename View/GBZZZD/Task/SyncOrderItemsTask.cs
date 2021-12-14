@@ -21,16 +21,27 @@ namespace App.InfoGrid2.GBZZZD.Task
 
         }
 
+        public bool IsExec { get; set; } = false;
+
         public override void Exec()
         {
+            if (IsExec)
+            {
+                return;
+            }
+
+            IsExec = true;
+
             try
             {
                 SyncOrderHelper.SyncPickingOrderItem();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                log.Error($"SyncOrderItemsTask出错", ex);
             }
+
+            IsExec = false;
         }
 
 
