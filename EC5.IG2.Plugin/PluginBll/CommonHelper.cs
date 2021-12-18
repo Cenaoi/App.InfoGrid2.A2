@@ -24,6 +24,44 @@ namespace EC5.IG2.Plugin.PluginBll
             return res;
         }
 
+        public static List<string> GetFieldNameByString(string str)
+        {
+            List<string> list = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return list;
+            }
+
+            while (true)
+            {
+                int sindex = str.IndexOf("{");
+
+                if (sindex == -1)
+                {
+                    break;
+                }
+
+                int eindex = str.IndexOf("}");
+
+                if (eindex == -1)
+                {
+                    break;
+                }
+
+                sindex++;
+
+                string fitem = str.Substring(sindex, eindex - sindex);
+
+                list.Add(fitem);
+
+                eindex++;
+
+                str = str.Substring(eindex);
+            }
+
+            return list;
+        }
 
 
     }

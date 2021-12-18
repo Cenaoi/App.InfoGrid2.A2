@@ -581,6 +581,56 @@ namespace EC5.IG2.Plugin.PluginBll
                 importDataInfo.OrderItems = detailList;
 
                 #endregion
+
+                #region 处理需要合并值的字段
+
+                bool hasMergeValueField = ruleInfo.OrderItemFieldList.Where(p => p.HasMergeStringValue == true).Count() > 0;
+
+                if (hasMergeValueField)
+                {
+                    foreach (var item in importDataInfo.OrderItems)
+                    {
+                        foreach (var field in ruleInfo.OrderItemFieldList)
+                        {
+                            if (!field.HasMergeStringValue)
+                            {
+                                continue;
+                            }
+
+                            if (field.DbTypeString != "varchar")
+                            {
+                                continue;
+                            }
+
+                            string merValue = field.MergeStringValue;
+
+                            List<string> mFieldList = CommonHelper.GetFieldNameByString(merValue);
+
+                            foreach (var mf in mFieldList)
+                            {
+                                string fn = "{" + mf + "}";
+
+                                if (item.HasField(mf))
+                                {
+                                    merValue = merValue.Replace(fn, TryGetString(item, mf));
+                                }
+                                else if (mf == "value")
+                                {
+                                    merValue = merValue.Replace(fn, TryGetString(item, field.FieldName));
+                                }
+                                else
+                                {
+                                    merValue = merValue.Replace(fn, "");
+                                }
+                            }
+
+                            item[field.FieldName] = merValue;
+                        }
+
+                    }
+                }
+
+                #endregion
             }
             catch (Exception ex)
             {
@@ -1243,6 +1293,29 @@ namespace EC5.IG2.Plugin.PluginBll
             string fullNewAddress = string.Join("-", addressNewInfoList.ToArray());
 
             return fullNewAddress;
+        }
+
+
+        /// <summary>
+        /// 尝试字段值转换字符串值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static string TryGetString(SModel sm, string field)
+        {
+            string str = "";
+
+            try
+            {
+                str = sm.GetString(field);
+            }
+            catch (Exception ex)
+            {
+                log.Error($"字段值转换字符串出错，json：{sm.ToJson()}, 字段：{field}", ex);
+            }
+
+            return str;
         }
 
 

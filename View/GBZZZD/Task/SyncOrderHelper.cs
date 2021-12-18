@@ -48,7 +48,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
 
         /// <summary>
-        /// 同步销售订单表
+        /// 同步销售订单表（SaleOrder=UT_090，SaleOrderList=UT_091）
         /// </summary>
         /// <returns></returns>
         public static bool SyncSaleOrder()
@@ -820,6 +820,9 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             Dictionary<string, SModel> orderList = new Dictionary<string, SModel>();
 
+            int newCount = 0;
+            int upCount = 0;
+
             try
             {
                 using (DbDecipher decipher = DbDecipherManager.GetDecipherOpen())
@@ -883,7 +886,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 lmut104["COL_103"] = TryGetDateTime(ut101, "COL_59");
                             }
 
-                            orderItemList.Add(lmut104);
+                            //orderItemList.Add(lmut104);
+
+                            decipher.InsertModel(lmut104);
+
+                            newCount++;
                         }
                         else
                         {
@@ -922,9 +929,16 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ut104["COL_103"] = TryGetDateTime(ut101, "COL_59");
                             }
 
-                            uList.Add(ut104);
+                            //uList.Add(ut104);
+
+                            decipher.UpdateSModel(ut104, "UT_104", $" ROW_IDENTITY_ID = {ut104["ROW_IDENTITY_ID"]} ");
+
+                            upCount++;
                         }
                     }
+
+                    log.Debug($"新增拣货订单明细（ut104），数量：{newCount}");
+                    log.Debug($"更新拣货订单明细（ut104），数量：{upCount}");
 
                     if (orderItemList.Count > 0)
                     {

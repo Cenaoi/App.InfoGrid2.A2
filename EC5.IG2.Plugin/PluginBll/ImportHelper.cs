@@ -1000,6 +1000,38 @@ namespace EC5.IG2.Plugin.PluginBll
             }
         }
 
+        /// <summary>
+        /// 合并字符串语句
+        /// </summary>
+        public string MergeStringValue
+        {
+            get
+            {
+                if (this.FieldInfo == null)
+                {
+                    return "";
+                }
+
+                if (!this.FieldInfo.HasField("COL_47"))
+                {
+                    return "";
+                }
+
+                return this.FieldInfo.GetString("COL_47");
+            }
+        }
+
+        /// <summary>
+        /// 是否有合并字符串
+        /// </summary>
+        public bool HasMergeStringValue
+        {
+            get
+            {
+                return !string.IsNullOrWhiteSpace(MergeStringValue);
+            }
+        }
+
 
     }
 
