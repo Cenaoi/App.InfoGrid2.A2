@@ -1028,7 +1028,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
 
         /// <summary>
-        /// 尝试获取整形类型的值
+        /// 尝试获取整型类型的值
         /// </summary>
         /// <param name="sm"></param>
         /// <param name="field"></param>
