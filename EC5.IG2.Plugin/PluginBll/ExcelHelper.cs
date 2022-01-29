@@ -219,6 +219,11 @@ namespace EC5.IG2.Plugin.PluginBll
         {
             CellAddress cellAddress = new CellAddress(address);
 
+            if (!cellAddress.IsParsed)
+            {
+                return "";
+            }
+
             if (cellAddress.HasMoreCell)
             {
                 return GetMoreCellValue(sheet, cellAddress);
@@ -344,21 +349,9 @@ namespace EC5.IG2.Plugin.PluginBll
 
                 log.Debug($"导入文件路径信息：{filePathInfoStr}");
 
-                string[] filePathInfo = filePathInfoStr.Split(new char[2] { '|', '|' });
+                List<string> filePathInfoList = CommonHelper.SplitString(filePathInfoStr, "||");
 
-                List<string> filePathInfoList = new List<string>();
-
-                foreach (var item in filePathInfo)
-                {
-                    if (string.IsNullOrWhiteSpace(item))
-                    {
-                        continue;
-                    }
-
-                    filePathInfoList.Add(item);
-                }
-
-                filePathInfo = filePathInfoList.ToArray();
+                string[] filePathInfo = filePathInfoList.ToArray();
 
                 if (filePathInfo.Length < 3)
                 {
@@ -497,64 +490,17 @@ namespace EC5.IG2.Plugin.PluginBll
 
                     string ocrContent = GetOcrFieldValue(sheet, rowIndex, ocrFieldList);
 
-                    //客户产品名称对比信息
-                    SModel goodsMapInfo = BizHelper.GetGoodsMapInfo(importDataInfo.CustomerId, ocrContent);
+                    //获取老系统产品信息
+                    bool getRes = GetGbGoodsInfo(importDataInfo, ocrContent);
 
-                    #region 获取老系统产品信息
-
-                    if (goodsMapInfo != null)
+                    if (!getRes)
                     {
-                        if (importDataInfo.AppendTableData.ContainsKey(BizHelper.CustomerGoodsMapTableName))
-                        {
-                            importDataInfo.AppendTableData[BizHelper.CustomerGoodsMapTableName] = goodsMapInfo;
-                        }
-                        else
-                        {
-                            importDataInfo.AppendTableData.Add(BizHelper.CustomerGoodsMapTableName, goodsMapInfo);
-                        }
-
-                        int goodsId = goodsMapInfo.GetInt("COL_146");
-
-                        //老系统产品信息
-                        SModel goodsInfo = BizHelper.GetGoods(goodsId);
-
-                        if (importDataInfo.AppendTableData.ContainsKey(BizHelper.GoodsTableName))
-                        {
-                            importDataInfo.AppendTableData[BizHelper.GoodsTableName] = goodsInfo;
-                        }
-                        else
-                        {
-                            importDataInfo.AppendTableData.Add(BizHelper.GoodsTableName, goodsInfo);
-                        }
+                        continue;
                     }
-                    else
-                    {
-                        SModel emptyGoodsInfo = BizHelper.GetEmptyGoodsInfo();
-
-                        SModel emptyGoodsMapInfo = BizHelper.GetEmptyGoodsMapInfo();
-
-                        if (importDataInfo.AppendTableData.ContainsKey(BizHelper.CustomerGoodsMapTableName))
-                        {
-                            importDataInfo.AppendTableData[BizHelper.CustomerGoodsMapTableName] = emptyGoodsMapInfo;
-                        }
-                        else
-                        {
-                            importDataInfo.AppendTableData.Add(BizHelper.CustomerGoodsMapTableName, emptyGoodsMapInfo);
-                        }
-
-                        //if (importDataInfo.AppendTableData.ContainsKey("Goods"))
-                        //{
-                        //    importDataInfo.AppendTableData["Goods"] = emptyGoodsInfo;
-                        //}
-                        //else
-                        //{
-                        //    importDataInfo.AppendTableData.Add("Goods", emptyGoodsInfo);
-                        //}
-                    }
-
-                    #endregion
 
                     string serialField = "";
+
+                    bool isSkip = false;
 
                     foreach (var item in ruleInfo.OrderItemFieldList)
                     {
@@ -565,7 +511,29 @@ namespace EC5.IG2.Plugin.PluginBll
                             continue;
                         }
 
+                        //字段值
+                        object fieldValue = GetItemFieldValue(sheet, rowIndex, importDataInfo, item);
+
+                        //item.FieldInfo["COL_32"] = "1,2,3";
+                        if (item.HasSkipStringValue)
+                        {
+                            string fieldValueStr = Convert.ToString(fieldValue);
+
+                            //处理设置指定数据跳过行
+                            isSkip = HandleSkipRow(item, fieldValueStr);
+
+                            if (isSkip)
+                            {
+                                break;
+                            }
+                        }
+
                         detail[item.FieldName] = GetItemFieldValue(sheet, rowIndex, importDataInfo, item);
+                    }
+
+                    if (isSkip)
+                    {
+                        continue;
                     }
 
                     if (!string.IsNullOrWhiteSpace(serialField))
@@ -584,51 +552,7 @@ namespace EC5.IG2.Plugin.PluginBll
 
                 #region 处理需要合并值的字段
 
-                bool hasMergeValueField = ruleInfo.OrderItemFieldList.Where(p => p.HasMergeStringValue == true).Count() > 0;
-
-                if (hasMergeValueField)
-                {
-                    foreach (var item in importDataInfo.OrderItems)
-                    {
-                        foreach (var field in ruleInfo.OrderItemFieldList)
-                        {
-                            if (!field.HasMergeStringValue)
-                            {
-                                continue;
-                            }
-
-                            if (field.DbTypeString != "varchar")
-                            {
-                                continue;
-                            }
-
-                            string merValue = field.MergeStringValue;
-
-                            List<string> mFieldList = CommonHelper.GetFieldNameByString(merValue);
-
-                            foreach (var mf in mFieldList)
-                            {
-                                string fn = "{" + mf + "}";
-
-                                if (item.HasField(mf))
-                                {
-                                    merValue = merValue.Replace(fn, TryGetString(item, mf));
-                                }
-                                else if (mf == "value")
-                                {
-                                    merValue = merValue.Replace(fn, TryGetString(item, field.FieldName));
-                                }
-                                else
-                                {
-                                    merValue = merValue.Replace(fn, "");
-                                }
-                            }
-
-                            item[field.FieldName] = merValue;
-                        }
-
-                    }
-                }
+                HandleFieldMergeValue(importDataInfo, ruleInfo);
 
                 #endregion
             }
@@ -659,7 +583,7 @@ namespace EC5.IG2.Plugin.PluginBll
             }
             else if (ruleField.RuleFieldId == 602)
             {
-                res = ruleField.FieldInfo["COL_10"];
+                res = GetDefaultValueByType(ruleField);
             }
             else if (ruleField.RuleFieldId == 501)
             {
@@ -760,7 +684,7 @@ namespace EC5.IG2.Plugin.PluginBll
         {
             object res = null;
 
-            string dataType = ruleField.FieldInfo.GetString("COL_3");
+            string dataType = ruleField.DbTypeString;
 
             if (string.IsNullOrWhiteSpace(dataType))
             {
@@ -771,11 +695,11 @@ namespace EC5.IG2.Plugin.PluginBll
             {
                 res = "";
             }
-            else if (dataType == "int" || dataType == "numeric" || dataType == "tinyint")
+            else if (dataType == "int" || dataType == "tinyint")
             {
                 res = 0;
             }
-            else if (dataType == "float")
+            else if (dataType == "float" || dataType == "numeric")
             {
                 res = (float)0;
             }
@@ -812,7 +736,7 @@ namespace EC5.IG2.Plugin.PluginBll
             }
             else if (ruleField.RuleFieldId == 602)
             {
-                res = ruleField.FieldInfo["COL_10"];
+                res = GetDefaultValueByType(ruleField);
             }
             else if (ruleField.RuleFieldId == 501)
             {
@@ -887,7 +811,7 @@ namespace EC5.IG2.Plugin.PluginBll
                 return null;
             }
 
-            string dataType = ruleField.FieldInfo.GetString("COL_3");
+            string dataType = ruleField.DbTypeString;
 
             string valueStr = Convert.ToString(value);
 
@@ -906,13 +830,13 @@ namespace EC5.IG2.Plugin.PluginBll
 
                 transitionFailure = false;
             }
-            else if (dataType == "int" || dataType == "numeric" || dataType == "tinyint")
+            else if (dataType == "int" || dataType == "tinyint")
             {
                 transitionFailure = !int.TryParse(valueStr, out int number);
 
                 res = number;
             }
-            else if (dataType == "float")
+            else if (dataType == "float" || dataType == "numeric")
             {
                 transitionFailure = !Double.TryParse(valueStr, out double df);
 
@@ -1319,6 +1243,544 @@ namespace EC5.IG2.Plugin.PluginBll
         }
 
 
+        /// <summary>
+        /// 尝试获取整型类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static int TryGetInt(SModel sm, string field)
+        {
+            string str = TryGetString(sm, field);
+
+            int v = 0;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return 0;
+            }
+
+            if (!int.TryParse(str, out v))
+            {
+                return 0;
+            }
+
+            return v;
+        }
+
+
+        /// <summary>
+        /// 处理需要合并值的字段
+        /// </summary>
+        /// <param name="importDataInfo"></param>
+        /// <param name="ruleInfo"></param>
+        public static void HandleFieldMergeValue(ImportDataInfo importDataInfo, ImportRuleInfo ruleInfo)
+        {
+            //foreach (var rl in ruleInfo.OrderItemFieldList)
+            //{
+            //    rl.FieldInfo["COL_47"] = "1A {value}, {(OrderNo)>0and(OrderNo)<5=测试1219or(OrderNo)<2=123}/{COL_18}{(OrderNo).contain(\"5\",\"456\")=666} + ";
+            //}
+
+            bool hasMergeValueField = ruleInfo.OrderItemFieldList.Where(p => p.HasMergeStringValue == true).Count() > 0;
+
+            if (!hasMergeValueField)
+            {
+                return;
+            }
+
+            foreach (var orderItem in importDataInfo.OrderItems)
+            {
+                //orderItem["OrderNo"] = 6;
+
+                foreach (var ruleField in ruleInfo.OrderItemFieldList)
+                {
+                    if (!ruleField.HasMergeStringValue)
+                    {
+                        continue;
+                    }
+
+                    if (ruleField.DbTypeString != "varchar")
+                    {
+                        continue;
+                    }
+
+                    string merValue = ruleField.MergeStringValue;
+
+                    List<string> mFieldList = CommonHelper.GetFieldNameByString(merValue);
+
+                    foreach (var mf in mFieldList)
+                    {
+                        string mfItem = mf;
+
+                        if (mf.StartsWith("(") && mf.Contains(")"))
+                        {
+                            string sps = "||";
+
+                            //if (mf.Contains("or"))
+                            //{
+                            //    sps = "or";
+                            //}
+
+                            List<string> calcList = CommonHelper.SplitString(mf, sps);
+
+                            //通过
+                            bool isPass = false;
+
+                            foreach (var calcText in calcList)
+                            {
+                                if (isPass)
+                                {
+                                    break;
+                                }
+
+                                string[] calcAllInfo = calcText.Split('=');
+
+                                if (calcAllInfo.Length < 2)
+                                {
+                                    continue;
+                                }
+
+                                //结果
+                                string calcRes = calcAllInfo[1];
+
+                                string calcSubFullText = calcAllInfo[0];
+
+                                string sps2 = "&&";
+
+                                //if (calcSubFullText.Contains("and"))
+                                //{
+                                //    sps2 = "and";
+                                //}
+
+                                List<string> calcSubList = CommonHelper.SplitString(calcSubFullText, sps2);
+
+                                //计算符合数量
+                                int accordCount = 0;
+
+                                foreach (var csItem in calcSubList)
+                                {
+                                    string[] calcFullText = csItem.Split(')');
+
+                                    if (calcFullText.Length < 2)
+                                    {
+                                        continue;
+                                    }
+
+                                    string fieldName = calcFullText[0].Substring(1);
+
+                                    string calcStr = calcFullText[1];
+
+                                    if (!orderItem.HasField(fieldName))
+                                    {
+                                        continue;
+                                    }
+
+                                    if (calcStr.StartsWith("."))
+                                    {
+                                        string fieldValueStr = TryGetString(orderItem, fieldName);
+
+                                        //函数
+                                        string fnStr = calcStr.Substring(1);
+
+                                        fnStr = fnStr.Replace(")", "").Replace("\"", "");
+
+                                        string[] fnInfoStr = fnStr.Split('(');
+
+                                        string[] fnParams = fnInfoStr[1].Split(',');
+
+                                        bool isItemPass = false;
+
+                                        //包含
+                                        if (fnStr.StartsWith("contain"))
+                                        {
+                                            foreach (var fp in fnParams)
+                                            {
+                                                if (isItemPass)
+                                                {
+                                                    break;
+                                                }
+
+                                                isItemPass = fieldValueStr.Contains(fp);
+                                            }
+                                        }
+                                        //等于
+                                        else if (fnStr.StartsWith("equal"))
+                                        {
+                                            foreach (var fp in fnParams)
+                                            {
+                                                if (isItemPass)
+                                                {
+                                                    break;
+                                                }
+
+                                                isItemPass = fieldValueStr == fp;
+                                            }
+                                        }
+
+                                        if (isItemPass)
+                                        {
+                                            accordCount++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //字段值
+                                        int fieldValue = TryGetInt(orderItem, fieldName);
+
+                                        //比较值
+                                        string cvStr = calcStr.Substring(1);
+
+                                        //转换比较值为int
+                                        int.TryParse(cvStr, out int cv);
+
+                                        if (calcStr.StartsWith(">") && !calcStr.StartsWith(">="))
+                                        {
+                                            if (fieldValue > cv)
+                                            {
+                                                accordCount++;
+                                            }
+                                        }
+                                        else if (calcStr.StartsWith("<") && !calcStr.StartsWith(">="))
+                                        {
+                                            if (fieldValue < cv)
+                                            {
+                                                accordCount++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                isPass = accordCount == calcSubList.Count;
+
+                                if (isPass)
+                                {
+                                    calcRes = GetFieldCalcRes(ruleField, orderItem, calcRes);
+
+                                    merValue = merValue.Replace("{" + mfItem + "}", calcRes);
+                                }
+                            }
+
+                            if (!isPass)
+                            {
+                                merValue = merValue.Replace("{" + mfItem + "}", "");
+                            }
+                        }
+
+                        if (orderItem.HasField(mfItem))
+                        {
+                            merValue = merValue.Replace("{" + mfItem + "}", TryGetString(orderItem, mfItem));
+                        }
+                        else if (mfItem == "value")
+                        {
+                            merValue = merValue.Replace("{" + mfItem + "}", TryGetString(orderItem, ruleField.FieldName));
+                        }
+                        else
+                        {
+                            merValue = merValue.Replace("{" + mfItem + "}", "");
+                        }
+                    }
+
+                    orderItem[ruleField.FieldName] = merValue;
+                }
+
+            }
+        }
+
+
+        /// <summary>
+        /// 处理设置指定数据跳过行（不要整行数据）的字段
+        /// </summary>
+        /// <param name="ruleField"></param>
+        /// <param name="fieldValueStr"></param>
+        /// <returns></returns>
+        public static bool HandleSkipRow(ImportRuleField ruleField, string fieldValueStr)
+        {
+            bool res = false;
+
+            string[] skipValueArr = ruleField.SkipStringValue.Split(',');
+
+            foreach (var sv in skipValueArr)
+            {
+                if (res)
+                {
+                    break;
+                }
+
+                res = fieldValueStr == sv;
+            }
+
+            return res;
+        }
+
+
+        /// <summary>
+        /// 获取老系统产品信息
+        /// </summary>
+        /// <param name="importDataInfo"></param>
+        /// <param name="ocrContent"></param>
+        public static bool GetGbGoodsInfo(ImportDataInfo importDataInfo, string ocrContent)
+        {
+            //客户产品名称对比信息
+            SModel goodsMapInfo = BizHelper.GetGoodsMapInfo(importDataInfo.CustomerId, ocrContent);
+
+            if (goodsMapInfo != null)
+            {
+                int cpMode = TryGetInt(goodsMapInfo, "COL_159");
+
+                //如果这个产品是需要跳过不导入
+                if (cpMode == 201)
+                {
+                    return false;
+                }
+
+                if (importDataInfo.AppendTableData.ContainsKey(BizHelper.CustomerGoodsMapTableName))
+                {
+                    importDataInfo.AppendTableData[BizHelper.CustomerGoodsMapTableName] = goodsMapInfo;
+                }
+                else
+                {
+                    importDataInfo.AppendTableData.Add(BizHelper.CustomerGoodsMapTableName, goodsMapInfo);
+                }
+
+                int goodsId = goodsMapInfo.GetInt("COL_146");
+
+                //老系统产品信息
+                SModel goodsInfo = BizHelper.GetGoods(goodsId);
+
+                if (importDataInfo.AppendTableData.ContainsKey(BizHelper.GoodsTableName))
+                {
+                    importDataInfo.AppendTableData[BizHelper.GoodsTableName] = goodsInfo;
+                }
+                else
+                {
+                    importDataInfo.AppendTableData.Add(BizHelper.GoodsTableName, goodsInfo);
+                }
+            }
+            else
+            {
+                SModel emptyGoodsInfo = BizHelper.GetEmptyGoodsInfo();
+
+                SModel emptyGoodsMapInfo = BizHelper.GetEmptyGoodsMapInfo();
+
+                if (importDataInfo.AppendTableData.ContainsKey(BizHelper.CustomerGoodsMapTableName))
+                {
+                    importDataInfo.AppendTableData[BizHelper.CustomerGoodsMapTableName] = emptyGoodsMapInfo;
+                }
+                else
+                {
+                    importDataInfo.AppendTableData.Add(BizHelper.CustomerGoodsMapTableName, emptyGoodsMapInfo);
+                }
+
+                //if (importDataInfo.AppendTableData.ContainsKey("Goods"))
+                //{
+                //    importDataInfo.AppendTableData["Goods"] = emptyGoodsInfo;
+                //}
+                //else
+                //{
+                //    importDataInfo.AppendTableData.Add("Goods", emptyGoodsInfo);
+                //}
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// 获取规则设置字段的默认值（根据类型转换）
+        /// </summary>
+        /// <param name="ruleField"></param>
+        /// <returns></returns>
+        public static object GetDefaultValueByType(ImportRuleField ruleField)
+        {
+            object res = null;
+
+            string dvStr = ruleField.DefaultValueString;
+
+            if (string.IsNullOrWhiteSpace(dvStr))
+            {
+                return GetDefaultValue(ruleField);
+            }
+
+            string dataType = ruleField.DbTypeString;
+
+            if (string.IsNullOrWhiteSpace(dataType))
+            {
+                return null;
+            }
+
+            if (dataType == "varchar")
+            {
+                res = dvStr;
+            }
+            else if (dataType == "int" || dataType == "tinyint")
+            {
+                res = CommonHelper.TryGetInt(dvStr);
+            }
+            else if (dataType == "float" || dataType == "numeric")
+            {
+                res = CommonHelper.TryGetFloat(dvStr);
+            }
+            else if (dataType == "datetime")
+            {
+                res = CommonHelper.TryGetDateTime(dvStr);
+            }
+            else if (dataType == "bit")
+            {
+                res = CommonHelper.TryGetBool(dvStr);
+            }
+            else
+            {
+                return null;
+            }
+
+            return res;
+        }
+
+
+        /// <summary>
+        /// 根据类型转换字段值
+        /// </summary>
+        /// <param name="ruleField"></param>
+        /// <returns></returns>
+        public static object GetFieldValueByDbType(ImportRuleField ruleField, string value)
+        {
+            object res = null;
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return GetDefaultValue(ruleField);
+            }
+
+            string dataType = ruleField.DbTypeString;
+
+            if (string.IsNullOrWhiteSpace(dataType))
+            {
+                return null;
+            }
+
+            if (dataType == "varchar")
+            {
+                res = value;
+            }
+            else if (dataType == "int" || dataType == "tinyint")
+            {
+                res = CommonHelper.TryGetInt(value);
+            }
+            else if (dataType == "float" || dataType == "numeric")
+            {
+                res = CommonHelper.TryGetFloat(value);
+            }
+            else if (dataType == "datetime")
+            {
+                res = CommonHelper.TryGetDateTime(value);
+            }
+            else if (dataType == "bit")
+            {
+                res = CommonHelper.TryGetBool(value);
+            }
+            else
+            {
+                return null;
+            }
+
+            return res;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ruleField"></param>
+        /// <param name="orderItem"></param>
+        /// <param name="calcRes"></param>
+        /// <returns></returns>
+        public static string GetFieldCalcRes(ImportRuleField ruleField, SModel orderItem, string calcRes)
+        {
+            string res = calcRes;
+
+            if (!calcRes.StartsWith("value"))
+            {
+                return res;
+            }
+
+            string fieldValueStr = TryGetString(orderItem, ruleField.FieldName);
+
+            res = GetFieldValueByDbType(ruleField, fieldValueStr).ToString();
+
+            string endRes = calcRes.Replace("value", "");
+
+            if (ruleField.DbTypeString == "int" || ruleField.DbTypeString == "tinyint")
+            {
+                int fv = CommonHelper.TryGetInt(fieldValueStr);
+
+                if (!string.IsNullOrWhiteSpace(endRes) && endRes.Length > 1)
+                {
+                    string pStr = endRes.Substring(1);
+
+                    int bss = CommonHelper.TryGetInt(pStr);
+
+                    if (bss != 0)
+                    {
+                        if (endRes.StartsWith("*"))
+                        {
+                            fv = fv * bss;
+                        }
+                        if (endRes.StartsWith("/"))
+                        {
+                            fv = fv / bss;
+                        }
+                        if (endRes.StartsWith("+"))
+                        {
+                            fv = fv + bss;
+                        }
+                        if (endRes.StartsWith("-"))
+                        {
+                            fv = fv - bss;
+                        }
+                    }
+                }
+
+                res = fv.ToString();
+            }
+            else if (ruleField.DbTypeString == "float" || ruleField.DbTypeString == "numeric")
+            {
+                float fv = CommonHelper.TryGetFloat(fieldValueStr);
+
+                if (!string.IsNullOrWhiteSpace(endRes) && endRes.Length > 1)
+                {
+                    string pStr = endRes.Substring(1);
+
+                    float bss = CommonHelper.TryGetFloat(pStr);
+
+                    if (bss != 0)
+                    {
+                        if (endRes.StartsWith("*"))
+                        {
+                            fv = fv * bss;
+                        }
+                        if (endRes.StartsWith("/"))
+                        {
+                            fv = fv / bss;
+                        }
+                        if (endRes.StartsWith("+"))
+                        {
+                            fv = fv + bss;
+                        }
+                        if (endRes.StartsWith("-"))
+                        {
+                            fv = fv - bss;
+                        }
+                    }
+                }
+
+                res = fv.ToString();
+            }
+
+            return res;
+        }
+
+
+
     }
 
 
@@ -1514,6 +1976,13 @@ namespace EC5.IG2.Plugin.PluginBll
         /// <param name="address"></param>
         public void AnalysisV2(string address)
         {
+            this.IsParsed = false;
+
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                return;
+            }
+
             //默认分隔符
             char defaultSplitC = '+';
 

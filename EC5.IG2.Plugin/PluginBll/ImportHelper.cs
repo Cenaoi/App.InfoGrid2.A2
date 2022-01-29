@@ -1001,7 +1001,7 @@ namespace EC5.IG2.Plugin.PluginBll
         }
 
         /// <summary>
-        /// 合并字符串语句
+        /// 合并字符串语句（UT_484.COL_47）
         /// </summary>
         public string MergeStringValue
         {
@@ -1029,6 +1029,63 @@ namespace EC5.IG2.Plugin.PluginBll
             get
             {
                 return !string.IsNullOrWhiteSpace(MergeStringValue);
+            }
+        }
+
+        /// <summary>
+        /// 数据跳过语句（UT_484.COL_32）
+        /// </summary>
+        public string SkipStringValue
+        {
+            get
+            {
+                if (this.FieldInfo == null)
+                {
+                    return "";
+                }
+
+                if (!this.FieldInfo.HasField("COL_32"))
+                {
+                    return "";
+                }
+
+                return this.FieldInfo.GetString("COL_32");
+            }
+        }
+
+        /// <summary>
+        /// 是否有数据跳过语句
+        /// </summary>
+        public bool HasSkipStringValue
+        {
+            get
+            {
+                return !string.IsNullOrWhiteSpace(SkipStringValue);
+            }
+        }
+
+        /// <summary>
+        /// 规则设置的默认值（字符串）
+        /// </summary>
+        public string DefaultValueString
+        {
+            get
+            {
+                if (this.FieldInfo == null)
+                {
+                    return "";
+                }
+
+                try
+                {
+                    string res = this.FieldInfo.GetString("COL_10");
+
+                    return res;
+                }
+                catch (Exception)
+                {
+                    return "";
+                }
             }
         }
 
