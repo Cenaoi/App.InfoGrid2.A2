@@ -2777,6 +2777,8 @@
     <Content Include="Core\Mini\API.ashx" />
     <Content Include="GBZZZD\Api\Index.ashx" />
     <Content Include="GBZZZD\Api\DownloadPrintFile.ashx" />
+    <Content Include="GBZZZD\Api\PrintApi.ashx" />
+    <Content Include="GBZZZD\Api\QcApi.ashx" />
     <None Include="packages.config" />
     <Content Include="PrintTemplate\P1709190009.xls" />
     <Content Include="PrintTemplate\UT_136_1248_0_主表名称_子表名称.xls" />
@@ -2967,15 +2969,23 @@
     <Compile Include="GBZZZD\Api\DownloadPrintFile.ashx.cs">
       <DependentUpon>DownloadPrintFile.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GBZZZD\Api\PrintApi.ashx.cs">
+      <DependentUpon>PrintApi.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GBZZZD\Api\Index.ashx.cs">
       <DependentUpon>Index.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GBZZZD\Api\QcApi.ashx.cs">
+      <DependentUpon>QcApi.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GBZZZD\Bll\ApiHelper.cs" />
     <Compile Include="GBZZZD\Bll\PrintHelper.cs" />
+    <Compile Include="GBZZZD\Task\SyncBomTask.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderHelper.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderItemsTask.cs" />
     <Compile Include="GBZZZD\Task\ImportOrderDataTask.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderTask.cs" />
+    <Compile Include="GBZZZD\Task\SyncOrderTaskV2.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderItemsTask.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderTask.cs" />
     <Compile Include="Global.asax.cs">

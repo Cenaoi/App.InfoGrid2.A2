@@ -245,5 +245,25 @@ namespace App.InfoGrid2.GBZZZD.Bll
             return v;
         }
 
+
+        /// <summary>
+        /// 获取任务订单明细信息
+        /// </summary>
+        /// <param name="itemId"></param>
+        /// <returns></returns>
+        public static LModel GetTaskOrderItemInfo(int itemId)
+        {
+            LightModelFilter filter = new LightModelFilter("UT_104");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("ROW_IDENTITY_ID", itemId);
+
+            DbDecipher decipher = ModelAction.OpenDecipher();
+
+            LModel lm = decipher.GetModel(filter);
+
+            return lm;
+        }
+
+
     }
 }
