@@ -83,7 +83,17 @@ namespace App.InfoGrid2.Login
 
             try
             {
-                mgr.GetUserByLoginName(loginName);
+                bool loginGet = mgr.GetUserByLoginName(loginName);
+
+                if (!loginGet)
+                {
+                    SModel fail = new SModel();
+                    fail["result"] = "error";
+                    fail["msg"] = "账号已在别处登录，请保管好自己的用户密码！";
+                    fail["data"] = null;
+
+                    return fail.ToJson();
+                }
 
                 //Response.Redirect("/app/BizExplorer/View/v2013.aspx?_rum=" + Guid.NewGuid(),false);
                 string url = $"/app/InfoGrid2/View/Explorer/Main_v201608.aspx?_rum={Guid.NewGuid()}";

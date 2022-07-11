@@ -1,5 +1,6 @@
 ﻿using EC5.SystemBoard;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,20 @@ namespace App.InfoGrid2.Login
             EC5.SystemBoard.EcContext content = EcContext.Current;
 
             EcUserState user = content.User;
+
+            Hashtable online = (Hashtable)System.Web.HttpContext.Current.Application["online"];
+            if (online == null)
+            {
+                online = new Hashtable();
+            }
+
+            if (online.ContainsKey(user.Identity))
+            {
+                online.Remove(user.Identity);
+                System.Web.HttpContext.Current.Application.Lock();
+                System.Web.HttpContext.Current.Application["online"] = online;
+                System.Web.HttpContext.Current.Application.UnLock();
+            }
 
             user.Clear();
 

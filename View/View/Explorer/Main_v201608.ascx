@@ -185,7 +185,15 @@
 
     var m_Offline = null;
 
+    var isReq = false;
+
     function getUserInfo() {
+
+        if (isReq) {
+            return;
+        }
+
+        isReq = true;
 
         var offline = m_Offline || (m_Offline = Mini2.create('Mini2.ui.Offline', {
             autoShow: false
@@ -195,9 +203,10 @@
         $.ajax({
             url:'/app/InfoGrid2/View/Explorer/SysHeartbeat.aspx?tag=USER_INFO', 
             
-            error:function(){
+            error: function () {
                 offline.show();
                 console.warn('怀疑网络断开.');
+                isReq = false;
             },
 
             success: function (data, state) {
@@ -205,50 +214,61 @@
 
                     var obj = eval('(' + data + ')');
 
+                    if (obj.loginVaild != "1") {
+                        window.location.href = "/app/infogrid2/login/index2.aspx";
 
-                    var panel = $('#user_info');
+                        alert('登录已过期，请重新登录！');
+                    }
+                    else if (obj.loginState == "1" ) {
 
+                        var panel = $('#user_info');
+                        var timeXEl = panel.find('#timeTb1');
+                        var uInfoEl = panel.find('#userNameTb1');
 
-                    var timeXEl = panel.find('#timeTb1');
-                    var uInfoEl = panel.find('#userNameTb1');
+                        timeXEl.text(obj.time);
+                        uInfoEl.text(obj.loginName + '(' + obj.roleName + ')');
 
-                    timeXEl.text(obj.time);
-                    uInfoEl.text(obj.loginName + '(' + obj.roleName + ')');
+                        if (!obj.loign) {
 
-                    if (!obj.loign) {
+                            //window.location.href = "/app/infogrid2/login/index2.aspx";
+                            if (!m_ResetLoginFrm || (m_ResetLoginFrm && m_ResetLoginFrm.isDispose)) {
 
-                        //window.location.href = "/app/infogrid2/login/index2.aspx";
-                        if (!m_ResetLoginFrm || (m_ResetLoginFrm && m_ResetLoginFrm.isDispose)) {
+                                m_ResetLoginFrm = Mini2.createTop('Mini2.ui.Window', {
+                                    url: '/app/InfoGrid2/View/Explorer/ResetLogin.aspx?' + Mini2.Guid.newGuid(),
+                                    text: '登录超时,请重新登录',
+                                    width: 400,
+                                    height: 200,
+                                    mode: true
+                                });
 
-                            m_ResetLoginFrm = Mini2.createTop('Mini2.ui.Window', {
-                                url: '/app/InfoGrid2/View/Explorer/ResetLogin.aspx?' + Mini2.Guid.newGuid(),
-                                text:'登录超时,请重新登录',
-                                width: 400,
-                                height: 200,
-                                mode: true
-                            });
+                                m_ResetLoginFrm.formClosed(function (e) {
 
-                            m_ResetLoginFrm.formClosed(function (e) {
+                                    if (e.success) {
 
-                                if (e.success) {
+                                    }
+                                    else {
 
-                                }
-                                else {
+                                        m_ResetLoginFrm = null;
 
-                                    m_ResetLoginFrm = null;
+                                        window.location.href = "/app/infogrid2/login/index2.aspx";
+                                    }
+                                });
 
-                                    window.location.href = "/app/infogrid2/login/index2.aspx";
-                                }
-                            });
+                                m_ResetLoginFrm.show();
 
-                            m_ResetLoginFrm.show();
+                            }
+                        }
+                        else if (m_ResetLoginFrm) {
+                            m_ResetLoginFrm.close({ success: true });
 
+                            m_ResetLoginFrm = null;
                         }
                     }
-                    else if (m_ResetLoginFrm) {
-                        m_ResetLoginFrm.close({success:true});
+                    else {
+                        
+                        window.location.href = "/app/infogrid2/login/index2.aspx";
 
-                        m_ResetLoginFrm = null;
+                        alert('账号已在别处登录，请保管好自己的用户密码！');
                     }
 
                     offline.hide();
@@ -260,6 +280,8 @@
                     console.warn('怀疑网络断开.', ex);
 
                 }
+
+                isReq= false;
 
             }
         });

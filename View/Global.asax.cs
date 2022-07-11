@@ -21,6 +21,7 @@ using EC5.IG2.Plugin;
 using EC5.IG2.Plugin.Custom;
 using EC5.IG2.Core;
 using App.BizCommon;
+using System.Collections;
 
 namespace App.InfoGrid2
 {
@@ -89,29 +90,68 @@ namespace App.InfoGrid2
 
             if ("GBZZZD" == proj_tag)
             {
+                bool importDataTaskSw = false;
+                bool syncSaleOrderTaskSw = false;
+                bool syncOrderTaskSw = false;
+                bool syncOrderTaskItemsSw = false;
+                bool syncBomTaskSw = false;
+
+                using (DbDecipher decipher = DbDecipherManager.GetDecipherOpen())
+                {
+                    importDataTaskSw = GlobelParam.GetValue<bool>(decipher, "IMPORT_DATA_TASK", true, "导入数据任务");
+                    syncSaleOrderTaskSw = GlobelParam.GetValue<bool>(decipher, "SYNC_SALE_ORDER", true, "同步销售订单表任务（SaleOrder=UT_090，SaleOrderList=UT_091）");
+                    syncOrderTaskSw = GlobelParam.GetValue<bool>(decipher, "SYNC_ORDER", true, "同步拣货订单表");
+                    syncOrderTaskItemsSw = GlobelParam.GetValue<bool>(decipher, "SYNC_ORDER_ITEMS", true, "同步拣货订单明细表");
+                    syncBomTaskSw = GlobelParam.GetValue<bool>(decipher, "SYNC_BOM", true, "同步老系统Bom表");
+                }
+
                 GBZZZD.Task.SyncOrderHelper.SDbConn = DbDecipherManager.GetConnectionString("GUBO_2021");
 
                 GBZZZD.Task.SyncOrderHelper.TDbConn = DbDecipherManager.GetConnectionString("ERP_YD_2021");
 
-                GBZZZD.Task.ImportOrderDataTask importOrderDataTask = new GBZZZD.Task.ImportOrderDataTask();
+                if (importDataTaskSw)
+                {
+                    GBZZZD.Task.ImportOrderDataTask importOrderDataTask = new GBZZZD.Task.ImportOrderDataTask();
 
-                WebTaskManager.Add(importOrderDataTask);
+                    WebTaskManager.Add(importOrderDataTask);
+                }
 
-                GBZZZD.Task.SyncSaleOrderTask syncSaleOrderTask = new GBZZZD.Task.SyncSaleOrderTask();
+                if (syncSaleOrderTaskSw)
+                {
+                    GBZZZD.Task.SyncSaleOrderTask syncSaleOrderTask = new GBZZZD.Task.SyncSaleOrderTask();
 
-                WebTaskManager.Add(syncSaleOrderTask);
+                    WebTaskManager.Add(syncSaleOrderTask);
+                }
 
                 //GBZZZD.Task.SyncSaleOrderItemsTask syncSaleOrderItemTask = new GBZZZD.Task.SyncSaleOrderItemsTask();
 
                 //WebTaskManager.Add(syncSaleOrderItemTask);
 
-                GBZZZD.Task.SyncOrderTask syncOrderTask = new GBZZZD.Task.SyncOrderTask();
+                if (syncOrderTaskSw)
+                {
+                    //GBZZZD.Task.SyncOrderTask syncOrderTask = new GBZZZD.Task.SyncOrderTask();
 
-                WebTaskManager.Add(syncOrderTask);
+                    //WebTaskManager.Add(syncOrderTask);
 
-                GBZZZD.Task.SyncOrderItemsTask syncOrderTaskItem = new GBZZZD.Task.SyncOrderItemsTask();
+                    GBZZZD.Task.SyncOrderTaskV2 syncOrderTask = new GBZZZD.Task.SyncOrderTaskV2();
 
-                WebTaskManager.Add(syncOrderTaskItem);
+                    WebTaskManager.Add(syncOrderTask);
+                    
+                }
+
+                if (syncOrderTaskItemsSw)
+                {
+                    //GBZZZD.Task.SyncOrderItemsTask syncOrderItemsTask = new GBZZZD.Task.SyncOrderItemsTask();
+
+                    //WebTaskManager.Add(syncOrderItemsTask);
+                }
+
+                if (syncBomTaskSw) 
+                {
+                    GBZZZD.Task.SyncBomTask syncBomTask = new GBZZZD.Task.SyncBomTask();
+
+                    WebTaskManager.Add(syncBomTask);        
+                }
             }
 
             if (m_Timer == null)
@@ -434,6 +474,44 @@ namespace App.InfoGrid2
                 log.Error(item);
             }
         }
+
+        public override void Session_End(object sender, EventArgs e)
+        {
+            GlobalSessionEnd();
+        }
+
+        /// <summary>
+        /// Global文件的SessionEnd事件中增加此代码
+        /// </summary>
+        public static void GlobalSessionEnd()
+        {
+            Hashtable hOnline = (Hashtable)System.Web.HttpContext.Current.Application["online"];
+
+            Hashtable onlineActive = (Hashtable)System.Web.HttpContext.Current.Application["onlineActive"];
+
+            if (hOnline != null)
+            {
+                IDictionaryEnumerator idE = hOnline.GetEnumerator();
+                while (idE.MoveNext())
+                {
+                    if (idE.Value != null && idE.Value.ToString().Equals(System.Web.HttpContext.Current.Session.SessionID))
+                    {
+                        hOnline.Remove(idE.Key);
+
+                        if (onlineActive != null) 
+                        {
+                            onlineActive.Remove(idE.Key);
+                        }
+
+                        System.Web.HttpContext.Current.Application.Lock();
+                        System.Web.HttpContext.Current.Application["online"] = hOnline;
+                        System.Web.HttpContext.Current.Application["onlineActive"] = onlineActive;
+                        System.Web.HttpContext.Current.Application.UnLock();
+                    }
+                }
+            }
+        }
+
 
     }
 }

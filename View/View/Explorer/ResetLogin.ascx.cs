@@ -50,7 +50,13 @@ namespace App.InfoGrid2.View.Explorer
 
             try
             {
-                mgr.GetUserByLoginName(loginName);
+                bool loginGet = mgr.GetUserByLoginName(loginName);
+
+                if (!loginGet)
+                {
+                    MessageBox.Alert("账号已在别处登录，请保管好自己的用户密码！");
+                    return;
+                }
 
                 Toast.Show("登录成功.");
                 ScriptManager.Eval("ownerWindow.close({success:true})");

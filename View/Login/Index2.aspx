@@ -109,9 +109,8 @@
                         LoginPass: me.login_pass
 
                     }, function (data) {
-
                         location.replace(data);
-                    });
+                    }, function (err) { alert(err.msg) });
                 }
 
 

@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.SessionState;
 using App.InfoGrid2.Bll.Sec;
 using App.InfoGrid2.Model.SecModels;
+using System.Collections;
 
 namespace App.InfoGrid2.Bll
 {
@@ -119,14 +120,48 @@ namespace App.InfoGrid2.Bll
         /// 成功登录后，获取用户信息
         /// </summary>
         /// <param name="loginName"></param>
-        public void GetUserByLoginName(string loginName)
+        public bool GetUserByLoginName(string loginName)
         {
+            Hashtable online = (Hashtable)System.Web.HttpContext.Current.Application["online"];
+            if (online == null)
+            {
+                online = new Hashtable();
+            }
+            Hashtable onlineActive = (Hashtable)System.Web.HttpContext.Current.Application["onlineActive"];
+            if (onlineActive == null)
+            {
+                onlineActive = new Hashtable();
+            }
+
+            int loginOnly = GlobelParam.GetValue(this.Decipher, "LoginOnly", 1, "登录唯一，0=关闭，1=打开");
+
+            string sessionId = System.Web.HttpContext.Current.Session.SessionID;
+
             LightModelFilter filter = new LightModelFilter(typeof(SEC_LOGIN_ACCOUNT));
             filter.And("ROW_STATUS_ID", 0, Logic.GreaterThanOrEqual);
             filter.And("LOGIN_NAME", loginName);
 
 
             SEC_LOGIN_ACCOUNT m = this.Decipher.SelectToOneModel<SEC_LOGIN_ACCOUNT>(filter);
+
+            int userId = m.SEC_LOGIN_ACCOUNT_ID;
+            if (loginOnly == 1)
+            {       
+                if (onlineActive.ContainsKey(userId))
+                {
+                    DateTime activeTime = (DateTime)onlineActive[userId];
+
+                    if (activeTime < DateTime.Now.AddSeconds(-20) && online.ContainsKey(userId))
+                    {
+                        online.Remove(userId);
+                    }
+                }
+
+                if (online.ContainsKey(userId) && !online.ContainsValue(sessionId))
+                {
+                    return false;
+                }
+            }
 
             EcContext context = EcContext.Current;
 
@@ -186,6 +221,32 @@ namespace App.InfoGrid2.Bll
 
 
             #endregion
+
+            if (loginOnly == 1)
+            {
+                if (online.ContainsKey(userId))
+                {
+                    online.Remove(userId);
+                }
+                online.Add(userId, sessionId);
+
+                if (onlineActive.ContainsKey(userId))
+                {
+                    onlineActive[userId] = DateTime.Now;
+                }
+                else
+                {
+                    onlineActive.Add(userId, DateTime.Now);
+                }
+                System.Web.HttpContext.Current.Application.Lock();
+                System.Web.HttpContext.Current.Application["online"] = online;
+                System.Web.HttpContext.Current.Application["onlineActive"] = onlineActive;
+                System.Web.HttpContext.Current.Application.UnLock();
+
+                log.Debug($"online：{online.Count}，onlineActive：{onlineActive.Count}");
+            }
+
+            return true;
         }
 
 
