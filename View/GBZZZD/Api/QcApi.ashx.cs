@@ -59,6 +59,9 @@ namespace App.InfoGrid2.GBZZZD.Api
                 case "GET_BOM_LIST":
                     result = GetBomList(context);
                     break;
+                case "SET_ORDER_TIDY":
+                    result = SetOrderTidy(context);
+                    break;   
                 default:
                     result = HttpResult.Error("找不到这个接口");
                     break;
@@ -109,7 +112,7 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             LightModelFilter filter = new LightModelFilter("UT_101");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
-            filter.And("BIZ_SID", 99, HWQ.Entity.Filter.Logic.GreaterThan);
+            filter.And("BIZ_SID", 0, HWQ.Entity.Filter.Logic.GreaterThan);
 
             if (bizSid == "102")
             {
@@ -273,7 +276,7 @@ namespace App.InfoGrid2.GBZZZD.Api
             //filter.And("COL_195", bizSid);
             filter.Limit = Limit.ByPageIndex(limit, page);
 
-            filter.TSqlOrderBy = "COL_243 asc, COL_240 asc, ROW_IDENTITY_ID asc";
+            filter.TSqlOrderBy = "COL_243 asc, COL_179 asc, COL_240 asc, ROW_IDENTITY_ID asc";
 
             DbDecipher decipher = ModelAction.OpenDecipher();
 
@@ -456,6 +459,73 @@ namespace App.InfoGrid2.GBZZZD.Api
 
             return HttpResult.Success(list);
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public HttpResult SetOrderTidy(HttpContext context)
+        {
+            string userId = ApiHelper.GetUserId(context);
+
+            int orderId = WebUtil.FormInt("orderId");
+
+            string strTidyInfo = WebUtil.FormTrim("tidyInfo");
+
+            SModel user = ApiHelper.GetUserInfo(userId);
+
+            if (user == null)
+            {
+                return HttpResult.Error("找不到这个用户");
+            }
+
+            if (orderId == 0)
+            {
+                return HttpResult.Error("请传入任务ID");
+            }
+
+            if (string.IsNullOrWhiteSpace(strTidyInfo))
+            {
+                return HttpResult.Error("请传入整单信息");
+            }
+
+            SModel tidyInfo = null;
+
+            try
+            {
+                tidyInfo = SModel.ParseJson(strTidyInfo);
+            }
+            catch (Exception ex)
+            {
+                log.Error($"传入的整单信息数据格式错误，json={strTidyInfo}", ex);
+
+                return HttpResult.Error("整单信息数据格式错误");
+            }
+
+            LModel order = ApiHelper.GetTaskOrder(userId, orderId);
+
+            if (order == null)
+            {
+                return HttpResult.Error("找不到这个任务单");
+            }
+
+            order.SetTakeChange(true);
+            order["COL_146"] = ApiHelper.TryGetInt(tidyInfo.GetString("COL_146"));
+            order["COL_147"] = user.GetString("COL_2");
+            order["COL_148"] = DateTime.Now;
+            order["COL_149"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_149");
+
+            DbDecipher decipher = ModelAction.OpenDecipher();
+
+            decipher.UpdateModel(order, true);
+
+            EC5.IG2.BizBase.DbCascadeRule.Update(order);
+
+            return HttpResult.SuccessMsg("ok");
+        }
+
 
         public bool IsReusable
         {

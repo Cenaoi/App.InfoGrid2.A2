@@ -264,6 +264,29 @@ namespace App.InfoGrid2.GBZZZD.Bll
             return lm;
         }
 
+        /// <summary>
+        /// 尝试获取数值类型的值
+        /// </summary>
+        /// <param name="sm"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static decimal TryGetDecimal(SModel sm, string field)
+        {
+            string str = sm.GetString(field);
 
+            decimal res = 0;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return 0;
+            }
+
+            if (!decimal.TryParse(str, out res))
+            {
+                return 0;
+            }
+
+            return res;
+        }
     }
 }

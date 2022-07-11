@@ -85,6 +85,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                     {
                         int pkid = TryGetInt(item, "ID");
                         string billNo = item.GetString("BillNo");
+                        int state = TryGetInt(item, "State");
 
                         if (string.IsNullOrWhiteSpace(billNo))
                         {
@@ -142,6 +143,19 @@ namespace App.InfoGrid2.GBZZZD.Task
                             lmut90["COL_12"] = item.GetString("CustomerCode");
                             lmut90["COL_3"] = item.GetString("CustomerName");
 
+                            if (state == 0)
+                            {
+                                lmut90["BIZ_SID"] = 0;
+                            }
+                            else if (state == 1)
+                            {
+                                lmut90["BIZ_SID"] = 2;
+                            }
+                            else if (state == 3)
+                            {
+                                lmut90["BIZ_SID"] = 4;
+                            }
+
                             if (ut71 != null)
                             {
                                 lmut90["COL_8"] = TryGetInt(ut71, "ROW_IDENTITY_ID");
@@ -172,6 +186,14 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut90["COL_107"] = lmut90["COL_107"];
                             ut90["COL_12"] = lmut90["COL_12"];
                             ut90["COL_3"] = lmut90["COL_3"];
+
+                            ut90["COL_53"] = lmut90["COL_53"];
+                            ut90["COL_54"] = lmut90["COL_54"];
+                            ut90["COL_86"] = lmut90["COL_86"];
+                            ut90["COL_87"] = lmut90["COL_87"];
+                            ut90["COL_2"] = lmut90["COL_2"];
+                            ut90["COL_84"] = lmut90["COL_84"];
+                            ut90["COL_10"] = lmut90["COL_10"];
                         }
                         else
                         {
@@ -211,6 +233,19 @@ namespace App.InfoGrid2.GBZZZD.Task
 
                             ut90["COL_12"] = item.GetString("CustomerCode");
                             ut90["COL_3"] = item.GetString("CustomerName");
+
+                            if (state == 0)
+                            {
+                                ut90["BIZ_SID"] = 0;
+                            }
+                            else if (state == 1)
+                            {
+                                ut90["BIZ_SID"] = 2;
+                            }
+                            else if (state == 3)
+                            {
+                                ut90["BIZ_SID"] = 4;
+                            }
 
                             if (ut71 != null)
                             {
@@ -265,6 +300,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ut91["COL_153"] = ut90["COL_87"];
                                 ut91["COL_64"] = ut90["COL_2"];
                                 ut91["COL_63"] = ut90["COL_84"];
+                                ut91["COL_113"] = ut90["COL_10"];
 
                                 ut91["ROW_DATE_CREATE"] = DateTime.Now;
                                 decipher.InsertModel(ut91);
@@ -287,6 +323,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 utsm91["COL_153"] = ut90["COL_87"];
                                 utsm91["COL_64"] = ut90["COL_2"];
                                 utsm91["COL_63"] = ut90["COL_84"];
+                                utsm91["COL_113"] = ut90["COL_10"];
 
                                 utsm91["ROW_DATE_UPDATE"] = DateTime.Now;
                                 decipher.UpdateSModel(utsm91, "UT_091", $" ROW_IDENTITY_ID = {utsm91["ROW_IDENTITY_ID"]} ");
@@ -623,7 +660,7 @@ namespace App.InfoGrid2.GBZZZD.Task
             };
 
             lmut91["COL_242"] = lmut91.Get<float>("COL_7") * lmut91.Get<float>("COL_105");
-
+            lmut91["COL_95"] = 1;
             return lmut91;
         }
 
@@ -681,6 +718,7 @@ namespace App.InfoGrid2.GBZZZD.Task
             ut91["COL_24"] = item.GetString("GoodsProperty");
 
             ut91["COL_242"] = ut91.Get<float>("COL_7") * ut91.Get<float>("COL_105");
+            ut91["COL_95"] = 1;
         }
 
 
@@ -1329,6 +1367,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                     {
                         int pkid = TryGetInt(item, "ID");
                         string billNo = item.GetString("BillNo");
+                        int state = TryGetInt(item, "State");
 
                         if (string.IsNullOrWhiteSpace(billNo))
                         {
@@ -1393,6 +1432,19 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
+                            if (state == 0)
+                            {
+                                lm["BIZ_SID"] = 0;
+                            }
+                            else if (state == 1)
+                            {
+                                lm["BIZ_SID"] = 2;
+                            }
+                            else if (state == 3)
+                            {
+                                lm["BIZ_SID"] = 4;
+                            }
+
                             if (ut71 != null)
                             {
                                 lm["COL_31"] = TryGetInt(ut71, "ROW_IDENTITY_ID");
@@ -1424,6 +1476,18 @@ namespace App.InfoGrid2.GBZZZD.Task
                             decipher.InsertModel(lm);
                             orderId = lm.Get<int>("ROW_IDENTITY_ID");
                             orderCount += 1;
+
+                            ut101 = new SModel();
+                            ut101["COL_31"] = lm["COL_31"];
+                            ut101["COL_92"] = lm["COL_92"];
+                            ut101["COL_32"] = lm["COL_32"];
+                            ut101["COL_33"] = lm["COL_33"];
+
+                            ut101["COL_94"] = lm["COL_94"];
+                            ut101["COL_16"] = lm["COL_16"];
+                            ut101["COL_4"] = lm["COL_4"];
+                            ut101["COL_11"] = lm["COL_11"];
+                            ut101["COL_6"] = lm["COL_6"];
                         }
                         else
                         {
@@ -1467,6 +1531,19 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut101["COL_99"] = item.GetString("LiftNo");
                             ut101["COL_131"] = item.GetString("BillNo");
                             ut101["COL_25"] = item.GetString("SaleMan");
+
+                            if (state == 0)
+                            {
+                                ut101["BIZ_SID"] = 0;
+                            }
+                            else if (state == 1)
+                            {
+                                ut101["BIZ_SID"] = 2;
+                            }
+                            else if (state == 3)
+                            {
+                                ut101["BIZ_SID"] = 4;
+                            }
 
                             if (ut71 != null)
                             {
@@ -1529,6 +1606,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                     ut104["COL_73"] = ut101["COL_16"];
                                     ut104["COL_103"] = ut101["COL_4"];
                                     ut104["COL_104"] = ut101["COL_11"];
+                                    ut104["COL_116"] = ut101["COL_6"];
 
                                     if (ut83 != null)
                                     {
@@ -1557,6 +1635,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                     utsm104["COL_73"] = ut101["COL_16"];
                                     utsm104["COL_103"] = ut101["COL_4"];
                                     utsm104["COL_104"] = ut101["COL_11"];
+                                    utsm104["COL_116"] = ut101["COL_6"];
 
                                     if (ut83 != null)
                                     {
@@ -1721,7 +1800,9 @@ namespace App.InfoGrid2.GBZZZD.Task
                 ["COL_273"] = item.GetString("CSR_Qty"),
                 ["COL_274"] = item.GetString("CSR_NO"),
 
-                ["COL_31"] = item.GetString("GoodsProperty")
+                ["COL_31"] = item.GetString("GoodsProperty"),
+                ["COL_89"] = item.GetString("GoodsCode"),
+                ["COL_3"] = item.GetString("GoodsName")
             };
 
 
@@ -1739,6 +1820,7 @@ namespace App.InfoGrid2.GBZZZD.Task
             lm104["COL_76"] = 1;
             lm104["COL_46"] = 100;
             lm104["COL_77"] = "100%";
+            lm104["COL_255"] = 1;
 
             return lm104;
         }
@@ -1796,6 +1878,9 @@ namespace App.InfoGrid2.GBZZZD.Task
             ut104["COL_245"] = item.GetString("OrderNo") + item.GetString("BillNo");
 
             ut104["COL_31"] = item.GetString("GoodsProperty");
+            ut104["COL_255"] = 1;
+            ut104["COL_89"] = item.GetString("GoodsCode");
+            ut104["COL_3"] = item.GetString("GoodsName");
         }
 
 
@@ -1835,7 +1920,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                 "b1.GoodsID as COL_44, b1.Model as COL_9, b1.DepotID as COL_22, " +
                 "b1.UseQty as COL_11, b1.Origin as COL_35, b1.Wastage as COL_12, " +
                 "b1.Des as COL_16, b1.ManHaur as COL_59, g1.WeightRate as COL_136, " +
-                "g1.Code as COL_7, g1.Name as COL_48 from bom b1 " +
+                "g1.Code as COL_7, g1.Name as COL_8 from bom b1 " +
                 "left join bom b2 on b2.ID = b1.ParentID " +
                 "left join Goods g1 on g1.ID = b1.GoodsID " +
                 "left join Goods g2 on g2.ID = b2.GoodsID ";
