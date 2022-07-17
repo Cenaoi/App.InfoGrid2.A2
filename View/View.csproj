@@ -2985,7 +2985,7 @@
     <Compile Include="GBZZZD\Task\SyncOrderItemsTask.cs" />
     <Compile Include="GBZZZD\Task\ImportOrderDataTask.cs" />
     <Compile Include="GBZZZD\Task\SyncOrderTask.cs" />
-    <Compile Include="GBZZZD\Task\SyncOrderTaskV2.cs" />
+    <Compile Include="GBZZZD\Task\SyncQcOrderTask.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderItemsTask.cs" />
     <Compile Include="GBZZZD\Task\SyncSaleOrderTask.cs" />
     <Compile Include="Global.asax.cs">

@@ -1339,10 +1339,10 @@ namespace App.InfoGrid2.GBZZZD.Task
 
 
         /// <summary>
-        /// 同步拣货订单v2
+        /// 同步质检订单
         /// </summary>
         /// <returns></returns>
-        public static bool SyncPickingOrderV2()
+        public static bool SyncQcOrder()
         {
             SModelList list = GetSaleOrderListV2();
 
@@ -1351,9 +1351,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                 return true;
             }
 
-            int orderCount = 0;
+            log.Debug($"准备同步质检数据，数量：{list.Count}");
+
+            int orderAddCount = 0;
             int orderUpCount = 0;
-            int orderItemCount = 0;
+            int orderItemAddCount = 0;
             int orderItemUpCount = 0;
 
             Dictionary<int, SModel> ut71List = new Dictionary<int, SModel>();
@@ -1475,7 +1477,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
                             decipher.InsertModel(lm);
                             orderId = lm.Get<int>("ROW_IDENTITY_ID");
-                            orderCount += 1;
+                            orderAddCount += 1;
 
                             ut101 = new SModel();
                             ut101["COL_31"] = lm["COL_31"];
@@ -1618,7 +1620,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                     }
 
                                     decipher.InsertModel(ut104);
-                                    orderItemCount += 1;
+                                    orderItemAddCount += 1;
                                 }
                                 else
                                 {
@@ -1659,15 +1661,15 @@ namespace App.InfoGrid2.GBZZZD.Task
 
                     }
 
-                    log.Debug($"新增销售订单（ut101），数量：{orderCount}");
-                    log.Debug($"更新销售订单（ut101），数量：{orderUpCount}");
-                    log.Debug($"新增销售订单明细（ut104），数量：{orderItemCount}");
-                    log.Debug($"更新销售订单明细（ut104），数量：{orderItemUpCount}");
+                    log.Debug($"新增订单（ut101），数量：{orderAddCount}");
+                    log.Debug($"更新订单（ut101），数量：{orderUpCount}");
+                    log.Debug($"新增订单明细（ut104），数量：{orderItemAddCount}");
+                    log.Debug($"更新订单明细（ut104），数量：{orderItemUpCount}");
                 }
             }
             catch (Exception ex)
             {
-                log.Error($"同步销售订单出错v2，源数据数量：{list.Count}", ex);
+                log.Error($"同步质检数据出错，源数据数量：{list.Count}", ex);
 
                 return false;
             }

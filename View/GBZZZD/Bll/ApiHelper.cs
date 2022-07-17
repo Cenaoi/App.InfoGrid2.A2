@@ -264,6 +264,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
             return lm;
         }
 
+
         /// <summary>
         /// 尝试获取数值类型的值
         /// </summary>
@@ -288,5 +289,7 @@ namespace App.InfoGrid2.GBZZZD.Bll
 
             return res;
         }
+    
+    
     }
 }

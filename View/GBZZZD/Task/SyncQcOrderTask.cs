@@ -6,11 +6,11 @@ using System.Web;
 
 namespace App.InfoGrid2.GBZZZD.Task
 {
-    public class SyncOrderTaskV2: WebTask
+    public class SyncQcOrderTask: WebTask
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public SyncOrderTaskV2()
+        public SyncQcOrderTask()
         {
 
             this.TaskSpan = new TimeSpan(0, 0, 60);
@@ -34,7 +34,7 @@ namespace App.InfoGrid2.GBZZZD.Task
 
             try
             {
-                SyncOrderHelper.SyncPickingOrderV2();
+                SyncOrderHelper.SyncQcOrder();
             }
             catch (Exception ex)
             {

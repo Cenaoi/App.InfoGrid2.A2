@@ -242,8 +242,6 @@ namespace App.InfoGrid2.Bll
                 System.Web.HttpContext.Current.Application["online"] = online;
                 System.Web.HttpContext.Current.Application["onlineActive"] = onlineActive;
                 System.Web.HttpContext.Current.Application.UnLock();
-
-                log.Debug($"online：{online.Count}，onlineActive：{onlineActive.Count}");
             }
 
             return true;

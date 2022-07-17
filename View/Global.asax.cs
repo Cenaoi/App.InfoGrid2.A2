@@ -133,7 +133,7 @@ namespace App.InfoGrid2
 
                     //WebTaskManager.Add(syncOrderTask);
 
-                    GBZZZD.Task.SyncOrderTaskV2 syncOrderTask = new GBZZZD.Task.SyncOrderTaskV2();
+                    GBZZZD.Task.SyncQcOrderTask syncOrderTask = new GBZZZD.Task.SyncQcOrderTask();
 
                     WebTaskManager.Add(syncOrderTask);
                     

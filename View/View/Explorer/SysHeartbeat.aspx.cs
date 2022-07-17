@@ -1,5 +1,7 @@
-﻿using EC5.SystemBoard;
+﻿using App.BizCommon;
+using EC5.SystemBoard;
 using EC5.SystemBoard.Interfaces;
+using HWQ.Entity.Decipher.LightDecipher;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,22 +28,25 @@ namespace App.InfoGrid2.View.Explorer
             {
                 EcUserState user = EC5.SystemBoard.EcContext.Current.User;
 
-                Hashtable onlineActive = (Hashtable)System.Web.HttpContext.Current.Application["onlineActive"];
-                if (onlineActive == null)
-                {
-                    onlineActive = new Hashtable();
-                }
-                Hashtable online = (Hashtable)System.Web.HttpContext.Current.Application["online"];
-                if (online == null)
-                {
-                    online = new Hashtable();
-                }
+                DbDecipher decipher = ModelAction.OpenDecipher();
+                int loginOnly = GlobelParam.GetValue(decipher, "LoginOnly", 1, "登录唯一，0=关闭，1=打开");
 
-                bool loginVaild = false;
+                bool loginVaild = user.Identity != 0;
                 bool loginState = false;
-                bool login = true;
-                if (user.Identity != 0)
+
+                if (loginVaild && loginOnly == 1)
                 {
+                    Hashtable onlineActive = (Hashtable)System.Web.HttpContext.Current.Application["onlineActive"];
+                    if (onlineActive == null)
+                    {
+                        onlineActive = new Hashtable();
+                    }
+                    Hashtable online = (Hashtable)System.Web.HttpContext.Current.Application["online"];
+                    if (online == null)
+                    {
+                        online = new Hashtable();
+                    }
+
                     string sessionId = System.Web.HttpContext.Current.Session.SessionID;
                     if (onlineActive.ContainsKey(user.Identity) && online.ContainsKey(user.Identity))
                     {
@@ -56,18 +61,10 @@ namespace App.InfoGrid2.View.Explorer
                             log.Debug($"sessionId变化，{onlineActive[user.Identity]} > {sessionId}");
                         }
                     }
-                    else
-                    {
-                        login = false;
-
-                        log.Debug($"登录无效，userId：{user.Identity}，onlineActive：{onlineActive.Count}，online：{online.Count}");
-                    }
 
                     System.Web.HttpContext.Current.Application.Lock();
                     System.Web.HttpContext.Current.Application["onlineActive"] = onlineActive;
                     System.Web.HttpContext.Current.Application.UnLock();
-
-                    loginVaild = true;
                 }
 
                 Response.Write("{");
@@ -76,7 +73,7 @@ namespace App.InfoGrid2.View.Explorer
                 Response.Write(string.Format("loginName:'{0}',", user.LoginName));
                 Response.Write(string.Format("roleName:'{0}',", user.FirstRoleName));
                 
-                Response.Write($"loign:{(user.Roles.Count > 0 && login ? 1:0)},");
+                Response.Write($"loign:{(user.Roles.Count > 0 ? 1:0)},");
                 
                 Response.Write($"isVirtual:{(user.IsVirtual ? "1" : "0")},");
                 Response.Write($"loginState:{(loginState ? "1" : "0")},");
