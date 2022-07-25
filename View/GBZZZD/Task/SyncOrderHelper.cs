@@ -32,7 +32,8 @@ namespace App.InfoGrid2.GBZZZD.Task
         /// <returns></returns>
         public static SModelList GetSaleOrderList()
         {
-            string sql = $"select o.*, c.Code as CustomerCode, c.Name as CustomerName  from SaleOrder  o left join Customer c on c.ID = o.CustomerID";
+            string sql = $"select o.*, c.Code as CustomerCode, c.Name as CustomerName  from SaleOrder  o left join Customer c on c.ID = o.CustomerID " +
+                $" where o.Oma_ds = 0 ";
 
             SModelList list = new SModelList();
 
@@ -197,6 +198,13 @@ namespace App.InfoGrid2.GBZZZD.Task
                         }
                         else
                         {
+                            DateTime editDate = TryGetDateTime(item, "EditDate");
+
+                            if (TryGetInt(ut90, "COL_117") == 1 || TryGetDateTime(ut90, "COL_110") == editDate)
+                            {
+                                continue;
+                            }
+
                             //更新
                             //ut90.SetTakeChange(true);
                             ut90["BIZ_SID"] = TryGetInt(item, "State");
@@ -308,6 +316,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                             }
                             else
                             {
+                                if (TryGetInt(utsm91, "COL_154") == 1)
+                                {
+                                    continue;
+                                }
+
                                 TransitionUT_091(itemData, utsm91);
                                 utsm91["ROW_SID"] = 0;
                                 utsm91["COL_12"] = orderId;
@@ -493,11 +506,12 @@ namespace App.InfoGrid2.GBZZZD.Task
             $"g.Property as GoodsProperty " +
             $" from SaleOrderList o " +
             $" left join Goods g on g.ID = o.GoodsID" +
-            $" left join Depot d on d.TreeID = o.DepotID";
+            $" left join Depot d on d.TreeID = o.DepotID " +
+            $" where 1=1 and o.Oma_ds = 0 ";
 
             if (!string.IsNullOrWhiteSpace(billNo))
             {
-                sql += $" where BillNo = '{billNo}' ";
+                sql += $" and o.BillNo = '{billNo}' ";
             }
 
             SModelList list = new SModelList();
@@ -1321,9 +1335,10 @@ namespace App.InfoGrid2.GBZZZD.Task
         /// 获取销售订单源数据
         /// </summary>
         /// <returns></returns>
-        public static SModelList GetSaleOrderListV2()
+        public static SModelList GetSaleOrderListV2(DateTime startTime)
         {
-            string sql = $"select s.*, c.Code as CustomerCode, c.Name as CustomerName from SaleOrder s left join Customer c on c.ID = s.CustomerID";
+            string sql = $"select s.*, c.Code as CustomerCode, c.Name as CustomerName from SaleOrder s left join Customer c on c.ID = s.CustomerID ";
+            sql += $" where  s.EditDate >= '{startTime:yyyy-MM-dd HH:mm:ss}'  and s.Oma_ds = 0 ";
 
             SModelList list = new SModelList();
 
@@ -1344,14 +1359,21 @@ namespace App.InfoGrid2.GBZZZD.Task
         /// <returns></returns>
         public static bool SyncQcOrder()
         {
-            SModelList list = GetSaleOrderListV2();
+            DateTime startTime = DateTime.Now.AddYears(-1);
+
+            using (DbDecipher d = DbDecipherManager.GetDecipherOpen()) 
+            {
+                startTime = GlobelParam.GetValue(d, "SYNC_ORDER_START_TIME", DateTime.Now.AddYears(-1), "导入数据时间");
+            }
+
+            SModelList list = GetSaleOrderListV2(startTime);
 
             if (list.Count == 0)
             {
                 return true;
             }
 
-            log.Debug($"准备同步质检数据，数量：{list.Count}");
+            log.Debug($"准备同步质检数据，数量：{list.Count}，数据开始时间：{startTime:yyyy-MM-dd HH:mm:ss}");
 
             int orderAddCount = 0;
             int orderUpCount = 0;
@@ -1383,7 +1405,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut71List.Add(customerID, ut71);
                         }
 
-                        SModel ut101 = ExistsPickingOrderV2(decipher, pkid);
+                        SModel ut101 = ExistsQcOrder(decipher, billNo);
                         int orderId = 0;
                         if (ut101 == null)
                         {
@@ -1431,6 +1453,10 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ["COL_131"] = item.GetString("BillNo"),
                                 ["COL_25"] = item.GetString("SaleMan"),
 
+                                ["COL_218"] = item.GetString("TabMan"),
+                                ["COL_217"] = TryGetDateTime(item, "EditDate"),
+                                ["COL_219"] = TryGetDateTime(item, "POR_time"),
+
                                 ["ROW_DATE_CREATE"] = DateTime.Now
                             };
 
@@ -1467,6 +1493,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 lm["COL_84"] = "整梯订单";
                             }
 
+                            //默认值
                             lm["COL_72"] = 101;
                             lm["COL_73"] = "未开始";
                             lm["COL_126"] = 101;
@@ -1474,6 +1501,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                             lm["COL_117"] = 0;
                             lm["COL_118"] = 0;
                             lm["COL_119"] = 0;
+
+                            lm["COL_77"] = 1000;
+                            lm["COL_214"] = 103;
+                            lm["COL_215"] = "已完成";
+                            lm["COL_216"] = 1;
 
                             decipher.InsertModel(lm);
                             orderId = lm.Get<int>("ROW_IDENTITY_ID");
@@ -1493,6 +1525,13 @@ namespace App.InfoGrid2.GBZZZD.Task
                         }
                         else
                         {
+                            DateTime editDate = TryGetDateTime(item, "EditDate");
+
+                            if (TryGetInt(ut101, "COL_124") == 1 || TryGetDateTime(ut101, "COL_104") == editDate)
+                            {
+                                continue;
+                            }
+
                             //更新
                             //ut101["COL_30"] = TryGetInt(item, "ID");
                             ut101["COL_27"] = item.GetString("BillNo");
@@ -1533,6 +1572,9 @@ namespace App.InfoGrid2.GBZZZD.Task
                             ut101["COL_99"] = item.GetString("LiftNo");
                             ut101["COL_131"] = item.GetString("BillNo");
                             ut101["COL_25"] = item.GetString("SaleMan");
+                            ut101["COL_218"] = item.GetString("TabMan");
+                            ut101["COL_217"] = TryGetDateTime(item, "EditDate");
+                            ut101["COL_219"] = TryGetDateTime(item, "POR_time");
 
                             if (state == 0)
                             {
@@ -1567,6 +1609,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 ut101["COL_84"] = "整梯订单";
                             }
 
+                            ut101["ROW_SID"] = 0;
                             ut101["ROW_DATE_UPDATE"] = DateTime.Now;
                             decipher.UpdateSModel(ut101, "UT_101", $" ROW_IDENTITY_ID = {ut101["ROW_IDENTITY_ID"]} ");
                             orderId = TryGetInt(ut101, "ROW_IDENTITY_ID");
@@ -1624,6 +1667,11 @@ namespace App.InfoGrid2.GBZZZD.Task
                                 }
                                 else
                                 {
+                                    if (TryGetInt(utsm104, "COL_351") == 1)
+                                    {
+                                        continue;
+                                    }
+
                                     TransitionUT_104(itemData, utsm104);
                                     utsm104["ROW_SID"] = 0;
                                     utsm104["COL_12"] = orderId;
@@ -1656,7 +1704,7 @@ namespace App.InfoGrid2.GBZZZD.Task
                         }
                         catch (Exception e)
                         {
-                            log.Error("出错", e);
+                            log.Error($"同步质检明细104出错，billNo：{billNo}", e);
                         }
 
                     }
@@ -1688,6 +1736,23 @@ namespace App.InfoGrid2.GBZZZD.Task
             LightModelFilter filter = new LightModelFilter("UT_101");
             filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
             filter.And("COL_30", id);
+
+            SModel model = decipher.GetSModel(filter);
+
+            return model;
+        }
+
+        /// <summary>
+        /// 拣货订单是否存在
+        /// </summary>
+        /// <param name="decipher"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static SModel ExistsQcOrder(DbDecipher decipher, string billNo)
+        {
+            LightModelFilter filter = new LightModelFilter("UT_101");
+            filter.And("ROW_SID", 0, HWQ.Entity.Filter.Logic.GreaterThanOrEqual);
+            filter.And("COL_27", billNo);
 
             SModel model = decipher.GetSModel(filter);
 
@@ -1733,11 +1798,12 @@ namespace App.InfoGrid2.GBZZZD.Task
             $"g.Property as GoodsProperty " +
             $" from SaleOrderList o " +
             $" left join Goods g on g.ID = o.GoodsID" +
-            $" left join Depot d on d.TreeID = o.DepotID";
+            $" left join Depot d on d.TreeID = o.DepotID " +
+            $" where 1=1 and o.Oma_ds = 0 ";
 
             if (!string.IsNullOrWhiteSpace(billNo))
             {
-                sql += $" where BillNo = '{billNo}' ";
+                sql += $" and BillNo = '{billNo}'  ";
             }
 
             SModelList list = new SModelList();

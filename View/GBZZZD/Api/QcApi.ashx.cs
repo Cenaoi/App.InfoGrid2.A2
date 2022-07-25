@@ -516,6 +516,11 @@ namespace App.InfoGrid2.GBZZZD.Api
             order["COL_147"] = user.GetString("COL_2");
             order["COL_148"] = DateTime.Now;
             order["COL_149"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_149");
+            order["COL_192"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_192");
+            order["COL_193"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_193");
+            order["COL_194"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_194");
+            order["COL_195"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_195");
+            order["COL_196"] = ApiHelper.TryGetDecimal(tidyInfo, "COL_196");
 
             DbDecipher decipher = ModelAction.OpenDecipher();
 
